@@ -13,3 +13,6 @@
 [submodule "swish++"]
 	path = swish++
 	url = ./swish++
+[submodule "publib"]
+	path = publib
+	url = ./publib
