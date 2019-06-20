@@ -1,0 +1,15 @@
+[submodule "dwww"]
+	path = dwww
+	url = ./dwww
+[submodule "cygwin-auto-install"]
+	path = cygwin-auto-install
+	url = ./cygwin-auto-install
+[submodule "doc-base"]
+	path = doc-base
+	url = ./dwww
+[submodule "sensible-utils"]
+	path = sensible-utils
+	url = ./sensible-utils
+[submodule "swish++"]
+	path = swish++
+	url = ./swish++
