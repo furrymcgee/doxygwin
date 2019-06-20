@@ -6,7 +6,7 @@
 	url = ./cygwin-auto-install
 [submodule "doc-base"]
 	path = doc-base
-	url = ./dwww
+	url = ./doc-base
 [submodule "sensible-utils"]
 	path = sensible-utils
 	url = ./sensible-utils
