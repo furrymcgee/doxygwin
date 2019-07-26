@@ -16,3 +16,6 @@
 [submodule "publib"]
 	path = publib
 	url = ./publib
+[submodule "docx2txt"]
+	path = docx2txt
+	url = ./docx2txt
