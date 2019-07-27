@@ -1,24 +1,34 @@
 #!/bin/sh
 
-make
+# /usr/share/doc/doc-base/doc-base.html/interface.html
+cat <<-'DOC' > /etc/doc-base/documents/toolmonitor
+	Document: toolmonitor
+	Title: Toolmonitor
+	Author: Nordmann GmbH
+	Abstract: Werkzeugüberwachung
+	Section: Text
 
-cpan File::NCopy YAML::Tiny UUID
+	Format: html
+	Files: /usr/share/doc/toolmonitor/*.html
+	Index: /usr/share/doc/toolmonitor/Atlas--Beric-Service-durch-Plxmer.html
+	
+	Format: pdf
+	Files: /usr/share/doc/toolmonitor/*.pdf
+	
+	Format: doc
+	Files: /usr/share/doc/toolmonitor/*.doc
+	
+	Format: xls
+	Files: /usr/share/doc/toolmonitor/*.xls
+	
+	Format: xlsx
+	Files: /usr/share/doc/toolmonitor/*.xlsx
+	
+	Format: msg
+	Files: /usr/share/doc/toolmonitor/*.msg
+DOC
 
-/usr/sbin/dwww-build
-/usr/sbin/dwww-build-menu
-/usr/sbin/dwww-refresh-cache
-
-mkdir /var/lib/doc-base/documents
-< /usr/share/doc/doc-base/doc-base.html/interface.html \
-grep "Document: foo" -A7 -m1 | \
-sed \
-	-e s/Foo/Dwww/g \
-	-e /Files:/s-/.*-/usr/share/doc/dwww/README- \
-> /etc/doc-base/documents/dwww
-
-/usr/sbin/install-docs --install-changed
-/usr/sbin/dwww-index++ -f -v -- -v4
-
-
-
+/usr/sbin/install-docs -v -c /etc/doc-base/documents/toolmonitor
+/usr/sbin/dwww-index++ -v -f -- -v4
+/usr/sbin/dwww-index++ -v -l
 
