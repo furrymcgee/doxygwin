@@ -31,4 +31,5 @@ DOC
 /usr/sbin/install-docs -v -c /etc/doc-base/documents/toolmonitor
 /usr/sbin/dwww-index++ -v -f -- -v4
 /usr/sbin/dwww-index++ -v -l
+/usr/bin/search --config-file /usr/share/dwww/swish++.conf --index-file /var/cache/dwww/dwww.swish++.index -D
 
