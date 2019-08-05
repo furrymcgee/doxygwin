@@ -1,0 +1,25 @@
+Document: toolmonitor
+Title: Toolmonitor
+Author: Nordmann GmbH
+Abstract: Werkzeugüberwachung
+Section: Text
+
+Format: html
+Files: /usr/local/share/doc/*.html
+Index: /usr/local/share/doc/Atlas--Beric-Service-durch-Plxmer.html
+
+Format: pdf
+Files: /usr/local/share/doc/*.pdf
+
+Format: doc
+Files: /usr/local/share/doc/*.doc
+
+Format: xls
+Files: /usr/local/share/doc/*.xls
+
+Format: xlsx
+Files: /usr/local/share/doc/*.xlsx
+
+Format: msg
+Files: /usr/local/share/doc/*.msg
+

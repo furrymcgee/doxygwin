@@ -32,16 +32,20 @@ publib sensible-utils:
 	cp -av .cpan/CPAN ~/.cpan
 	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
 
-/var/lib/doc-base: dwww
-	mkdir /var/lib/doc-base
+# /usr/share/doc/doc-base/doc-base.html/interface.html
+/var/lib/doc-base/documents: documents doc
 	mkdir /var/lib/doc-base/documents
+	cp -avu documents /etc/doc-base/documents
+	cp -avu doc /usr/local/share/doc
+	/usr/sbin/install-docs -v -i /etc/doc-base/documents/toolmonitor
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
+	/usr/sbin/dwww-index++ -v -f -- -v4
 
-/etc/dwww: /etc/apache2 /var/lib/doc-base/documents
+/etc/dwww:
 	mkdir /etc/dwww
-	sed p < dwww/debian/dwww.config > /etc/dwww/dwww.conf
+	sed n < dwww/debian/dwww.config > /etc/dwww/dwww.conf
 
 /etc/apache2:
 	mkdir /etc/apache2
