@@ -31,6 +31,8 @@ publib sensible-utils:
 	mkdir ~/.cpan
 	cp -av .cpan/CPAN ~/.cpan
 	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
+	find ~/.cpan -name mimeexplode | \
+	xargs install --target-directory=/usr/local/bin
 
 # /usr/share/doc/doc-base/doc-base.html/interface.html
 /var/lib/doc-base/documents: documents doc
