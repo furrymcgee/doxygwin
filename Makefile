@@ -1,7 +1,7 @@
 
 .DEFAULT_GOAL := install
 
-.PHONY: publib sensible-utils dwww swish++ debconf doc-base install
+.PHONY: publib sensible-utils dwww swish++ debconf doc-base install run
 
 dwww: debconf publib swish++ doc-base
 doc-base: sensible-utils
@@ -27,31 +27,37 @@ publib sensible-utils:
 	sh configure --host=i686-pc-cygwin
 	$(MAKE) $(MAKECMDGOALS) --directory=$@
 
-install: dwww
-	mkdir ~/.cpan && \
-	cp -av .cpan/CPAN ~/.cpan && \
-	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message || \
-	true
-	mkdir /var/lib/doc-base/documents && \
-	/usr/sbin/dwww-build && \
-	/usr/sbin/dwww-build-menu && \
-	/usr/sbin/dwww-refresh-cache || \
-	true
-	mkdir /etc/dwww && \
-	sed p < dwww/debian/dwww.config > /etc/dwww/dwww.conf || \
-	true
-	mkdir /etc/apache2/conf-enabled && \
-	ln -s ../conf/available/dwww-conf /etc/apache2/conf-enabled && \
+~/.cpan:
+	mkdir ~/.cpan
+	cp -av .cpan/CPAN ~/.cpan
+	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
+
+/var/lib/doc-base: dwww
+	mkdir /var/lib/doc-base
+	mkdir /var/lib/doc-base/documents
+	/usr/sbin/dwww-build
+	/usr/sbin/dwww-build-menu
+	/usr/sbin/dwww-refresh-cache
+
+/etc/dwww: /etc/apache2 /var/lib/doc-base/documents
+	mkdir /etc/dwww
+	sed p < dwww/debian/dwww.config > /etc/dwww/dwww.conf
+
+/etc/apache2:
+	mkdir /etc/apache2
+	mkdir /etc/apache2/conf-enabled
+	ln -s ../conf/available/dwww-conf /etc/apache2/conf-enabled
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
 		-e /#ServerName/aServerName\ 192.168.33.152 \
 		-e /slotmem_shm_module/s/^#// \
-		-e /cgi_module/s/#// || \
-	true
+		-e /cgi_module/s/#//
+
+install: dwww ~/.cpan
+
+run: /etc/dwww /var/lib/doc-base
 	cygserver-config --yes
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
-
-
 
