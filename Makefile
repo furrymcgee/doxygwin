@@ -30,7 +30,7 @@ publib sensible-utils:
 install: dwww
 	mkdir ~/.cpan && \
 	cp -av .cpan/CPAN ~/.cpan && \
-	cpan File::NCopy YAML::Tiny UUID Email::Outlook::Message || \
+	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message || \
 	true
 	mkdir /var/lib/doc-base/documents && \
 	/usr/sbin/dwww-build && \
