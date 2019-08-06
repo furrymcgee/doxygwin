@@ -10,7 +10,7 @@ ETC = ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2
 .PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC)
 
 $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
-	install --mode=755 --target-directory=/usr/local/bin mailexplode
+	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes --debug
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
 	cygrunsrv -S cygserver
