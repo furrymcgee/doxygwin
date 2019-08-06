@@ -1,12 +1,13 @@
-Document: toolmonitor
-Title: Toolmonitor
-Author: Nordmann GmbH
-Abstract: Werkzeugüberwachung
+# file:///etc/doc-base-documents-README
+Document: foo
+Title: This is foo
+Author: John Foo <foo@foo.net>
+Abstract: Description of foo
 Section: Text
 
 Format: html
 Files: /usr/local/share/doc/*.html
-Index: /usr/local/share/doc/Atlas--Beric-Service-durch-Plxmer.html
+Index: /usr/local/share/doc/index.html
 
 Format: pdf
 Files: /usr/local/share/doc/*.pdf
