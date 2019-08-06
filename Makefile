@@ -32,7 +32,7 @@ publib sensible-utils:
 	cp -av .cpan/CPAN ~/.cpan
 	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
 	find ~/.cpan -name mimeexplode | \
-	xargs install --target-directory=/usr/local/bin
+	xargs install --mode=755 --target-directory=/usr/local/bin
 
 # /usr/share/doc/doc-base/doc-base.html/interface.html
 /var/lib/doc-base/documents: documents doc
@@ -45,9 +45,10 @@ publib sensible-utils:
 	/usr/sbin/dwww-refresh-cache
 	/usr/sbin/dwww-index++ -v -f -- -v4
 
-/etc/dwww:
+/etc/dwww: emldump
 	mkdir /etc/dwww
 	sed n < dwww/debian/dwww.config > /etc/dwww/dwww.conf
+	install --mode=755 --target-directory=/usr/local/bin
 
 /etc/apache2:
 	mkdir /etc/apache2
