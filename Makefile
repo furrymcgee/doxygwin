@@ -1,29 +1,30 @@
 
-.DEFAULT_GOAL := install
+.DEFAULT_GOAL = .
 
-.PHONY: publib sensible-utils dwww swish++ debconf doc-base install
+SUBDIRS = publib doc-base debconf swish++ dwww 
 
-%:
-	$(MAKE) $(MAKECMDGOALS) --directory=$@
+CONFIGURE =  publib/configure sensible-utils/configure
 
-%/configure:
+.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS)
+
+$(.DEFAULT_GOAL): $(SUBDIRS) ~/.cpan /etc/apache2
+	install --mode=755 --target-directory=/usr/local/bin mailexplode
+	cygserver-config --yes --debug
+	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
+	cygrunsrv -S cygserver
+	cygrunsrv -S httpd
+
+$(CONFIGURE):
 	cd $(shell dirname $@) && \
 	autoreconf -i && \
 	sh configure --host=i686-pc-cygwin
 
-doc-base: sensible-utils/configure sensible-utils
-	xmlcatalog --create > /etc/xml/catalog
-	xmlcatalog --noout \
-		--add rewriteURI \
-		http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd \
-		/usr/share/sgml/docbook/xml-dtd-4.5/docbookx.dtd \
-	/etc/xml/catalog
-	xmlcatalog --noout \
-		--add rewriteURI \
-		http://docbook.sourceforge.net/release/xsl/current \
-		/usr/share/sgml/docbook/xsl-stylesheets \
-	/etc/xml/catalog
+$(SUBDIRS):
 	$(MAKE) $(MAKECMDGOALS) --directory=$@
+
+doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
+
+publib: publib/configure
 
 ~/.cpan:
 	mkdir ~/.cpan
@@ -32,8 +33,7 @@ doc-base: sensible-utils/configure sensible-utils
 	find ~/.cpan -name mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
-# /usr/share/doc/doc-base/doc-base.html/interface.html
-/var/lib/doc-base/documents: documents doc
+/var/lib/doc-base/documents: dwww /etc/dwww
 	mkdir /var/lib/doc-base/documents
 	cp -avu documents /etc/doc-base/documents
 	cp -avu doc /usr/local/share/doc
@@ -43,12 +43,22 @@ doc-base: sensible-utils/configure sensible-utils
 	/usr/sbin/dwww-refresh-cache
 	/usr/sbin/dwww-index++ -v -f -- -v4
 
-/etc/dwww: emldump
-	mkdir /etc/dwww
-	sed n < dwww/debian/dwww.config > /etc/dwww/dwww.conf
-	install --mode=755 --target-directory=/usr/local/bin $^
+/etc/xml/catalog:
+	xmlcatalog --create > $@
+	xmlcatalog --noout \
+		--add rewriteURI \
+		http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd \
+		/usr/share/sgml/docbook/xml-dtd-4.5/docbookx.dtd $@
+	xmlcatalog --noout \
+		--add rewriteURI \
+		http://docbook.sourceforge.net/release/xsl/current \
+		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/apache2:
+/etc/dwww:
+	mkdir /etc/dwww
+	install --target-directory=/etc/dwww dwww/debian/dwww.config
+
+/etc/apache2: /var/lib/doc-base/documents
 	mkdir /etc/apache2
 	mkdir /etc/apache2/conf-enabled
 	ln -s ../conf/available/dwww-conf /etc/apache2/conf-enabled
@@ -57,10 +67,4 @@ doc-base: sensible-utils/configure sensible-utils
 		-e /#ServerName/aServerName\ 192.168.33.152 \
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
-
-install: dwww debconf publib/configure publib swish++ doc-base ~/.cpan /etc/apache2 /etc/dwww /var/lib/doc-base
-	cygserver-config --yes
-	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
-	cygrunsrv -S cygserver
-	cygrunsrv -S httpd
 
