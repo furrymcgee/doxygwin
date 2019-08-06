@@ -5,9 +5,11 @@ SUBDIRS = publib doc-base debconf swish++ dwww
 
 CONFIGURE =  publib/configure sensible-utils/configure
 
-.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS)
+ETC = ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 
 
-$(.DEFAULT_GOAL): $(SUBDIRS) ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 
+.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC)
+
+$(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin mailexplode
 	cygserver-config --yes --debug
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
@@ -36,10 +38,11 @@ dwww: /etc/dwww
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
 /var/lib/doc-base/documents:
-	mkdir /var/lib/doc-base/documents
-	cp -avu documents /etc/doc-base/documents
-	cp -avu doc /usr/local/share/doc
-	/usr/sbin/install-docs -v -i /etc/doc-base/documents/toolmonitor
+	mkdir /var/lib/doc-base/documents || true
+	cp -avu documents/* /etc/doc-base/documents
+	cp -avu doc/* /usr/local/share/doc
+	find /etc/doc-base/documents -type f -newer /etc/doc-base/documents/README | \
+	xargs --no-run-if-empty /usr/sbin/install-docs -v -i 
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
