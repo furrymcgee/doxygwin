@@ -1,5 +1,4 @@
 #!/bin/sh
-msgconvert --outfile - ../$REPLY |
 mimeexplode - |
 grep Part: |
 tr \( : |

@@ -7,7 +7,7 @@ CONFIGURE =  publib/configure sensible-utils/configure
 
 .PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS)
 
-$(.DEFAULT_GOAL): $(SUBDIRS) ~/.cpan /etc/apache2
+$(.DEFAULT_GOAL): $(SUBDIRS) ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 
 	install --mode=755 --target-directory=/usr/local/bin mailexplode
 	cygserver-config --yes --debug
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
@@ -26,6 +26,8 @@ doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
 publib: publib/configure
 
+dwww: /etc/dwww
+
 ~/.cpan:
 	mkdir ~/.cpan
 	cp -av .cpan/CPAN ~/.cpan
@@ -33,7 +35,7 @@ publib: publib/configure
 	find ~/.cpan -name mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
-/var/lib/doc-base/documents: dwww /etc/dwww
+/var/lib/doc-base/documents:
 	mkdir /var/lib/doc-base/documents
 	cp -avu documents /etc/doc-base/documents
 	cp -avu doc /usr/local/share/doc
@@ -54,14 +56,14 @@ publib: publib/configure
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/dwww:
-	mkdir /etc/dwww
-	install --target-directory=/etc/dwww dwww/debian/dwww.config
+/etc/dwww: dwww/debian/dwww.config
+	mkdir $@
+	install --target-directory=$@ $^
 
-/etc/apache2: /var/lib/doc-base/documents
-	mkdir /etc/apache2
-	mkdir /etc/apache2/conf-enabled
-	ln -s ../conf/available/dwww-conf /etc/apache2/conf-enabled
+/etc/apache2:
+	mkdir $@
+	mkdir $@/conf-enabled
+	ln -s ../conf/available/dwww-conf $@/conf-enabled
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
 		-e /#ServerName/aServerName\ 192.168.33.152 \
