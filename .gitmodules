@@ -22,3 +22,6 @@
 [submodule "debconf"]
 	path = debconf
 	url = https://salsa.debian.org/pkg-debconf/debconf.git
+[submodule "cygport"]
+	path = cygport
+	url = https://github.com/cygwinports/cygport
