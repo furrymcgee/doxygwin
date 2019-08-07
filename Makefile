@@ -30,9 +30,9 @@ publib: publib/configure
 
 dwww: /etc/dwww
 
-~/.cpan:
-	mkdir ~/.cpan
-	cp -av .cpan/CPAN ~/.cpan
+~/.cpan: MyConfig.pm
+	mkdir $@ $@/CPAN || true
+	install --target-directory=$@/CPAN $<
 	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
 	find ~/.cpan -name mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
