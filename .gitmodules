@@ -1,24 +1,24 @@
 [submodule "dwww"]
 	path = dwww
-	url = ./dwww
+	url = https://salsa.debian.org/debian/dwww.git
 [submodule "cygwin-auto-install"]
 	path = cygwin-auto-install
-	url = ./cygwin-auto-install
+	url = https://github.com/furrymcgee/cygwin-auto-install
 [submodule "doc-base"]
 	path = doc-base
-	url = ./doc-base
+	url = https://salsa.debian.org/debian/doc-base
 [submodule "sensible-utils"]
 	path = sensible-utils
-	url = ./sensible-utils
+	url = https://github.com/furrymcgee/sensible-utils
 [submodule "swish++"]
 	path = swish++
-	url = ./swish++
+	url = https://github.com/furrymcgee/swish++
 [submodule "publib"]
 	path = publib
-	url = ./publib
+	url = https://github.com/furrymcgee/publib
 [submodule "docx2txt"]
 	path = docx2txt
-	url = ./docx2txt
+	url = https://github.com/furrymcgee/docx2txt
 [submodule "debconf"]
 	path = debconf
-	url = ./debconf/
+	url = https://salsa.debian.org/pkg-debconf/debconf.git
