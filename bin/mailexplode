@@ -1,4 +1,5 @@
 #!/bin/sh
+cd -P "$(mktemp -d)" &&
 mimeexplode - |
 grep Part: |
 tr \( : |
@@ -7,5 +8,8 @@ grep txt\\\|pdf |
 grep -o \\w.*\\w |
 index -c /etc/swish++.conf -p101 -v4 - &&
 search -D | 
-grep ^\\w
+grep ^\\w &&
+rm swish++.index msg0/* &&
+cd - &&
+rmdir $OLDPWD/msg0 $OLDPWD
 
