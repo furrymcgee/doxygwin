@@ -22,7 +22,7 @@ $(CONFIGURE):
 	sh configure --host=i686-pc-cygwin
 
 $(SUBDIRS):
-	$(MAKE) $(MAKECMDGOALS) --directory=$@
+	DISTRIBUTOR=doxie $(MAKE) $(MAKECMDGOALS) --directory=$@
 
 doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
@@ -41,7 +41,10 @@ dwww: /etc/dwww
 	mkdir $@ || true
 	cp -avu documents/* /etc/doc-base/documents
 	cp -avu doc/* /usr/local/share/doc
-	/usr/sbin/install-docs --install-all
+	find /etc/doc-base/documents \
+		-type f \
+		-newer /etc/doc-base/documents/README | \
+	xargs /usr/sbin/install-docs --verbose --install
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
@@ -61,11 +64,6 @@ dwww: /etc/dwww
 /etc/dwww: dwww/debian/dwww.config
 	mkdir $@
 	install --target-directory=$@ $^
-
-/etc/apache2:
-	mkdir $@
-	mkdir $@/conf-enabled
-	ln -s ../conf/available/dwww-conf $@/conf-enabled
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
 		-e /#ServerName/aServerName\ 192.168.33.152 \

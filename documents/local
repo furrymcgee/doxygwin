@@ -1,7 +1,7 @@
-Document: foo
-Title: This is foo
-Author: John Foo <foo@foo.net>
-Abstract: Description of foo
+Document: local
+Title: Documentation
+Author: John Doe <foo@example.net>
+Abstract: Documents in /usr/local/share/doc directory
 Section: Text
 
 Format: html
