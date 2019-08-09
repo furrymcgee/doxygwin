@@ -1,10 +1,10 @@
-.DEFAULT_GOAL = $(MAKECMDGOALS)
+.DEFAULT_GOAL = install
 
 SUBDIRS = intltool-debian publib doc-base debconf swish++ dwww 
 
-CONFIGURE =  publib/configure sensible-utils/configure
+CONFIGURE = publib/configure sensible-utils/configure
 
-ETC = ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 po-debconf
+ETC = ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
 .PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC)
 
@@ -21,7 +21,7 @@ $(CONFIGURE):
 	sh configure --host=i686-pc-cygwin
 
 $(SUBDIRS):
-	DISTRIBUTOR=doxie $(MAKE) $(MAKECMDGOALS) --directory=$@ prefix=/usr
+	DISTRIBUTOR=doxie $(MAKE) --directory=$@ prefix=/usr $(MAKECMDGOALS)
 
 doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
@@ -58,12 +58,31 @@ publib: publib/configure
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/dwww: dwww/debian/dwww.config
+/var/cache/debconf: dwww/debian/dwww.config
 	mkdir $@ || true
-	install --target-directory=$@ $^
+	po-debconf/po2debconf --output $<.templates \
+		dwww/debian/dwww.templates
+	touch \
+		$@/templates.dat \
+		$@/passwords.dat \
+		$@/config.dat
+	echo "\
+		unknown dwww/docrootdir string /var/www\
+		unknown dwww/cgiuser    string Guest\
+		unknown dwww/servername string localhost\
+		unknown dwww/nosuchdir  note\
+		unknown dwww/cgidir     string /usr/lib/cgi-bin\
+		unknown dwww/badport    note\
+		unknown dwww/index_docs boolean false\
+		unknown dwww/nosuchuser note\
+		unknown dwww/serverport string 80\
+	" | \
+	tr \\t \\n | \
+	debconf-set-selections
+	perl $<
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
-		-e /#ServerName/aServerName\ 192.168.33.152 \
+		-e s/^#*ServerName\ .*/ServerName\ 192.168.33.152/ \
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
