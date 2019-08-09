@@ -1,18 +1,17 @@
+.DEFAULT_GOAL = $(MAKECMDGOALS)
 
-.DEFAULT_GOAL = .
-
-SUBDIRS = publib doc-base debconf swish++ dwww 
+SUBDIRS = intltool-debian publib doc-base debconf swish++ dwww 
 
 CONFIGURE =  publib/configure sensible-utils/configure
 
-ETC = ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 
+ETC = ~/.cpan /etc/dwww /var/lib/doc-base/documents /etc/apache2 po-debconf
 
 .PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC)
 
 $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
-	cygserver-config --yes --debug
-	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS
+	cygserver-config --yes || true
+	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
 
@@ -22,13 +21,11 @@ $(CONFIGURE):
 	sh configure --host=i686-pc-cygwin
 
 $(SUBDIRS):
-	DISTRIBUTOR=doxie $(MAKE) $(MAKECMDGOALS) --directory=$@
+	DISTRIBUTOR=doxie $(MAKE) $(MAKECMDGOALS) --directory=$@ prefix=/usr
 
 doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
 publib: publib/configure
-
-dwww: /etc/dwww
 
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
@@ -62,7 +59,7 @@ dwww: /etc/dwww
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
 /etc/dwww: dwww/debian/dwww.config
-	mkdir $@
+	mkdir $@ || true
 	install --target-directory=$@ $^
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
