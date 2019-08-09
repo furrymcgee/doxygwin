@@ -25,3 +25,6 @@
 [submodule "cygport"]
 	path = cygport
 	url = https://github.com/cygwinports/cygport
+[submodule "po-debconf"]
+	path = po-debconf
+	url = https://github.com/furrymcgee/po-debconf
