@@ -28,3 +28,6 @@
 [submodule "po-debconf"]
 	path = po-debconf
 	url = https://github.com/furrymcgee/po-debconf
+[submodule "intltool-debian"]
+	path = intltool-debian
+	url = https://salsa.debian.org/debian/intltool-debian.git
