@@ -28,7 +28,7 @@ doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
 publib: publib/configure
 
-dwww: /etc/dwww
+dwww:
 
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
@@ -37,7 +37,7 @@ dwww: /etc/dwww
 	find ~/.cpan -name mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
-/var/lib/doc-base/documents:
+/var/lib/doc-base/documents: /etc/dwww
 	mkdir $@ || true
 	cp -avu documents/* /etc/doc-base/documents
 	cp -avu doc/* /usr/local/share/doc
@@ -61,9 +61,29 @@ dwww: /etc/dwww
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/dwww: dwww/debian/dwww.config
-	mkdir $@
-	install --target-directory=$@ $^
+/var/cache/debconf:
+	mkdir $@ || true
+	touch \
+		$@/templates.dat \
+		$@/passwords.dat \
+		$@/config.dat
+	echo "\
+		unknown dwww/docrootdir string  /var/www \
+		unknown dwww/cgiuser    string  Guest \
+		unknown dwww/servername string  localhost \
+		unknown dwww/nosuchdir  note \
+		unknown dwww/cgidir     string  /usr/lib/cgi-bin \
+		unknown dwww/badport    note \
+		unknown dwww/index_docs boolean false \
+		unknown dwww/nosuchuser note \
+		unknown dwww/serverport string  80 \
+	" | \
+	tr \\t \\n | \
+	debconf-set-selections
+
+/etc/dwww: dwww/debian/dwww.config /var/cache/debconf
+	mkdir $@ || true
+	DEBIAN_FRONTEND=noninteractive perl $<
 	sed \
 		-i /etc/httpd/conf/httpd.conf \
 		-e /#ServerName/aServerName\ 192.168.33.152 \
