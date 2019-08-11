@@ -31,3 +31,21 @@
 [submodule "intltool-debian"]
 	path = intltool-debian
 	url = https://salsa.debian.org/debian/intltool-debian.git
+[submodule "debhelper"]
+	path = debhelper
+	url = https://salsa.debian.org/debian/debhelper.git
+[submodule "dpkg"]
+	path = dpkg
+	url = https://git.dpkg.org/cgit/dpkg/dpkg.git
+[submodule "dh-autoreconf"]
+	path = dh-autoreconf
+	url = https://salsa.debian.org/debian/dh-autoreconf.git
+[submodule "strip-nondeterminism"]
+	path = strip-nondeterminism
+	url = https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git
+[submodule "fakeroot"]
+	path = fakeroot
+	url = https://salsa.debian.org/clint/fakeroot.git
+[submodule "tar"]
+	path = tar
+	url = https://salsa.debian.org/debian/tar.git

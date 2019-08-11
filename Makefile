@@ -1,12 +1,23 @@
 .DEFAULT_GOAL = install
 
-SUBDIRS = intltool-debian publib doc-base debconf swish++ dwww 
+SUBDIRS = \
+	dpkg \
+	fakeroot \
+	strip-nondeterminism \
+	intltool-debian \
+	publib \
+	doc-base \
+	debconf \
+	swish++ \
+	dwww \
 
-CONFIGURE = publib/configure sensible-utils/configure
+CONFIGURE = dpkg/configure publib/configure sensible-utils/configure
 
 ETC = ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
-.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC)
+DEBIAN = strip-nondeterminism/debian
+
+.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC) $(DEBIAN)
 
 $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
@@ -18,7 +29,10 @@ $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 $(CONFIGURE):
 	cd $(shell dirname $@) && \
 	autoreconf -i && \
-	sh configure --host=i686-pc-cygwin
+	sh configure \
+		--host=i686-pc-cygwin \
+		--prefix=/usr \
+		CFLAGS=-D_STAT_VER=0
 
 $(SUBDIRS):
 	DISTRIBUTOR=doxie $(MAKE) --directory=$@ prefix=/usr $(MAKECMDGOALS)
@@ -30,7 +44,13 @@ publib: publib/configure
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
 	install --target-directory=$(shell dirname $@/$<) $<
-	cpan File::NCopy YAML::Tiny MIME::Tools UUID Email::Outlook::Message
+	cpan \
+		File::NCopy \
+		YAML::Tiny \
+		MIME::Tools UUID \
+		Email::Outlook::Message \
+		Devel::Cover \
+		Archive::Cpio
 	find ~/.cpan -name mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
@@ -86,3 +106,23 @@ publib: publib/configure
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
+
+#dpkg-genchanges: error: binary build with no binary artifacts found; cannot distribute
+$(DEBIAN):
+	cd $(shell dirname $@) || exit 1 && \
+	mkdir debian/tmp debian/tmp/DEBIAN || true && \
+	git archive --format=tar --prefix=strip-nondeterminism-0.039/ debian/0.039-1 | bzip2 -9 > ../strip-nondeterminism_0.039.orig.tar.bz2 && \
+	perl -e " \
+		use Dpkg::Control::Info; \
+		print join qq/\n/, map { \$$_->{package} } \
+			Dpkg::Control::Info->new()->get_packages(); \
+	" | xargs -I@ dpkg-gencontrol -p@ && \
+	dpkg-deb.exe -b debian/tmp .. && \
+	dpkg-buildpackage -rsh\ -c -d
+
+%/debian:
+	#dpkg-genchanges: error: binary build with no binary artifacts found; cannot distribute
+	git archive --format=tar --prefix=strip-nondeterminism-0.039/ debian/0.039-1 | bzip2 -9 > ../strip-nondeterminism_0.039.orig.tar.bz2
+	DEB_RULES_REQUIRES_ROOT=no dpkg-buildpackage -rsh\ -c -d
+	DEB_RULES_REQUIRES_ROOT=no dh binary --without autoreconf
+	#dpkg-source -b .
