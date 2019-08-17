@@ -49,3 +49,6 @@
 [submodule "tar"]
 	path = tar
 	url = https://salsa.debian.org/debian/tar.git
+[submodule "calm"]
+	path = calm
+	url = git://sourceware.org/git/cygwin-apps/calm.git
