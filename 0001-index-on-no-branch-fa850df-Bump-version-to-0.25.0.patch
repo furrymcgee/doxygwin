@@ -1,0 +1,68 @@
+From bcea79cfa7bf01b58c4ade9c5ab6c278a85356e8 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 29 Oct 2019 13:04:55 +0100
+Subject: [PATCH] index on (no branch): fa850df Bump version to 0.25.0
+
+---
+ Makefile.am         | 2 ++
+ data/sample.cygport | 3 ++-
+ doc/Makefile.am     | 4 ++--
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 2225293..e5d96f5 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -21,6 +21,7 @@ EXTRA_DIST +=				\
+ 	cygport.spec			\
+ 	$(NULL)
+ 
++if HAVE_HELP2MAN
+ dist-hook: doc/manual/cygport.1.html doc/manual/index.html
+ 	@if test -d "$(srcdir)/.git"; \
+ 	then \
+@@ -35,3 +36,4 @@ dist-hook: doc/manual/cygport.1.html doc/manual/index.html
+ 		echo A git clone is required to generate a ChangeLog >&2; \
+ 	fi ; \
+ 	cp -r doc/manual/ $(top_distdir)/doc/
++endif !HAVE_HELP2MAN
+diff --git a/data/sample.cygport b/data/sample.cygport
+index 8334e9e..6bd5a18 100644
+--- a/data/sample.cygport
++++ b/data/sample.cygport
+@@ -6,7 +6,7 @@ SUMMARY="Cygwin source packaging tool"
+ DESCRIPTION="cygport is the standard method for building and maintaining
+ packages for the Cygwin distribution."
+ HOMEPAGE="http://sourceware.org/cygwinports/"
+-SRC_URI="https://github.com/cygwinports/cygport/${VERSION}/cygport-${VERSION}.tar.gz"
++SRC_URI="https://github.com/cygwinports/cygport/archive/0.25.0.tar.gz#/cygport-${VERSION}.tar.gz"
+ 
+ # this package contains no compiled Cygwin binaries
+ # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+@@ -14,6 +14,7 @@ ARCH=noarch
+ 
+ # Build dependencies only
+ DEPEND="groff help2man robodoc"
++
+ # runtime deps to go in setup.hint, and note the escaped newline
+ REQUIRES="autoconf automake binutils bzip2 coreutils diffstat diffutils \
+ dos2unix findutils file gawk gcc-core gcc-g++ grep gzip lftp libtool lndir \
+diff --git a/doc/Makefile.am b/doc/Makefile.am
+index 0e6ace3..e6b077f 100644
+--- a/doc/Makefile.am
++++ b/doc/Makefile.am
+@@ -1,9 +1,9 @@
++if HAVE_HELP2MAN
++
+ noinst_DATA = doc/manual/cygport.1.html doc/manual/index.html
+ 
+ man_MANS = doc/cygport.1
+ 
+-if HAVE_HELP2MAN
+-
+ doc/cygport.1: bin/cygport-inplace $(top_srcdir)/lib/help.cygpart
+ 	$(AM_V_GEN)test -d doc || $(MKDIR_P) doc ; \
+ 	$(HELP2MAN) -o $@ --no-info --name="Cygwin source packaging tool" $<
+-- 
+2.23.0.rc1
+
