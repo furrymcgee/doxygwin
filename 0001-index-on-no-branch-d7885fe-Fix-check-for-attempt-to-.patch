@@ -1,0 +1,44 @@
+From 9bbe72bd6efbcafcdd1a16e9533b7c6afee8e959 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 29 Oct 2019 14:35:01 +0100
+Subject: [PATCH] index on (no branch): d7885fe Fix check for attempt to remove
+ setup.hint
+
+---
+ calm/package.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/calm/package.py b/calm/package.py
+index 4cd7065..0b218c2 100755
+--- a/calm/package.py
++++ b/calm/package.py
+@@ -80,7 +80,7 @@ def read_packages(rel_area, arch):
+         releasedir = os.path.join(rel_area, root)
+         logging.debug('reading packages from %s' % releasedir)
+ 
+-        for (dirpath, subdirs, files) in os.walk(releasedir):
++        for (dirpath, subdirs, files) in os.walk(releasedir, followlinks=True):
+             read_package(packages, rel_area, dirpath, files)
+ 
+         logging.debug("%d packages read" % len(packages))
+@@ -289,7 +289,7 @@ def validate_packages(args, packages):
+                 # all packages listed in requires must exist (unless okmissing
+                 # says that's ok)
+                 if r not in packages:
+-                    if 'required-package' not in getattr(args, 'okmissing', []):
++                    if 'required-package' not in (getattr(args, 'okmissing', []) or []):
+                         logging.error("package '%s' requires nonexistent package '%s'" % (p, r))
+                         error = True
+                     continue
+@@ -479,7 +479,7 @@ def validate_packages(args, packages):
+ 
+             if not packages[p].tars[packages[p].vermap[v]['source']].is_used:
+                 logging.error("package '%s' version '%s' source has no non-empty install tarfiles" % (p, v))
+-                error = True
++                error = False
+ 
+     # do all the packages which use this source package have the same
+     # current version?
+-- 
+2.23.0.rc1
+
