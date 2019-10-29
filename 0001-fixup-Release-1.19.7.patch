@@ -1,0 +1,20 @@
+From f528c56816af17070d2c2fbb49a0455594d74a06 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sat, 10 Aug 2019 13:45:45 +0200
+Subject: [PATCH 1/7] fixup! Release 1.19.7
+
+---
+ .dist-version | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .dist-version
+
+diff --git a/.dist-version b/.dist-version
+new file mode 100644
+index 000000000..98adfe8e1
+--- /dev/null
++++ b/.dist-version
+@@ -0,0 +1 @@
++1.19.7
+-- 
+2.23.0.rc1
+

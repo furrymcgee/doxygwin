@@ -1,0 +1,26 @@
+From d7d145917c7f2367cc6e5009c0a5318fe9d05eea Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sat, 10 Aug 2019 17:23:22 +0200
+Subject: [PATCH 3/7] dpkg-architecture.pl: error: dpkg --print-architecture
+ failed: No such file or directory
+
+---
+ m4/dpkg-arch.m4 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/m4/dpkg-arch.m4 b/m4/dpkg-arch.m4
+index ec25d95e5..994d87ebf 100644
+--- a/m4/dpkg-arch.m4
++++ b/m4/dpkg-arch.m4
+@@ -8,7 +8,7 @@
+ AC_DEFUN([_DPKG_ARCHITECTURE], [
+   AC_REQUIRE([DPKG_PROG_PERL])dnl
+   AC_REQUIRE([AC_CANONICAL_HOST])dnl
+-  $2=$(PERL=$PERL $srcdir/run-script scripts/dpkg-architecture.pl -t$host -q$1 2>/dev/null)
++  $2=i386
+ ])# _DPKG_ARCHITECTURE
+ 
+ # DPKG_CPU_TYPE
+-- 
+2.23.0.rc1
+

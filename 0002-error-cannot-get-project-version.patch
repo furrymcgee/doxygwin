@@ -1,0 +1,35 @@
+From 9263b5cf0496798dd656c92fca7e99d9d8bd2a28 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sat, 10 Aug 2019 13:45:45 +0200
+Subject: [PATCH 2/7] error: cannot get project version
+
+---
+ get-version | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/get-version b/get-version
+index 3bc3c1bc0..f6c3b41ea 100755
+--- a/get-version
++++ b/get-version
+@@ -21,7 +21,7 @@
+ if [ -f .dist-version ]; then
+   # Get the version from the file distributed in the tarball.
+   version=$(cat .dist-version)
+-elif [ -d .git ]; then
++else
+   # Get the version from the git repository. Since tags cannot contain colons
+   # or tildes, we use percent and underscore instead. Reverse that switch here.
+   version=$(git describe --abbrev=4 HEAD 2>/dev/null | tr %_ :~)
+@@ -32,9 +32,6 @@ elif [ -d .git ]; then
+   if [ -n "$dirty" ]; then
+     version="$version-dirty"
+   fi
+-else
+-  echo "error: cannot get project version." 1>&2
+-  exit 1
+ fi
+ 
+ # Use printf to avoid the trailing new line that m4_esyscmd would not handle.
+-- 
+2.23.0.rc1
+

@@ -1,0 +1,31 @@
+From ddc2e6a3f3416ba1abb909aaaf10e108f5979345 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 13 Aug 2019 15:36:26 +0200
+Subject: [PATCH 6/7] dpkg-genbuildinfo: warning: unknown CC system type
+ i686-pc-cygwin, falling back to default (native compilation)
+
+---
+ .dist-version   | 1 -
+ data/tupletable | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 .dist-version
+
+diff --git a/.dist-version b/.dist-version
+deleted file mode 100644
+index 98adfe8e1..000000000
+--- a/.dist-version
++++ /dev/null
+@@ -1 +0,0 @@
+-1.19.7
+diff --git a/data/tupletable b/data/tupletable
+index a7a878f5b..0e8f59ba7 100644
+--- a/data/tupletable
++++ b/data/tupletable
+@@ -53,3 +53,4 @@ base-sysv-solaris-<cpu>		solaris-<cpu>
+ eabi-uclibc-uclinux-arm		uclinux-armel
+ base-uclibc-uclinux-<cpu>	uclinux-<cpu>
+ base-tos-mint-m68k		mint-m68k
++pc-cygwin-<cpu>			cygwin-<cpu>
+-- 
+2.23.0.rc1
+

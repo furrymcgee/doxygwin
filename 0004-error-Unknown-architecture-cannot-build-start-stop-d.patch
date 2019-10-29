@@ -1,0 +1,26 @@
+From d623be8df6d71e011ee148c2a51676ef5115cc79 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sun, 11 Aug 2019 11:41:29 +0200
+Subject: [PATCH 4/7] error Unknown architecture - cannot build
+ start-stop-daemon
+
+---
+ utils/start-stop-daemon.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/utils/start-stop-daemon.c b/utils/start-stop-daemon.c
+index 88c972663..960342e8c 100644
+--- a/utils/start-stop-daemon.c
++++ b/utils/start-stop-daemon.c
+@@ -45,6 +45,8 @@
+ #  define OS_AIX
+ #elif defined(__hpux)
+ #  define OS_HPUX
++#elif defined(__CYGWIN__)
++#  define OS_Linux
+ #else
+ #  error Unknown architecture - cannot build start-stop-daemon
+ #endif
+-- 
+2.23.0.rc1
+
