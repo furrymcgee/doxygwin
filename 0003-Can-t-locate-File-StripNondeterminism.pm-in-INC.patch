@@ -1,0 +1,22 @@
+From 3a76e4193fcd6a0d0482d9c86175da830ef0a1d0 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 15 Aug 2019 12:28:04 +0200
+Subject: [PATCH 3/4] Can't locate File/StripNondeterminism.pm in @INC
+
+---
+ debian/rules | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules b/debian/rules
+index 7e5a355..e78e574 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -10,4 +10,4 @@ override_dh_auto_clean:
+ 	dh_auto_clean
+ 
+ override_dh_auto_test:
+-	cover -test -ignore_re '^t/'
++	PERLLIB=lib cover -test -ignore_re '^t/'
+-- 
+2.23.0.rc1
+

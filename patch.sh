@@ -75,3 +75,30 @@ cat \
 0001-usr-bin-install-cannot-stat-.-fakeroot.1-No-such-fil.patch \
 0002-i686-pc-cygwin.patch \
 | GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am
+
+cat \
+0001-use-Config-print-Config-vendorlib.patch \
+0002-e6b3ba4-dh_testroot-root_requirements-no-longer-read.patch \
+0003-Can-t-locate-File-StripNondeterminism.pm-in-INC.patch \
+0004-Can-t-exec-dh_strip_nondeterminism-No-such-file-or-d.patch \
+| \
+GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
+
+make \
+	dpkg/configure dpkg \
+	install -C dpkg \
+	fakeroot/configure fakeroot \
+	tar/configure tar \
+	install -C tar \
+	debhelper \
+	install -C debhelper \
+	~/.cpan \
+	strip-nondeterminism/debian \
+	intltool-debian \
+	publib/configure \
+	publib \
+	doc-base \
+	debconf \
+	swish++ \
+	dwww \
+	/var/cache/debconf /var/lib/doc-base/documents po-debconf \
