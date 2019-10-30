@@ -40,3 +40,8 @@ cat \
 cat \
 0001-munge.patch \
 | GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git am
+
+cat \
+0001-e6b3ba4-dh_testroot-root_requirements-no-longer-read.patch \
+0002-Can-t-exec-dh_strip_nondeterminism-No-such-file-or-d.patch \
+| GIT_WORK_TREE=dh-autoreconf GIT_DIR=dh-autoreconf/.git git am
