@@ -70,3 +70,8 @@ cat \
 0014-revert.patch \
 0015-distributor.patch \
 | GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am
+
+cat \
+0001-usr-bin-install-cannot-stat-.-fakeroot.1-No-such-fil.patch \
+0002-i686-pc-cygwin.patch \
+| GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am
