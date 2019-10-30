@@ -1,0 +1,34 @@
+From 976864bc5e87444727733b1c6fae9bd4f2874dcb Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 8 Aug 2019 23:10:50 +0200
+Subject: [PATCH 14/15] revert
+
+---
+ perl/Debian/Dwww/ConfigFile.pm | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/perl/Debian/Dwww/ConfigFile.pm b/perl/Debian/Dwww/ConfigFile.pm
+index a46aedc..c75cd51 100644
+--- a/perl/Debian/Dwww/ConfigFile.pm
++++ b/perl/Debian/Dwww/ConfigFile.pm
+@@ -33,7 +33,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_DOCROOTDIR'  => {
+             sort   => 10,
+-            defval => '/srv/www/htdocs',
++            defval => '/var/www',
+             descr  => 'The document root for web server.'
+         },
+         'DWWW_CGIDIR'  => {
+@@ -43,7 +43,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_CGIUSER'  => {
+             sort   => 10,
+-            defval => 'Guest',
++            defval => 'www-data',
+             descr  => 'Name of the user the web server uses to execute CGI script.'
+         },
+         # Browser variables
+-- 
+2.23.0.rc1
+

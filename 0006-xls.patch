@@ -1,0 +1,67 @@
+From c20c58cd0f91cb354fa9d0ccf1f1f5077635c653 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sun, 28 Jul 2019 16:59:49 +0200
+Subject: [PATCH 06/15] xls
+
+---
+ data/swish++.conf       | 1 +
+ scripts/dwww-build-menu | 6 +++---
+ scripts/dwww-index++    | 2 +-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/data/swish++.conf b/data/swish++.conf
+index d550e80..a5384e7 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -72,6 +72,7 @@ FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.doc	antiword %f > @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.docx	docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xls	ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.xlsx	xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+diff --git a/scripts/dwww-build-menu b/scripts/dwww-build-menu
+index 81023c3..7fca8ec 100755
+--- a/scripts/dwww-build-menu
++++ b/scripts/dwww-build-menu
+@@ -115,12 +115,12 @@ $ErrorProc = \&ErrorHandle;
+ 
+ &CreateIndex;
+ 
++print ERRFILE &TemplateFile($template_error_end, {});
++close ERRFILE;
+ 
+ &rmtree($out_dir);
+ &RenameDir($out_dir_tmp, $out_dir);
+ 
+-print ERRFILE &TemplateFile($template_error_end, {});
+-close ERRFILE;
+ exit (0);
+ 
+ #########################################################################
+@@ -232,7 +232,7 @@ sub AddNewEntry() { # {{{
+                 $doc_entry->{'frm_name_' . $known} = $f;
+                 $doc_entry->{'frm_file_' . $known} = $w;
+                 $known++;
+-            } elsif (glob($w)) {
++            } elsif (() = glob($w)) {
+                 $files{$w} = '1';
+                 $doc_entry->{'frm_name_' . $known} = $doc_base_fmt;
+                 $doc_entry->{'frm_file_' . $known} = $f . '/' . $entry->{'document'};
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index f468a83..02dec73 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -52,7 +52,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.23.0.rc1
+

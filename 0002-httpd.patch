@@ -1,0 +1,86 @@
+From e58065183621cf369e9bc226e960f1424e2afeda Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 21 Jun 2019 07:33:57 -0700
+Subject: [PATCH 02/15] httpd
+
+---
+ common.mk                      | 4 ++--
+ data/apache.conf               | 4 ++--
+ perl/Debian/Dwww/ConfigFile.pm | 2 +-
+ scripts/dwww-find              | 2 +-
+ scripts/dwww-index++           | 2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 1086f98..dfcfcf9 100644
+--- a/common.mk
++++ b/common.mk
+@@ -29,8 +29,8 @@ docdir          := $(prefix)/share/doc/$(PACKAGE)
+ libdir          := /var/lib/$(PACKAGE)
+ nlsdir          := $(prefix)/share/locale
+ cachedir        := /var/cache/$(PACKAGE)
+-webdocrootdir   := /var/www
+-webcgidir       := $(prefix)/lib/cgi-bin
++webdocrootdir   := /srv/www/htdocs
++webcgidir       := /srv/www/cgi-bin
+ applicationsdir := $(prefix)/share/applications
+ 
+ PERL            = /usr/bin/perl
+diff --git a/data/apache.conf b/data/apache.conf
+index 5965ace..4172c9e 100644
+--- a/data/apache.conf
++++ b/data/apache.conf
+@@ -1,9 +1,9 @@
+ # Dwww configuration file for apache 2.4 or later
+ <IfModule mod_alias.c>
+-	Alias /dwww /var/www/dwww
++	Alias /dwww /srv/www/htdocs/dwww
+ </IfModule>
+ 
+-<Directory "/var/www/dwww">
++<Directory "/srv/www/htdocs/dwww">
+ 	<IfModule mod_authz_host.c>
+ 		Require local
+ 		# Require ip 192.0.2.0/24
+diff --git a/perl/Debian/Dwww/ConfigFile.pm b/perl/Debian/Dwww/ConfigFile.pm
+index c75cd51..5736b71 100644
+--- a/perl/Debian/Dwww/ConfigFile.pm
++++ b/perl/Debian/Dwww/ConfigFile.pm
+@@ -33,7 +33,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_DOCROOTDIR'  => {
+             sort   => 10,
+-            defval => '/var/www',
++            defval => '/srv/www/htdocs',
+             descr  => 'The document root for web server.'
+         },
+         'DWWW_CGIDIR'  => {
+diff --git a/scripts/dwww-find b/scripts/dwww-find
+index 48cd0d3..d3dfdbf 100755
+--- a/scripts/dwww-find
++++ b/scripts/dwww-find
+@@ -691,7 +691,7 @@ sub SearchRegisteredDocumentation { # {{{
+     my $searchfor  = shift;
+     my $startwith  = shift;
+     my $maxperpage = shift;
+-    my @searchargs = ("/usr/bin/search++");
++    my @searchargs = ("/usr/bin/search");
+     my $resultcnt  = undef;
+     my $desc       = '';
+ 
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index 1e49350..c7143e2 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -53,7 +53,7 @@ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+ my $dwww_swish_index  	  	= "/var/cache/dwww/dwww.swish++.index";
+ my $dwww_indexed_files_db	= "/var/cache/dwww/index.files.db";
+ my $dwww_lastrun_info		= "/var/cache/dwww/index.runinfo";
+-my $path_to_index			= '/usr/bin/index++';
++my $path_to_index			= '/usr/bin/index';
+ my $MAX_RECURS_SUBDIRS_LVL  = 10;
+ 
+ our($opt_v, $opt_f, $opt_i, $opt_l);				# set by getopt
+-- 
+2.23.0.rc1
+

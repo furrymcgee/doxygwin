@@ -1,0 +1,102 @@
+From ae631e56d2608a515fcd289e22bfa52ab0c02783 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 6 Aug 2019 13:07:36 +0200
+Subject: [PATCH 12/15] msg
+
+---
+ data/swish++.conf          | 23 +++++++++++++----------
+ perl/Debian/Dwww/Common.pm |  3 ++-
+ scripts/dwww-build-menu    |  1 +
+ scripts/dwww-index++       |  2 +-
+ 4 files changed, 17 insertions(+), 12 deletions(-)
+
+diff --git a/data/swish++.conf b/data/swish++.conf
+index a5384e7..74357fe 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -67,15 +67,18 @@ ExcludeFile		*.gif *.jpg *.png *.tar*
+ #	If you know approximately how many files you have, modify the above
+ #	value!
+ 
+-FilterFile *.bz2	bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.doc	antiword %f > @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.docx	docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.xls	ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.xlsx	xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+-#FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.bz2    bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.gz     gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.Z      uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.doc    wvText %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.docx   docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xls    ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xlsx   xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.msg    msgconvert %f --outfile @/var/cache/dwww/swish.tmp.%B.eml
++FilterFile *.eml    formail < %f > @/var/cache/dwww/swish.tmp.%B.mbox
++FilterFile *.mbox   mailexplode < %f > @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.pdf    pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.ps     pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+ 
+ #
+ # used by: index, extract; no option equivalent.
+@@ -94,7 +97,7 @@ FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #
+ #	Follow symbolic links during indexing or extraction.
+ 
+-IncludeFile text	*.txt *.text 
++IncludeFile text	*.txt *.text
+ IncludeFile HTML	*.asp *.*htm* *.jsp
+ #IncludeFile ID3	*.mp3
+ IncludeFile LaTeX	*.tex
+diff --git a/perl/Debian/Dwww/Common.pm b/perl/Debian/Dwww/Common.pm
+index 3681819..eb1db88 100644
+--- a/perl/Debian/Dwww/Common.pm
++++ b/perl/Debian/Dwww/Common.pm
+@@ -26,6 +26,7 @@ my %href  = # {{{
+         'info'          =>   "/cgi-bin/info2www?file=",
+         'latex'         =>   "$dwww_url#FILE#", #?type=application/x-latex
+         'linuxdoc-sgml' =>   "$dwww_url#FILE#", #?type=application/sgml
++        'msg'           =>   "$dwww_url#FILE#",
+         'pdf'           =>   "$dwww_url#FILE#", #?type=application/pdf
+         'postscript'    =>   "$dwww_url#FILE#", #?type=application/postscript
+         'ps'            =>   "$dwww_url#FILE#", #?type=application/postscriptps
+@@ -63,7 +64,7 @@ sub GetURL{ # {{{
+         return $` . $format_url . $';
+     } else {
+         local @_ = fileparse($format_url, keys %href);
+-        return join '/', "file://///samba/share", $_[2], $_[0] . $_[2] . "\n\n"
++        return join '/', "file://///local/share", $_[2], $_[0] . $_[2] . "\n\n"
+     }
+ 
+ 
+diff --git a/scripts/dwww-build-menu b/scripts/dwww-build-menu
+index 7fca8ec..c1b3a4b 100755
+--- a/scripts/dwww-build-menu
++++ b/scripts/dwww-build-menu
+@@ -75,6 +75,7 @@ my @known_formats=(
+     'dvi',
+     'latex',
+     'linuxdoc-sgml',
++    'msg',
+     'pdf',
+     'postscript',
+     'ps',
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index 02dec73..720aca3 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -52,7 +52,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|msg|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.23.0.rc1
+

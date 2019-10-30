@@ -1,0 +1,69 @@
+From 5f2668af227343c3a70cf6bb8fa5ae4cb1a9cd80 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 30 Jul 2019 12:49:09 +0200
+Subject: [PATCH 07/15] convert
+
+---
+ perl/Debian/Dwww/Utils.pm | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
+
+diff --git a/perl/Debian/Dwww/Utils.pm b/perl/Debian/Dwww/Utils.pm
+index 05250ae..63445aa 100644
+--- a/perl/Debian/Dwww/Utils.pm
++++ b/perl/Debian/Dwww/Utils.pm
+@@ -242,21 +242,13 @@ sub CheckAccess() { # {{{
+ 
+     # if we're here, the file either does not exist
+     # or does not match any @dwww_docpath
+-    my $ok          = 0;
+     my $strip_file  = &StripDirs( $file );
+     foreach my $path  (@$dwww_docpath)  {
+         if ( -d $path ) {
+             $path = &StripDirs( $path );
+             if (substr($strip_file, 0, length($path)) eq $path) {
+-                $ok = 1;
+-                last;
+-            }
+-        }
+-    }
+-
+-
+     # if file exists, check if it's in allowed_linkpath
+-    if ( $exists_f && $ok ) {
++    if ( $exists_f ) {
+         foreach my $path (@$dwww_allowedlinkpath) {
+             if ( -d $path ) {
+                 $path = &realpath( $path );
+@@ -265,19 +257,20 @@ sub CheckAccess() { # {{{
+                 }
+             }
+         }
+-    }
+-
+-    # file either does not exist or is not allowed to show
+-    # print suitable error message
+-    if ( !$exists_f && $ok ) {
++    } else {
+         &ErrorMsg ("404 File not found",
+                    "File not found" ,
+                    "dwww could not find the file $orig_file" );
+-    } else {
+-        &ErrorMsg ("403 Access denied",
+-                    "Access denied",
+-                    "dwww will not allow you to read the file $orig_file" );
+     }
++                last;
++            }
++        }
++    }
++
++    # file either does not exist or is not allowed to show
++    &ErrorMsg ("403 Access denied",
++                "Access denied",
++                "dwww will not allow you to read the file $orig_file" );
+ 
+     exit 1; ### UNREACHED ###
+ } # }}}
+-- 
+2.23.0.rc1
+

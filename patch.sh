@@ -47,8 +47,26 @@ cat \
 | GIT_WORK_TREE=dh-autoreconf GIT_DIR=dh-autoreconf/.git git am
 
 cat \
-0001-cygwin.patch \
+0001-cygwin.patch.~3~ \
 0002-root.patch \
 0003-doc.patch \
 0004-error.patch \
 | GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am
+
+cat \
+0001-cygwin.patch \
+0002-httpd.patch \
+0003-libpub.a.patch \
+0004-pdf.patch \
+0005-doc.patch \
+0006-xls.patch \
+0007-convert.patch \
+0008-type.patch \
+0009-redirect.patch \
+0010-cgi.patch \
+0011-fileparse.patch \
+0012-msg.patch \
+0013-doxie.patch \
+0014-revert.patch \
+0015-distributor.patch \
+| GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am

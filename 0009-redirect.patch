@@ -1,0 +1,25 @@
+From 5aba2f8d82acbaba3ae5d282b48dfcf60aa50c3e Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Wed, 31 Jul 2019 11:21:03 +0200
+Subject: [PATCH 09/15] redirect
+
+---
+ scripts/dwww.cgi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/dwww.cgi b/scripts/dwww.cgi
+index d93a49f..b314c6c 100755
+--- a/scripts/dwww.cgi
++++ b/scripts/dwww.cgi
+@@ -82,7 +82,7 @@ elsif (($type eq "") or ($location eq "")) {
+     my $protocol = ($ENV{'HTTPS'} and $ENV{'HTTPS'} eq "on") ? "https" : "http";
+ 
+ 
+-    print "Location: $protocol://$ENV{'SERVER_NAME'}$port/dwww/\n\n";
++    &RedirectToURL("/cgi-bin/dwww" . &URLEncode($orig_file) . "?type=" . &URLEncode($type));
+ 
+ }
+ 
+-- 
+2.23.0.rc1
+

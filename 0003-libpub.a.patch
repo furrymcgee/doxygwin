@@ -1,0 +1,25 @@
+From 3cd1d49ba232157c18073b4033b4c11778907e27 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 25 Jul 2019 12:05:41 +0200
+Subject: [PATCH 03/15] libpub.a
+
+---
+ common.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common.mk b/common.mk
+index dfcfcf9..996d5a5 100644
+--- a/common.mk
++++ b/common.mk
+@@ -38,7 +38,7 @@ ifndef COMPILER_FLAGS_ALREADY_SET
+ export CC       ?= gcc
+ export CPPFLAGS += -DVERSION='"$(VERSION)"' -DMAXINT=INT_MAX
+ export CFLAGS   += -Wall -Wextra -Wstrict-prototypes -Wmissing-prototypes -Werror -g $(shell getconf LFS_CFLAGS)
+-export LDFLAGS  +=
++export LDFLAGS  += -L /usr/local/lib
+ export LIBS     += -lpub
+ export COMPILER_FLAGS_ALREADY_SET := 1
+ endif
+-- 
+2.23.0.rc1
+

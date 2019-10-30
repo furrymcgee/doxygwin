@@ -1,65 +1,92 @@
-From 27a35d0ad17a3587ddd4d1f08a46f139256e8036 Mon Sep 17 00:00:00 2001
+From efff496e42d5a06868dbc7ae8b10008b2694b25d Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Thu, 20 Jun 2019 21:25:44 -0700
-Subject: [PATCH 1/4] cygwin
+Date: Thu, 20 Jun 2019 21:25:14 -0700
+Subject: [PATCH 01/15] cygwin
 
 ---
- common.mk | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ common.mk           | 22 +++++++++++-----------
+ src/dwww-txt2html.c |  2 +-
+ 2 files changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/common.mk b/common.mk
-index 95f1698..73eb5c4 100644
+index 93af614..1086f98 100644
 --- a/common.mk
 +++ b/common.mk
-@@ -8,7 +8,7 @@ override PACKAGE  := doc-base
- 
+@@ -10,9 +10,9 @@ override PACKAGE  := dwww
  PATH            := /usr/bin:/usr/sbin:/bin:/sbin:$(PATH)
  
--INSTALL         := install -o root -g root
-+INSTALL         := install -o $(shell id -u) -g $(shell id -g)
- ifndef _INSTALL
-   # remove --strip-program=true from INSTALL passed by debhelper to
-   # get rid of '--strip-program used without -s option' warnings
-@@ -26,7 +26,7 @@ etcdir          := /etc/$(PACKAGE)
- sbindir         := $(prefix)/sbin
- mandir          := $(prefix)/share/man
- sharedir        := $(prefix)/share/$(PACKAGE)
+ # build abstraction
+-install_file    := install -p -o root -g root -m 644
+-install_script  := install -p -o root -g root -m 755
+-install_dir     := install -d -o root -g root -m 755
++install_file    := install -p -o $(shell id -u) -g $(shell id -g) -m 644
++install_script  := install -p -o $(shell id -u) -g $(shell id -g) -m 755
++install_dir     := install -d -o $(shell id -u) -g $(shell id -g) -m 755
+ install_link    := ln -sf
+ compress        := gzip -9f
+ 
+@@ -24,7 +24,7 @@ mandir          := $(prefix)/share/man
+ sharedir        := $(prefix)/share
+ pkgsharedir     := $(prefix)/share/$(PACKAGE)
+ pxmpsharedir    := $(prefix)/share/pixmaps
 -perllibdir      := $(prefix)/share/perl5
 +perllibdir      := $(prefix)/lib/perl5/site_perl/5.22
  docdir          := $(prefix)/share/doc/$(PACKAGE)
  libdir          := /var/lib/$(PACKAGE)
- omfdir          := $(prefix)/share/omf
-@@ -121,15 +121,15 @@ define install
+ nlsdir          := $(prefix)/share/locale
+@@ -36,7 +36,7 @@ applicationsdir := $(prefix)/share/applications
+ PERL            = /usr/bin/perl
+ ifndef COMPILER_FLAGS_ALREADY_SET
+ export CC       ?= gcc
+-export CPPFLAGS += -DVERSION='"$(VERSION)"'
++export CPPFLAGS += -DVERSION='"$(VERSION)"' -DMAXINT=INT_MAX
+ export CFLAGS   += -Wall -Wextra -Wstrict-prototypes -Wmissing-prototypes -Werror -g $(shell getconf LFS_CFLAGS)
+ export LDFLAGS  +=
+ export LIBS     += -lpub
+@@ -130,15 +130,15 @@ define install
    done;                                                             \
    [ -n "$$files" ] ||                                               \
-     echo "$(emptyprefix) installing dir    $(ddirshort)$$dir";      \
+     echo "installing dir    $(ddirshort)$$dir";                     \
 -  $(install_dir) "$(DESTDIR)/$$dir";                                \
 +  $(install_dir) "$(DESTDIR)//$$dir";                                \
    for file in $$files; do                                           \
        [ -n "$$bfile" ] && tgt="$$dir/$$bfile"  ||                   \
          tgt="$$dir/`basename "$$file"`";                            \
-       echo "$(emptyprefix) installing $$what $(ddirshort)$$tgt";    \
+       echo "installing $$what $(ddirshort)$$tgt";                   \
 -      $$prg "$$file" "$(DESTDIR)/$$tgt";                            \
 +      $$prg "$$file" "$(DESTDIR)//$$tgt";                            \
        if [ "$$doCompress" -eq 1 ] ; then                            \
-         echo "$(emptyprefix) compressing file  $(ddirshort)$$tgt";  \
+         echo "compressing file  $(ddirshort)$$tgt";                 \
 -        $(compress) "$(DESTDIR)/$$tgt";                             \
 +        $(compress) "$(DESTDIR)//$$tgt";                             \
        fi;                                                           \
    done;
  endef
-@@ -139,9 +139,9 @@ define install_links
-   set -e;                                                          \
+@@ -148,9 +148,9 @@ define install_links
+   $(AT) set -e;                                                    \
    for file in $2; do                                               \
-     echo "$(emptyprefix) installing link   $(ddirshort)$$file";    \
+     echo "installing link   $(ddirshort)$$file";                   \
 -    $(install_dir) $(DESTDIR)/`dirname "$$file"`;                  \
 -    rm -f "$(DESTDIR)/$$file";                                     \
 -    $(install_link) "$1" "$(DESTDIR)/$$file";                      \
 +    $(install_dir) $(DESTDIR)//`dirname "$$file"`;                  \
 +    rm -f "$(DESTDIR)//$$file";                                     \
 +    $(install_link) "$1" "$(DESTDIR)//$$file";                      \
-   done
+   done;
  endef
+ 
+diff --git a/src/dwww-txt2html.c b/src/dwww-txt2html.c
+index 2c6cd98..3afb4d3 100644
+--- a/src/dwww-txt2html.c
++++ b/src/dwww-txt2html.c
+@@ -29,7 +29,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <publib.h>
+-#include <values.h>
++#include <limits.h>
+ 
+ #include "utils.h"
  
 -- 
 2.23.0.rc1
