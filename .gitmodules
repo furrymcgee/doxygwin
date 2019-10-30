@@ -3,31 +3,31 @@
 	url = https://salsa.debian.org/debian/dwww.git
 [submodule "cygwin-auto-install"]
 	path = cygwin-auto-install
-	url = https://github.com/furrymcgee/cygwin-auto-install
+	url = https://github.com/furrymcgee/cygwin-auto-install.git
 [submodule "doc-base"]
 	path = doc-base
-	url = https://salsa.debian.org/debian/doc-base
+	url = https://salsa.debian.org/debian/doc-base.git
 [submodule "sensible-utils"]
 	path = sensible-utils
-	url = https://github.com/furrymcgee/sensible-utils
+	url = https://github.com/furrymcgee/sensible-utils.git
 [submodule "swish++"]
 	path = swish++
-	url = https://github.com/furrymcgee/swish++
+	url = https://github.com/furrymcgee/swish++.git
 [submodule "publib"]
 	path = publib
-	url = https://github.com/furrymcgee/publib
+	url = https://github.com/furrymcgee/publib.git
 [submodule "docx2txt"]
 	path = docx2txt
-	url = https://github.com/furrymcgee/docx2txt
+	url = https://github.com/furrymcgee/docx1txt.git
 [submodule "debconf"]
 	path = debconf
 	url = https://salsa.debian.org/pkg-debconf/debconf.git
 [submodule "cygport"]
 	path = cygport
-	url = https://github.com/cygwinports/cygport
+	url = https://github.com/cygwinports/cygport.git
 [submodule "po-debconf"]
 	path = po-debconf
-	url = https://github.com/furrymcgee/po-debconf
+	url = https://github.com/furrymcgee/po-debconf.git
 [submodule "intltool-debian"]
 	path = intltool-debian
 	url = https://salsa.debian.org/debian/intltool-debian.git
