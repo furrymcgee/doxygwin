@@ -1,0 +1,97 @@
+From 1138137770d79230ce70a9571a80daf8e132ef21 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Thu, 25 Jul 2019 12:29:34 -0700
+Subject: [PATCH 2/2] samba
+
+---
+ man/sensible-browser.man | 27 ++++++++++++++++++++++++++-
+ man/sensible-pager.man   | 27 ++++++++++++++++++++++++++-
+ 2 files changed, 52 insertions(+), 2 deletions(-)
+ mode change 120000 => 100644 man/sensible-browser.man
+ mode change 120000 => 100644 man/sensible-pager.man
+
+diff --git a/man/sensible-browser.man b/man/sensible-browser.man
+deleted file mode 120000
+index 7988a0c..0000000
+--- a/man/sensible-browser.man
++++ /dev/null
+@@ -1 +0,0 @@
+-sensible-editor.man
+\ No newline at end of file
+diff --git a/man/sensible-browser.man b/man/sensible-browser.man
+new file mode 100644
+index 0000000..55ce287
+--- /dev/null
++++ b/man/sensible-browser.man
+@@ -0,0 +1,26 @@
++.\" -*- nroff -*-
++.TH SENSIBLE-EDITOR 1 "14 Nov 2010" "Debian"
++.SH NAME
++sensible-editor, sensible-pager, sensible-browser \- sensible editing, paging, and web browsing
++.SH SYNOPSIS
++.BR sensible-editor " [OPTIONS...]"
++.br
++.BR sensible-pager " [OPTIONS...]"
++.br
++.BR sensible-browser " url"
++.br
++.SH DESCRIPTION
++.BR sensible-editor ", " sensible-pager " and " sensible-browser
++make sensible decisions on which editor, pager, and web browser to call,
++respectively.  Programs in Debian can use these scripts
++as their default editor, pager, or web browser or emulate their behavior.
++.SH "SEE ALSO"
++Documentation of the EDITOR, VISUAL and PAGER variables in
++.BR environ (7)
++and
++.BR select-editor (1)
++for changing a user's default editor
++.SH "STANDARD"
++Documentation of behavior of sensible-utils under a debian system is available under
++section 11.4 of debian-policy usually installed under
++/usr/share/doc/debian-policy (you might need to install debian-policy)
+\ No newline at end of file
+diff --git a/man/sensible-pager.man b/man/sensible-pager.man
+deleted file mode 120000
+index 7988a0c..0000000
+--- a/man/sensible-pager.man
++++ /dev/null
+@@ -1 +0,0 @@
+-sensible-editor.man
+\ No newline at end of file
+diff --git a/man/sensible-pager.man b/man/sensible-pager.man
+new file mode 100644
+index 0000000..55ce287
+--- /dev/null
++++ b/man/sensible-pager.man
+@@ -0,0 +1,26 @@
++.\" -*- nroff -*-
++.TH SENSIBLE-EDITOR 1 "14 Nov 2010" "Debian"
++.SH NAME
++sensible-editor, sensible-pager, sensible-browser \- sensible editing, paging, and web browsing
++.SH SYNOPSIS
++.BR sensible-editor " [OPTIONS...]"
++.br
++.BR sensible-pager " [OPTIONS...]"
++.br
++.BR sensible-browser " url"
++.br
++.SH DESCRIPTION
++.BR sensible-editor ", " sensible-pager " and " sensible-browser
++make sensible decisions on which editor, pager, and web browser to call,
++respectively.  Programs in Debian can use these scripts
++as their default editor, pager, or web browser or emulate their behavior.
++.SH "SEE ALSO"
++Documentation of the EDITOR, VISUAL and PAGER variables in
++.BR environ (7)
++and
++.BR select-editor (1)
++for changing a user's default editor
++.SH "STANDARD"
++Documentation of behavior of sensible-utils under a debian system is available under
++section 11.4 of debian-policy usually installed under
++/usr/share/doc/debian-policy (you might need to install debian-policy)
+\ No newline at end of file
+-- 
+2.23.0.rc1
+

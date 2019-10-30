@@ -1,5 +1,12 @@
 #!/bin/sh
 
+git submodule update
+
+cat \
+0001-cygwin.patch \
+0002-samba.patch \
+| GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am
+
 cat \
 0001-index-on-no-branch-fa850df-Bump-version-to-0.25.0.patch \
 | GIT_WORK_TREE=cygport GIT_DIR=cygport/.git git am
