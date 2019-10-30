@@ -1,42 +1,25 @@
-From 41dd6a39765e6b24f5e026af4fefca0abf1793d4 Mon Sep 17 00:00:00 2001
+From 788790d1bf954dcf51aa1fd7be157ad89eb4c332 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Thu, 1 Aug 2019 15:33:54 +0200
-Subject: [PATCH 3/3] doc
+Date: Sun, 28 Jul 2019 00:54:49 +0200
+Subject: [PATCH 3/4] doc
 
 ---
- swish++.conf | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
+ perl/Debian/DocBase/DocBaseFile.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/swish++.conf b/swish++.conf
-index c106562..4d894e9 100644
---- a/swish++.conf
-+++ b/swish++.conf
-@@ -191,13 +191,18 @@
- #	information about the pstotext program.
- #
- #Edited for Debian
--FilterFile *.bz2		bunzip2 -c %f > @%F
--FilterFile *.gz		gunzip -c %f > @%F
--FilterFile *.Z		uncompress -c %f > @%F
--#FilterFile *.doc	antiword %f @%F.txt
--#FilterFile *.doc	wvText %f @%F.txt
--#FilterFile *.pdf	pdftotext %f @%F.txt
--#FilterFile *.ps	pstotext %f > @%F.txt
-+FilterFile *.bz2    bunzip2 -c %f > @%F
-+FilterFile *.gz     gunzip -c %f > @%F
-+FilterFile *.Z      uncompress -c %f > @%F
-+FilterFile *.docx   docx2txt.pl %f @%F.txt
-+FilterFile *.doc    wvText %f @%F.txt
-+FilterFile *.xls    ssconvert %f @%F.txt
-+FilterFile *.xlsx   xlsx2csv %f @%F.txt
-+FilterFile *.msg    msgconvert %f --outfile @%F.eml
-+FilterFile *.eml    formail < %f > @%F.mbox
-+FilterFile *.mbox   mailexplode < %f > @%F.txt
-+FilterFile *.pdf    pdftotext %f @%F.txt
-+FilterFile *.ps     pstotext %f > @%F.txt
- #
- # used by: index, extract; no option equivalent.
- #
+diff --git a/perl/Debian/DocBase/DocBaseFile.pm b/perl/Debian/DocBase/DocBaseFile.pm
+index f7dd50f..b921b4c 100644
+--- a/perl/Debian/DocBase/DocBaseFile.pm
++++ b/perl/Debian/DocBase/DocBaseFile.pm
+@@ -438,7 +438,7 @@ sub _CheckRequiredFields($$$) { # {{{
+ 
+     if (not grep { $_ eq $format } @SUPPORTED_FORMATS) {
+       $self->_PrsErr(PRS_WARN, _g("format `%s' is not supported"), $$format_data{'format'});
+-      next;
++      #next;
+     }
+ 
+     my $index_value = undef;
 -- 
 2.23.0.rc1
 

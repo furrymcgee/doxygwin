@@ -32,9 +32,9 @@ cat \
 | GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am
 
 cat \
-0001-cygwin.patch \
+0001-cygwin.patch.~2~ \
 0002-usr-bin-install-missing-destination-file-operand-aft.patch \
-0003-doc.patch \
+0003-doc.patch.~1~ \
 | GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am
 
 cat \
@@ -45,3 +45,10 @@ cat \
 0001-e6b3ba4-dh_testroot-root_requirements-no-longer-read.patch \
 0002-Can-t-exec-dh_strip_nondeterminism-No-such-file-or-d.patch \
 | GIT_WORK_TREE=dh-autoreconf GIT_DIR=dh-autoreconf/.git git am
+
+cat \
+0001-cygwin.patch \
+0002-root.patch \
+0003-doc.patch \
+0004-error.patch \
+| GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am

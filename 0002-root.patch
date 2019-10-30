@@ -1,0 +1,25 @@
+From e5cc49059580beaf88cca805c2b209ae77a2ebfc Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 21 Jun 2019 07:34:29 -0700
+Subject: [PATCH 2/4] root
+
+---
+ perl/Debian/DocBase/DB.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/perl/Debian/DocBase/DB.pm b/perl/Debian/DocBase/DB.pm
+index 642ab61..e2c2124 100644
+--- a/perl/Debian/DocBase/DB.pm
++++ b/perl/Debian/DocBase/DB.pm
+@@ -74,7 +74,7 @@ sub _SaveDB() { # {{{
+   Debug(_g("Saving `%s' (%d)."), $file, $self->{'CHANGED'});
+   return unless $self->{'CHANGED'};
+   my $readonly = $> != 0;
+-  Fatal($ERR_PROCESSING, _g("Needs to be root for this operation.")) if $readonly;
++  warn($ERR_PROCESSING, _g("Needs to be root for this operation.")) if $readonly;
+   (my $newfile = $file) =~ s/^[^\.]+/$&-new/g;
+   (my $oldfile = $file) =~ s/^[^\.]+/$&-old/g;
+ 
+-- 
+2.23.0.rc1
+

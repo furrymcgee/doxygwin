@@ -1,0 +1,66 @@
+From 0f93b65e749fb34db2e7ca7d3eb60eb45d43a3bb Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 20 Jun 2019 21:25:35 -0700
+Subject: [PATCH 1/3] cygwin
+
+---
+ config/config.mk | 4 ++--
+ directory.c      | 4 ++--
+ man/GNUmakefile  | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/config/config.mk b/config/config.mk
+index fe5f668..7b925db 100644
+--- a/config/config.mk
++++ b/config/config.mk
+@@ -276,10 +276,10 @@ I_LIB:=		$(I_ROOT)/lib/swish++
+ I_MAN:=		$(I_ROOT)/share/man
+ #		Where manual pages are installed; usually "$(I_ROOT)/man".
+ 
+-I_OWNER:=	-o root
++I_OWNER:=	-o $(shell id -u)
+ #		The owner of the installed files.
+ 
+-I_GROUP:=	-g root
++I_GROUP:=	-g $(shell id -g)
+ #		The group of the installed files.
+ 
+ I_MODE:=	-m 644
+diff --git a/directory.c b/directory.c
+index 5f1f457..1ad53e4 100644
+--- a/directory.c
++++ b/directory.c
+@@ -44,7 +44,7 @@ using namespace std;
+ 
+ extern void     do_file( char const *file_name, int dir_index );
+ 
+-#ifdef  __CYGWIN__
++#ifdef  __WIN32__
+ //
+ // The directory separator character ('/' for Unix) is apparantly transformed
+ // into '\' for Windows by the intermediate Windows port of POSIX functions.
+@@ -56,7 +56,7 @@ extern void     do_file( char const *file_name, int dir_index );
+ char const      Dir_Sep_Char = '\\';
+ #else
+ char const      Dir_Sep_Char = '/';
+-#endif  /* __CYGWIN__ */
++#endif  /* __WIN32__ */
+ 
+ #ifdef  INDEX
+ dir_set_type    dir_set;
+diff --git a/man/GNUmakefile b/man/GNUmakefile
+index 286cac8..ef0eb5f 100644
+--- a/man/GNUmakefile
++++ b/man/GNUmakefile
+@@ -30,7 +30,7 @@ SUBDIRS:=	man*
+ # Build rules
+ ##
+ 
+-all %:
++%:
+ 	@for dir in $(SUBDIRS); do $(MAKE) -C $$dir $@; done
+ 
+ # vim:set noet sw=8 ts=8:
+-- 
+2.23.0.rc1
+
