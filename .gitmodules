@@ -18,7 +18,7 @@
 	url = https://github.com/furrymcgee/publib.git
 [submodule "docx2txt"]
 	path = docx2txt
-	url = https://github.com/furrymcgee/docx1txt.git
+	url = https://github.com/furrymcgee/docx2txt.git
 [submodule "debconf"]
 	path = debconf
 	url = https://salsa.debian.org/pkg-debconf/debconf.git

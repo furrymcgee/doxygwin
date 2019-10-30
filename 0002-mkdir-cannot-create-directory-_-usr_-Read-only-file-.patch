@@ -1,0 +1,35 @@
+From f25c295e62b46b5fcadee0472a3bfe108c2246ee Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@users.noreply.github.com>
+Date: Fri, 26 Jul 2019 18:41:50 -0700
+Subject: [PATCH 2/3] mkdir: cannot create directory _//usr_: Read-only file
+ system
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 4b60838..030b07b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -23,7 +23,7 @@ CONFIGFILE = docx2txt.config
+ install: installbin installconfig
+ 
+ installbin: $(BINFILES)
+-	$(eval override BINDIR := $(ROOTDIR)/$(BINDIR))
++	$(eval override BINDIR := $(ROOTDIR)$(BINDIR))
+ 	@echo "Installing script files [$(BINFILES)] in \"$(BINDIR)\" .."
+ 	@[ -d "$(BINDIR)" ] || mkdir -p "$(BINDIR)"
+ 	$(INSTALL) -m 755 $^ "$(BINDIR)"
+@@ -36,7 +36,7 @@ else
+ endif
+ 
+ installconfig: $(CONFIGFILE)
+-	$(eval override CONFIGDIR := $(ROOTDIR)/$(CONFIGDIR))
++	$(eval override CONFIGDIR := $(ROOTDIR)$(CONFIGDIR))
+ 	@echo "Installing config file [$(CONFIGFILE)] in \"$(CONFIGDIR)\" .."
+ 	@[ -d "$(CONFIGDIR)" ] || mkdir -p "$(CONFIGDIR)"
+ 	$(INSTALL) -m 755 $^ "$(CONFIGDIR)"
+-- 
+2.23.0.rc1
+

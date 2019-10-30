@@ -1,0 +1,413 @@
+From 454f9f79df826fea2ef919a53bee0a9d051a614a Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@users.noreply.github.com>
+Date: Fri, 26 Jul 2019 21:00:11 +0200
+Subject: [PATCH 3/3] Package: docx2txt Version: 1.4-1 Priority: optional
+ Section: text Maintainer: Barak A. Pearlmutter <bap@debian.org>
+ Installed-Size: 49.2 kB Depends: unzip Homepage:
+ http://docx2txt.sourceforge.net Tag: interface::commandline, role::program,
+ scope::utility, use::converting,  works-with-format::html,
+ works-with-format::plaintext,
+
+---
+ .pc/.quilt_patches       |  1 +
+ .pc/.quilt_series        |  1 +
+ .pc/.version             |  1 +
+ .pc/applied-patches      |  0
+ Makefile                 |  2 --
+ Makefile.dist            | 17 ------------
+ debian/changelog         | 59 ++++++++++++++++++++++++++++++++++++++++
+ debian/compat            |  1 +
+ debian/control           | 28 +++++++++++++++++++
+ debian/copyright         | 41 ++++++++++++++++++++++++++++
+ debian/dirs              |  1 +
+ debian/docs              |  2 ++
+ debian/docx2txt.1        | 55 +++++++++++++++++++++++++++++++++++++
+ debian/docx2txt.manpages |  1 +
+ debian/docx2txt.mime     |  1 +
+ debian/rules             | 18 ++++++++++++
+ debian/source/format     |  1 +
+ debian/watch             |  2 ++
+ docx2txt.config          |  1 -
+ 19 files changed, 213 insertions(+), 20 deletions(-)
+ create mode 100644 .pc/.quilt_patches
+ create mode 100644 .pc/.quilt_series
+ create mode 100644 .pc/.version
+ create mode 100644 .pc/applied-patches
+ delete mode 100644 Makefile.dist
+ create mode 100644 debian/changelog
+ create mode 100644 debian/compat
+ create mode 100644 debian/control
+ create mode 100644 debian/copyright
+ create mode 100644 debian/dirs
+ create mode 100644 debian/docs
+ create mode 100644 debian/docx2txt.1
+ create mode 100644 debian/docx2txt.manpages
+ create mode 100644 debian/docx2txt.mime
+ create mode 100755 debian/rules
+ create mode 100644 debian/source/format
+ create mode 100644 debian/watch
+
+diff --git a/.pc/.quilt_patches b/.pc/.quilt_patches
+new file mode 100644
+index 0000000..6857a8d
+--- /dev/null
++++ b/.pc/.quilt_patches
+@@ -0,0 +1 @@
++debian/patches
+diff --git a/.pc/.quilt_series b/.pc/.quilt_series
+new file mode 100644
+index 0000000..c206706
+--- /dev/null
++++ b/.pc/.quilt_series
+@@ -0,0 +1 @@
++series
+diff --git a/.pc/.version b/.pc/.version
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ b/.pc/.version
+@@ -0,0 +1 @@
++2
+diff --git a/.pc/applied-patches b/.pc/applied-patches
+new file mode 100644
+index 0000000..e69de29
+diff --git a/Makefile b/Makefile
+index 030b07b..7394f70 100644
+--- a/Makefile
++++ b/Makefile
+@@ -23,7 +23,6 @@ CONFIGFILE = docx2txt.config
+ install: installbin installconfig
+ 
+ installbin: $(BINFILES)
+-	$(eval override BINDIR := $(ROOTDIR)$(BINDIR))
+ 	@echo "Installing script files [$(BINFILES)] in \"$(BINDIR)\" .."
+ 	@[ -d "$(BINDIR)" ] || mkdir -p "$(BINDIR)"
+ 	$(INSTALL) -m 755 $^ "$(BINDIR)"
+@@ -36,7 +35,6 @@ else
+ endif
+ 
+ installconfig: $(CONFIGFILE)
+-	$(eval override CONFIGDIR := $(ROOTDIR)$(CONFIGDIR))
+ 	@echo "Installing config file [$(CONFIGFILE)] in \"$(CONFIGDIR)\" .."
+ 	@[ -d "$(CONFIGDIR)" ] || mkdir -p "$(CONFIGDIR)"
+ 	$(INSTALL) -m 755 $^ "$(CONFIGDIR)"
+diff --git a/Makefile.dist b/Makefile.dist
+deleted file mode 100644
+index 0347b52..0000000
+--- a/Makefile.dist
++++ /dev/null
+@@ -1,17 +0,0 @@
+-#
+-# Internal Makefile for generating docx2txt distribution package
+-#
+-
+-NAME = docx2txt
+-VERSION = $(shell head -1 VERSION)
+-PKG=$(NAME)-$(VERSION)
+-
+-PKGFILES = $(NAME).{bat,config,pl,sh} BSDmakefile Makefile WInstall.bat \
+-	VERSION INSTALL README COPYING ChangeLog ToDo AUTHORS
+-
+-dist:
+-	ln -s . $(PKG)
+-	tar zcvf $(PKG).tgz $(addprefix $(PKG)/, $(PKGFILES));
+-	rm $(PKG)
+-
+-.PHONY: dist
+diff --git a/debian/changelog b/debian/changelog
+new file mode 100644
+index 0000000..631427f
+--- /dev/null
++++ b/debian/changelog
+@@ -0,0 +1,59 @@
++docx2txt (1.4-1) unstable; urgency=medium
++
++  * Adopt package (closes: #858666), with much thanks to Khalid El Fathi
++    for the original packaging; I use this constantly!
++  * bump standards version
++  * rephrase description and man page to admit non-ascii
++    output (closes: #700396)
++  * Remove obsolete emacs mode comment from debian/rules
++  * Obay hinter and set Multi-arch: foreign
++
++ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 09 Oct 2017 12:26:50 +0100
++
++docx2txt (1.4-0.2) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * debian/control 
++    - set Standards-Version: 4.0.0
++    - update Vcs-*, use https
++    - Build-Depends: debhelper (>= 10)
++  * debian/compat
++    - set 10
++  * debian/watch
++    - update to version4
++
++ -- Hideki Yamane <henrich@debian.org>  Sat, 15 Jul 2017 15:20:36 +0900
++
++docx2txt (1.4-0.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * New upstream release
++  * add "debian/docx2txt.mime" to mailcap entry for text-based mail readers.
++    Thanks to Tanguy Ortolo <tanguy+debian@ortolo.eu> for the patch.
++    (Closes: #692827)
++  * debian/contorl: set canonical URL for Vcs-* field
++
++ -- Hideki Yamane <henrich@debian.org>  Tue, 20 May 2014 01:55:31 +0900
++
++docx2txt (1.3-0.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * New upstream release
++  * debian/control
++    - set "Standards-Version: 3.9.5"
++
++ -- Hideki Yamane <henrich@debian.org>  Tue, 29 Apr 2014 13:26:49 +0900
++
++docx2txt (1.2-1.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * debian/control
++    - add missing "Depeneds: unzip" to show .docx files (Closes: #739597)
++
++ -- Hideki Yamane <henrich@debian.org>  Thu, 27 Feb 2014 10:06:10 +0900
++
++docx2txt (1.2-1) unstable; urgency=low
++
++  * Initial release (Closes: #651908)
++
++ -- Khalid El Fathi <khalid@elfathi.fr>  Sat, 25 Feb 2012 15:39:48 +0100
+diff --git a/debian/compat b/debian/compat
+new file mode 100644
+index 0000000..f599e28
+--- /dev/null
++++ b/debian/compat
+@@ -0,0 +1 @@
++10
+diff --git a/debian/control b/debian/control
+new file mode 100644
+index 0000000..5feda34
+--- /dev/null
++++ b/debian/control
+@@ -0,0 +1,28 @@
++Source: docx2txt
++Section: text
++Priority: extra
++Maintainer: Barak A. Pearlmutter <bap@debian.org>
++Build-Depends: debhelper (>= 10)
++Standards-Version: 4.1.1
++Homepage: http://docx2txt.sourceforge.net
++Vcs-Git: https://anonscm.debian.org/git/collab-maint/docx2txt.git
++Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/docx2txt.git
++
++Package: docx2txt
++Architecture: all
++Multi-Arch: foreign
++Depends: ${shlibs:Depends}, ${misc:Depends}, unzip
++Description: Convert Microsoft OOXML files to plain text
++ This tool attempts to generate equivalent plain text files from
++ Microsoft .docx documents, preserving some formatting and document
++ information (which MS text conversion drops) along with appropriate
++ character conversions for a good (ascii or utf-8) text experience.
++ It is a platform independent solution consisting of (core) Perl and
++ (wrapper) Unix/Windows shell scripts and a configuration file to
++ control the output text appearance to a fair extent.  It can very
++ conveniently be used to build a Web-based docx document conversion
++ service.  Some Makefiles and Windows batch files are provided for
++ easy installation of the scripts.  With unzippers like CakeCmd that
++ can deal with corrupt Zip archives, this tool can extract text from
++ corrupt docx documents in many cases, where MS Word fails to even
++ open them.
+diff --git a/debian/copyright b/debian/copyright
+new file mode 100644
+index 0000000..972d493
+--- /dev/null
++++ b/debian/copyright
+@@ -0,0 +1,41 @@
++Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
++Upstream-Name: docx2txt
++Source: http://docx2txt.sourceforge.net
++
++Files: *
++Copyright: © 2008-2012 Sandeep Kumar <shimple0@yahoo.com>
++License: GPL-3
++ This program is free software: you can redistribute it and/or modify
++ it under the terms of the GNU General Public License as published by
++ the Free Software Foundation, either version 3 of the License, or
++ (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-3 file.
++
++Files: debian/*
++Copyright: © 2012 Khalid El Fathi <khalid@elfathi.fr>
++License: GPL-2+
++ This package is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License as published by
++ the Free Software Foundation; either version 2 of the License, or
++ (at your option) any later version.
++ .
++ This package is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program. If not, see <http://www.gnu.org/licenses/>
++ .
++ On Debian systems, the complete text of the GNU General
++ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+diff --git a/debian/dirs b/debian/dirs
+new file mode 100644
+index 0000000..415f082
+--- /dev/null
++++ b/debian/dirs
+@@ -0,0 +1 @@
++/usr/bin
+diff --git a/debian/docs b/debian/docs
+new file mode 100644
+index 0000000..29453ef
+--- /dev/null
++++ b/debian/docs
+@@ -0,0 +1,2 @@
++README
++ToDo
+diff --git a/debian/docx2txt.1 b/debian/docx2txt.1
+new file mode 100644
+index 0000000..b27684f
+--- /dev/null
++++ b/debian/docx2txt.1
+@@ -0,0 +1,55 @@
++.\"                                      Hey, EMACS: -*- nroff -*-
++.\" First parameter, NAME, should be all caps
++.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
++.\" other parameters are allowed: see man(7), man(1)
++.TH DOCX2TXT 1 "February 25, 2012"
++.\" Please adjust this date whenever revising the manpage.
++.\"
++.\" Some roff macros, for reference:
++.\" .nh        disable hyphenation
++.\" .hy        enable hyphenation
++.\" .ad l      left justify
++.\" .ad b      justify to both left and right margins
++.\" .nf        disable filling
++.\" .fi        enable filling
++.\" .br        insert line break
++.\" .sp <n>    insert n+1 empty lines
++.\" for manpage-specific macros, see man(7)
++.SH NAME
++docx2txt \- convert Microsoft OOXML files to plain text.
++.SH SYNOPSIS
++.B docx2txt
++.RI "[ infile.docx|-|-h ] [ outfile.txt|- ]"
++.br
++.B docx2txt
++.RI "< infile.docx"
++.br
++.B docx2txt
++.RI "< infile.docx > outfile.txt"
++.SH DESCRIPTION
++This manual page documents briefly the
++.B docx2txt
++commands.
++.PP
++.\" TeX users may be more comfortable with the \fB<whatever>\fP and
++.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
++.\" respectively.
++\fBdocx2txt\fP docx2txt is a tool that attempts to generate equivalent plain text files from Microsoft .docx documents, preserving some formatting and document information (which MS text conversion drops) along with appropriate character conversions for a good (ascii or utf-8) text experience.  It is a platform independent solution consisting of (core) Perl and (wrapper) Unix/Windows shell scripts and a configuration file to control the output text appearance to a fair extent.  It can very conveniently be used to build a Web-based docx document conversion service.  With unzippers like CakeCmd that can deal with corrupt Zip archives, this tool can extract text from corrupt docx documents in many cases, where MS Word fails to even open them.
++.SH OPTIONS
++.TP
++.B \-h
++As the first argument to get this usage information.
++.TP
++.B \-
++As the infile name to read the docx file from STDIN.
++.TP
++.B \-
++As the outfile name to dump the text on STDOUT.
++.br
++Output is saved in infile.txt if second argument is omitted.
++.br
++.SH AUTHOR
++docx2txt was written by Sandeep Kumar <shimple0@yahoo.com>.
++.PP
++This manual page was written by Khalid El Fathi <khalid@elfathi.fr>,
++for the Debian project (and may be used by others).
+diff --git a/debian/docx2txt.manpages b/debian/docx2txt.manpages
+new file mode 100644
+index 0000000..0a0a952
+--- /dev/null
++++ b/debian/docx2txt.manpages
+@@ -0,0 +1 @@
++debian/docx2txt.1
+diff --git a/debian/docx2txt.mime b/debian/docx2txt.mime
+new file mode 100644
+index 0000000..c4ee279
+--- /dev/null
++++ b/debian/docx2txt.mime
+@@ -0,0 +1 @@
++application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt '%s' - ; copiousoutput; description=Office Open XML Document; prority=1
+diff --git a/debian/rules b/debian/rules
+new file mode 100755
+index 0000000..c42eed9
+--- /dev/null
++++ b/debian/rules
+@@ -0,0 +1,18 @@
++#!/usr/bin/make -f
++
++# Sample debian/rules that uses debhelper.
++# This file was originally written by Joey Hess and Craig Small.
++# As a special exception, when this file is copied by dh-make into a
++# dh-make output file, you may use that output file without restriction.
++# This special exception was added by Craig Small in version 0.37 of dh-make.
++
++# Uncomment this to turn on verbose mode.
++#export DH_VERBOSE=1
++
++%:
++	dh  $@
++
++override_dh_auto_build:
++
++override_dh_auto_install:
++	cp $(CURDIR)/docx2txt.pl $(CURDIR)/debian/docx2txt/usr/bin/docx2txt
+diff --git a/debian/source/format b/debian/source/format
+new file mode 100644
+index 0000000..163aaf8
+--- /dev/null
++++ b/debian/source/format
+@@ -0,0 +1 @@
++3.0 (quilt)
+diff --git a/debian/watch b/debian/watch
+new file mode 100644
+index 0000000..73059ac
+--- /dev/null
++++ b/debian/watch
+@@ -0,0 +1,2 @@
++version=4
++http://sf.net/@PACKAGE@/@PACKAGE@@ANY_VERSION@.tgz
+diff --git a/docx2txt.config b/docx2txt.config
+index 4bb7be6..4443353 100644
+--- a/docx2txt.config
++++ b/docx2txt.config
+@@ -16,7 +16,6 @@
+ #
+ # Default : '/usr/bin/unzip'
+ #
+-#config_unzip         => 'C:\Program Files\GnuWin32\bin\unzip.exe',
+ config_unzip         => '/usr/bin/unzip',
+ 
+ #
+-- 
+2.23.0.rc1
+

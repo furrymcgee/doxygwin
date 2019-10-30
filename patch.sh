@@ -24,3 +24,9 @@ cat \
 0006-dpkg-genbuildinfo-warning-unknown-CC-system-type-i68.patch \
 0007-dpkg-genbuildinfo-error-cannot-open-var-lib-dpkg-sta.patch \
 | GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am
+
+cat \
+0001-apt-get-install-cvs2svn-cvs.patch \
+0002-mkdir-cannot-create-directory-_-usr_-Read-only-file-.patch \
+0003-Package-docx2txt.patch \
+| GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am
