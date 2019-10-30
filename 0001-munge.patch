@@ -1,0 +1,43 @@
+From bdad76b3ff5d71affd7c965fd9499aaa19daf31d Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Wed, 31 Jul 2019 13:05:59 +0200
+Subject: [PATCH] munge
+
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ mode change 100644 => 100755 Makefile
+
+diff --git a/Makefile b/Makefile
+old mode 100644
+new mode 100755
+index 37385f21..17d31bff
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-MUNGE=xargs perl -i.bak -ne ' \
++MUNGE=xargs -L1 perl -i.bak -ne ' \
+ 		print $$_."\# This file was preprocessed, do not edit!\n" \
+ 			if m:^\#!/usr/bin/perl:; \
+ 		$$cutting=1 if /^=/; \
+@@ -33,7 +33,7 @@ install-i18n:
+ 	$(MAKE) -C po install
+ 
+ PERL := perl
+-PERL_VENDORLIB := $(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
++PERL_VENDORLIB := //$(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
+ 
+ # This would probably be easier if we used setup.py ...
+ PYTHON2_SUPPORTED := $(shell pyversions -s)
+@@ -82,7 +82,7 @@ install-rest:
+ 	find . -maxdepth 1 -perm /100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb -or -name debconf-communicate -or -name debconf-set-selections -or -name debconf-apt-progress -or -name debconf-escape | \
+ 		xargs -i install {} $(prefix)/usr/bin
+ 	# Now strip all pod documentation from all .pm files and scripts.
+-	find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
++	: find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
+ 	     $(prefix)/usr/share/debconf/frontend 			\
+ 	     $(prefix)/usr/share/debconf/*.pl $(prefix)/usr/bin		\
+ 	     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
+-- 
+2.23.0.rc1
+

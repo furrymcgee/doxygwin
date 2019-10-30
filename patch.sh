@@ -36,3 +36,7 @@ cat \
 0002-usr-bin-install-missing-destination-file-operand-aft.patch \
 0003-doc.patch \
 | GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am
+
+cat \
+0001-munge.patch \
+| GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git am
