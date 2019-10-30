@@ -12,7 +12,7 @@
 	url = https://github.com/furrymcgee/sensible-utils.git
 [submodule "swish++"]
 	path = swish++
-	url = https://github.com/furrymcgee/swish++.git
+	url = https://github.com/furrymcgee/swish.git
 [submodule "publib"]
 	path = publib
 	url = https://github.com/furrymcgee/publib.git

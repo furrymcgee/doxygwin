@@ -3,7 +3,7 @@
 git submodule update
 
 cat \
-0001-cygwin.patch \
+0001-cygwin.patch.~1~ \
 0002-samba.patch \
 | GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am
 
@@ -30,3 +30,9 @@ cat \
 0002-mkdir-cannot-create-directory-_-usr_-Read-only-file-.patch \
 0003-Package-docx2txt.patch \
 | GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am
+
+cat \
+0001-cygwin.patch \
+0002-usr-bin-install-missing-destination-file-operand-aft.patch \
+0003-doc.patch \
+| GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am

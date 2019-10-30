@@ -1,0 +1,26 @@
+From 0d3bd11c8c8ac39506be428f8d53098c6eeea02f Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Wed, 24 Jul 2019 14:22:47 -0700
+Subject: [PATCH 2/3] /usr/bin/install: missing destination file operand after
+ '/usr/share/man/man5'
+
+---
+ man/man4/GNUmakefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/man/man4/GNUmakefile b/man/man4/GNUmakefile
+index 634c9a6..20d6f4b 100644
+--- a/man/man4/GNUmakefile
++++ b/man/man4/GNUmakefile
+@@ -22,7 +22,7 @@
+ ########## You shouldn't have to change anything below this line. #############
+ 
+ ROOT:=	../..
+-SECT:=	5
++SECT:=	4
+ include	$(ROOT)/config/man.mk
+ 
+ # vim:set noet sw=8 ts=8:
+-- 
+2.23.0.rc1
+
