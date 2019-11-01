@@ -3,6 +3,8 @@
 SUBDIRS = \
 	dpkg \
 	fakeroot \
+	tar \
+	debhelper \
 	strip-nondeterminism \
 	intltool-debian \
 	publib \
@@ -11,13 +13,13 @@ SUBDIRS = \
 	swish++ \
 	dwww \
 
-CONFIGURE = dpkg/configure publib/configure sensible-utils/configure
+CONFIGURE = dpkg/configure publib/configure sensible-utils/configure fakeroot/configure tar/configure
 
 ETC = ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
 DEBIAN = strip-nondeterminism/debian
 
-.PHONY: $(.DEFAULT_GOAL) $(CONFIGURE) $(SUBDIRS) $(ETC) $(DEBIAN)
+.PHONY: $(.DEFAULT_GOAL) $(SUBDIRS) $(ETC) $(DEBIAN)
 
 $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
@@ -35,11 +37,15 @@ $(CONFIGURE):
 		CFLAGS=-D_STAT_VER=0
 
 $(SUBDIRS):
-	DISTRIBUTOR=doxie $(MAKE) --directory=$@ prefix=/usr $(MAKECMDGOALS)
+	DISTRIBUTOR=doxie $(MAKE) --directory=$@ prefix=/usr 
 
 doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
 
 publib: publib/configure
+
+dpkg: dpkg/configure
+
+tar: tar/configure
 
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
@@ -56,12 +62,15 @@ publib: publib/configure
 
 /var/lib/doc-base/documents:
 	mkdir $@ || true
-	cp -avu documents/* /etc/doc-base/documents
-	cp -avu doc/* /usr/local/share/doc
+	find documents/* | \
+	xargs -r install -p --target-directory=/etc/doc-base/documents
+	mkdir /usr/local/share/doc || true
+	find doc/* | \
+	xargs -r install -p --target-directory=/usr/local/share/doc
 	find /etc/doc-base/documents \
 		-type f \
 		-newer /etc/doc-base/documents/README | \
-	xargs /usr/sbin/install-docs --verbose --install
+	xargs -r /usr/sbin/install-docs --verbose --install
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
@@ -117,12 +126,5 @@ $(DEBIAN):
 		print join qq/\n/, map { \$$_->{package} } \
 			Dpkg::Control::Info->new()->get_packages(); \
 	" | xargs -I@ dpkg-gencontrol -p@ && \
-	dpkg-deb.exe -b debian/tmp .. && \
 	dpkg-buildpackage -rsh\ -c -d
 
-%/debian:
-	#dpkg-genchanges: error: binary build with no binary artifacts found; cannot distribute
-	git archive --format=tar --prefix=strip-nondeterminism-0.039/ debian/0.039-1 | bzip2 -9 > ../strip-nondeterminism_0.039.orig.tar.bz2
-	DEB_RULES_REQUIRES_ROOT=no dpkg-buildpackage -rsh\ -c -d
-	DEB_RULES_REQUIRES_ROOT=no dh binary --without autoreconf
-	#dpkg-source -b .

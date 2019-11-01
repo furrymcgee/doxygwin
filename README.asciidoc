@@ -1,0 +1,37 @@
+DOXIE SEARCH
+============
+
+Doxie Search is a Cygwin port of the Debian dwww package.
+
+DWWW 
+====
+
+A typical Linux system has documentation in many formats (manual pages,
+info files, READMEs, and so on).  dwww makes it possible to access  all
+of  these  via the same interface, a WWW browser.  This makes it easier
+to use the documentation.
+
+All installed on-line documentation will be served via a local HTTP
+server at http://localhost/dwww/. This package runs cron scripts to
+convert available resources to the HTML pages.  Executing the dwww
+command starts a sensible WWW browser locally to access them.
+
+BUILD
+=====
+
+Execute following commands to build the project.
+
+.Building
+[source,sh]
+-----
+git clone --recursive https://github.com/furrymcgee/doxie-search
+cd doxie-search
+sh autogen.sh
+----
+
+REQUIREMENTS
+============
+
+Cygwin
+CPAN
+

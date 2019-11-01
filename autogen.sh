@@ -48,7 +48,7 @@ cat \
 | \
 GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am
 
-rm -f debconf/debconf debconf/Debconf
+rm -rf debconf/debconf debconf/Debconf
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git checkout Debconf
 
 cat \
@@ -104,27 +104,30 @@ cat \
 | \
 GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
 
-make \
+xargs -L1 make \
 DISTRIBUTOR=doxie \
 prefix=/usr \
-	dpkg/configure dpkg \
-	install -C dpkg \
-	fakeroot/configure fakeroot \
-	tar/configure tar \
-	install -C tar \
-	~/.cpan \
-	strip-nondeterminism/debian \
-	intltool-debian \
-	install -C intltool-debian \
-	publib/configure \
-	publib \
-	install -C publib \
-	doc-base \
-	install -C debhelper \
-	debconf \
-	install -C debconf \
-	swish++ \
-	install -C swish++ \
-	dwww \
-	install -C dwww \
-	/var/cache/debconf /var/lib/doc-base/documents po-debconf \
+<<-'MAKE'
+	tar/configure tar
+	install -C tar
+	dpkg/configure dpkg
+	install -C dpkg
+	fakeroot/configure fakeroot
+	~/.cpan
+	strip-nondeterminism/debian
+	intltool-debian
+	install -C intltool-debian
+	-B publib/configure
+	publib
+	install -C publib
+	doc-base
+	install -C doc-base
+	install -C debhelper
+	debconf
+	install -C debconf
+	swish++
+	install -C swish++
+	dwww
+	install -C dwww
+	/var/cache/debconf /var/lib/doc-base/documents po-debconf
+MAKE
