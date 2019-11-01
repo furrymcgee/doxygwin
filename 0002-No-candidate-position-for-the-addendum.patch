@@ -1,0 +1,27 @@
+From 2e35686f78d50cc32f2f773a0503e6ad31f197a0 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 1 Nov 2019 01:19:54 -0700
+Subject: [PATCH 2/2] No candidate position for the addendum
+
+---
+ Makefile | 1 -
+ 1 file changed, 1 deletion(-)
+ mode change 100755 => 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+old mode 100755
+new mode 100644
+index 17d31bf..6a10bbc
+--- a/Makefile
++++ b/Makefile
+@@ -9,7 +9,6 @@ MUNGE=xargs -L1 perl -i.bak -ne ' \
+ 	'
+ 
+ all:
+-	$(MAKE) -C doc
+ 	$(MAKE) -C po
+ 
+ clean:
+-- 
+2.8.3
+
