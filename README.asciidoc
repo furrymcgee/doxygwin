@@ -1,20 +1,15 @@
-DOXIE SEARCH
-============
+DOXIE
+=====
 
-Doxie Search is a Cygwin port of the Debian dwww package.
+Doxie is a search engine for your office documents and emails on Windows. A
+typical system has documentation in many formats (docx, pdf, email, ...). The
+doxie searches all of them a web browser.
 
-DWWW 
-====
-
-A typical Linux system has documentation in many formats (manual pages,
-info files, READMEs, and so on).  dwww makes it possible to access  all
-of  these  via the same interface, a WWW browser.  This makes it easier
-to use the documentation.
-
-All installed on-line documentation will be served via a local HTTP
+Doxie is based on dwww and other Debian packages ported to Cygwin:
+"All installed on-line documentation will be served via a local HTTP
 server at http://localhost/dwww/. This package runs cron scripts to
 convert available resources to the HTML pages.  Executing the dwww
-command starts a sensible WWW browser locally to access them.
+command starts a sensible WWW browser locally to access them."
 
 BUILD
 =====
@@ -24,14 +19,18 @@ Execute following commands to build the project.
 .Building
 [source,sh]
 -----
+# Checkout source code
 git clone --recursive https://github.com/furrymcgee/doxie-search
 cd doxie-search
-sh autogen.sh
+# Execute autogen.sh and write typescript
+script -c bash\ -ex < autogen.sh
 ----
 
 REQUIREMENTS
 ============
 
-Cygwin
-CPAN
+A Cygwin installation is required before building. Please see link below how to
+install required Cygwin packages with cygwin-auto-install. CPAN access is
+required during build process.
 
+- https://github.com/furrymcgee/cygwin-auto-install
