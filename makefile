@@ -12,6 +12,7 @@ SUBDIRS = \
 	debconf \
 	swish++ \
 	dwww \
+	po-debconf \
 
 CONFIGURE = dpkg/configure publib/configure sensible-utils/configure fakeroot/configure tar/configure
 

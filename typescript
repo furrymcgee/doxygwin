@@ -1,4 +1,4 @@
-Script started on Sat, Nov 09, 2019  3:02:51 PM
+Script started on Sat, Nov 09, 2019  5:21:46 PM
 #!/bin/sh
 # This script builds https://github.com/furrymcgee/doxie-search
 # First submodules are patched then make is called
@@ -105,6 +105,8 @@ cat \
 | \
 GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
 
+net user www-data /ADD || true
+
 xargs -L1 make \
 DISTRIBUTOR=doxie \
 prefix=/usr \
@@ -118,7 +120,7 @@ prefix=/usr \
 	strip-nondeterminism/debian
 	intltool-debian
 	install -C intltool-debian
-	-B publib/configure
+	publib/configure
 	publib
 	install -C publib
 	doc-base
@@ -448,6 +450,15 @@ Applying: Can't exec "dh_strip_nondeterminism": No such file or directory
 $ 
 ]0;/mnt
 [32mAdministrator@- [33m/mnt[0m
+$ net user www-data /ADD || true
++ net user www-data /ADD
+The command completed successfully.
+
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ 
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
 $ xargs -L1 make \
 > DISTRIBUTOR=doxie \
 > prefix=/usr \
@@ -461,7 +472,7 @@ $ xargs -L1 make \
 > strip-nondeterminism/debian
 > intltool-debian
 > install -C intltool-debian
-> -B publib/configure
+> publib/configure
 > publib
 > install -C publib
 > doc-base
@@ -2707,7 +2718,7 @@ make[3]: Entering directory '/mnt/dpkg/scripts'
 /usr/bin/mkdir -p /usr/share/man/man3
 for module in Dpkg/Arch.pm Dpkg/BuildFlags.pm Dpkg/BuildOptions.pm Dpkg/BuildProfiles.pm Dpkg/Build/Env.pm Dpkg/Build/Info.pm Dpkg/Build/Types.pm Dpkg/Changelog.pm Dpkg/Changelog/Debian.pm Dpkg/Changelog/Entry.pm Dpkg/Changelog/Entry/Debian.pm Dpkg/Changelog/Parse.pm Dpkg/Checksums.pm Dpkg/Compression.pm Dpkg/Compression/FileHandle.pm Dpkg/Compression/Process.pm Dpkg/Conf.pm Dpkg/Control.pm Dpkg/Control/Changelog.pm Dpkg/Control/FieldsCore.pm Dpkg/Control/Fields.pm Dpkg/Control/Info.pm Dpkg/Control/HashCore.pm Dpkg/Control/Hash.pm Dpkg/Control/Tests.pm Dpkg/Control/Tests/Entry.pm Dpkg/Control/Types.pm Dpkg/Deps.pm Dpkg/Deps/AND.pm Dpkg/Deps/KnownFacts.pm Dpkg/Deps/Multiple.pm Dpkg/Deps/OR.pm Dpkg/Deps/Simple.pm Dpkg/Deps/Union.pm Dpkg/Dist/Files.pm Dpkg/ErrorHandling.pm Dpkg/Exit.pm Dpkg/File.pm Dpkg/Getopt.pm Dpkg/Gettext.pm Dpkg/Index.pm Dpkg/Interface/Storable.pm Dpkg/IPC.pm Dpkg/Lock.pm Dpkg/OpenPGP.pm Dpkg/Package.pm Dpkg/Path.pm Dpkg/Shlibs.pm Dpkg/Shlibs/Objdump.pm Dpkg/Shlibs/Symbol.pm Dpkg/Shlibs/SymbolFile.pm Dpkg/Shlibs/Cppfilt.pm Dpkg/Source/Archive.pm Dpkg/Source/BinaryFiles.pm Dpkg/Source/Format.pm Dpkg/Source/Functions.pm Dpkg/Source/Package.pm Dpkg/Source/Package/V1.pm Dpkg/Source/Package/V2.pm Dpkg/Source/Package/V3/Bzr.pm Dpkg/Source/Package/V3/Custom.pm Dpkg/Source/Package/V3/Native.pm Dpkg/Source/Package/V3/Git.pm Dpkg/Source/Package/V3/Quilt.pm Dpkg/Source/Patch.pm Dpkg/Source/Quilt.pm Dpkg/Substvars.pm Dpkg/Vars.pm Dpkg/Vendor.pm Dpkg/Vendor/Debian.pm Dpkg/Vendor/Default.pm Dpkg/Vendor/Ubuntu.pm Dpkg/Version.pm Dpkg.pm; do \
   name=`echo $module | sed -e 's|/|::|g' -e 's/\.pm$//'`; \
-  pod2man --utf8 --center=libdpkg-perl --release=1.19.7-7-g22d42 \
+  pod2man --utf8 --center=libdpkg-perl --release=1.19.7-7-g987cd \
     --name="$name" --section=3perl ./$module \
     >/usr/share/man/man3/$name.3perl; \
   test -s /usr/share/man/man3/$name.3perl || \
@@ -3485,6 +3496,7 @@ make[3]: Leaving directory '/mnt/fakeroot/scripts'
 Making all in doc
 make[3]: Entering directory '/mnt/fakeroot/doc'
 po4a -k 0 --variable "srcdir=./" ./po4a/po4a.cfg
+ (97 entries)
 Making all in de
 make[4]: Entering directory '/mnt/fakeroot/doc/de'
 make[4]: Nothing to be done for 'all'.
@@ -3631,48 +3643,48 @@ Writing MYMETA.yml and MYMETA.json
   FREW/IO-All-0.87.tar.gz
   /usr/bin/perl Makefile.PL -- OK
 Running make for F/FR/FREW/IO-All-0.87.tar.gz
-make[1]: Entering directory '/home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E'
-cp lib/IO/All/Filesys.pod blib/lib/IO/All/Filesys.pod
-cp lib/IO/All/String.pod blib/lib/IO/All/String.pod
+make[1]: Entering directory '/home/Administrator/.cpan/build/IO-All-0.87-CoSsnk'
 cp lib/IO/All/DBM.pm blib/lib/IO/All/DBM.pm
-cp lib/IO/All/Link.pod blib/lib/IO/All/Link.pod
-cp lib/IO/All/Temp.pm blib/lib/IO/All/Temp.pm
-cp lib/IO/All/File.pm blib/lib/IO/All/File.pm
-cp lib/IO/All/Filesys.pm blib/lib/IO/All/Filesys.pm
-cp lib/IO/All/Temp.pod blib/lib/IO/All/Temp.pod
-cp lib/IO/All.pm blib/lib/IO/All.pm
-cp lib/IO/All/Pipe.pod blib/lib/IO/All/Pipe.pod
-cp lib/IO/All/MLDBM.pod blib/lib/IO/All/MLDBM.pod
-cp lib/IO/All/STDIO.pm blib/lib/IO/All/STDIO.pm
-cp lib/IO/All/Base.pm blib/lib/IO/All/Base.pm
-cp lib/IO/All/String.pm blib/lib/IO/All/String.pm
+cp lib/IO/All/Link.pm blib/lib/IO/All/Link.pm
 cp lib/IO/All/MLDBM.pm blib/lib/IO/All/MLDBM.pm
+cp lib/IO/All/Pipe.pod blib/lib/IO/All/Pipe.pod
+cp lib/IO/All/File.pod blib/lib/IO/All/File.pod
+cp lib/IO/All.pm blib/lib/IO/All.pm
+cp lib/IO/All/STDIO.pm blib/lib/IO/All/STDIO.pm
+cp lib/IO/All/Filesys.pod blib/lib/IO/All/Filesys.pod
+cp lib/IO/All/Dir.pod blib/lib/IO/All/Dir.pod
+cp lib/IO/All/Temp.pm blib/lib/IO/All/Temp.pm
 cp lib/IO/All/DBM.pod blib/lib/IO/All/DBM.pod
+cp lib/IO/All/Socket.pod blib/lib/IO/All/Socket.pod
+cp lib/IO/All/Dir.pm blib/lib/IO/All/Dir.pm
+cp lib/IO/All/Filesys.pm blib/lib/IO/All/Filesys.pm
 cp lib/IO/All/Socket.pm blib/lib/IO/All/Socket.pm
+cp lib/IO/All/String.pm blib/lib/IO/All/String.pm
+cp lib/IO/All/File.pm blib/lib/IO/All/File.pm
+cp lib/IO/All/MLDBM.pod blib/lib/IO/All/MLDBM.pod
+cp lib/IO/All/String.pod blib/lib/IO/All/String.pod
+cp lib/IO/All/STDIO.pod blib/lib/IO/All/STDIO.pod
+cp lib/IO/All/Temp.pod blib/lib/IO/All/Temp.pod
+cp lib/IO/All/Link.pod blib/lib/IO/All/Link.pod
 cp lib/IO/All/Pipe.pm blib/lib/IO/All/Pipe.pm
 cp lib/IO/All.pod blib/lib/IO/All.pod
-cp lib/IO/All/STDIO.pod blib/lib/IO/All/STDIO.pod
-cp lib/IO/All/Link.pm blib/lib/IO/All/Link.pm
-cp lib/IO/All/Dir.pod blib/lib/IO/All/Dir.pod
-cp lib/IO/All/Dir.pm blib/lib/IO/All/Dir.pm
-cp lib/IO/All/Socket.pod blib/lib/IO/All/Socket.pod
-cp lib/IO/All/File.pod blib/lib/IO/All/File.pod
+cp lib/IO/All/Base.pm blib/lib/IO/All/Base.pm
 Manifying 12 pod documents
-make[1]: Leaving directory '/home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E'
+make[1]: Leaving directory '/home/Administrator/.cpan/build/IO-All-0.87-CoSsnk'
   FREW/IO-All-0.87.tar.gz
   /usr/bin/make -- OK
 Running make test
-make[1]: Entering directory '/home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E'
+make[1]: Entering directory '/home/Administrator/.cpan/build/IO-All-0.87-CoSsnk'
 PERL_DL_NONLAZY=1 "/usr/bin/perl.exe" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
 t/000-compile-modules.t .. t/000-compile-modules.t .. 1/?                                  t/000-compile-modules.t .. ok
-t/absolute.t ............. couldn't find diagnostic data in /usr/lib/perl5/5.22/pods/perldiag.pod t /home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E/blib/lib /home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E/blib/arch /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 . t/absolute.t at /usr/lib/perl5/5.22/diagnostics.pm line 259, <POD_DIAG> line 704.
+t/absolute.t ............. couldn't find diagnostic data in /usr/lib/perl5/5.22/pods/perldiag.pod t /home/Administrator/.cpan/build/IO-All-0.87-CoSsnk/blib/lib /home/Administrator/.cpan/build/IO-All-0.87-CoSsnk/blib/arch /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 . t/absolute.t at /usr/lib/perl5/5.22/diagnostics.pm line 259, <POD_DIAG> line 704.
 Compilation failed in require at t/absolute.t line 6.
 BEGIN failed--compilation aborted at t/absolute.t line 6.
 # Looks like your test exited with 2 before it could output anything.
                                 t/absolute.t ............. Dubious, test returned 2 (wstat 512, 0x200)
 Failed 4/4 subtests 
 t/accept.t ............... t/accept.t ............... 1/20                                   t/accept.t ............... ok
-t/all.t .................. t/all.t .................. 1/30 t/all.t .................. 14/30                                   t/all.t .................. ok
+t/all.t .................. t/all.t .................. 1/30 t/all.t .................. 26/30                                   t/all.t .................. ok
 t/all2.t ................. t/all2.t ................. 1/2                                 t/all2.t ................. ok
 t/append.t ............... t/append.t ............... 1/4                                 t/append.t ............... ok
 t/assert.t ............... t/assert.t ............... 1/8                                 t/assert.t ............... ok
@@ -3735,17 +3747,17 @@ t/absolute.t           (Wstat: 512 Tests: 0 Failed: 0)
   Parse errors: Bad plan.  You planned 4 tests but ran 0.
 t/os.t                 (Wstat: 0 Tests: 14 Failed: 0)
   TODO passed:   5-6
-Files=58, Tests=388, 30 wallclock secs ( 0.23 usr  0.21 sys + 19.44 cusr  9.42 csys = 29.30 CPU)
+Files=58, Tests=388, 30 wallclock secs ( 0.26 usr  0.15 sys + 19.62 cusr  9.49 csys = 29.52 CPU)
 Result: FAIL
 Failed 1/58 test programs. 0/388 subtests failed.
 make[1]: *** [Makefile:946: test_dynamic] Error 255
-make[1]: Leaving directory '/home/Administrator/.cpan/build/IO-All-0.87-Ae5R0E'
+make[1]: Leaving directory '/home/Administrator/.cpan/build/IO-All-0.87-CoSsnk'
   FREW/IO-All-0.87.tar.gz
   /usr/bin/make test -- NOT OK
 //hint// to see the cpan-testers results for installing this module, try:
   reports FREW/IO-All-0.87.tar.gz
   MVZ/Email-Outlook-Message-0.919.tar.gz
-  Has already been unwrapped into directory /home/Administrator/.cpan/build/Email-Outlook-Message-0.919-tVCJzp
+  Has already been unwrapped into directory /home/Administrator/.cpan/build/Email-Outlook-Message-0.919-PR1TOx
   MVZ/Email-Outlook-Message-0.919.tar.gz
   Has already been prepared
 Running Build for M/MV/MVZ/Email-Outlook-Message-0.919.tar.gz
@@ -3759,11 +3771,11 @@ t/gpg_signed.t ........... t/gpg_signed.t ........... 1/2                     
 t/internals.t ............ t/internals.t ............ 1/17                                   t/internals.t ............ ok
 t/plain_jpeg_attached.t .. t/plain_jpeg_attached.t .. 1/23                                   t/plain_jpeg_attached.t .. ok
 t/plain_uc_unsent.t ...... t/plain_uc_unsent.t ...... 1/15                                   t/plain_uc_unsent.t ...... ok
-t/plain_uc_wc_unsent.t ... t/plain_uc_wc_unsent.t ... 1/14 t/plain_uc_wc_unsent.t ... 8/14                                   t/plain_uc_wc_unsent.t ... ok
+t/plain_uc_wc_unsent.t ... t/plain_uc_wc_unsent.t ... 1/14 t/plain_uc_wc_unsent.t ... 2/14                                   t/plain_uc_wc_unsent.t ... ok
 t/plain_unsent.t ......... t/plain_unsent.t ......... 1/15                                   t/plain_unsent.t ......... ok
 t/pod_coverage.t .........                                 t/pod_coverage.t ......... skipped: Test::Pod::Coverage required for testing pod coverage
 All tests successful.
-Files=8, Tests=87,  4 wallclock secs ( 0.14 usr  0.08 sys +  3.00 cusr  1.34 csys =  4.56 CPU)
+Files=8, Tests=87,  4 wallclock secs ( 0.11 usr  0.08 sys +  3.05 cusr  1.26 csys =  4.50 CPU)
 Result: PASS
   MVZ/Email-Outlook-Message-0.919.tar.gz
 Tests succeeded but one dependency not OK (IO::All)
@@ -3823,320 +3835,14 @@ make[1]: Leaving directory '/mnt/intltool-debian'
 make: Entering directory '/mnt/intltool-debian'
 install -m 0755 intltool-bin/intltool-* /usr/share/intltool-debian
 make: Leaving directory '/mnt/intltool-debian'
-cd publib && \
-autoreconf -i && \
-sh configure \
-	--host=i686-pc-cygwin \
-	--prefix=/usr \
-	CFLAGS=-D_STAT_VER=0
-main::scan_file() called too early to check prototype at /usr/bin/aclocal-1.11 line 644.
-configure: loading site script /usr/share/config.site
-checking for i686-pc-cygwin-gcc... i686-pc-cygwin-gcc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.exe
-checking for suffix of executables... .exe
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether i686-pc-cygwin-gcc accepts -g... yes
-checking for i686-pc-cygwin-gcc option to accept ISO C89... none needed
-checking CFLAGS for maximum warnings... -Wall
-checking checking whether i686-pc-cygwin-gcc -MD -MF works... yes
-checking for a BSD-compatible install... /usr/bin/install -c
-checking for i686-pc-cygwin-ranlib... no
-checking for ranlib... ranlib
-checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
-checking for gmake... make
-configure: creating ./config.status
-config.status: creating Makefile
+make: 'publib/configure' is up to date.
 DISTRIBUTOR=doxie make --directory=publib prefix=/usr 
 make[1]: Entering directory '/mnt/publib'
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/memdup.d -c alloc/memdup.c -o alloc/memdup.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/xmalloc.d -c alloc/xmalloc.c -o alloc/xmalloc.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/xrealloc.d -c alloc/xrealloc.c -o alloc/xrealloc.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/xfree.d -c alloc/xfree.c -o alloc/xfree.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/xstrdup.d -c alloc/xstrdup.c -o alloc/xstrdup.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/xmemdup.d -c alloc/xmemdup.c -o alloc/xmemdup.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF alloc/dynarr.d -c alloc/dynarr.c -o alloc/dynarr.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF base64/base64.d -c base64/base64.c -o base64/base64.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_and_ba.d -c bitarr/ba_and_ba.c -o bitarr/ba_and_ba.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_clear.d -c bitarr/ba_clear.c -o bitarr/ba_clear.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_clear_all.d -c bitarr/ba_clear_all.c -o bitarr/ba_clear_all.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_copy.d -c bitarr/ba_copy.c -o bitarr/ba_copy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_create.d -c bitarr/ba_create.c -o bitarr/ba_create.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_destroy.d -c bitarr/ba_destroy.c -o bitarr/ba_destroy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_not.d -c bitarr/ba_not.c -o bitarr/ba_not.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_or_ba.d -c bitarr/ba_or_ba.c -o bitarr/ba_or_ba.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_or_not_ba.d -c bitarr/ba_or_not_ba.c -o bitarr/ba_or_not_ba.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_query.d -c bitarr/ba_query.c -o bitarr/ba_query.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_resize.d -c bitarr/ba_resize.c -o bitarr/ba_resize.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_set.d -c bitarr/ba_set.c -o bitarr/ba_set.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF bitarr/ba_xor_ba.d -c bitarr/ba_xor_ba.c -o bitarr/ba_xor_ba.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF cmp/cmp.d -c cmp/cmp.c -o cmp/cmp.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF errormsg/errormsg.d -c errormsg/errormsg.c -o errormsg/errormsg.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/xgetaline.d -c files/xgetaline.c -o files/xgetaline.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/xfseek.d -c files/xfseek.c -o files/xfseek.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/xfopen.d -c files/xfopen.c -o files/xfopen.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/xfclose.d -c files/xfclose.c -o files/xfclose.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/getaline.d -c files/getaline.c -o files/getaline.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/fassert.d -c files/fassert.c -o files/fassert.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF files/file_io.d -c files/file_io.c -o files/file_io.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnbase.d -c fname/fnbase.c -o fname/fnbase.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fndelbeg.d -c fname/fndelbeg.c -o fname/fndelbeg.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fndelend.d -c fname/fndelend.c -o fname/fndelend.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fndelsuf.d -c fname/fndelsuf.c -o fname/fndelsuf.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fndir.d -c fname/fndir.c -o fname/fndir.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnhome.d -c fname/fnhome.c -o fname/fnhome.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnjoin.d -c fname/fnjoin.c -o fname/fnjoin.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnlastsuf.d -c fname/fnlastsuf.c -o fname/fnlastsuf.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnpathfind.d -c fname/fnpathfind.c -o fname/fnpathfind.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnqualify.d -c fname/fnqualify.c -o fname/fnqualify.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF fname/fnsetsuf.d -c fname/fnsetsuf.c -o fname/fnsetsuf.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_create.d -c hash/hash_create.c -o hash/hash_create.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_destroy.d -c hash/hash_destroy.c -o hash/hash_destroy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_install.d -c hash/hash_install.c -o hash/hash_install.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_lookup.d -c hash/hash_lookup.c -o hash/hash_lookup.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_uninstall.d -c hash/hash_uninstall.c -o hash/hash_uninstall.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF hash/hash_iter.d -c hash/hash_iter.c -o hash/hash_iter.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_add.d -c iset/iset_add.c -o iset/iset_add.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_add_rng.d -c iset/iset_add_rng.c -o iset/iset_add_rng.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_clear.d -c iset/iset_clear.c -o iset/iset_clear.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_contains.d -c iset/iset_contains.c -o iset/iset_contains.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_copy.d -c iset/iset_copy.c -o iset/iset_copy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_create.d -c iset/iset_create.c -o iset/iset_create.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_destroy.d -c iset/iset_destroy.c -o iset/iset_destroy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_diff.d -c iset/iset_diff.c -o iset/iset_diff.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_is_empty.d -c iset/iset_is_empty.c -o iset/iset_is_empty.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_isect.d -c iset/iset_isect.c -o iset/iset_isect.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_nth_rng.d -c iset/iset_nth_rng.c -o iset/iset_nth_rng.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_range.d -c iset/iset_range.c -o iset/iset_range.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_remove.d -c iset/iset_remove.c -o iset/iset_remove.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_rm_rng.d -c iset/iset_rm_rng.c -o iset/iset_rm_rng.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF iset/iset_union.d -c iset/iset_union.c -o iset/iset_union.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF lockfile/lockfile.d -c lockfile/lockfile.c -o lockfile/lockfile.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF log/log.d -c log/log.c -o log/log.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF main/main_filter.d -c main/main_filter.c -o main/main_filter.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF nntp/nntp.d -c nntp/nntp.c -o nntp/nntp.o
-In file included from [01m[Knntp/nntp.c:49:0[m[K:
-[01m[Knntp/nntp.c:52:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Kh_errno[m[K’ redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
- extern int h_errno;
-[01;32m[K            ^[m[K
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF nntp/nntpart.d -c nntp/nntpart.c -o nntp/nntpart.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF priq/priq.d -c priq/priq.c -o priq/priq.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF queue/queue.d -c queue/queue.c -o queue/queue.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF sbuf/sbuf.d -c sbuf/sbuf.c -o sbuf/sbuf.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF sbuf/sbuf_aux.d -c sbuf/sbuf_aux.c -o sbuf/sbuf_aux.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF sbuf/sbuf_srch.d -c sbuf/sbuf_srch.c -o sbuf/sbuf_srch.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF sbuf/sbuf_io.d -c sbuf/sbuf_io.c -o sbuf/sbuf_io.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_copy.d -c stack/stack_copy.c -o stack/stack_copy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_create.d -c stack/stack_create.c -o stack/stack_create.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_destroy.d -c stack/stack_destroy.c -o stack/stack_destroy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_emptyp.d -c stack/stack_emptyp.c -o stack/stack_emptyp.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_pop.d -c stack/stack_pop.c -o stack/stack_pop.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF stack/stack_push.d -c stack/stack_push.c -o stack/stack_push.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memarrfill.d -c strutil/memarrfill.c -o strutil/memarrfill.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memdel.d -c strutil/memdel.c -o strutil/memdel.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memfill.d -c strutil/memfill.c -o strutil/memfill.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memins.d -c strutil/memins.c -o strutil/memins.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memisort.d -c strutil/memisort.c -o strutil/memisort.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memmem.d -c strutil/memmem.c -o strutil/memmem.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memoverlap.d -c strutil/memoverlap.c -o strutil/memoverlap.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memrchr.d -c strutil/memrchr.c -o strutil/memrchr.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memrev.d -c strutil/memrev.c -o strutil/memrev.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memrmem.d -c strutil/memrmem.c -o strutil/memrmem.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memshuffle.d -c strutil/memshuffle.c -o strutil/memshuffle.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/memswap.d -c strutil/memswap.c -o strutil/memswap.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/stracat.d -c strutil/stracat.c -o strutil/stracat.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/stranaxfrm.d -c strutil/stranaxfrm.c -o strutil/stranaxfrm.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strchange.d -c strutil/strchange.c -o strutil/strchange.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strcins.d -c strutil/strcins.c -o strutil/strcins.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strcstr.d -c strutil/strcstr.c -o strutil/strcstr.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strdel.d -c strutil/strdel.c -o strutil/strdel.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strdiff.d -c strutil/strdiff.c -o strutil/strdiff.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strend.d -c strutil/strend.c -o strutil/strend.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strendzap.d -c strutil/strendzap.c -o strutil/strendzap.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strgsub.d -c strutil/strgsub.c -o strutil/strgsub.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strhash.d -c strutil/strhash.c -o strutil/strhash.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strinit.d -c strutil/strinit.c -o strutil/strinit.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strins.d -c strutil/strins.c -o strutil/strins.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strltrim.d -c strutil/strltrim.c -o strutil/strltrim.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strmaxcpy.d -c strutil/strmaxcpy.c -o strutil/strmaxcpy.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strmove.d -c strutil/strmove.c -o strutil/strmove.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strmtrim.d -c strutil/strmtrim.c -o strutil/strmtrim.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strnins.d -c strutil/strnins.c -o strutil/strnins.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strnlen.d -c strutil/strnlen.c -o strutil/strnlen.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/stroverlap.d -c strutil/stroverlap.c -o strutil/stroverlap.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strrev.d -c strutil/strrev.c -o strutil/strrev.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strright.d -c strutil/strright.c -o strutil/strright.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strrot13.d -c strutil/strrot13.c -o strutil/strrot13.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strrstr.d -c strutil/strrstr.c -o strutil/strrstr.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strrtrim.d -c strutil/strrtrim.c -o strutil/strrtrim.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strset.d -c strutil/strset.c -o strutil/strset.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strshuffle.d -c strutil/strshuffle.c -o strutil/strshuffle.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strsplit.d -c strutil/strsplit.c -o strutil/strsplit.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strsub.d -c strutil/strsub.c -o strutil/strsub.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strtabify.d -c strutil/strtabify.c -o strutil/strtabify.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strtrexpand.d -c strutil/strtrexpand.c -o strutil/strtrexpand.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strtrim.d -c strutil/strtrim.c -o strutil/strtrim.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/struncstr.d -c strutil/struncstr.c -o strutil/struncstr.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/struntabify.d -c strutil/struntabify.c -o strutil/struntabify.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strvars.d -c strutil/strvars.c -o strutil/strvars.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF strutil/strzap.d -c strutil/strzap.c -o strutil/strzap.o
-i686-pc-cygwin-gcc -Iincludes -D__publib__  -D_STAT_VER=0 -Wall -MD -MF tbuf/tbuf.d -c tbuf/tbuf.c -o tbuf/tbuf.o
-ar cr libpub.a alloc/memdup.o alloc/xmalloc.o alloc/xrealloc.o alloc/xfree.o alloc/xstrdup.o alloc/xmemdup.o alloc/dynarr.o base64/base64.o bitarr/ba_and_ba.o bitarr/ba_clear.o bitarr/ba_clear_all.o bitarr/ba_copy.o bitarr/ba_create.o bitarr/ba_destroy.o bitarr/ba_not.o bitarr/ba_or_ba.o bitarr/ba_or_not_ba.o bitarr/ba_query.o bitarr/ba_resize.o bitarr/ba_set.o bitarr/ba_xor_ba.o cmp/cmp.o errormsg/errormsg.o files/xgetaline.o files/xfseek.o files/xfopen.o files/xfclose.o files/getaline.o files/fassert.o files/file_io.o fname/fnbase.o fname/fndelbeg.o fname/fndelend.o fname/fndelsuf.o fname/fndir.o fname/fnhome.o fname/fnjoin.o fname/fnlastsuf.o fname/fnpathfind.o fname/fnqualify.o fname/fnsetsuf.o hash/hash_create.o hash/hash_destroy.o hash/hash_install.o hash/hash_lookup.o hash/hash_uninstall.o hash/hash_iter.o iset/iset_add.o iset/iset_add_rng.o iset/iset_clear.o iset/iset_contains.o iset/iset_copy.o iset/iset_create.o iset/iset_destroy.o iset/iset_diff.o iset/iset_is_empty.o iset/iset_isect.o iset/iset_nth_rng.o iset/iset_range.o iset/iset_remove.o iset/iset_rm_rng.o iset/iset_union.o lockfile/lockfile.o log/log.o main/main_filter.o nntp/nntp.o nntp/nntpart.o priq/priq.o queue/queue.o sbuf/sbuf.o sbuf/sbuf_aux.o sbuf/sbuf_srch.o sbuf/sbuf_io.o stack/stack_copy.o stack/stack_create.o stack/stack_destroy.o stack/stack_emptyp.o stack/stack_pop.o stack/stack_push.o strutil/memarrfill.o strutil/memdel.o strutil/memfill.o strutil/memins.o strutil/memisort.o strutil/memmem.o strutil/memoverlap.o strutil/memrchr.o strutil/memrev.o strutil/memrmem.o strutil/memshuffle.o strutil/memswap.o strutil/stracat.o strutil/stranaxfrm.o strutil/strchange.o strutil/strcins.o strutil/strcstr.o strutil/strdel.o strutil/strdiff.o strutil/strend.o strutil/strendzap.o strutil/strgsub.o strutil/strhash.o strutil/strinit.o strutil/strins.o strutil/strltrim.o strutil/strmaxcpy.o strutil/strmove.o strutil/strmtrim.o strutil/strnins.o strutil/strnlen.o strutil/stroverlap.o strutil/strrev.o strutil/strright.o strutil/strrot13.o strutil/strrstr.o strutil/strrtrim.o strutil/strset.o strutil/strshuffle.o strutil/strsplit.o strutil/strsub.o strutil/strtabify.o strutil/strtrexpand.o strutil/strtrim.o strutil/struncstr.o strutil/struntabify.o strutil/strvars.o strutil/strzap.o tbuf/tbuf.o
-ranlib  libpub.a
+make[1]: *** No targets specified and no makefile found.  Stop.
 make[1]: Leaving directory '/mnt/publib'
+make: *** [makefile:40: publib] Error 2
 make: Entering directory '/mnt/publib'
-/usr/bin/install -c -d /usr/include/publib
-/usr/bin/install -c -d /usr/lib
-/usr/bin/install -c -d /usr/share/man/man3	
-/usr/bin/install -c -m 644 libpub.a /usr/lib
-/usr/bin/install -c -m 644 includes/publib.h /usr/include
-/usr/bin/install -c -m 644 includes/publib/alloc.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/base64.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/bitarr.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/cmp.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/errormsg.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/files.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/fname.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/hash.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/iset.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/lockfile.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/log.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/main.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/nntp.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/priq.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/queue.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/sbuf.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/stack.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/strutil.h /usr/include/publib/
-/usr/bin/install -c -m 644 includes/publib/tbuf.h /usr/include/publib/
-/usr/bin/install -c -m 644 man/bitarr.3 /usr/share/man/man3/bitarr.3
-gzip -9f /usr/share/man/man3/bitarr.3
-/usr/bin/install -c -m 644 man/cmp.3 /usr/share/man/man3/cmp.3
-gzip -9f /usr/share/man/man3/cmp.3
-/usr/bin/install -c -m 644 man/dynarr.3 /usr/share/man/man3/dynarr.3
-gzip -9f /usr/share/man/man3/dynarr.3
-/usr/bin/install -c -m 644 man/errormsg.3 /usr/share/man/man3/errormsg.3
-gzip -9f /usr/share/man/man3/errormsg.3
-/usr/bin/install -c -m 644 man/files.3 /usr/share/man/man3/files.3
-gzip -9f /usr/share/man/man3/files.3
-/usr/bin/install -c -m 644 man/fname.3 /usr/share/man/man3/fname.3
-gzip -9f /usr/share/man/man3/fname.3
-/usr/bin/install -c -m 644 man/fnpathfind.3 /usr/share/man/man3/fnpathfind.3
-gzip -9f /usr/share/man/man3/fnpathfind.3
-/usr/bin/install -c -m 644 man/fnqualify.3 /usr/share/man/man3/fnqualify.3
-gzip -9f /usr/share/man/man3/fnqualify.3
-/usr/bin/install -c -m 644 man/hash.3 /usr/share/man/man3/hash.3
-gzip -9f /usr/share/man/man3/hash.3
-/usr/bin/install -c -m 644 man/iset.3 /usr/share/man/man3/iset.3
-gzip -9f /usr/share/man/man3/iset.3
-/usr/bin/install -c -m 644 man/log.3 /usr/share/man/man3/log.3
-gzip -9f /usr/share/man/man3/log.3
-/usr/bin/install -c -m 644 man/memarrfill.3 /usr/share/man/man3/memarrfill.3
-gzip -9f /usr/share/man/man3/memarrfill.3
-/usr/bin/install -c -m 644 man/memdel.3 /usr/share/man/man3/memdel.3
-gzip -9f /usr/share/man/man3/memdel.3
-/usr/bin/install -c -m 644 man/memfill.3 /usr/share/man/man3/memfill.3
-gzip -9f /usr/share/man/man3/memfill.3
-/usr/bin/install -c -m 644 man/memins.3 /usr/share/man/man3/memins.3
-gzip -9f /usr/share/man/man3/memins.3
-/usr/bin/install -c -m 644 man/memisort.3 /usr/share/man/man3/memisort.3
-gzip -9f /usr/share/man/man3/memisort.3
-/usr/bin/install -c -m 644 man/memmem.3 /usr/share/man/man3/memmem.3
-gzip -9f /usr/share/man/man3/memmem.3
-/usr/bin/install -c -m 644 man/memoverlap.3 /usr/share/man/man3/memoverlap.3
-gzip -9f /usr/share/man/man3/memoverlap.3
-/usr/bin/install -c -m 644 man/memrchr.3 /usr/share/man/man3/memrchr.3
-gzip -9f /usr/share/man/man3/memrchr.3
-/usr/bin/install -c -m 644 man/memrev.3 /usr/share/man/man3/memrev.3
-gzip -9f /usr/share/man/man3/memrev.3
-/usr/bin/install -c -m 644 man/memrmem.3 /usr/share/man/man3/memrmem.3
-gzip -9f /usr/share/man/man3/memrmem.3
-/usr/bin/install -c -m 644 man/memshuffle.3 /usr/share/man/man3/memshuffle.3
-gzip -9f /usr/share/man/man3/memshuffle.3
-/usr/bin/install -c -m 644 man/memswap.3 /usr/share/man/man3/memswap.3
-gzip -9f /usr/share/man/man3/memswap.3
-/usr/bin/install -c -m 644 man/publib.3 /usr/share/man/man3/publib.3
-gzip -9f /usr/share/man/man3/publib.3
-/usr/bin/install -c -m 644 man/__set_liberror.3 /usr/share/man/man3/__set_liberror.3
-gzip -9f /usr/share/man/man3/__set_liberror.3
-/usr/bin/install -c -m 644 man/stack.3 /usr/share/man/man3/stack.3
-gzip -9f /usr/share/man/man3/stack.3
-/usr/bin/install -c -m 644 man/stracat.3 /usr/share/man/man3/stracat.3
-gzip -9f /usr/share/man/man3/stracat.3
-/usr/bin/install -c -m 644 man/stranaxfrm.3 /usr/share/man/man3/stranaxfrm.3
-gzip -9f /usr/share/man/man3/stranaxfrm.3
-/usr/bin/install -c -m 644 man/strchange.3 /usr/share/man/man3/strchange.3
-gzip -9f /usr/share/man/man3/strchange.3
-/usr/bin/install -c -m 644 man/strcins.3 /usr/share/man/man3/strcins.3
-gzip -9f /usr/share/man/man3/strcins.3
-/usr/bin/install -c -m 644 man/strcstr.3 /usr/share/man/man3/strcstr.3
-gzip -9f /usr/share/man/man3/strcstr.3
-/usr/bin/install -c -m 644 man/strdel.3 /usr/share/man/man3/strdel.3
-gzip -9f /usr/share/man/man3/strdel.3
-/usr/bin/install -c -m 644 man/strdiff.3 /usr/share/man/man3/strdiff.3
-gzip -9f /usr/share/man/man3/strdiff.3
-/usr/bin/install -c -m 644 man/strend.3 /usr/share/man/man3/strend.3
-gzip -9f /usr/share/man/man3/strend.3
-/usr/bin/install -c -m 644 man/strendzap.3 /usr/share/man/man3/strendzap.3
-gzip -9f /usr/share/man/man3/strendzap.3
-/usr/bin/install -c -m 644 man/strgsub.3 /usr/share/man/man3/strgsub.3
-gzip -9f /usr/share/man/man3/strgsub.3
-/usr/bin/install -c -m 644 man/strhash.3 /usr/share/man/man3/strhash.3
-gzip -9f /usr/share/man/man3/strhash.3
-/usr/bin/install -c -m 644 man/strinit.3 /usr/share/man/man3/strinit.3
-gzip -9f /usr/share/man/man3/strinit.3
-/usr/bin/install -c -m 644 man/strins.3 /usr/share/man/man3/strins.3
-gzip -9f /usr/share/man/man3/strins.3
-/usr/bin/install -c -m 644 man/strltrim.3 /usr/share/man/man3/strltrim.3
-gzip -9f /usr/share/man/man3/strltrim.3
-/usr/bin/install -c -m 644 man/strmaxcpy.3 /usr/share/man/man3/strmaxcpy.3
-gzip -9f /usr/share/man/man3/strmaxcpy.3
-/usr/bin/install -c -m 644 man/strmove.3 /usr/share/man/man3/strmove.3
-gzip -9f /usr/share/man/man3/strmove.3
-/usr/bin/install -c -m 644 man/strmtrim.3 /usr/share/man/man3/strmtrim.3
-gzip -9f /usr/share/man/man3/strmtrim.3
-/usr/bin/install -c -m 644 man/strnins.3 /usr/share/man/man3/strnins.3
-gzip -9f /usr/share/man/man3/strnins.3
-/usr/bin/install -c -m 644 man/stroverlap.3 /usr/share/man/man3/stroverlap.3
-gzip -9f /usr/share/man/man3/stroverlap.3
-/usr/bin/install -c -m 644 man/strrev.3 /usr/share/man/man3/strrev.3
-gzip -9f /usr/share/man/man3/strrev.3
-/usr/bin/install -c -m 644 man/strright.3 /usr/share/man/man3/strright.3
-gzip -9f /usr/share/man/man3/strright.3
-/usr/bin/install -c -m 644 man/strrot13.3 /usr/share/man/man3/strrot13.3
-gzip -9f /usr/share/man/man3/strrot13.3
-/usr/bin/install -c -m 644 man/strrstr.3 /usr/share/man/man3/strrstr.3
-gzip -9f /usr/share/man/man3/strrstr.3
-/usr/bin/install -c -m 644 man/strrtrim.3 /usr/share/man/man3/strrtrim.3
-gzip -9f /usr/share/man/man3/strrtrim.3
-/usr/bin/install -c -m 644 man/strset.3 /usr/share/man/man3/strset.3
-gzip -9f /usr/share/man/man3/strset.3
-/usr/bin/install -c -m 644 man/strshuffle.3 /usr/share/man/man3/strshuffle.3
-gzip -9f /usr/share/man/man3/strshuffle.3
-/usr/bin/install -c -m 644 man/strsplit.3 /usr/share/man/man3/strsplit.3
-gzip -9f /usr/share/man/man3/strsplit.3
-/usr/bin/install -c -m 644 man/strsub.3 /usr/share/man/man3/strsub.3
-gzip -9f /usr/share/man/man3/strsub.3
-/usr/bin/install -c -m 644 man/strtabify.3 /usr/share/man/man3/strtabify.3
-gzip -9f /usr/share/man/man3/strtabify.3
-/usr/bin/install -c -m 644 man/strtrexpand.3 /usr/share/man/man3/strtrexpand.3
-gzip -9f /usr/share/man/man3/strtrexpand.3
-/usr/bin/install -c -m 644 man/strtrim.3 /usr/share/man/man3/strtrim.3
-gzip -9f /usr/share/man/man3/strtrim.3
-/usr/bin/install -c -m 644 man/struncstr.3 /usr/share/man/man3/struncstr.3
-gzip -9f /usr/share/man/man3/struncstr.3
-/usr/bin/install -c -m 644 man/struntabify.3 /usr/share/man/man3/struntabify.3
-gzip -9f /usr/share/man/man3/struntabify.3
-/usr/bin/install -c -m 644 man/strvars.3 /usr/share/man/man3/strvars.3
-gzip -9f /usr/share/man/man3/strvars.3
-/usr/bin/install -c -m 644 man/strzap.3 /usr/share/man/man3/strzap.3
-gzip -9f /usr/share/man/man3/strzap.3
-/usr/bin/install -c -m 644 man/tbuf.3 /usr/share/man/man3/tbuf.3
-gzip -9f /usr/share/man/man3/tbuf.3
-/usr/bin/install -c -m 644 man/xmalloc.3 /usr/share/man/man3/xmalloc.3
-gzip -9f /usr/share/man/man3/xmalloc.3
+make: Nothing to be done for 'install'.
 make: Leaving directory '/mnt/publib'
 DISTRIBUTOR=doxie make --directory=doc-base prefix=/usr 
 make[1]: Entering directory '/mnt/doc-base'
@@ -4793,7 +4499,26 @@ Building dwww pages (a-g):
 The dwww pages have been re-built.
 /usr/sbin/dwww-build-menu
 /usr/sbin/dwww-refresh-cache
-checking cache directory: /var/cache/dwww...chown: invalid user: ‘www-data’
-make: *** [makefile:71: /var/lib/doc-base/documents] Error 1
+checking cache directory: /var/cache/dwww...done
+removing temporary files in cache dir...done
+removing temporary files in temp dir...done
+removing stale cache entries...done
+/usr/sbin/dwww-refresh-cache: line 45: su: command not found
+generating installed packages and programs list...done
+generating source and virtual package list...dpkg-query: error: failed to open package info file '/usr/var/lib/dpkg/status' for reading: No such file or directory
+done
+creating doc-base files to packages mapping file...done
+creating installed packages & programs cache...done
+/usr/sbin/dwww-index++ -v -f -- -v4
+Full index will be build
+Parsing doc-base files
+Executing: /usr/bin/index --follow-links --no-recurse --config-file /usr/share/dwww/swish++.conf --index-file /var/cache/dwww/dwww.swish++.index.tmp -v4 -
 
-Script done on Sat, Nov 09, 2019  4:38:33 PM
+index: done:
+  00:00 (min:sec) elapsed time
+  0 files, 0 indexed
+  0 words, 0 indexed, 0 unique
+
+make: Nothing to be done for 'po-debconf'.
+
+Script done on Sat, Nov 09, 2019  6:54:17 PM
