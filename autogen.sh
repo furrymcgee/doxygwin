@@ -116,6 +116,7 @@ prefix=/usr \
 	install -C dpkg
 	fakeroot/configure fakeroot
 	~/.cpan
+	install -C debhelper
 	strip-nondeterminism/debian
 	intltool-debian
 	install -C intltool-debian
@@ -124,7 +125,6 @@ prefix=/usr \
 	install -C publib
 	doc-base
 	install -C doc-base
-	install -C debhelper
 	debconf
 	install -C debconf
 	swish++
