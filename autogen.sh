@@ -104,6 +104,8 @@ cat \
 | \
 GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
 
+net user www-data /ADD || true
+
 xargs -L1 make \
 DISTRIBUTOR=doxie \
 prefix=/usr \
@@ -117,7 +119,7 @@ prefix=/usr \
 	strip-nondeterminism/debian
 	intltool-debian
 	install -C intltool-debian
-	-B publib/configure
+	publib/configure
 	publib
 	install -C publib
 	doc-base
