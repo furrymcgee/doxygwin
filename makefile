@@ -20,7 +20,7 @@ ETC = ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
 DEBIAN = strip-nondeterminism/debian
 
-.PHONY: $(.DEFAULT_GOAL) $(SUBDIRS) $(ETC) $(DEBIAN)
+.PHONY: $(.DEFAULT_GOAL) $(SUBDIRS) $(ETC) $(DEBIAN) clean
 
 $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
@@ -129,3 +129,7 @@ $(DEBIAN):
 	" | xargs -I@ dpkg-gencontrol -p@ && \
 	dpkg-buildpackage -rsh\ -c -d
 
+clean:
+	net user www-data /delete || true
+	rm -rf ~/.cpan
+	git submodule foreach git clean -dfx
