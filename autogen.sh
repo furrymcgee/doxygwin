@@ -106,11 +106,12 @@ GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
 
 net user www-data /ADD || true
 
-xargs -L1 make \
+xargs -t -L1 make \
 DISTRIBUTOR=doxie \
 prefix=/usr \
 <<-'MAKE'
-	tar/configure tar
+	-B tar/configure
+	tar
 	install -C tar
 	dpkg/configure dpkg
 	install -C dpkg

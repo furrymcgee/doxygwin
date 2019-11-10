@@ -31,7 +31,7 @@ $(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
 
 $(CONFIGURE):
 	cd $(shell dirname $@) && \
-	autoreconf -i && \
+	autoreconf -fi && \
 	sh configure \
 		--host=i686-pc-cygwin \
 		--prefix=/usr \
@@ -132,4 +132,8 @@ $(DEBIAN):
 clean:
 	net user www-data /delete || true
 	rm -rf ~/.cpan
-	git submodule foreach git clean -dfx
+	git submodule foreach | \
+	cut -d\' -f2 | \
+	grep -v cygwin-auto-install | \
+	xargs -I@ \
+		git --git-dir=@/.git --work-tree=@ clean -dfx
