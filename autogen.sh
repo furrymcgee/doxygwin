@@ -54,6 +54,7 @@ GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git checkout Debconf
 cat \
 0001-munge.patch \
 0002-No-candidate-position-for-the-addendum.patch \
+0003-prefix.patch \
 | \
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git am
 
@@ -135,3 +136,4 @@ prefix=/usr \
 	po-debconf
 	/var/cache/debconf /var/lib/doc-base/documents po-debconf
 MAKE
+

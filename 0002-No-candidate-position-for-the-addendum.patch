@@ -1,7 +1,7 @@
-From 2e35686f78d50cc32f2f773a0503e6ad31f197a0 Mon Sep 17 00:00:00 2001
+From 6475f1318f5f7b535032289950c2cc89e3b633d6 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
 Date: Fri, 1 Nov 2019 01:19:54 -0700
-Subject: [PATCH 2/2] No candidate position for the addendum
+Subject: [PATCH 2/3] No candidate position for the addendum
 
 ---
  Makefile | 1 -
@@ -11,7 +11,7 @@ Subject: [PATCH 2/2] No candidate position for the addendum
 diff --git a/Makefile b/Makefile
 old mode 100755
 new mode 100644
-index 17d31bf..6a10bbc
+index 17d31bff..6a10bbc3
 --- a/Makefile
 +++ b/Makefile
 @@ -9,7 +9,6 @@ MUNGE=xargs -L1 perl -i.bak -ne ' \
@@ -23,5 +23,5 @@ index 17d31bf..6a10bbc
  
  clean:
 -- 
-2.8.3
+2.23.0.rc1
 
