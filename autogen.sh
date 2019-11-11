@@ -134,6 +134,6 @@ prefix=/usr \
 	dwww
 	install -C dwww
 	po-debconf
-	/var/cache/debconf /var/lib/doc-base/documents po-debconf
+	/var/cache/debconf /var/lib/doc-base/documents
 MAKE
 
