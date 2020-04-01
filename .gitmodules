@@ -52,3 +52,15 @@
 [submodule "calm"]
 	path = calm
 	url = git://sourceware.org/git/cygwin-apps/calm.git
+[submodule "meson-cygport"]
+	path = meson-cygport
+	url = ./meson-cygport/
+[submodule "meson"]
+	path = meson
+	url = ./meson
+[submodule "ninja-cygport"]
+	path = ninja-cygport
+	url = ./ninja-cygport
+[submodule "strip-nondeterminism"]
+	path = strip-nondeterminism
+	url = ./strip-nondeterminism/
