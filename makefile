@@ -1,18 +1,17 @@
 .DEFAULT_GOAL = install
 
 SUBDIRS = \
-	dpkg \
-	fakeroot \
-	tar \
-	debhelper \
-	strip-nondeterminism \
-	intltool-debian \
-	publib \
-	doc-base \
 	debconf \
-	swish++ \
+	debhelper \
+	doc-base \
+	dpkg \
 	dwww \
+	fakeroot \
+	intltool-debian \
 	po-debconf \
+	publib \
+	swish++ \
+	tar \
 
 CONFIGURE = dpkg/configure publib/configure sensible-utils/configure fakeroot/configure tar/configure
 
@@ -65,13 +64,15 @@ tar: tar/configure
 	mkdir $@ || true
 	find documents/* | \
 	xargs -r install -p --target-directory=/etc/doc-base/documents
-	mkdir /usr/local/share/doc || true
+	mkdir /usr/local/share /usr/local/share/doc || true
 	find doc/* | \
 	xargs -r install -p --target-directory=/usr/local/share/doc
 	find /etc/doc-base/documents \
 		-type f \
 		-newer /etc/doc-base/documents/README | \
 	xargs -r /usr/sbin/install-docs --verbose --install
+	test -r /usr/var/lib/dpkg/status || \
+	touch touch /usr/var/lib/dpkg/status
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
@@ -119,15 +120,17 @@ tar: tar/configure
 
 #dpkg-genchanges: error: binary build with no binary artifacts found; cannot distribute
 $(DEBIAN):
+	dpkg --ignore-depends=libtool,perl:any,debhelper,autoconf,automake,autopoint -i dh-autoreconf_19_all.deb && \
 	cd $(shell dirname $@) || exit 1 && \
 	mkdir debian/tmp debian/tmp/DEBIAN || true && \
+	git -c core.symlinks reset --hard && \
 	git archive --format=tar --prefix=strip-nondeterminism-0.039/ debian/0.039-1 | bzip2 -9 > ../strip-nondeterminism_0.039.orig.tar.bz2 && \
 	perl -e " \
 		use Dpkg::Control::Info; \
 		print join qq/\n/, map { \$$_->{package} } \
 			Dpkg::Control::Info->new()->get_packages(); \
 	" | xargs -I@ dpkg-gencontrol -p@ && \
-	dpkg-buildpackage -rsh\ -c -d
+	: PERL5LIB=/usr/share/perl5 dpkg-buildpackage -rsh\ -c -d -a i386 -t i686-pc-cygwin
 
 clean:
 	net user www-data /delete || true
@@ -137,3 +140,15 @@ clean:
 	grep -v cygwin-auto-install | \
 	xargs -I@ \
 		git --git-dir=@/.git --work-tree=@ clean -dfx
+
+
+Sources.gz:
+	wget -c \
+		http://deb.debian.org/debian/dists/stable/main/source/Sources.gz
+
+Packages.gz:
+	wget -c \
+		http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz
+
+%.cygport: cygport.sh Packages.gz Sources.gz
+	sh $< $(basename $@) > $@

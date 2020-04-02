@@ -1,10 +1,13 @@
 #!/bin/sh
 # This script builds https://github.com/furrymcgee/doxie-search
 # First submodules are patched then make is called
+# build tar --clamp-time 
 
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
+git config core.filemode false
+git submodule foreach git config core.filemode false
 git submodule update --init --force --checkout
 
 cat \
@@ -31,9 +34,16 @@ cat \
 0005-fixup-libcompat-Only-test-the-strerror-if-sys_errlis.patch \
 0006-dpkg-genbuildinfo-warning-unknown-CC-system-type-i68.patch \
 0007-dpkg-genbuildinfo-error-cannot-open-var-lib-dpkg-sta.patch \
+0008-dpkg-error-requested-operation-requires-superuser-pr.patch \
 | \
 GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am
 
+cat \
+0001-dpkg-architecture-warning-unknown-CC-system-type-i68.patch \
+| \
+GIT_WORK_TREE=debhelper GIT_DIR=debhelper/.git git am
+
+GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git config core.filemode false
 cat \
 0001-apt-get-install-cvs2svn-cvs.patch \
 0002-mkdir-cannot-create-directory-_-usr_-Read-only-file-.patch \
@@ -49,6 +59,8 @@ cat \
 GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am
 
 rm -rf debconf/debconf debconf/Debconf
+GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.symlinks false
+GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.filemode false
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git checkout Debconf
 
 cat \
@@ -97,18 +109,12 @@ cat \
 | \
 GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am
 
-cat \
-0001-use-Config-print-Config-vendorlib.patch \
-0002-e6b3ba4-dh_testroot-root_requirements-no-longer-read.patch \
-0003-Can-t-locate-File-StripNondeterminism.pm-in-INC.patch \
-0004-Can-t-exec-dh_strip_nondeterminism-No-such-file-or-d.patch \
-| \
-GIT_WORK_TREE=strip-nondeterminism GIT_DIR=strip-nondeterminism/.git git am
-
 net user www-data /ADD || true
 
 xargs -t -L1 make \
 DISTRIBUTOR=doxie \
+PERL5LIB=/usr/share/perl5 \
+DH_COMPAT=10 \
 prefix=/usr \
 <<-'MAKE'
 	-B tar/configure
@@ -116,10 +122,8 @@ prefix=/usr \
 	install -C tar
 	dpkg/configure dpkg
 	install -C dpkg
-	fakeroot/configure fakeroot
 	~/.cpan
 	install -C debhelper
-	strip-nondeterminism/debian
 	intltool-debian
 	install -C intltool-debian
 	publib/configure
