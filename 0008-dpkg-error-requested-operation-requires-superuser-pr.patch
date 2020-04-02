@@ -1,0 +1,38 @@
+From 02b93d076f04b6fdae5da02f0afdb4650e82c200 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 18 Feb 2020 14:53:19 +0100
+Subject: [PATCH 8/8] dpkg: error: requested operation requires superuser
+ privilege
+
+---
+ lib/dpkg/dbmodify.c | 2 --
+ src/force.c         | 2 +-
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/lib/dpkg/dbmodify.c b/lib/dpkg/dbmodify.c
+index 3d77270fb..ec0dfc052 100644
+--- a/lib/dpkg/dbmodify.c
++++ b/lib/dpkg/dbmodify.c
+@@ -281,8 +281,6 @@ modstatdb_open(enum modstatdb_rw readwritereq)
+   switch (readwritereq) {
+   case msdbrw_needsuperuser:
+   case msdbrw_needsuperuserlockonly:
+-    if (getuid() || geteuid())
+-      ohshit(_("requested operation requires superuser privilege"));
+     /* Fall through. */
+   case msdbrw_write: case msdbrw_writeifposs:
+     if (access(dpkg_db_get_dir(), W_OK)) {
+diff --git a/src/force.c b/src/force.c
+index 5fa19ee1c..cd01c131c 100644
+--- a/src/force.c
++++ b/src/force.c
+@@ -391,5 +391,5 @@ forcible_nonroot_error(int rc)
+ {
+ 	if (in_force(FORCE_NON_ROOT) && errno == EPERM)
+ 		return 0;
+-	return rc;
++	return 0;
+ }
+-- 
+2.23.0.rc1
+

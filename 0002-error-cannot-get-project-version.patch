@@ -1,7 +1,7 @@
-From 9263b5cf0496798dd656c92fca7e99d9d8bd2a28 Mon Sep 17 00:00:00 2001
+From b7251467b973a2874bfdc32ce8133c9644f13087 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sat, 10 Aug 2019 13:45:45 +0200
-Subject: [PATCH 2/7] error: cannot get project version
+Subject: [PATCH 2/8] error: cannot get project version
 
 ---
  get-version | 5 +----

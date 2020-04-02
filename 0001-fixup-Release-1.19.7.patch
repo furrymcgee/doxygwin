@@ -1,7 +1,7 @@
-From f528c56816af17070d2c2fbb49a0455594d74a06 Mon Sep 17 00:00:00 2001
+From f32ef5e190b502fa9793ac25224a0b1a64f46aed Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sat, 10 Aug 2019 13:45:45 +0200
-Subject: [PATCH 1/7] fixup! Release 1.19.7
+Subject: [PATCH 1/8] fixup! Release 1.19.7
 
 ---
  .dist-version | 1 +

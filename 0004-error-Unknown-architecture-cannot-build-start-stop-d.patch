@@ -1,7 +1,7 @@
-From d623be8df6d71e011ee148c2a51676ef5115cc79 Mon Sep 17 00:00:00 2001
+From 18396c18312ebd37bd04f1e4554397c6a4aa1627 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sun, 11 Aug 2019 11:41:29 +0200
-Subject: [PATCH 4/7] error Unknown architecture - cannot build
+Subject: [PATCH 4/8] error Unknown architecture - cannot build
  start-stop-daemon
 
 ---

@@ -1,0 +1,58 @@
+NAME="dpkg"
+VERSION="1.19.7"
+RELEASE=1
+CATEGORY="admin"
+SUMMARY="Debian package management system"
+DESCRIPTION=""
+HOMEPAGE="http://sourceware.org/cygwinports/"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.7.dsc http://ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.7.tar.xz"
+SRC_DIR="."
+PATCH_URI="./dpkg.patch"
+DEBEMAIL="user@example.com"
+DEBFULLNAME="Firstname Lastname"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+
+# this package contains no compiled Cygwin binaries
+# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+ARCH="i686"
+
+# Build dependencies only
+DEPEND=""
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES="tar"
+
+CYGPORT_USE_UNSTABLE_API=1
+
+check_prog_req dh
+
+src_unpack_hook(){
+	rm -f "${NAME}-${VERSION}/configure"
+}
+
+src_patch_hook(){
+	:
+}
+
+src_compile() {
+	rsync --archive "${S}/." "${B}/." &&
+	cd -P "${B}/${NAME}-${VERSION}" &&
+	PATH="$PWD/build-tree/dpkg-deb:$PATH" \
+	PATH="$PWD/build-tree/src:$PATH" \
+	PATH="$PWD/build-tree/scripts:$PATH" \
+	PERL_LIBDIR=/usr/share/perl5 \
+	PERL5LIB="${PWD}/scripts" \
+	DPKG_DATADIR="${PWD}/data" \
+	DEB_RULES_REQUIRES_ROOT=no \
+	DEB_BUILD_GNU_TYPE="$(cc -dumpmachine)" \
+	DEB_HOST_GNU_TYPE="$(cc -dumpmachine)" \
+	DEB_HOST_ARCH_OS="$(cc -dumpmachine)" \
+	DEB_HOST_MULTIARCH="$(cc -dumpmachine)" \
+	make -f debian/rules binary
+}
+
+src_install() {
+	cd -P "${B}/${NAME}-${VERSION}" &&
+	make -C "${B}/build-tree" DESTDIR="${D}" install 
+}
+

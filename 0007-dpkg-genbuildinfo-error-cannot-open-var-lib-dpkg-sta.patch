@@ -1,7 +1,7 @@
-From 47a2389eb116bf0b8c595795ae857c35e0f70776 Mon Sep 17 00:00:00 2001
+From 964a33c4f4653c2e44532a97c60ec601737c6d0d Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Fri, 16 Aug 2019 10:08:58 +0200
-Subject: [PATCH 7/7] dpkg-genbuildinfo: error: cannot open
+Subject: [PATCH 7/8] dpkg-genbuildinfo: error: cannot open
  /var/lib/dpkg/status: No such file or dire ctory
 
 ---

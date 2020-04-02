@@ -1,14 +1,18 @@
-From ddc2e6a3f3416ba1abb909aaaf10e108f5979345 Mon Sep 17 00:00:00 2001
+From c363ad356142031d5f530ac34ec092f890630a77 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 13 Aug 2019 15:36:26 +0200
-Subject: [PATCH 6/7] dpkg-genbuildinfo: warning: unknown CC system type
+Subject: [PATCH 6/8] dpkg-genbuildinfo: warning: unknown CC system type
  i686-pc-cygwin, falling back to default (native compilation)
 
 ---
- .dist-version   | 1 -
- data/tupletable | 1 +
- 2 files changed, 1 insertion(+), 1 deletion(-)
+ .dist-version             |   1 -
+ data/ostable              |   1 +
+ data/tupletable           |   1 +
+ scripts/Dpkg/Arch.pm      |   1 +
+ scripts/t/origins/default | Bin 6 -> 26 bytes
+ 5 files changed, 3 insertions(+), 1 deletion(-)
  delete mode 100644 .dist-version
+ mode change 120000 => 100644 scripts/t/origins/default
 
 diff --git a/.dist-version b/.dist-version
 deleted file mode 100644
@@ -17,15 +21,54 @@ index 98adfe8e1..000000000
 +++ /dev/null
 @@ -1 +0,0 @@
 -1.19.7
+diff --git a/data/ostable b/data/ostable
+index 99c1f889d..163696f68 100644
+--- a/data/ostable
++++ b/data/ostable
+@@ -41,3 +41,4 @@ base-sysv-solaris	solaris			solaris[^-]*
+ eabi-uclibc-uclinux	uclinux-uclibceabi	uclinux[^-]*-uclibceabi
+ base-uclibc-uclinux	uclinux-uclibc		uclinux[^-]*(-uclibc.*)?
+ base-tos-mint		mint			mint[^-]*
++pc-gnu-cygwin		pc-cygwin		pc-cygwin
 diff --git a/data/tupletable b/data/tupletable
-index a7a878f5b..0e8f59ba7 100644
+index a7a878f5b..486dcbb49 100644
 --- a/data/tupletable
 +++ b/data/tupletable
 @@ -53,3 +53,4 @@ base-sysv-solaris-<cpu>		solaris-<cpu>
  eabi-uclibc-uclinux-arm		uclinux-armel
  base-uclibc-uclinux-<cpu>	uclinux-<cpu>
  base-tos-mint-m68k		mint-m68k
-+pc-cygwin-<cpu>			cygwin-<cpu>
++pc-gnu-cygwin-<cpu>		cygwin-<cpu>
+diff --git a/scripts/Dpkg/Arch.pm b/scripts/Dpkg/Arch.pm
+index 14709d6cc..89be4a43f 100644
+--- a/scripts/Dpkg/Arch.pm
++++ b/scripts/Dpkg/Arch.pm
+@@ -422,6 +422,7 @@ sub debtuple_to_debarch(@)
+     _load_tupletable();
+ 
+     if (!defined $abi || !defined $libc || !defined $os || !defined $cpu) {
++	warning(g_('unknown system type'));
+ 	return;
+     } elsif (exists $debtuple_to_debarch{"$abi-$libc-$os-$cpu"}) {
+ 	return $debtuple_to_debarch{"$abi-$libc-$os-$cpu"};
+diff --git a/scripts/t/origins/default b/scripts/t/origins/default
+deleted file mode 120000
+index b2f7fd3e9..000000000
+--- a/scripts/t/origins/default
++++ /dev/null
+@@ -1 +0,0 @@
+-debian
+\ No newline at end of file
+diff --git a/scripts/t/origins/default b/scripts/t/origins/default
+new file mode 100644
+index 0000000000000000000000000000000000000000..5081fe7601374405cc17acd709967ad32a6ef5f7
+GIT binary patch
+literal 26
+hcmY$iDXz@T$;`{P`~NS6A(bJCA(J7IA&-H90RVwh2m=5B
+
+literal 0
+HcmV?d00001
+
 -- 
 2.23.0.rc1
 

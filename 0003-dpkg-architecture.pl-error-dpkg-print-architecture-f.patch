@@ -1,7 +1,7 @@
-From d7d145917c7f2367cc6e5009c0a5318fe9d05eea Mon Sep 17 00:00:00 2001
+From bd9babf2fe95e617e2d9dbf0bdb42d929f4bc239 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sat, 10 Aug 2019 17:23:22 +0200
-Subject: [PATCH 3/7] dpkg-architecture.pl: error: dpkg --print-architecture
+Subject: [PATCH 3/8] dpkg-architecture.pl: error: dpkg --print-architecture
  failed: No such file or directory
 
 ---

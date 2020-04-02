@@ -1,7 +1,7 @@
-From 83a91f6a28a7dd20046952552677a37ca4ddfbe1 Mon Sep 17 00:00:00 2001
+From 5744f0096c9a811cfa640e9d9c665322c23f06ad Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Mon, 12 Aug 2019 13:00:49 +0200
-Subject: [PATCH 5/7] fixup! libcompat: Only test the strerror() if sys_errlist
+Subject: [PATCH 5/8] fixup! libcompat: Only test the strerror() if sys_errlist
  and sys_nerr are present
 
 ---
