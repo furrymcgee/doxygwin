@@ -1,0 +1,17 @@
+Index: dh-autoreconf/debian/rules
+===================================================================
+--- dh-autoreconf/debian/rules
++++ dh-autoreconf/debian/rules
+@@ -3,7 +3,11 @@ include /usr/share/dpkg/pkg-info.mk
+ pod2man := pod2man -r "dh-autoreconf v$(DEB_VERSION)" -c dh-autoreconf
+ 
+ %:
+-	dh $@
++	dh $@ --without autoreconf
++
++override_dh_strip_nondeterminism:
++
++override_dh_installman:
+ 
+ override_dh_auto_build:
+ 	$(pod2man) --section=1 dh_autoreconf dh_autoreconf.1

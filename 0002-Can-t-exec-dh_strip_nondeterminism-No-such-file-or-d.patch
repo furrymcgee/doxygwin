@@ -1,4 +1,4 @@
-From d251308000821d4660866b872c888e01de9a8591 Mon Sep 17 00:00:00 2001
+From b11be431207ec4193ef0fe70ecb3c7e9dc2d2ef0 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Thu, 15 Aug 2019 16:57:23 +0200
 Subject: [PATCH 2/2] Can't exec "dh_strip_nondeterminism": No such file or
@@ -6,18 +6,20 @@ Subject: [PATCH 2/2] Can't exec "dh_strip_nondeterminism": No such file or
 
 Disable as they are unneeded (and we can then be sure debhelper builds without needing autotools-dev, dh-strip-nondetermism etc.)
 ---
- debian/rules | 2 ++
- 1 file changed, 2 insertions(+)
+ debian/rules | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/debian/rules b/debian/rules
-index 1304204..7cf83e6 100755
+index 1304204..d6b345c 100755
 --- a/debian/rules
 +++ b/debian/rules
-@@ -5,6 +5,8 @@ pod2man := pod2man -r "dh-autoreconf v$(DEB_VERSION)" -c dh-autoreconf
+@@ -5,6 +5,10 @@ pod2man := pod2man -r "dh-autoreconf v$(DEB_VERSION)" -c dh-autoreconf
  %:
  	DEB_RULES_REQUIRES_ROOT=no dh $@ --without autoreconf
  
 +override_dh_strip_nondeterminism:
++
++override_dh_installman:
 +
  override_dh_auto_build:
  	$(pod2man) --section=1 dh_autoreconf dh_autoreconf.1

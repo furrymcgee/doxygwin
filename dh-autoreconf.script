@@ -1,0 +1,449 @@
+Script started on Fri Mar 27 19:43:22 2020
+cygport --32 --debug dh-autoreconf all
++ [[ -z '' ]]
++ CYG_SYS_BASHRC=1
++ [[ ehimxBH != *i* ]]
++ export 'EXECIGNORE=*.dll'
++ EXECIGNORE='*.dll'
++ PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
++ [[ ehimxBH != *i* ]]
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 --debug dh-autoreconf all
++ cygport --32 --debug dh-autoreconf all
++ shift
++ true
++ case ${1} in
++ break
++ argv=(${0} ${@})
++ declare -ar argv
++ declare -ir argc=3
++ defined 'argv[1]'
++ ((  1 != 1  ))
++ '[' -n dh-autoreconf ']'
++ return 0
++ defined 'argv[2]'
++ ((  1 != 1  ))
++ '[' -n all ']'
++ return 0
++ source /usr/share/cygport/lib/check_funcs.cygpart
+++ readonly -f check_prog check_prog_req check_tool check_target_tool check_pkg_config check_girepository_module check_lua_module check_ocaml_module check_perl_module check_php_module check_python_module check_python2_module check_python3_module check_pypy_module check_R_module check_ruby_module check_tcl_module check_tex_module check_vala_module __check_depends __check_function __check_function_ro __check_unstable __version_at_least
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog bzip2
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash bzip2
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog cat
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash cat
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog chmod
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash chmod
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog cp
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash cp
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog diff
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash diff
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog diffstat
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash diffstat
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog dos2unix
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash dos2unix
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog file
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash file
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog find
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash find
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog gawk
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash gawk
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog grep
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash grep
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog gzip
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash gzip
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog install
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash install
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog ln
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash ln
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog mkdir
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash mkdir
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog mv
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash mv
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog patch
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash patch
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog rm
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash rm
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog rsync
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash rsync
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog sed
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash sed
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog sort
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash sort
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog tar
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash tar
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog xargs
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash xargs
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog which
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash which
++ return 0
++ for _myprog in bzip2 cat chmod cp diff diffstat dos2unix file find gawk grep gzip install ln mkdir mv patch rm rsync sed sort tar xargs which xz
++ check_prog xz
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash xz
++ return 0
++ unset _myprog
++ check_prog pbzip2
++ local _prog
++ ((  1 < 1  ))
++ for _prog in '"$@"'
++ hash pbzip2
++ return 1
++ readonly _tar_bz2_flag=-j
++ _tar_bz2_flag=-j
+++ nproc
++ declare 'MAKEOPTS=-j2 '
++ for conf in '${_sysconfdir}/cygport.conf' '"${HOME}/.cygportrc"' '"${HOME}/.cygport.conf"' '"${HOME}/.cygport/cygport.conf"'
++ '[' -e /etc/cygport.conf ']'
++ source /etc/cygport.conf
++ for conf in '${_sysconfdir}/cygport.conf' '"${HOME}/.cygportrc"' '"${HOME}/.cygport.conf"' '"${HOME}/.cygport/cygport.conf"'
++ '[' -e /home/Administrator/.cygportrc ']'
++ for conf in '${_sysconfdir}/cygport.conf' '"${HOME}/.cygportrc"' '"${HOME}/.cygport.conf"' '"${HOME}/.cygport/cygport.conf"'
++ '[' -e /home/Administrator/.cygport.conf ']'
++ for conf in '${_sysconfdir}/cygport.conf' '"${HOME}/.cygportrc"' '"${HOME}/.cygport.conf"' '"${HOME}/.cygport/cygport.conf"'
++ '[' -e /home/Administrator/.cygport/cygport.conf ']'
++ unset conf
++ source /usr/share/cygport/lib/config_registry.cygpart
+++ readonly -f __config_equals __config_get __config_set
++ source /usr/share/cygport/lib/inheritance.cygpart
+++ readonly -f inherit inherited
++ source /usr/share/cygport/lib/src_fetch.cygpart
+++ readonly -f fetch __mirror_fetch __src_fetch
++ source /usr/share/cygport/mirrors
+++ mirror_apache+=' http://www.apache.org/dist'
+++ mirror_berlios+='
+	http://download.berlios.de
+	http://download2.berlios.de
+'
+++ mirror_cpan+=' http://search.cpan.org/CPAN'
+++ mirror_cran+=' http://cran.r-project.org'
+++ mirror_ctan+=' http://mirror.ctan.org/'
+++ mirror_debian+=' http://ftp.debian.org/debian'
+++ mirror_gcc+=' ftp://gcc.gnu.org/pub/gcc'
+++ mirror_gentoo+=' http://gentoo.osuosl.org/distfiles'
+++ mirror_gnome+='
+	http://download.gnome.org
+	http://ftp.gnome.org/pub/gnome
+	ftp://ftp.gnome.org/pub/gnome
+'
+++ mirror_gnu+='
+	http://ftpmirror.gnu.org
+	ftp://ftp.gnu.org/gnu
+'
+++ mirror_gnustep+='
+	http://ftp.gnustep.org/pub/gnustep
+	ftp://ftp.gnustep.org/pub/gnustep
+'
+++ mirror_kde+=' http://download.kde.org'
+++ mirror_mplayer+=' http://www1.mplayerhq.hu/MPlayer'
+++ mirror_mysql+='
+	http://mirrors.dotsrc.org/mysql
+	ftp://mirrors.dotsrc.org/mysql
+	http://ftp.gwdg.de/pub/misc/mysql
+	ftp://ftp.gwdg.de/pub/misc/mysql
+	http://www.mirrorservice.org/sites/ftp.mysql.com
+	ftp://ftp.mirrorservice.org/sites/ftp.mysql.com
+	http://mysql.oss.eznetsols.org
+	ftp://ftp.oss.eznetsols.org/mysql
+'
+++ mirror_portage+=' https://gitweb.gentoo.org/repo/gentoo.git/plain'
+++ mirror_rubyforge+=' http://files.rubyforge.vm.bytemark.co.uk'
+++ mirror_savannah+=' http://download.savannah.nongnu.org/releases'
+++ mirror_sourceforge+=' http://downloads.sourceforge.net'
+++ mirror_sourceware+=' ftp://ftp.sourceware.org/pub'
+++ mirror_qt+=' http://download.qt-project.org'
+++ mirror_tlpretest+='
+	http://ftp.math.utah.edu/pub/texlive/tlpretest
+	ftp://ftp.math.utah.edu/pub/texlive/tlpretest
+	http://mirror.hmc.edu/tlpretest
+	http://ftp.cstug.cz/pub/tex/local/tlpretest
+	ftp://ftp.cstug.cz/pub/tex/local/tlpretest
+	http://ftp.ctex.org/mirrors/texlive/tlpretest
+	ftp://ftp.ctex.org/mirrors/texlive/tlpretest
+	http://ctan.ijs.si/mirror/tlpretest
+'
+++ mirror_trolltech+='  http://download.qt-project.org'
+++ mirror_vim+=' http://ftp.vim.org/pub/vim'
+++ mirror_xfce+=' http://archive.xfce.org'
++ source /usr/share/cygport/lib/src_prep.cygpart
+++ readonly -f __cpio_gz_extract __gem_extract __srpm_extract unpack __gpg_verify __mkdirs cygpatch __src_prep
++ source /usr/share/cygport/lib/compilers.cygpart
+++ declare -x CC=gcc
+++ declare -x 'CFLAGS=-ggdb -O2 -pipe -Wimplicit-function-declaration'
+++ declare -x CPPFLAGS=
+++ declare -x CXX=g++
+++ declare -x 'CXXFLAGS=-ggdb -O2 -pipe'
+++ declare -x F77=gfortran
+++ declare -x 'FFLAGS=-ggdb -O2 -pipe'
+++ declare -x FC=gfortran
+++ declare -x 'FCFLAGS=-ggdb -O2 -pipe'
+++ declare -x GOC=gccgo
+++ declare -x 'GOFLAGS=-ggdb -O2 -pipe'
+++ declare -x OBJC=gcc
+++ declare -x 'OBJCFLAGS=-ggdb -O2 -pipe -Wimplicit-function-declaration'
+++ declare -x OBJCXX=g++
+++ declare -x 'OBJCXXFLAGS=-ggdb -O2 -pipe'
+++ declare -x LDFLAGS=
+++ declare -x LIBS=
+++ AR=ar
+++ DLLTOOL=dlltool
+++ NM=nm
+++ OBJDUMP=objdump
+++ RANLIB=ranlib
+++ RC=windres
+++ STRIP=strip
+++ PKG_CONFIG=pkg-config
+++ declare CC_SYSROOT=
++++ /usr/share/cygport/config.guess
+++ declare CBUILD=i686-pc-cygwin
+++ case ${CBUILD} in
+++ CHOST=i686-pc-cygwin
+++ unset _host_arch
+++ declare CTARGET=i686-pc-cygwin
+++ declare CROSS_HOST=
+++ declare CROSS_SYSROOT=
+++ declare TOOLCHAIN_TARGET=
+++ declare ARCH=i686
+++ declare ARCH_i686=1
+++ '[' i686-pc-cygwin '!=' i686-pc-cygwin ']'
++ source /usr/share/cygport/lib/src_compile.cygpart
+++ readonly -f lndirs cygmake
++ source /usr/share/cygport/lib/src_test.cygpart
+++ readonly -f cygtest
++ source /usr/share/cygport/lib/src_install.cygpart
+++ readonly -f __doinstall __fix_shebang dodir keepdir dobin newbin docinto dodoc newdoc exeinto doexe newexe insinto doins newins doicon newicon dolib doman newman domenu newmenu dosbin newsbin dosym make_autostart_entry make_desktop_entry make_etc_defaults update_etc_shells __prepinstalldirs cyginstall
++ source /usr/share/cygport/lib/src_postinst.cygpart
+++ readonly -f __prep_fonts_dir __prep_freedesktop_mime __prep_gconf_schemas __prep_gdk_pixbuf_modules __prep_gtk2_modules __prep_gtk3_modules __prep_gtk_icon_theme __prep_python_bytecompile __prep_texlive __prep_xsessions __prepdoc __prepemacs __prepetc __prepman __prepinfo __prepperl __prepvargames __prep_empty_dirs __prepstrip __prepdebugsrc __prep_symlinks __prep_libtool_modules __src_postinst
++ source /usr/share/cygport/lib/pkg_info.cygpart
+++ readonly -f __list_files __list_debug_files __list_deps __show_deps __show_info __show_web __pager
++ source /usr/share/cygport/lib/pkg_pkg.cygpart
+++ readonly -f __pkg_binpkg __pkg_diff __gpg_sign __pkg_srcpkg __pkg_dist
++ source /usr/share/cygport/lib/pkg_upload.cygpart
+++ readonly -f __pkg_upload __pkg_announce
++ source /usr/share/cygport/lib/pkg_cleanup.cygpart
+++ readonly -f __finish
++ _autotools_CYGCLASS_stage1_=1
++ inherit autotools
++ local class
++ local classname
++ for class in '"$@"'
++ classname=autotools
++ '[' '!' -f /usr/share/cygport/cygclass/autotools.cygclass ']'
++ defined _autotools_CYGCLASS_
++ ((  1 != 1  ))
++ '[' -n '' ']'
++ return 1
++ export _autotools_CYGCLASS_=1
++ _autotools_CYGCLASS_=1
++ source /usr/share/cygport/cygclass/autotools.cygclass
+++ defined _autotools_CYGCLASS_stage1_
+++ ((  1 != 1  ))
+++ '[' -n 1 ']'
+++ return 0
++ unset _autotools_CYGCLASS_ _autotools_CYGCLASS_stage1_
++ unset NAME VERSION RELEASE
++ '[' -f dh-autoreconf ']'
++ '[' '' = yyy ']'
++ PF=dh-autoreconf
++ declare -r PF=dh-autoreconf
++ declare -r PN=dh-autoreconf
++ declare NAME=dh-autoreconf
++ declare -r PR=autoreconf
++ declare RELEASE=autoreconf
+++ echo dh-autoreconf
+++ sed -e 's/dh-autoreconf\-\(.*\)\-autoreconf$/\1/'
++ PV=dh-autoreconf
++ declare VERSION=dh-autoreconf
++ declare -r cygportfile=dh-autoreconf.cygport
++ declare -r P=dh-autoreconf-dh-autoreconf
++ declare -r PVR=dh-autoreconf-autoreconf
++ PVP=(${PV//[-\._]/ })
++ declare -ar PVP
++ PV=(${PV} ${PVP[*]})
++ declare -r PV
++ declare -r PV_MAJ=dh
++ declare -r PV_MAJ_MIN=dh.autoreconf
++ declare -rx CYGPORT_PACKAGE_NAME=dh-autoreconf
++ declare -rx CYGPORT_PACKAGE_VERSION=dh-autoreconf
++ declare -rx CYGPORT_PACKAGE_RELEASE=autoreconf
++ _topdir=dh-autoreconf
++ '[' xdh-autoreconf = xdh-autoreconf ']'
++ '[' -f ./dh-autoreconf.cygport ']'
++ _topdir=.
+++ cd .
+++ pwd
++ declare -r top=/mnt
++ unset _topdir
++ '[' '!' -e /mnt/dh-autoreconf.cygport ']'
++ source /mnt/dh-autoreconf.cygport
+++ NAME=dh-autoreconf
+++ VERSION=19
+++ RELEASE=1
+++ CATEGORY=devel
+++ SUMMARY='debhelper add-on to call autoreconf and clean up after the build'
+++ DESCRIPTION=
+++ HOMEPAGE=http://sourceware.org/cygwinports/
+++ SRC_URI='http://ftp.debian.org/debian/pool/main/d/dh-autoreconf/dh-autoreconf_19.dsc http://ftp.debian.org/debian/pool/main/d/dh-autoreconf/dh-autoreconf_19.tar.xz'
+++ SRC_DIR=.
+++ PATCH_URI=./dh-autoreconf.patch
+++ DEBEMAIL=user@example.com
+++ DEBFULLNAME='Firstname Lastname'
+++ ARCH=noarch
+++ DEPEND=
+++ REQUIRES='perl debhelper autoconf automake autopoint libtool'
+++ inherit dpkg
+++ local class
+++ local classname
+++ for class in '"$@"'
+++ classname=dpkg
+++ '[' '!' -f /usr/share/cygport/cygclass/dpkg.cygclass ']'
+++ defined _dpkg_CYGCLASS_
+++ ((  1 != 1  ))
+++ '[' -n '' ']'
+++ return 1
+++ export _dpkg_CYGCLASS_=1
+++ _dpkg_CYGCLASS_=1
+++ source /usr/share/cygport/cygclass/dpkg.cygclass
++++ CYGPORT_USE_UNSTABLE_API=1
++++ __cross_compiling_error
++++ cross_compiling
+++++ test i686-pc-cygwin '!=' i686-pc-cygwin
++++ return
++++ check_prog_req dpkg-source
++++ local prog=dpkg-source
++++ local pkg=dpkg-source
++++ check_prog dpkg-source
++++ local _prog
++++ ((  1 < 1  ))
++++ for _prog in '"$@"'
++++ hash dpkg-source
++++ return 1
++++ error 'dpkg-source is required to build this package'
++++ case $? in
++++ local errorcode=1
++++ echo -e '\e[1;31m*** ERROR:\e[0;0m dpkg-source is required to build this package'
+[1;31m*** ERROR:[0;0m dpkg-source is required to build this package
++++ exit 1
+
+Script done on Fri Mar 27 19:43:23 2020
