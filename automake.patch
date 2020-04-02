@@ -1,0 +1,14 @@
+--- automake-1.16.1/debian/rules
++++ automake-1.16.1/debian/rules
+@@ -47,3 +47,8 @@ endif
+ override_dh_auto_clean:
+ 	[ -f Makefile ] && dh_auto_clean || true
+ 	rm -f $(infodir)/automake-$(version).info*
++
++override_dh_update_autotools_config:
++
++override_dh_strip_nondeterminism:
++
+-- 
+2.23.0.rc1
+
