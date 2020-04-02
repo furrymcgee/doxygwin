@@ -1,0 +1,484 @@
+Script started on Tue Mar 31 21:43:50 2020
+cygport --32 debhelper all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 debhelper all
+[1;39m>>> Preparing debhelper.noarch[0;0m
+>>> Unpacking source debhelper_12.1.1.dsc
+>>> Unpacking source debhelper_12.1.1.tar.xz
+[1;32m*** Info:[0;0m applying patch debhelper.patch (-p0):
+patching file debhelper/dh_testroot
+patching file debhelper/lib/Debian/Debhelper/Buildsystem.pm
+Hunk #3 succeeded at 132 (offset -7 lines).
+Hunk #4 succeeded at 153 (offset -7 lines).
+patching file debhelper/lib/Debian/Debhelper/Dh_Lib.pm
+Hunk #1 succeeded at 1474 (offset -2 lines).
+Hunk #2 succeeded at 1490 (offset -2 lines).
+patching file debhelper/t/buildsystems/03-bs-auto-buildable.t
+patching file debhelper/t/buildsystems/buildsystem_tests.t
+>>> Preparing working source directory
+[1;39m>>> Compiling debhelper.noarch[0;0m
+make: Entering directory '/mnt/debhelper.noarch/build/debhelper'
+po4a --previous -L UTF-8 man/po4a/po4a.cfg
+ (1116 entries)
+Discard man/de/dh_dwz.pod (13 of 23 strings; only 56.52% translated; need 80%).
+Discard man/de/dh_installdirs.pod (21 of 27 strings; only 77.77% translated; need 80%).
+Discard man/de/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translated; need 80%).
+Discard man/de/dh_makeshlibs.pod (37 of 55 strings; only 67.27% translated; need 80%).
+Discard man/de/dh_testroot.pod (13 of 21 strings; only 61.9% translated; need 80%).
+Discard man/es/debhelper.pod (209 of 343 strings; only 60.93% translated; need 80%).
+Discard man/es/debhelper-obsolete-compat.pod (39 of 49 strings; only 79.59% translated; need 80%).
+Discard man/es/dh_clean.pod (20 of 28 strings; only 71.42% translated; need 80%).
+Discard man/es/dh_dwz.pod (12 of 23 strings; only 52.17% translated; need 80%).
+Discard man/es/dh_install.pod (27 of 42 strings; only 64.28% translated; need 80%).
+Discard man/es/dh_installdeb.pod (23 of 32 strings; only 71.87% translated; need 80%).
+Discard man/es/dh_installdirs.pod (19 of 27 strings; only 70.37% translated; need 80%).
+Discard man/es/dh_installdocs.pod (43 of 59 strings; only 72.88% translated; need 80%).
+Discard man/es/dh_installexamples.pod (24 of 31 strings; only 77.41% translated; need 80%).
+Discard man/es/dh_installinit.pod (38 of 65 strings; only 58.46% translated; need 80%).
+Discard man/es/dh_installinitinitramfs.pod (12 of 20 strings; only 60% translated; need 80%).
+Discard man/es/dh_installman.pod (28 of 37 strings; only 75.67% translated; need 80%).
+Discard man/es/dh_makeshlibs.pod (32 of 55 strings; only 58.18% translated; need 80%).
+Discard man/es/dh_strip.pod (24 of 43 strings; only 55.81% translated; need 80%).
+Discard man/es/dh_testroot.pod (12 of 21 strings; only 57.14% translated; need 80%).
+Discard man/es/dh_systemd_enable.pod (9 of 37 strings; only 24.32% translated; need 80%).
+Discard man/es/dh_systemd_start.pod (11 of 25 strings; only 44% translated; need 80%).
+Discard man/es/strings-kept-translations.pod (0 of 2 strings; only 0% translated; need 80%).
+Discard man/ja/debhelper.pod (252 of 343 strings; only 73.46% translated; need 80%).
+Discard man/ja/dh_dwz.pod (13 of 23 strings; only 56.52% translated; need 80%).
+Discard man/ja/dh_installdeb.pod (25 of 32 strings; only 78.12% translated; need 80%).
+Discard man/ja/dh_installdirs.pod (19 of 27 strings; only 70.37% translated; need 80%).
+Discard man/ja/dh_installdocs.pod (39 of 59 strings; only 66.1% translated; need 80%).
+Discard man/ja/dh_installexamples.pod (22 of 31 strings; only 70.96% translated; need 80%).
+Discard man/ja/dh_installinit.pod (44 of 65 strings; only 67.69% translated; need 80%).
+Discard man/ja/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translated; need 80%).
+Discard man/ja/dh_installman.pod (28 of 37 strings; only 75.67% translated; need 80%).
+Discard man/ja/dh_makeshlibs.pod (32 of 55 strings; only 58.18% translated; need 80%).
+Discard man/ja/dh_testroot.pod (12 of 21 strings; only 57.14% translated; need 80%).
+Discard man/ja/dh_systemd_enable.pod (17 of 37 strings; only 45.94% translated; need 80%).
+Discard man/ja/dh_systemd_start.pod (18 of 25 strings; only 72% translated; need 80%).
+Discard man/pt/dh_dwz.pod (13 of 23 strings; only 56.52% translated; need 80%).
+Discard man/pt/dh_installdirs.pod (21 of 27 strings; only 77.77% translated; need 80%).
+Discard man/pt/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translated; need 80%).
+Discard man/pt/dh_makeshlibs.pod (37 of 55 strings; only 67.27% translated; need 80%).
+Discard man/pt/dh_testroot.pod (13 of 21 strings; only 61.9% translated; need 80%).
+touch po4a-stamp
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+set -e; \
+lang=pt ; \
+dir=man/$lang; \
+for file in $dir/dh*.pod; do \
+	prog=`basename $file | sed 's/.pod//'`; \
+	pod2man --utf8 -c Debhelper -r "" $file $prog.$lang.1; \
+done; \
+if [ -e $dir/debhelper.pod ]; then \
+	cat $dir/debhelper.pod | \
+		perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' `find $dir -type f -maxdepth 1 -name "dh_*.pod" | LC_ALL=C sort` | \
+		pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 > debhelper.$lang.7; \
+fi; \
+if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
+fi
+touch translated-pt-stamp
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+set -e; \
+lang=fr ; \
+dir=man/$lang; \
+for file in $dir/dh*.pod; do \
+	prog=`basename $file | sed 's/.pod//'`; \
+	pod2man --utf8 -c Debhelper -r "" $file $prog.$lang.1; \
+done; \
+if [ -e $dir/debhelper.pod ]; then \
+	cat $dir/debhelper.pod | \
+		perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' `find $dir -type f -maxdepth 1 -name "dh_*.pod" | LC_ALL=C sort` | \
+		pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 > debhelper.$lang.7; \
+fi; \
+if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
+fi
+touch translated-fr-stamp
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+set -e; \
+lang=es ; \
+dir=man/$lang; \
+for file in $dir/dh*.pod; do \
+	prog=`basename $file | sed 's/.pod//'`; \
+	pod2man --utf8 -c Debhelper -r "" $file $prog.$lang.1; \
+done; \
+if [ -e $dir/debhelper.pod ]; then \
+	cat $dir/debhelper.pod | \
+		perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' `find $dir -type f -maxdepth 1 -name "dh_*.pod" | LC_ALL=C sort` | \
+		pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 > debhelper.$lang.7; \
+fi; \
+if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
+fi
+touch translated-es-stamp
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+set -e; \
+lang=ja ; \
+dir=man/$lang; \
+for file in $dir/dh*.pod; do \
+	prog=`basename $file | sed 's/.pod//'`; \
+	pod2man --utf8 -c Debhelper -r "" $file $prog.$lang.1; \
+done; \
+if [ -e $dir/debhelper.pod ]; then \
+	cat $dir/debhelper.pod | \
+		perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' `find $dir -type f -maxdepth 1 -name "dh_*.pod" | LC_ALL=C sort` | \
+		pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 > debhelper.$lang.7; \
+fi; \
+if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
+fi
+touch translated-ja-stamp
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+set -e; \
+lang=de ; \
+dir=man/$lang; \
+for file in $dir/dh*.pod; do \
+	prog=`basename $file | sed 's/.pod//'`; \
+	pod2man --utf8 -c Debhelper -r "" $file $prog.$lang.1; \
+done; \
+if [ -e $dir/debhelper.pod ]; then \
+	cat $dir/debhelper.pod | \
+		perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' `find $dir -type f -maxdepth 1 -name "dh_*.pod" | LC_ALL=C sort` | \
+		pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 > debhelper.$lang.7; \
+fi; \
+if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
+fi
+touch translated-de-stamp
+make: dpkg-parsechangelog: Command not found
+printf "package Debian::Debhelper::Dh_Version;\n\$version='';\n1" > \
+	lib/Debian/Debhelper/Dh_Version.pm
+make: dpkg-parsechangelog: Command not found
+make: dpkg-parsechangelog: Command not found
+cat debhelper.pod | \
+	perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' dh_auto_build dh_auto_clean dh_auto_configure dh_auto_install dh_auto_test dh_bugfiles dh_builddeb dh_clean dh_compress dh_dwz dh_fixperms dh_gconf dh_gencontrol dh_icons dh_install dh_installcatalogs dh_installchangelogs dh_installcron dh_installdeb dh_installdebconf dh_installdirs dh_installdocs dh_installemacsen dh_installexamples dh_installgsettings dh_installifupdown dh_installinfo dh_installinit dh_installinitramfs dh_installlogcheck dh_installlogrotate dh_installman dh_installmanpages dh_installmenu dh_installmime dh_installmodules dh_installpam dh_installppp dh_installsystemd dh_installsystemduser dh_installudev dh_installwm dh_installxfonts dh_link dh_lintian dh_listpackages dh_makeshlibs dh_md5sums dh_missing dh_movefiles dh_perl dh_prep dh_shlibdeps dh_strip dh_systemd_enable dh_systemd_start dh_testdir dh_testroot dh_ucf dh_update_autotools_config dh_usrlocal | \
+	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7  > debhelper.7
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 debhelper-obsolete-compat.pod > debhelper-obsolete-compat.7
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_auto_build dh_auto_build.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_auto_clean dh_auto_clean.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_auto_configure dh_auto_configure.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_auto_install dh_auto_install.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_auto_test dh_auto_test.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_bugfiles dh_bugfiles.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_builddeb dh_builddeb.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_clean dh_clean.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_compress dh_compress.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_dwz dh_dwz.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_fixperms dh_fixperms.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_gconf dh_gconf.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_gencontrol dh_gencontrol.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_icons dh_icons.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_install dh_install.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installcatalogs dh_installcatalogs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installchangelogs dh_installchangelogs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installcron dh_installcron.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installdeb dh_installdeb.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installdebconf dh_installdebconf.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installdirs dh_installdirs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installdocs dh_installdocs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installemacsen dh_installemacsen.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installexamples dh_installexamples.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installgsettings dh_installgsettings.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installifupdown dh_installifupdown.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installinfo dh_installinfo.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installinit dh_installinit.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installinitramfs dh_installinitramfs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installlogcheck dh_installlogcheck.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installlogrotate dh_installlogrotate.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installman dh_installman.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installmanpages dh_installmanpages.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installmenu dh_installmenu.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installmime dh_installmime.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installmodules dh_installmodules.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installpam dh_installpam.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installppp dh_installppp.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installsystemd dh_installsystemd.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installsystemduser dh_installsystemduser.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installudev dh_installudev.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installwm dh_installwm.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_installxfonts dh_installxfonts.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_link dh_link.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_lintian dh_lintian.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_listpackages dh_listpackages.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_makeshlibs dh_makeshlibs.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_md5sums dh_md5sums.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_missing dh_missing.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_movefiles dh_movefiles.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_perl dh_perl.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_prep dh_prep.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_shlibdeps dh_shlibdeps.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_strip dh_strip.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_systemd_enable dh_systemd_enable.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_systemd_start dh_systemd_start.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_testdir dh_testdir.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_testroot dh_testroot.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_ucf dh_ucf.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_update_autotools_config dh_update_autotools_config.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh_usrlocal dh_usrlocal.1
+make: dpkg-parsechangelog: Command not found
+pod2man --utf8 -c Debhelper -r "" dh dh.1
+make: Leaving directory '/mnt/debhelper.noarch/build/debhelper'
+[1;39m>>> Installing debhelper.noarch[0;0m
+make: Entering directory '/mnt/debhelper.noarch/build/debhelper'
+install -d /mnt/debhelper.noarch/inst/usr/bin \
+	/mnt/debhelper.noarch/inst/usr/share/debhelper/autoscripts \
+	/mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence \
+	/mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem
+install dh dh_auto_build dh_auto_clean dh_auto_configure dh_auto_install dh_auto_test dh_bugfiles dh_builddeb dh_clean dh_compress dh_dwz dh_fixperms dh_gconf dh_gencontrol dh_icons dh_install dh_installcatalogs dh_installchangelogs dh_installcron dh_installdeb dh_installdebconf dh_installdirs dh_installdocs dh_installemacsen dh_installexamples dh_installgsettings dh_installifupdown dh_installinfo dh_installinit dh_installinitramfs dh_installlogcheck dh_installlogrotate dh_installman dh_installmanpages dh_installmenu dh_installmime dh_installmodules dh_installpam dh_installppp dh_installsystemd dh_installsystemduser dh_installudev dh_installwm dh_installxfonts dh_link dh_lintian dh_listpackages dh_makeshlibs dh_md5sums dh_missing dh_movefiles dh_perl dh_prep dh_shlibdeps dh_strip dh_systemd_enable dh_systemd_start dh_testdir dh_testroot dh_ucf dh_update_autotools_config dh_usrlocal /mnt/debhelper.noarch/inst/usr/bin
+install -m 0644 autoscripts/* /mnt/debhelper.noarch/inst/usr/share/debhelper/autoscripts
+install -m 0644 lib/Debian/Debhelper/*.pm /mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper
+[ "/usr" = /usr ] || \
+	sed -i '/$prefix=/s@/usr@/usr@g' /mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Dh_Lib.pm
+install -m 0644 lib/Debian/Debhelper/Sequence/*.pm /mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence
+install -m 0644 lib/Debian/Debhelper/Buildsystem/*.pm /mnt/debhelper.noarch/inst/usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem
+make: Leaving directory '/mnt/debhelper.noarch/build/debhelper'
+Fixing symlinks:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/doc/debhelper
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/doc
+[1;39m>>> Packaging debhelper.noarch[0;0m
+>>> Creating binary package(s)
+>>> debhelper-debhelper-debhelper.tar.xz
+usr/
+usr/lib/
+usr/lib/perl5/
+usr/lib/perl5/vendor_perl/
+usr/lib/perl5/vendor_perl/5.22/
+usr/lib/perl5/vendor_perl/5.22/Debian/
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Dh_Buildsystems.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Dh_Lib.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Dh_Getopt.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/qmake.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/python_distutils.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/makefile.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/autoconf.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/cmake.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/meson.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/qmake_qt4.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/perl_makemaker.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/ninja.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/ant.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Buildsystem/perl_build.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Dh_Version.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/python_support.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/systemd.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/installinitramfs.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/build_stamp.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/Sequence/dwz.pm
+usr/lib/perl5/vendor_perl/5.22/Debian/Debhelper/SequencerUtil.pm
+usr/share/
+usr/share/debhelper/
+usr/share/debhelper/autoscripts/
+usr/share/debhelper/autoscripts/postinst-usrlocal
+usr/share/debhelper/autoscripts/postinst-init-restart
+usr/share/debhelper/autoscripts/postrm-systemd
+usr/share/debhelper/autoscripts/prerm-init
+usr/share/debhelper/autoscripts/postinst-init
+usr/share/debhelper/autoscripts/prerm-systemd-restart
+usr/share/debhelper/autoscripts/postinst-systemd-user-dont-enable
+usr/share/debhelper/autoscripts/postrm-systemd-reload-only
+usr/share/debhelper/autoscripts/postinst-wm
+usr/share/debhelper/autoscripts/postrm-init
+usr/share/debhelper/autoscripts/prerm-emacsen
+usr/share/debhelper/autoscripts/postinst-systemd-restartnostart
+usr/share/debhelper/autoscripts/postinst-init-nostart
+usr/share/debhelper/autoscripts/postrm-icons
+usr/share/debhelper/autoscripts/postrm-sgmlcatalog
+usr/share/debhelper/autoscripts/postinst-wm-noman
+usr/share/debhelper/autoscripts/postinst-icons
+usr/share/debhelper/autoscripts/postrm-systemd-user
+usr/share/debhelper/autoscripts/postrm-menu-method
+usr/share/debhelper/autoscripts/postrm-xfonts
+usr/share/debhelper/autoscripts/postinst-init-tmpfiles
+usr/share/debhelper/autoscripts/postinst-systemd-start
+usr/share/debhelper/autoscripts/postrm-menu
+usr/share/debhelper/autoscripts/postrm-debconf
+usr/share/debhelper/autoscripts/prerm-wm
+usr/share/debhelper/autoscripts/postinst-systemd-enable
+usr/share/debhelper/autoscripts/postinst-ucf
+usr/share/debhelper/autoscripts/postinst-initramfs-hook
+usr/share/debhelper/autoscripts/postinst-systemd-user-enable
+usr/share/debhelper/autoscripts/maintscript-helper
+usr/share/debhelper/autoscripts/postinst-xfonts
+usr/share/debhelper/autoscripts/postinst-menu-method
+usr/share/debhelper/autoscripts/postinst-systemd-dont-enable
+usr/share/debhelper/autoscripts/postinst-systemd-restart
+usr/share/debhelper/autoscripts/preinst-emacsen
+usr/share/debhelper/autoscripts/postrm-ucf
+usr/share/debhelper/autoscripts/postinst-modules
+usr/share/debhelper/autoscripts/postrm-initramfs-hook
+usr/share/debhelper/autoscripts/postinst-emacsen
+usr/share/debhelper/autoscripts/postrm-modules
+usr/share/debhelper/autoscripts/prerm-usrlocal
+usr/share/debhelper/autoscripts/prerm-systemd
+usr/share/debhelper/autoscripts/prerm-init-norestart
+usr/share/debhelper/autoscripts/postinst-menu
+usr/bin/
+usr/bin/dh_md5sums
+usr/bin/dh_installdirs
+usr/bin/dh_installexamples
+usr/bin/dh_installlogrotate
+usr/bin/dh_testroot
+usr/bin/dh_installmanpages
+usr/bin/dh_dwz
+usr/bin/dh_testdir
+usr/bin/dh_installgsettings
+usr/bin/dh_auto_clean
+usr/bin/dh_installmime
+usr/bin/dh_clean
+usr/bin/dh_installchangelogs
+usr/bin/dh_installcron
+usr/bin/dh_installwm
+usr/bin/dh_icons
+usr/bin/dh_usrlocal
+usr/bin/dh_installmenu
+usr/bin/dh_installlogcheck
+usr/bin/dh_auto_build
+usr/bin/dh_installppp
+usr/bin/dh_update_autotools_config
+usr/bin/dh_installinit
+usr/bin/dh_link
+usr/bin/dh_perl
+usr/bin/dh_auto_install
+usr/bin/dh_systemd_start
+usr/bin/dh_fixperms
+usr/bin/dh_installpam
+usr/bin/dh_installmodules
+usr/bin/dh_systemd_enable
+usr/bin/dh_movefiles
+usr/bin/dh
+usr/bin/dh_ucf
+usr/bin/dh_gconf
+usr/bin/dh_bugfiles
+usr/bin/dh_auto_configure
+usr/bin/dh_prep
+usr/bin/dh_compress
+usr/bin/dh_installdeb
+usr/bin/dh_installudev
+usr/bin/dh_installman
+usr/bin/dh_listpackages
+usr/bin/dh_install
+usr/bin/dh_missing
+usr/bin/dh_installcatalogs
+usr/bin/dh_installdocs
+usr/bin/dh_installemacsen
+usr/bin/dh_makeshlibs
+usr/bin/dh_installinfo
+usr/bin/dh_installinitramfs
+usr/bin/dh_lintian
+usr/bin/dh_shlibdeps
+usr/bin/dh_strip
+usr/bin/dh_installdebconf
+usr/bin/dh_builddeb
+usr/bin/dh_installsystemd
+usr/bin/dh_installsystemduser
+usr/bin/dh_auto_test
+usr/bin/dh_installifupdown
+usr/bin/dh_gencontrol
+usr/bin/dh_installxfonts
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+debhelper.src/
+debhelper.src/debhelper.patch
+debhelper.src/debhelper.cygport
+debhelper.src/debhelper_12.1.1.dsc
+debhelper.src/debhelper_12.1.1.tar.xz
+
+>>> debhelper requires: debhelper-debhelper-debhelper perl-Carp perl-Digest-SHA perl_base autotools-dev dh-autoreconf dh-strip-nondeterminism dpkg dpkg-dev dwz file libdpkg-perl man-db po-debconf perl
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Tue Mar 31 21:50:45 2020
