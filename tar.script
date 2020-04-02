@@ -1,0 +1,48 @@
+Script started on Tue Mar 31 22:13:54 2020
+cygport --32 tar all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 tar all
+[1;39m>>> Preparing tar.i686[0;0m
+>>> Unpacking source tar_1.30+dfsg-6.dsc
+>>> Unpacking source tar_1.30+dfsg.orig.tar.xz
+>>> Unpacking source tar_1.30+dfsg-6.debian.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Apr 23 19:00:09 2019 CEST using RSA key ID C095D941
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/tar_1.30+dfsg-6.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting tar in tar
+[1mdpkg-source: [0m[32minfo[0m: unpacking tar_1.30+dfsg.orig.tar.xz
+[1mdpkg-source: [0m[32minfo[0m: unpacking tar_1.30+dfsg-6.debian.tar.xz
+[1mdpkg-source: [0m[32minfo[0m: using patch list from debian/patches/series
+[1mdpkg-source: [0m[32minfo[0m: applying pristine-tar.diff
+[1mdpkg-source: [0m[32minfo[0m: applying listed03-linux-only
+[1mdpkg-source: [0m[32minfo[0m: applying rmt.8-header-wrong
+[1mdpkg-source: [0m[32minfo[0m: applying fix-for-difflink.at-failure.diff
+[1mdpkg-source: [0m[32minfo[0m: applying fix-race-in-dirrem01-and-dirrem02.diff
+[1mdpkg-source: [0m[32minfo[0m: applying elide-reference-to-section-5-manpage.diff
+[1mdpkg-source: [0m[32minfo[0m: applying oldgnu-unknown-mode-bits.patch
+[1mdpkg-source: [0m[32minfo[0m: applying zstd.patch
+[1mdpkg-source: [0m[32minfo[0m: applying proper_it_translation.patch
+[1mdpkg-source: [0m[32minfo[0m: applying Fix-CVE-2018-20482.patch
+[1;32m*** Info:[0;0m applying patch tar.patch (-p0):
+patching file tar/debian/rules
+>>> Preparing working source directory
+[1;39m>>> Compiling tar.i686[0;0m
+dpkg-buildpackage: info: source package tar
+dpkg-buildpackage: info: source version 1.30+dfsg-6
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Bdale Garbee <bdale@gag.com>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+ debian/rules clean
+dh_testdir
+make: dh_testdir: Command not found
+make: *** [debian/rules:57: clean] Error 127
+dpkg-buildpackage: error: debian/rules clean subprocess returned exit status 2
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Tue Mar 31 22:20:10 2020
