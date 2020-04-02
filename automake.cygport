@@ -1,0 +1,43 @@
+NAME="automake"
+VERSION="1.16.1"
+RELEASE=1
+CATEGORY="devel"
+SUMMARY="Tool for generating GNU Standards-compliant Makefiles"
+DESCRIPTION=""
+HOMEPAGE="http://sourceware.org/cygwinports/"
+SRC_URI="http://ftp.debian.org/debian/pool/main/a/automake-1.16/automake-1.16_1.16.1-4.dsc http://ftp.debian.org/debian/pool/main/a/automake-1.16/automake-1.16_1.16.1.orig.tar.xz http://ftp.debian.org/debian/pool/main/a/automake-1.16/automake-1.16_1.16.1-4.debian.tar.xz"
+SRC_DIR="."
+PATCH_URI="./automake.patch"
+DEBEMAIL="user@example.com"
+DEBFULLNAME="Firstname Lastname"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+
+# this package contains no compiled Cygwin binaries
+# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+ARCH="noarch"
+
+# Build dependencies only
+DEPEND="autoconf autopoint bison cscope dejagnu default-jdk emacs expect flex gettext gfortran gobjc gobjc++ help2man install-info libglib2.0-dev libtool libtool-bin lzip ncompress pkg-config python python-docutils python-virtualenv sharutils texinfo texlive unzip valac xutils-dev zip"
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES="autoconf autotools-dev"
+
+CYGPORT_USE_UNSTABLE_API=1
+
+src_unpack_hook(){
+	mv debian "${NAME}-${VERSION}"
+}
+
+src_patch_hook(){
+	:;
+}
+
+src_compile() {
+	rsync --archive "${S}/." "${B}/." &&
+	make -C "${B}/${NAME}-${VERSION}" -f debian/rules binary
+}
+
+src_install() {
+	make -C "${B}/${NAME}-${VERSION}" DESTDIR=${D} install 
+}
+
