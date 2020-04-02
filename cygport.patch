@@ -26,7 +26,7 @@
  	cygclass/font.cygclass			\
 --- /dev/null
 +++ cygport-0.25.0/cygclass/dpkg.cygclass
-@@ -0,0 +1,72 @@
+@@ -0,0 +1,73 @@
 +################################################################################
 +#
 +# dpkg.cygclass - functions for building Debian packages
@@ -63,6 +63,7 @@
 +	xargs -I@ rm -rf @
 +
 +	basename * |
++	PERL5LIB=/usr/share/perl5 \
 +	xargs -I@ dpkg-source --extract "${top}/@" "${NAME}"
 +	sed -i "${NAME}/debian/control" \
 +		-e /Rules-Requires-Root/d \
@@ -99,14 +100,19 @@
 +}
 +#****
 +
+--- cygport-0.25.0/data/gnuconfig
++++ cygport-0.25.0/data/gnuconfig
+@@ -1 +1 @@
+-Subproject commit ddf1db93f3dde9ffd9f13a2529001e20aaf527d3
++Subproject commit ad97fdcc38e96c12250284d3691e0749e14ca2b0
 --- cygport-0.25.0/data/sample.cygport
-+++ cygport-0.25.0/data/cygport-0.25.0-1.cygport
++++ cygport-0.25.0/data/sample.cygport
 @@ -6,7 +6,7 @@ SUMMARY="Cygwin source packaging tool"
  DESCRIPTION="cygport is the standard method for building and maintaining
  packages for the Cygwin distribution."
  HOMEPAGE="http://sourceware.org/cygwinports/"
 -SRC_URI="https://github.com/cygwinports/cygport/${VERSION}/cygport-${VERSION}.tar.gz"
-+SRC_URI="https://github.com/cygwinports/cygport/archive/0.25.0.tar.gz#/cygport-${VERSION}.tar.gz"
++SRC_URI="https://github.com/cygwinports/${NAME}/archive/${VERSION}.tar.gz#/${NAME}-${VERSION}.tar.gz"
  
  # this package contains no compiled Cygwin binaries
  # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
