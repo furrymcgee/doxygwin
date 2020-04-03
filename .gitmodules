@@ -42,7 +42,7 @@
 	url = https://salsa.debian.org/debian/dh-autoreconf.git
 [submodule "strip-nondeterminism"]
 	path = strip-nondeterminism
-	url = https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git
+	url = https://salsa.debian.org/reproducible-builds/strip-nondeterminism
 [submodule "fakeroot"]
 	path = fakeroot
 	url = https://salsa.debian.org/clint/fakeroot.git
@@ -54,13 +54,7 @@
 	url = git://sourceware.org/git/cygwin-apps/calm.git
 [submodule "meson-cygport"]
 	path = meson-cygport
-	url = ./meson-cygport/
-[submodule "meson"]
-	path = meson
-	url = ./meson
+	url = http://cygwin.com/git/cygwin-packages/meson.git
 [submodule "ninja-cygport"]
 	path = ninja-cygport
-	url = ./ninja-cygport
-[submodule "strip-nondeterminism"]
-	path = strip-nondeterminism
-	url = ./strip-nondeterminism/
+	url = http://cygwin.com/git/cygwin-packages/ninja.git
