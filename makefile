@@ -71,8 +71,10 @@ tar: tar/configure
 		-type f \
 		-newer /etc/doc-base/documents/README | \
 	xargs -r /usr/sbin/install-docs --verbose --install
+	test -d /usr/var/lib/dpkg || \
+	mkdir -p /usr/var/lib/dpkg
 	test -r /usr/var/lib/dpkg/status || \
-	touch touch /usr/var/lib/dpkg/status
+	touch /usr/var/lib/dpkg/status
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
