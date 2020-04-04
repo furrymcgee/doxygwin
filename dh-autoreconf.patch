@@ -1,5 +1,3 @@
-Index: dh-autoreconf/debian/rules
-===================================================================
 --- dh-autoreconf/debian/rules
 +++ dh-autoreconf/debian/rules
 @@ -3,7 +3,11 @@ include /usr/share/dpkg/pkg-info.mk
@@ -7,7 +5,7 @@ Index: dh-autoreconf/debian/rules
  
  %:
 -	dh $@
-+	dh $@ --without autoreconf
++	DEB_RULES_REQUIRES_ROOT=no dh $@ --without autoreconf
 +
 +override_dh_strip_nondeterminism:
 +
