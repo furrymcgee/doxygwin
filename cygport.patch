@@ -80,7 +80,9 @@
 +src_compile() {
 +	rsync --archive "${S}/." "${B}/." &&
 +	cd -P "${B}/${NAME}" &&
-+	PERL5LIB=/usr/share/perl5 \
++	PATH="$PWD/bin:$PATH" \
++	PERL5LIB="$PWD/lib:/usr/share/perl5" \
++	PERL_MM_OPT="INSTALLDIRS=vendor INSTALLVENDORLIB=/usr/share/perl5" \
 +	dpkg-buildpackage -rnice -d -a i386 -t i686-pc-cygwin --source-option=--auto-commit
 +}
 +#****
@@ -100,11 +102,6 @@
 +}
 +#****
 +
---- cygport-0.25.0/data/gnuconfig
-+++ cygport-0.25.0/data/gnuconfig
-@@ -1 +1 @@
--Subproject commit ddf1db93f3dde9ffd9f13a2529001e20aaf527d3
-+Subproject commit ad97fdcc38e96c12250284d3691e0749e14ca2b0
 --- cygport-0.25.0/data/sample.cygport
 +++ cygport-0.25.0/data/sample.cygport
 @@ -6,7 +6,7 @@ SUMMARY="Cygwin source packaging tool"

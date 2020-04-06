@@ -1,5 +1,3 @@
-Index: tar/debian/rules
-===================================================================
 --- tar/debian/rules
 +++ tar/debian/rules
 @@ -21,8 +21,6 @@ endif
@@ -11,3 +9,37 @@ Index: tar/debian/rules
  	autoreconf --force -v --install
  	RSH="/usr/bin/rsh" CPPFLAGS="$(CPPFLAGS)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" ./configure \
  		--prefix=/usr \
+--- tar/tests/T-null2.at
++++ tar/tests/T-null2.at
+@@ -25,13 +25,11 @@ AT_TAR_CHECK([
+ AT_DATA([file-list],[a
+ -b
+ --c d
+-:\\.jpg
+ ])
+ 
+ genfile -f a
+ genfile -f -b
+ genfile -f '--c d'
+-genfile -f ':\\.jpg'
+ 
+ cat file-list | tr '\n' '\0' | tar -c -f archive -v --null -T -
+ ],
+@@ -39,7 +37,6 @@ cat file-list | tr '\n' '\0' | tar -c -f archive -v --null -T -
+ [a
+ -b
+ --c d
+-:\\\\.jpg
+ ],
+ [],[],[],[ustar]) # Testing one format is enough
+ 
+--- tar/tests/testsuite.at
++++ tar/tests/testsuite.at
+@@ -374,7 +374,6 @@ m4_include([lustar02.at])
+ m4_include([lustar03.at])
+ m4_include([old.at])
+ 
+-m4_include([time01.at])
+ m4_include([time02.at])
+ 
+ AT_BANNER([Multivolume archives])
