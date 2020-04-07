@@ -26,16 +26,7 @@ cat \
 | \
 GIT_WORK_TREE=calm GIT_DIR=calm/.git git am
 
-cat \
-0001-fixup-Release-1.19.7.patch \
-0002-error-cannot-get-project-version.patch \
-0004-error-Unknown-architecture-cannot-build-start-stop-d.patch \
-0005-fixup-libcompat-Only-test-the-strerror-if-sys_errlis.patch \
-0006-dpkg-genbuildinfo-warning-unknown-CC-system-type-i68.patch \
-0007-dpkg-genbuildinfo-error-cannot-open-var-lib-dpkg-sta.patch \
-0008-dpkg-error-requested-operation-requires-superuser-pr.patch \
-| \
-GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am
+GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am < dpkg.patch
 
 cat \
 0001-dpkg-architecture-warning-unknown-CC-system-type-i68.patch \
@@ -83,24 +74,7 @@ cat \
 | \
 GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am
 
-cat \
-0001-cygwin.patch \
-0002-httpd.patch \
-0003-libpub.a.patch \
-0004-pdf.patch \
-0005-doc.patch \
-0006-xls.patch \
-0007-convert.patch \
-0008-type.patch \
-0009-redirect.patch \
-0010-cgi.patch \
-0011-fileparse.patch \
-0012-msg.patch \
-0013-doxie.patch \
-0014-revert.patch \
-0015-distributor.patch \
-| \
-GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am
+GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am < dwww.patch
 
 cat \
 0001-usr-bin-install-cannot-stat-.-fakeroot.1-No-such-fil.patch \
