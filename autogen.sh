@@ -28,10 +28,7 @@ GIT_WORK_TREE=calm GIT_DIR=calm/.git git am
 
 GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am < dpkg.patch
 
-cat \
-0001-dpkg-architecture-warning-unknown-CC-system-type-i68.patch \
-| \
-GIT_WORK_TREE=debhelper GIT_DIR=debhelper/.git git am
+GIT_WORK_TREE=debhelper GIT_DIR=debhelper/.git git am < debhelper.patch
 
 GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git config core.filemode false
 cat \

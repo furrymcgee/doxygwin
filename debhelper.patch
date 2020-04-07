@@ -1,14 +1,18 @@
---- debhelper/dh_testroot
-+++ debhelper/dh_testroot
-@@ -79,7 +79,7 @@ if (! -f 'debian/control') {
- exit 0 if $requirements eq 'none';
- # The builder /can/ choose to ignore the requirements and just call us as root.
- # If so, we do not bother checking the requirements any further.
--exit 0 if $< == 0;
-+exit 0 if $< == +(split /:/, qx/getent passwd root Administrator/)[3];
- if ($requirements eq 'legacy-root') {
- 	error("You must run this as root (or use fakeroot).");
- } else {
+From e9857e3df8eedd6ae83cb2ee66cd847035da8ce0 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 10 Mar 2020 18:49:26 +0100
+Subject: [PATCH] dpkg-architecture: warning: unknown CC system type
+ i686-pc-cygwin, falling back to default (native compilation)
+
+---
+ lib/Debian/Debhelper/Buildsystem.pm   | 6 ++++--
+ lib/Debian/Debhelper/Dh_Lib.pm        | 3 +++
+ t/buildsystems/03-bs-auto-buildable.t | 2 +-
+ t/buildsystems/buildsystem_tests.t    | 3 ++-
+ 4 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git debhelper/lib/Debian/Debhelper/Buildsystem.pm debhelper/lib/Debian/Debhelper/Buildsystem.pm
+index 2463fb35..d3db7dd4 100644
 --- debhelper/lib/Debian/Debhelper/Buildsystem.pm
 +++ debhelper/lib/Debian/Debhelper/Buildsystem.pm
 @@ -11,6 +11,7 @@ use warnings;
@@ -45,6 +49,8 @@
  	if (defined $builddir) {
  		$builddir = $this->canonpath($builddir); # Canonicalize
  
+diff --git debhelper/lib/Debian/Debhelper/Dh_Lib.pm debhelper/lib/Debian/Debhelper/Dh_Lib.pm
+index fe14039a..ef87a0f7 100644
 --- debhelper/lib/Debian/Debhelper/Dh_Lib.pm
 +++ debhelper/lib/Debian/Debhelper/Dh_Lib.pm
 @@ -1476,6 +1476,8 @@ sub excludefile {
@@ -64,6 +70,8 @@
  		return $dpkg_arch_output{$var};
  	}
  }
+diff --git debhelper/t/buildsystems/03-bs-auto-buildable.t debhelper/t/buildsystems/03-bs-auto-buildable.t
+index df4405b2..5148ab3b 100755
 --- debhelper/t/buildsystems/03-bs-auto-buildable.t
 +++ debhelper/t/buildsystems/03-bs-auto-buildable.t
 @@ -51,7 +51,7 @@ sub test_autoselection {
@@ -75,6 +83,8 @@
  my $sourcedir = "${TEMP_DIR}/source";
  my $builddir = "${TEMP_DIR}/build";
  my %options = (
+diff --git debhelper/t/buildsystems/buildsystem_tests.t debhelper/t/buildsystems/buildsystem_tests.t
+index fdda3029..ba542fcb 100755
 --- debhelper/t/buildsystems/buildsystem_tests.t
 +++ debhelper/t/buildsystems/buildsystem_tests.t
 @@ -31,6 +31,7 @@ sub readlines {
@@ -94,3 +104,6 @@
  		rename "debian/rules", $backup;
  	}
  	# Write debian/rules if requested
+-- 
+2.20.1
+

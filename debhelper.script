@@ -1,4 +1,4 @@
-Script started on Tue Mar 31 21:43:50 2020
+Script started on Tue Apr  7 16:56:35 2020
 cygport --32 debhelper all
 ]0;/mnt
 [32mAdministrator@- [33m/mnt[0m
@@ -7,7 +7,6 @@ $ cygport --32 debhelper all
 >>> Unpacking source debhelper_12.1.1.dsc
 >>> Unpacking source debhelper_12.1.1.tar.xz
 [1;32m*** Info:[0;0m applying patch debhelper.patch (-p0):
-patching file debhelper/dh_testroot
 patching file debhelper/lib/Debian/Debhelper/Buildsystem.pm
 Hunk #3 succeeded at 132 (offset -7 lines).
 Hunk #4 succeeded at 153 (offset -7 lines).
@@ -20,7 +19,6 @@ patching file debhelper/t/buildsystems/buildsystem_tests.t
 [1;39m>>> Compiling debhelper.noarch[0;0m
 make: Entering directory '/mnt/debhelper.noarch/build/debhelper'
 po4a --previous -L UTF-8 man/po4a/po4a.cfg
- (1116 entries)
 Discard man/de/dh_dwz.pod (13 of 23 strings; only 56.52% translated; need 80%).
 Discard man/de/dh_installdirs.pod (21 of 27 strings; only 77.77% translated; need 80%).
 Discard man/de/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translated; need 80%).
@@ -481,4 +479,4 @@ debhelper.src/debhelper_12.1.1.tar.xz
 [32mAdministrator@- [33m/mnt[0m
 $ exit
 
-Script done on Tue Mar 31 21:50:45 2020
+Script done on Tue Apr  7 17:03:58 2020
