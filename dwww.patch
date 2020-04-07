@@ -1,0 +1,1199 @@
+From 10ae5a317b9ff64f2e20e0d5ac5acef51de4e319 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Thu, 20 Jun 2019 21:25:14 -0700
+Subject: [PATCH 01/15] cygwin
+
+---
+ common.mk           | 22 +++++++++++-----------
+ src/dwww-txt2html.c |  2 +-
+ 2 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 93af614..1086f98 100644
+--- a/common.mk
++++ b/common.mk
+@@ -10,9 +10,9 @@ override PACKAGE  := dwww
+ PATH            := /usr/bin:/usr/sbin:/bin:/sbin:$(PATH)
+ 
+ # build abstraction
+-install_file    := install -p -o root -g root -m 644
+-install_script  := install -p -o root -g root -m 755
+-install_dir     := install -d -o root -g root -m 755
++install_file    := install -p -o $(shell id -u) -g $(shell id -g) -m 644
++install_script  := install -p -o $(shell id -u) -g $(shell id -g) -m 755
++install_dir     := install -d -o $(shell id -u) -g $(shell id -g) -m 755
+ install_link    := ln -sf
+ compress        := gzip -9f
+ 
+@@ -24,7 +24,7 @@ mandir          := $(prefix)/share/man
+ sharedir        := $(prefix)/share
+ pkgsharedir     := $(prefix)/share/$(PACKAGE)
+ pxmpsharedir    := $(prefix)/share/pixmaps
+-perllibdir      := $(prefix)/share/perl5
++perllibdir      := $(prefix)/lib/perl5/site_perl/5.22
+ docdir          := $(prefix)/share/doc/$(PACKAGE)
+ libdir          := /var/lib/$(PACKAGE)
+ nlsdir          := $(prefix)/share/locale
+@@ -36,7 +36,7 @@ applicationsdir := $(prefix)/share/applications
+ PERL            = /usr/bin/perl
+ ifndef COMPILER_FLAGS_ALREADY_SET
+ export CC       ?= gcc
+-export CPPFLAGS += -DVERSION='"$(VERSION)"'
++export CPPFLAGS += -DVERSION='"$(VERSION)"' -DMAXINT=INT_MAX
+ export CFLAGS   += -Wall -Wextra -Wstrict-prototypes -Wmissing-prototypes -Werror -g $(shell getconf LFS_CFLAGS)
+ export LDFLAGS  +=
+ export LIBS     += -lpub
+@@ -130,15 +130,15 @@ define install
+   done;                                                             \
+   [ -n "$$files" ] ||                                               \
+     echo "installing dir    $(ddirshort)$$dir";                     \
+-  $(install_dir) "$(DESTDIR)/$$dir";                                \
++  $(install_dir) "$(DESTDIR)//$$dir";                                \
+   for file in $$files; do                                           \
+       [ -n "$$bfile" ] && tgt="$$dir/$$bfile"  ||                   \
+         tgt="$$dir/`basename "$$file"`";                            \
+       echo "installing $$what $(ddirshort)$$tgt";                   \
+-      $$prg "$$file" "$(DESTDIR)/$$tgt";                            \
++      $$prg "$$file" "$(DESTDIR)//$$tgt";                            \
+       if [ "$$doCompress" -eq 1 ] ; then                            \
+         echo "compressing file  $(ddirshort)$$tgt";                 \
+-        $(compress) "$(DESTDIR)/$$tgt";                             \
++        $(compress) "$(DESTDIR)//$$tgt";                             \
+       fi;                                                           \
+   done;
+ endef
+@@ -148,9 +148,9 @@ define install_links
+   $(AT) set -e;                                                    \
+   for file in $2; do                                               \
+     echo "installing link   $(ddirshort)$$file";                   \
+-    $(install_dir) $(DESTDIR)/`dirname "$$file"`;                  \
+-    rm -f "$(DESTDIR)/$$file";                                     \
+-    $(install_link) "$1" "$(DESTDIR)/$$file";                      \
++    $(install_dir) $(DESTDIR)//`dirname "$$file"`;                  \
++    rm -f "$(DESTDIR)//$$file";                                     \
++    $(install_link) "$1" "$(DESTDIR)//$$file";                      \
+   done;
+ endef
+ 
+diff --git a/src/dwww-txt2html.c b/src/dwww-txt2html.c
+index 2c6cd98..3afb4d3 100644
+--- a/src/dwww-txt2html.c
++++ b/src/dwww-txt2html.c
+@@ -29,7 +29,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <publib.h>
+-#include <values.h>
++#include <limits.h>
+ 
+ #include "utils.h"
+ 
+-- 
+2.20.1
+
+
+From 412939b1dbc3e4e0ec72a9f422bfe129471f6ddf Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 21 Jun 2019 07:33:57 -0700
+Subject: [PATCH 02/15] httpd
+
+---
+ common.mk                      | 4 ++--
+ data/apache.conf               | 4 ++--
+ perl/Debian/Dwww/ConfigFile.pm | 2 +-
+ scripts/dwww-find              | 2 +-
+ scripts/dwww-index++           | 2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 1086f98..dfcfcf9 100644
+--- a/common.mk
++++ b/common.mk
+@@ -29,8 +29,8 @@ docdir          := $(prefix)/share/doc/$(PACKAGE)
+ libdir          := /var/lib/$(PACKAGE)
+ nlsdir          := $(prefix)/share/locale
+ cachedir        := /var/cache/$(PACKAGE)
+-webdocrootdir   := /var/www
+-webcgidir       := $(prefix)/lib/cgi-bin
++webdocrootdir   := /srv/www/htdocs
++webcgidir       := /srv/www/cgi-bin
+ applicationsdir := $(prefix)/share/applications
+ 
+ PERL            = /usr/bin/perl
+diff --git a/data/apache.conf b/data/apache.conf
+index 5965ace..4172c9e 100644
+--- a/data/apache.conf
++++ b/data/apache.conf
+@@ -1,9 +1,9 @@
+ # Dwww configuration file for apache 2.4 or later
+ <IfModule mod_alias.c>
+-	Alias /dwww /var/www/dwww
++	Alias /dwww /srv/www/htdocs/dwww
+ </IfModule>
+ 
+-<Directory "/var/www/dwww">
++<Directory "/srv/www/htdocs/dwww">
+ 	<IfModule mod_authz_host.c>
+ 		Require local
+ 		# Require ip 192.0.2.0/24
+diff --git a/perl/Debian/Dwww/ConfigFile.pm b/perl/Debian/Dwww/ConfigFile.pm
+index c75cd51..5736b71 100644
+--- a/perl/Debian/Dwww/ConfigFile.pm
++++ b/perl/Debian/Dwww/ConfigFile.pm
+@@ -33,7 +33,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_DOCROOTDIR'  => {
+             sort   => 10,
+-            defval => '/var/www',
++            defval => '/srv/www/htdocs',
+             descr  => 'The document root for web server.'
+         },
+         'DWWW_CGIDIR'  => {
+diff --git a/scripts/dwww-find b/scripts/dwww-find
+index 48cd0d3..d3dfdbf 100755
+--- a/scripts/dwww-find
++++ b/scripts/dwww-find
+@@ -691,7 +691,7 @@ sub SearchRegisteredDocumentation { # {{{
+     my $searchfor  = shift;
+     my $startwith  = shift;
+     my $maxperpage = shift;
+-    my @searchargs = ("/usr/bin/search++");
++    my @searchargs = ("/usr/bin/search");
+     my $resultcnt  = undef;
+     my $desc       = '';
+ 
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index 1e49350..c7143e2 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -53,7 +53,7 @@ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+ my $dwww_swish_index  	  	= "/var/cache/dwww/dwww.swish++.index";
+ my $dwww_indexed_files_db	= "/var/cache/dwww/index.files.db";
+ my $dwww_lastrun_info		= "/var/cache/dwww/index.runinfo";
+-my $path_to_index			= '/usr/bin/index++';
++my $path_to_index			= '/usr/bin/index';
+ my $MAX_RECURS_SUBDIRS_LVL  = 10;
+ 
+ our($opt_v, $opt_f, $opt_i, $opt_l);				# set by getopt
+-- 
+2.20.1
+
+
+From b9e1a652a902b503bd97f0c0f72e138b0d1d1d27 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 25 Jul 2019 12:05:41 +0200
+Subject: [PATCH 03/15] libpub.a
+
+---
+ common.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common.mk b/common.mk
+index dfcfcf9..996d5a5 100644
+--- a/common.mk
++++ b/common.mk
+@@ -38,7 +38,7 @@ ifndef COMPILER_FLAGS_ALREADY_SET
+ export CC       ?= gcc
+ export CPPFLAGS += -DVERSION='"$(VERSION)"' -DMAXINT=INT_MAX
+ export CFLAGS   += -Wall -Wextra -Wstrict-prototypes -Wmissing-prototypes -Werror -g $(shell getconf LFS_CFLAGS)
+-export LDFLAGS  +=
++export LDFLAGS  += -L /usr/local/lib
+ export LIBS     += -lpub
+ export COMPILER_FLAGS_ALREADY_SET := 1
+ endif
+-- 
+2.20.1
+
+
+From 27390eb2a6ff98f7af8bc74270339d33b6dcc2b3 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 26 Jul 2019 10:11:31 -0700
+Subject: [PATCH 04/15] pdf
+
+---
+ common.mk            | 2 +-
+ data/Makefile        | 2 +-
+ data/apache.conf     | 4 ++--
+ data/swish++.conf    | 2 +-
+ scripts/dwww-index++ | 3 ++-
+ 5 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 996d5a5..dcdaa6f 100644
+--- a/common.mk
++++ b/common.mk
+@@ -17,7 +17,7 @@ install_link    := ln -sf
+ compress        := gzip -9f
+ 
+ prefix          := /usr
+-etcdir          := /etc
++etcdir          := /etc/httpd/conf.d
+ bindir          := $(prefix)/bin
+ sbindir         := $(prefix)/sbin
+ mandir          := $(prefix)/share/man
+diff --git a/data/Makefile b/data/Makefile
+index aa2612a..b7eea0a 100644
+--- a/data/Makefile
++++ b/data/Makefile
+@@ -12,5 +12,5 @@ all-local: $(generated) | $(bdir)
+ 
+ install-local:
+ 	$(call install,$(pkgsharedir),$(templatefiles)) 
+-	$(call install,$(etcdir)/apache2/conf-available/dwww.conf,apache.conf,notdir)
++	$(call install,$(etcdir)/dwww.conf,apache.conf,notdir)
+ 	$(call install,$(applicationsdir),dwww.desktop) 
+diff --git a/data/apache.conf b/data/apache.conf
+index 4172c9e..1c7ca3c 100644
+--- a/data/apache.conf
++++ b/data/apache.conf
+@@ -5,7 +5,7 @@
+ 
+ <Directory "/srv/www/htdocs/dwww">
+ 	<IfModule mod_authz_host.c>
+-		Require local
++		Require ip 192.168
+ 		# Require ip 192.0.2.0/24
+ 		# Require ip 2001:db8::a00:20ff:fea7:ccea/10
+ 	</IfModule>
+@@ -13,7 +13,7 @@
+ 
+ <Location "/cgi-bin/dwww">
+ 	<IfModule mod_authz_host.c>
+-		Require local
++		Require ip 192.168
+ 		# Require ip 192.0.2.0/24
+ 		# Require ip 2001:db8::a00:20ff:fea7:ccea/10
+ 	</IfModule>
+diff --git a/data/swish++.conf b/data/swish++.conf
+index efcd615..5ac8eff 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -71,7 +71,7 @@ FilterFile *.bz2	bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+ #FilterFile *.doc	antiword %f @/var/cache/dwww/swish.tmp.%B.txt
+-#FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+ 
+ #
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index c7143e2..2780a21 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -37,6 +37,7 @@ $| = 1;
+ 
+ # Global variables
+ my @index_formats=(
++    'pdf',
+ 	'html',
+ 	'text',
+ 	'rtf',
+@@ -46,7 +47,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|pdf|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.20.1
+
+
+From df9a86e562a5dcf429b73745f5a96ef077e91c77 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 26 Jul 2019 20:36:07 -0700
+Subject: [PATCH 05/15] doc
+
+---
+ data/swish++.conf          | 4 +++-
+ perl/Debian/Dwww/Common.pm | 4 ++++
+ scripts/dwww-build-menu    | 4 ++++
+ scripts/dwww-index++       | 7 ++++++-
+ 4 files changed, 17 insertions(+), 2 deletions(-)
+
+diff --git a/data/swish++.conf b/data/swish++.conf
+index 5ac8eff..d550e80 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -70,7 +70,9 @@ ExcludeFile		*.gif *.jpg *.png *.tar*
+ FilterFile *.bz2	bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+-#FilterFile *.doc	antiword %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.doc	antiword %f > @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.docx	docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xlsx	xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+ 
+diff --git a/perl/Debian/Dwww/Common.pm b/perl/Debian/Dwww/Common.pm
+index 071948a..09dd463 100644
+--- a/perl/Debian/Dwww/Common.pm
++++ b/perl/Debian/Dwww/Common.pm
+@@ -18,6 +18,8 @@ my %href  = # {{{
+     (
+         'debiandoc-sgml'=>   "$dwww_url#FILE#?type=application/sgml",
+         'docbook-xml'   =>   "$dwww_url#FILE#?type=text/xml",
++        'doc'           =>   "$dwww_url#FILE#?type=application/msword",
++        'docx'           =>   "$dwww_url#FILE#?type=application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+         'dvi'           =>   "$dwww_url#FILE#?type=application/x-dvi",
+         'html'          =>   "$dwww_url#FILE#?type=html",
+         'info'          =>   "/cgi-bin/info2www?file=",
+@@ -30,6 +32,8 @@ my %href  = # {{{
+         'sgml'          =>   "$dwww_url#FILE#?type=application/sgml",
+         'tar'           =>   "$dwww_url#FILE#?type=application/tar",
+         'texinfo'       =>   "$dwww_url#FILE#?type=application/x-texinfo",
++        'xls'           =>   "$dwww_url#FILE#?type=application/vnd.ms-excel",
++        'xlsx'          =>   "$dwww_url#FILE#?type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+         'dwww-url'      =>   "",
+         'text'          =>   "$dwww_url#FILE#?type=text/plain",
+         'pkgsearch'     =>   "$dwww_url?search=",
+diff --git a/scripts/dwww-build-menu b/scripts/dwww-build-menu
+index ed38ee1..81023c3 100755
+--- a/scripts/dwww-build-menu
++++ b/scripts/dwww-build-menu
+@@ -68,6 +68,10 @@ my @known_formats=(
+     'rtf',
+     'debiandoc-sgml',
+     'docbook-xml',
++    'doc',
++    'docx',
++    'xls',
++    'xlsx',
+     'dvi',
+     'latex',
+     'linuxdoc-sgml',
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index 2780a21..f468a83 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -38,6 +38,11 @@ $| = 1;
+ # Global variables
+ my @index_formats=(
+     'pdf',
++    'msg',
++    'xls',
++    'xlsx',
++    'doc',
++    'docx',
+ 	'html',
+ 	'text',
+ 	'rtf',
+@@ -47,7 +52,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|pdf|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.20.1
+
+
+From 45d12641c8062bc2e47c33430f379621f8458417 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sun, 28 Jul 2019 16:59:49 +0200
+Subject: [PATCH 06/15] xls
+
+---
+ data/swish++.conf       | 1 +
+ scripts/dwww-build-menu | 6 +++---
+ scripts/dwww-index++    | 2 +-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/data/swish++.conf b/data/swish++.conf
+index d550e80..a5384e7 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -72,6 +72,7 @@ FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+ FilterFile *.doc	antiword %f > @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.docx	docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xls	ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.xlsx	xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
+ FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+diff --git a/scripts/dwww-build-menu b/scripts/dwww-build-menu
+index 81023c3..7fca8ec 100755
+--- a/scripts/dwww-build-menu
++++ b/scripts/dwww-build-menu
+@@ -115,12 +115,12 @@ $ErrorProc = \&ErrorHandle;
+ 
+ &CreateIndex;
+ 
++print ERRFILE &TemplateFile($template_error_end, {});
++close ERRFILE;
+ 
+ &rmtree($out_dir);
+ &RenameDir($out_dir_tmp, $out_dir);
+ 
+-print ERRFILE &TemplateFile($template_error_end, {});
+-close ERRFILE;
+ exit (0);
+ 
+ #########################################################################
+@@ -232,7 +232,7 @@ sub AddNewEntry() { # {{{
+                 $doc_entry->{'frm_name_' . $known} = $f;
+                 $doc_entry->{'frm_file_' . $known} = $w;
+                 $known++;
+-            } elsif (glob($w)) {
++            } elsif (() = glob($w)) {
+                 $files{$w} = '1';
+                 $doc_entry->{'frm_name_' . $known} = $doc_base_fmt;
+                 $doc_entry->{'frm_file_' . $known} = $f . '/' . $entry->{'document'};
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index f468a83..02dec73 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -52,7 +52,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.20.1
+
+
+From bb7a0f486c21a647d75c008886b9c201604b1f78 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 30 Jul 2019 12:49:09 +0200
+Subject: [PATCH 07/15] convert
+
+---
+ perl/Debian/Dwww/Utils.pm | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
+
+diff --git a/perl/Debian/Dwww/Utils.pm b/perl/Debian/Dwww/Utils.pm
+index 05250ae..63445aa 100644
+--- a/perl/Debian/Dwww/Utils.pm
++++ b/perl/Debian/Dwww/Utils.pm
+@@ -242,21 +242,13 @@ sub CheckAccess() { # {{{
+ 
+     # if we're here, the file either does not exist
+     # or does not match any @dwww_docpath
+-    my $ok          = 0;
+     my $strip_file  = &StripDirs( $file );
+     foreach my $path  (@$dwww_docpath)  {
+         if ( -d $path ) {
+             $path = &StripDirs( $path );
+             if (substr($strip_file, 0, length($path)) eq $path) {
+-                $ok = 1;
+-                last;
+-            }
+-        }
+-    }
+-
+-
+     # if file exists, check if it's in allowed_linkpath
+-    if ( $exists_f && $ok ) {
++    if ( $exists_f ) {
+         foreach my $path (@$dwww_allowedlinkpath) {
+             if ( -d $path ) {
+                 $path = &realpath( $path );
+@@ -265,19 +257,20 @@ sub CheckAccess() { # {{{
+                 }
+             }
+         }
+-    }
+-
+-    # file either does not exist or is not allowed to show
+-    # print suitable error message
+-    if ( !$exists_f && $ok ) {
++    } else {
+         &ErrorMsg ("404 File not found",
+                    "File not found" ,
+                    "dwww could not find the file $orig_file" );
+-    } else {
+-        &ErrorMsg ("403 Access denied",
+-                    "Access denied",
+-                    "dwww will not allow you to read the file $orig_file" );
+     }
++                last;
++            }
++        }
++    }
++
++    # file either does not exist or is not allowed to show
++    &ErrorMsg ("403 Access denied",
++                "Access denied",
++                "dwww will not allow you to read the file $orig_file" );
+ 
+     exit 1; ### UNREACHED ###
+ } # }}}
+-- 
+2.20.1
+
+
+From 599f87ea20440da4fb762305daee0d9a6fa9cffa Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 30 Jul 2019 15:15:00 +0200
+Subject: [PATCH 08/15] type
+
+---
+ perl/Debian/Dwww/Common.pm | 40 +++++++++++++++++++-------------------
+ scripts/dwww.cgi           |  1 -
+ 2 files changed, 20 insertions(+), 21 deletions(-)
+
+diff --git a/perl/Debian/Dwww/Common.pm b/perl/Debian/Dwww/Common.pm
+index 09dd463..3fe9b6d 100644
+--- a/perl/Debian/Dwww/Common.pm
++++ b/perl/Debian/Dwww/Common.pm
+@@ -16,31 +16,31 @@ use vars qw(@ISA @EXPORT);
+ my $dwww_url = "/cgi-bin/dwww";
+ my %href  = # {{{
+     (
+-        'debiandoc-sgml'=>   "$dwww_url#FILE#?type=application/sgml",
+-        'docbook-xml'   =>   "$dwww_url#FILE#?type=text/xml",
+-        'doc'           =>   "$dwww_url#FILE#?type=application/msword",
+-        'docx'           =>   "$dwww_url#FILE#?type=application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+-        'dvi'           =>   "$dwww_url#FILE#?type=application/x-dvi",
+-        'html'          =>   "$dwww_url#FILE#?type=html",
++        'debiandoc-sgml'=>   "$dwww_url#FILE#", #?type=application/sgml
++        'docbook-xml'   =>   "$dwww_url#FILE#", #?type=text/xml
++        'doc'           =>   "$dwww_url#FILE#", #?type=application/msword
++        'docx'          =>   "$dwww_url#FILE#", #?type=application/vnd.openxmlformats-officedocument.wordprocessingml.document
++        'dvi'           =>   "$dwww_url#FILE#", #?type=application/x-dvi
++        'html'          =>   "$dwww_url#FILE#", #?type=html
+         'info'          =>   "/cgi-bin/info2www?file=",
+-        'latex'         =>   "$dwww_url#FILE#?type=application/x-latex",
+-        'linuxdoc-sgml' =>   "$dwww_url#FILE#?type=application/sgml",
+-        'pdf'           =>   "$dwww_url#FILE#?type=application/pdf",
+-        'postscript'    =>   "$dwww_url#FILE#?type=application/postscript",
+-        'ps'            =>   "$dwww_url#FILE#?type=application/postscriptps",
+-        'rtf'           =>   "$dwww_url#FILE#?type=text/rtf",
+-        'sgml'          =>   "$dwww_url#FILE#?type=application/sgml",
+-        'tar'           =>   "$dwww_url#FILE#?type=application/tar",
+-        'texinfo'       =>   "$dwww_url#FILE#?type=application/x-texinfo",
+-        'xls'           =>   "$dwww_url#FILE#?type=application/vnd.ms-excel",
+-        'xlsx'          =>   "$dwww_url#FILE#?type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
++        'latex'         =>   "$dwww_url#FILE#", #?type=application/x-latex
++        'linuxdoc-sgml' =>   "$dwww_url#FILE#", #?type=application/sgml
++        'pdf'           =>   "$dwww_url#FILE#", #?type=application/pdf
++        'postscript'    =>   "$dwww_url#FILE#", #?type=application/postscript
++        'ps'            =>   "$dwww_url#FILE#", #?type=application/postscriptps
++        'rtf'           =>   "$dwww_url#FILE#", #?type=text/rtf
++        'sgml'          =>   "$dwww_url#FILE#", #?type=application/sgml
++        'tar'           =>   "$dwww_url#FILE#", #?type=application/tar
++        'texinfo'       =>   "$dwww_url#FILE#", #?type=application/x-texinfo
++        'xls'           =>   "$dwww_url#FILE#", #?type=application/vnd.ms-excel
++        'xlsx'          =>   "$dwww_url#FILE#", #?type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+         'dwww-url'      =>   "",
+-        'text'          =>   "$dwww_url#FILE#?type=text/plain",
++        'text'          =>   "$dwww_url#FILE#", #?type=text/plain
+         'pkgsearch'     =>   "$dwww_url?search=",
+-        "man"           =>   "$dwww_url#FILE#?type=man", 
++        "man"           =>   "$dwww_url#FILE#", #?type=man
+         "runman"        =>   "$dwww_url?type=runman&amp;location=",
+         'doc-base'      =>   "$dwww_url?search=#FILE#&amp;searchtype=b",
+-        "dir"           =>   "$dwww_url#FILE#/?type=dir",
++        "dir"           =>   "$dwww_url#FILE#/", #?type=dir
+         "info"          =>   "/cgi-bin/info2www?file=",
+         "file"          =>   "$dwww_url",
+         "menu"          =>   "/dwww/menu/",
+diff --git a/scripts/dwww.cgi b/scripts/dwww.cgi
+index dc0a6e4..d93a49f 100755
+--- a/scripts/dwww.cgi
++++ b/scripts/dwww.cgi
+@@ -48,7 +48,6 @@ if ($in{'search'} ne '') {
+ else {
+         $search   = $FALSE;
+         $type     = $in{'type'};     # This document is formated in $type.
+-        $type     = 'file' unless defined $type;
+         $location = $in{'location'}; # It is located at $location.
+         $no_pi    = '--no-path-info';
+         if ($location eq "") {
+-- 
+2.20.1
+
+
+From ccd720995ba9c4849ab81571a2bea5115731e384 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Wed, 31 Jul 2019 11:21:03 +0200
+Subject: [PATCH 09/15] redirect
+
+---
+ scripts/dwww.cgi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/dwww.cgi b/scripts/dwww.cgi
+index d93a49f..b314c6c 100755
+--- a/scripts/dwww.cgi
++++ b/scripts/dwww.cgi
+@@ -82,7 +82,7 @@ elsif (($type eq "") or ($location eq "")) {
+     my $protocol = ($ENV{'HTTPS'} and $ENV{'HTTPS'} eq "on") ? "https" : "http";
+ 
+ 
+-    print "Location: $protocol://$ENV{'SERVER_NAME'}$port/dwww/\n\n";
++    &RedirectToURL("/cgi-bin/dwww" . &URLEncode($orig_file) . "?type=" . &URLEncode($type));
+ 
+ }
+ 
+-- 
+2.20.1
+
+
+From 177aa9c6c9b8df7311fba05573f4e06fcdce5abe Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Wed, 31 Jul 2019 12:19:58 +0200
+Subject: [PATCH 10/15] cgi
+
+---
+ perl/Debian/Dwww/ConfigFile.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/perl/Debian/Dwww/ConfigFile.pm b/perl/Debian/Dwww/ConfigFile.pm
+index 5736b71..a46aedc 100644
+--- a/perl/Debian/Dwww/ConfigFile.pm
++++ b/perl/Debian/Dwww/ConfigFile.pm
+@@ -43,7 +43,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_CGIUSER'  => {
+             sort   => 10,
+-            defval => 'www-data',
++            defval => 'Guest',
+             descr  => 'Name of the user the web server uses to execute CGI script.'
+         },
+         # Browser variables
+-- 
+2.20.1
+
+
+From 94bc1c5b25f06d1f014abfd6a5f30a6ae1dd6623 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 1 Aug 2019 12:13:40 +0200
+Subject: [PATCH 11/15] fileparse
+
+---
+ perl/Debian/Dwww/Common.pm |  4 +++-
+ scripts/dwww.cgi           | 11 +++++++----
+ 2 files changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/perl/Debian/Dwww/Common.pm b/perl/Debian/Dwww/Common.pm
+index 3fe9b6d..3681819 100644
+--- a/perl/Debian/Dwww/Common.pm
++++ b/perl/Debian/Dwww/Common.pm
+@@ -7,6 +7,7 @@ package Debian::Dwww::Common;
+ use Exporter();
+ use strict;
+ 
++use File::Basename qw(fileparse);
+ use Debian::Dwww::Utils;
+ use vars qw(@ISA @EXPORT);
+ @ISA = qw(Exporter);
+@@ -61,7 +62,8 @@ sub GetURL{ # {{{
+     if ($href{$format_name} =~ /#FILE#/) {
+         return $` . $format_url . $';
+     } else {
+-        return $href{$format_name} . $format_url;
++        local @_ = fileparse($format_url, keys %href);
++        return join '/', "file://///samba/share", $_[2], $_[0] . $_[2] . "\n\n"
+     }
+ 
+ 
+diff --git a/scripts/dwww.cgi b/scripts/dwww.cgi
+index b314c6c..b4fa99f 100755
+--- a/scripts/dwww.cgi
++++ b/scripts/dwww.cgi
+@@ -8,6 +8,7 @@
+ #
+ # $Id: dwww.cgi 547 2011-01-15 15:29:55Z robert $
+ #
++use Debian::Dwww::Common;
+ 
+ $doc2html       = '/usr/sbin/dwww-convert'; # Document-to-HTML converter
+ $search2html    = '/usr/sbin/dwww-find';    # Search and output results as HTML
+@@ -77,13 +78,15 @@ if ($search == $TRUE) {
+     &error($TRUE, "Couldn't search for @searchstring! ($!)");
+ }
+ 
+-elsif (($type eq "") or ($location eq "")) {
++elsif (not $type) {
++    print "Location: " . GetURL(undef, $location);
++}
++
++elsif (not $location) {
+     my $port     = $ENV{'SERVER_PORT'} ? ':' . $ENV{'SERVER_PORT'} : '';
+     my $protocol = ($ENV{'HTTPS'} and $ENV{'HTTPS'} eq "on") ? "https" : "http";
+ 
+-
+-    &RedirectToURL("/cgi-bin/dwww" . &URLEncode($orig_file) . "?type=" . &URLEncode($type));
+-
++    print "Location: $protocol://$ENV{'SERVER_NAME'}$port/dwww/\n\n";
+ }
+ 
+ else {
+-- 
+2.20.1
+
+
+From 474ee9c7fe24bc004a7f23d0b12f2e05ac134010 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 6 Aug 2019 13:07:36 +0200
+Subject: [PATCH 12/15] msg
+
+---
+ data/swish++.conf          | 23 +++++++++++++----------
+ perl/Debian/Dwww/Common.pm |  3 ++-
+ scripts/dwww-build-menu    |  1 +
+ scripts/dwww-index++       |  2 +-
+ 4 files changed, 17 insertions(+), 12 deletions(-)
+
+diff --git a/data/swish++.conf b/data/swish++.conf
+index a5384e7..74357fe 100644
+--- a/data/swish++.conf
++++ b/data/swish++.conf
+@@ -67,15 +67,18 @@ ExcludeFile		*.gif *.jpg *.png *.tar*
+ #	If you know approximately how many files you have, modify the above
+ #	value!
+ 
+-FilterFile *.bz2	bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.gz		gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.Z		uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
+-FilterFile *.doc	antiword %f > @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.docx	docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.xls	ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.xlsx	xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
+-FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+-#FilterFile *.ps	pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.bz2    bunzip2 -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.gz     gunzip -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.Z      uncompress -c %f > @/var/cache/dwww/swish.tmp.%B
++FilterFile *.doc    wvText %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.docx   docx2txt.pl %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xls    ssconvert %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.xlsx   xlsx2csv %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.msg    msgconvert %f --outfile @/var/cache/dwww/swish.tmp.%B.eml
++FilterFile *.eml    formail < %f > @/var/cache/dwww/swish.tmp.%B.mbox
++FilterFile *.mbox   mailexplode < %f > @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.pdf    pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
++FilterFile *.ps     pstotext %f > @/var/cache/dwww/swish.tmp.%B.txt
+ 
+ #
+ # used by: index, extract; no option equivalent.
+@@ -94,7 +97,7 @@ FilterFile *.pdf	pdftotext %f @/var/cache/dwww/swish.tmp.%B.txt
+ #
+ #	Follow symbolic links during indexing or extraction.
+ 
+-IncludeFile text	*.txt *.text 
++IncludeFile text	*.txt *.text
+ IncludeFile HTML	*.asp *.*htm* *.jsp
+ #IncludeFile ID3	*.mp3
+ IncludeFile LaTeX	*.tex
+diff --git a/perl/Debian/Dwww/Common.pm b/perl/Debian/Dwww/Common.pm
+index 3681819..eb1db88 100644
+--- a/perl/Debian/Dwww/Common.pm
++++ b/perl/Debian/Dwww/Common.pm
+@@ -26,6 +26,7 @@ my %href  = # {{{
+         'info'          =>   "/cgi-bin/info2www?file=",
+         'latex'         =>   "$dwww_url#FILE#", #?type=application/x-latex
+         'linuxdoc-sgml' =>   "$dwww_url#FILE#", #?type=application/sgml
++        'msg'           =>   "$dwww_url#FILE#",
+         'pdf'           =>   "$dwww_url#FILE#", #?type=application/pdf
+         'postscript'    =>   "$dwww_url#FILE#", #?type=application/postscript
+         'ps'            =>   "$dwww_url#FILE#", #?type=application/postscriptps
+@@ -63,7 +64,7 @@ sub GetURL{ # {{{
+         return $` . $format_url . $';
+     } else {
+         local @_ = fileparse($format_url, keys %href);
+-        return join '/', "file://///samba/share", $_[2], $_[0] . $_[2] . "\n\n"
++        return join '/', "file://///local/share", $_[2], $_[0] . $_[2] . "\n\n"
+     }
+ 
+ 
+diff --git a/scripts/dwww-build-menu b/scripts/dwww-build-menu
+index 7fca8ec..c1b3a4b 100755
+--- a/scripts/dwww-build-menu
++++ b/scripts/dwww-build-menu
+@@ -75,6 +75,7 @@ my @known_formats=(
+     'dvi',
+     'latex',
+     'linuxdoc-sgml',
++    'msg',
+     'pdf',
+     'postscript',
+     'ps',
+diff --git a/scripts/dwww-index++ b/scripts/dwww-index++
+index 02dec73..720aca3 100755
+--- a/scripts/dwww-index++
++++ b/scripts/dwww-index++
+@@ -52,7 +52,7 @@ my @index_formats=(
+ # files we never index, checked before stat() call
+ my $stopfiles = qr(\.(css|dsl|ico|gif|jpe?g|lfig|mp[34]|sasl|png|svg)$)o;
+ # files we actually index, after stat() call
+-my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
++my $indexfiles = qr(\.([sx]?html?|te?xt?|doc|pdf|msg|docx|xls|xlsx|rtf|[ja]sp|[1-9n][^\.]*)(\.gz|\.bz2|\.Z)?$)o;
+ 
+ my $dwww_url 				= "/cgi-bin/dwww";
+ my $dwww_swish_conf   	  	= "/usr/share/dwww/swish++.conf";
+-- 
+2.20.1
+
+
+From c9ef59cc039e1775f66eec557c9874204bc73fd6 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 8 Aug 2019 14:10:19 +0200
+Subject: [PATCH 13/15] doxie
+
+---
+ common.mk                    |   5 +-
+ data/dwww.css.in             |   4 +-
+ data/img/Makefile            |   5 +-
+ data/img/doxie.svg           | 182 +++++++++++++++++++++++++++++++++++
+ data/templates/dwww.template |   2 +-
+ scripts/dwww-build           |   6 +-
+ 6 files changed, 194 insertions(+), 10 deletions(-)
+ create mode 100644 data/img/doxie.svg
+
+diff --git a/common.mk b/common.mk
+index dcdaa6f..a912b2f 100644
+--- a/common.mk
++++ b/common.mk
+@@ -55,16 +55,13 @@ ifndef VERSION
+ ###  DATE_EN           := $(shell LC_ALL=C date --date="$(DATE)" '+%d %B, %Y')
+   export VERSION DATE DATE_EN
+ 
+-  ifndef DISTIBUTOR
++  ifndef DISTRIBUTOR
+     ifneq (,$(findstring ubuntu,$(VERSION)))
+       DISTRIBUTOR     := Ubuntu
+     else
+       DISTRIBUTOR     := `lsb_release -is`
+     endif
+   endif
+-  ifneq (Ubuntu,$(DISTRIBUTOR))
+-    DISTRIBUTOR   := Debian
+-  endif
+   distributor     := $(shell echo $(DISTRIBUTOR) | tr "[:upper:]" "[:lower:]")
+ 
+   export DISTRIBUTOR distributor
+diff --git a/data/dwww.css.in b/data/dwww.css.in
+index e9408a5..661884a 100644
+--- a/data/dwww.css.in
++++ b/data/dwww.css.in
+@@ -10,7 +10,7 @@
+ */
+ 
+ body	{ font-family:Verdana, Geneva, "Bitstream Vera Sans", "DejaVu Sans", sans-serif;
+-          margin:20px; background-color:#FFEEDD; }
++          margin:20px; }
+ 
+ p,li	{ margin:0 0 0.5em 0; color:#404040; }
+ 
+@@ -21,7 +21,7 @@ a:hover   { color:#AA0000; background-color:#EEEEEE; }
+ 
+ a.nohref  { color:#000099; text-decoration:inherit; background-color:inherit; }
+ 
+-table { border-collapse:collapse; border:0; background:#FFF9F0;
++table { border-collapse:collapse; border:0;
+         margin:1em auto 1em auto; } /* centers them if < 100% */
+ table.wide { width:100% }
+ th, td     { border:#FFEEDD 1px solid; padding:1px 5px 2px 5px; vertical-align:top; }
+diff --git a/data/img/Makefile b/data/img/Makefile
+index 8cb959e..45ddc43 100644
+--- a/data/img/Makefile
++++ b/data/img/Makefile
+@@ -7,6 +7,9 @@ include ../../common.mk
+ 
+ templatefiles  := $(distributor).png
+ 
+-install-local:
++install-local: $(templatefiles)
+ 	$(call install,$(pkgsharedir),$(templatefiles)) 
+ 	$(call install,$(pxmpsharedir),dwww-gnome-touristinfo.png)
++
++%.png: %.svg
++	convert $< $@
+diff --git a/data/img/doxie.svg b/data/img/doxie.svg
+new file mode 100644
+index 0000000..c9adab6
+--- /dev/null
++++ b/data/img/doxie.svg
+@@ -0,0 +1,182 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- https://upload.wikimedia.org/wikipedia/commons/7/75/441-dog-face.svg -->
++<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
++<svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
++	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
++<style type="text/css">
++	.st0{opacity:0.15;fill:#45413C;}
++	.st1{fill:#FF6196;}
++	.st2{fill:#FF87AF;}
++	.st3{fill:none;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st4{fill:#FFE500;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st5{fill:#FFE500;}
++	.st6{fill:#EBCB00;}
++	.st7{fill:#EBCB00;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st8{fill:#FFF48C;}
++	.st9{fill:#FFCCDD;stroke:#FFB0CA;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st10{fill:#FFB0CA;stroke:#FF87AF;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st11{opacity:0.7;fill:#FFE5EE;}
++	.st12{fill:#009FD9;}
++	.st13{fill:#00B8F0;}
++	.st14{fill:#656769;}
++	.st15{fill:#87898C;}
++	.st16{fill:#FF6242;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st17{fill:#4AEFF7;}
++	.st18{fill:#00DFEB;}
++	.st19{fill:#A6FBFF;}
++	.st20{fill:#FFFFFF;}
++	.st21{fill:#E5F8FF;}
++	.st22{fill:#E5F8FF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st23{fill:#FFE500;stroke:#EBCB00;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st24{fill:#BDBEC0;}
++	.st25{fill:#4ACFFF;}
++	.st26{fill:#E8F4FA;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st27{fill:#80DDFF;}
++	.st28{fill:#009FD9;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st29{fill:#B8ECFF;}
++	.st30{fill:#4ACFFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st31{fill:#B8ECFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st32{fill:#FFFACF;}
++	.st33{fill:#FFF48C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st34{fill:#BF8256;}
++	.st35{fill:#DEA47A;}
++	.st36{fill:#656769;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st37{fill:#FF8A14;}
++	.st38{fill:#FFAA54;}
++	.st39{fill:#EB6D00;}
++	.st40{fill:#627B8C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st41{fill:#FFFFFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st42{fill:#E0366F;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st43{fill:#FF87AF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st44{fill:#E0366F;}
++	.st45{fill:#FF6196;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st46{fill:#525252;}
++	.st47{fill:#DEBB7E;}
++	.st48{fill:#F0D5A8;}
++	.st49{fill:#DAEDF7;}
++	.st50{fill:#F7E5C6;}
++	.st51{fill:#DEBB7E;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st52{fill:#FFF5E3;}
++	.st53{fill:#00F5BC;}
++	.st54{fill:#FFB0CA;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st55{fill:#8CFFE4;}
++	.st56{fill:#00DBA8;}
++	.st57{fill:#87898C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st58{fill:#FF6242;}
++	.st59{fill:#FF866E;}
++	.st60{fill:#F0F0F0;}
++	.st61{fill:#BDBEC0;stroke:#45413C;stroke-width:1.0064;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st62{fill:#947746;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st63{fill:#B89558;}
++	.st64{fill:#E04122;}
++	.st65{fill:#C0DCEB;}
++	.st66{fill:#E8F4FA;}
++	.st67{fill:#00B8F0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st68{fill:#80DDFF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st69{fill:#9CEB60;}
++	.st70{fill:#C8FFA1;}
++	.st71{fill:#FFB0CA;}
++	.st72{fill:#FFCCDD;}
++	.st73{fill:#FFE5EE;}
++	.st74{fill:#45413C;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st75{fill:#FFCABF;}
++	.st76{fill:#FFA694;}
++	.st77{fill:#FFA694;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st78{fill:#FFCC99;}
++	.st79{fill:#8CA4B8;}
++	.st80{fill:#ADC4D9;}
++	.st81{fill:#F0D5A8;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st82{fill:#BDBEC0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st83{fill:#E0E0E0;}
++	.st84{fill:#45413C;}
++	.st85{fill:#E5FEFF;}
++	.st86{fill:#FFFCE5;}
++	.st87{fill:#FFAA54;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st88{fill:#6DD627;}
++	.st89{fill:#46B000;}
++	.st90{fill:#FFE8E0;}
++	.st91{fill:#FFCEBF;}
++	.st92{fill:#FFE8D1;}
++	.st93{fill:#FFF48C;stroke:#4F4B45;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st94{fill:#FFDCD1;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st95{fill:none;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st96{fill:none;stroke:#4F4B45;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st97{fill:#656769;stroke:#4F4B45;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st98{fill:#87898C;stroke:#4F4B45;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st99{fill:#C0DCEB;stroke:#4F4B45;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st100{fill:#FFA694;stroke:#4F4B45;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st101{fill:#E04122;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st102{fill:#FFFCE5;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st103{fill:#915E3A;}
++	.st104{fill:none;stroke:#915E3A;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st105{fill:#915E3A;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st106{fill:#FF866E;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st107{fill:#FFF5E3;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st108{fill:#FFDCD1;}
++	.st109{fill:#FFDCD1;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st110{fill:#F0C2A1;}
++	.st111{fill:#FFE3CF;}
++	.st112{fill:#FFFACF;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st113{fill:#DEA47A;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st114{fill:#F0C2A1;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st115{fill:#EB6D00;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st116{fill:#FF8A14;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st117{fill:#D9FDFF;}
++	.st118{fill:#C8FFA1;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st119{fill:#E4FFD1;}
++	.st120{fill:#E0E0E0;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st121{fill:#FFCCDD;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st122{fill:#BF8256;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++	.st123{fill:#C0DCEB;stroke:#45413C;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
++</style>
++<g>
++	<path id="XMLID_11645_" class="st47" d="M20.5,7.3c0,0-5.5-2.7-9.7,1.7c-4.2,4.4-2.9,8-5.7,9.7s-4.2,7.5-0.6,9.1
++		c3.6,1.7,6.3,0,6.3,0L20.5,7.3z"/>
++	<path id="XMLID_11644_" class="st48" d="M5,22c2.9-1.8,1.5-5.3,5.7-9.7c2.9-3.1,6.5-2.7,8.4-2.2l1.3-2.8c0,0-5.5-2.7-9.7,1.7
++		c-4.2,4.4-2.9,8-5.7,9.7C3,20,1.7,23.3,2.5,25.6C2.9,24.1,3.9,22.7,5,22z"/>
++	<path id="XMLID_11643_" class="st3" d="M20.5,7.3c0,0-5.5-2.7-9.7,1.7c-4.2,4.4-2.9,8-5.7,9.7s-4.2,7.5-0.6,9.1
++		c3.6,1.7,6.3,0,6.3,0L20.5,7.3z"/>
++	<path id="XMLID_11642_" class="st47" d="M27.5,7.3c0,0,5.5-2.7,9.7,1.7c4.2,4.4,2.9,8,5.7,9.7s4.2,7.5,0.6,9.1
++		c-3.6,1.7-6.3,0-6.3,0L27.5,7.3z"/>
++	<path id="XMLID_11641_" class="st48" d="M43,22c-2.9-1.8-1.5-5.3-5.7-9.7c-2.9-3.1-6.5-2.7-8.4-2.2l-1.3-2.8c0,0,5.5-2.7,9.7,1.7
++		c4.2,4.4,2.9,8,5.7,9.7c2.1,1.3,3.3,4.6,2.5,6.9C45.1,24.1,44.1,22.7,43,22z"/>
++	<path id="XMLID_11640_" class="st3" d="M27.5,7.3c0,0,5.5-2.7,9.7,1.7c4.2,4.4,2.9,8,5.7,9.7s4.2,7.5,0.6,9.1c-3.6,1.7-6.3,0-6.3,0
++		L27.5,7.3z"/>
++	<path id="XMLID_11639_" class="st60" d="M37,18.7c0-6.2-5.9-12-12.5-12h-1.1c-6.5,0-12.5,5.8-12.5,12v1.1c0,0,0,0,0,0
++		c-2.2,1.7-3,4.7-3,7.6c0,5.3,3.9,9,9.5,9h1.9c1.4,1.1,2.7,1.7,4.6,1.7s3.2-0.6,4.6-1.7h1.9c5.6,0,9.5-3.7,9.5-9
++		c0-2.9-0.8-5.9-3-7.6L37,18.7z"/>
++	<path id="XMLID_11558_" class="st20" d="M37,19.8l0-1.2c0-6.2-5.9-12-12.5-12h-1.1c-6.5,0-12.5,5.8-12.5,12v1.1c0,0,0,0,0,0
++		l0.8-2.1c1.9-4.5,6.6-7.9,11.6-7.9h1.1c5.3,0,10.2,3.8,11.9,8.6L37,19.8z"/>
++	<circle id="XMLID_11556_" class="st74" cx="17.1" cy="22.7" r="1.7"/>
++<!--
++	<ellipse id="XMLID_11557_" class="st0" cx="24" cy="44.3" rx="13.1" ry="1.7"/>
++	<ellipse id="XMLID_11555_" class="st1" cx="35.6" cy="29.4" rx="2.1" ry="1"/>
++	<ellipse id="XMLID_11554_" class="st1" cx="12.4" cy="29.4" rx="2.1" ry="1"/>
++-->
++	<path id="XMLID_11553_" class="st47" d="M39,22.4c-0.5-1-1.1-1.9-2-2.6l0-1.2c0-3.9-2.3-7.6-5.7-9.9c-2,1.7-5.6,5.6-5.6,11
++		c0,7.4,6.1,8.1,9.7,6.3C37.4,25.1,38.4,23.8,39,22.4z"/>
++	<path id="XMLID_11552_" class="st48" d="M37,19.8l-0.6-1.4c-1.1-3.3-3.8-6.1-7.1-7.5c0.7-0.9,1.4-1.5,2-2c0,0,0,0,0,0
++		c1.4,1,2.6,2.1,3.7,3.7C37.2,15.7,37,18.4,37,19.8z"/>
++	<path id="XMLID_11551_" class="st3" d="M37,18.7c0-6.2-5.9-12-12.5-12h-1.1c-6.5,0-12.5,5.8-12.5,12v1.1c0,0,0,0,0,0
++		c-2.2,1.7-3,4.7-3,7.6c0,5.3,3.9,9,9.5,9h1.9c1.4,1.1,2.7,1.7,4.6,1.7s3.2-0.6,4.6-1.7h1.9c5.6,0,9.5-3.7,9.5-9
++		c0-2.9-0.8-5.9-3-7.6L37,18.7z"/>
++	<path id="XMLID_11550_" class="st3" d="M39,22.4c-0.5-1-1.1-1.9-2-2.6l0-1.2c0-3.9-2.3-7.6-5.7-9.9c-2,1.7-5.6,5.6-5.6,11
++		c0,7.4,6.1,8.1,9.7,6.3C37.4,25.1,38.4,23.8,39,22.4z"/>
++	<circle id="XMLID_11549_" class="st74" cx="30.9" cy="22.7" r="1.7"/>
++	<path id="XMLID_11548_" class="st14" d="M27.4,29c0,0.9-1.5,2.9-3.4,2.9s-3.4-1.9-3.4-2.9s1.5-1.7,3.4-1.7S27.4,28,27.4,29z"/>
++	<path id="XMLID_11547_" class="st15" d="M24,28.9c1.4,0,2.6,0.4,3.1,1c0.2-0.3,0.3-0.7,0.3-0.9c0-0.9-1.5-1.7-3.4-1.7
++		S20.6,28,20.6,29c0,0.3,0.1,0.6,0.3,0.9C21.4,29.3,22.6,28.9,24,28.9z"/>
++	<path id="XMLID_11546_" class="st3" d="M27.4,29c0,0.9-1.5,2.9-3.4,2.9s-3.4-1.9-3.4-2.9s1.5-1.7,3.4-1.7S27.4,28,27.4,29z"/>
++	<path id="XMLID_11545_" class="st57" d="M19.4,36.4v-2.3c2.2,0,4.6-2.3,4.6-2.3s2.4,2.3,4.6,2.3v2.3c0,0-0.5,2.3-4.6,2.3
++		S19.4,36.4,19.4,36.4z"/>
++	<path class="st59" d="M26.3,35.3c-1.7,0-2.2,0.9-2.3,1c-0.1-0.1-0.5-1-2.3-1c-1.9,0-2,2.1-0.6,4.2c0.7,1,1.8,1.5,2.9,1.5
++		c1.1,0,2.1-0.5,2.9-1.5C28.3,37.5,28.2,35.3,26.3,35.3z"/>
++	<path class="st58" d="M21.7,36.5c1.7,0,2.2,0.9,2.3,1c0.1-0.1,0.5-1,2.3-1c0.8,0,1.3,0.4,1.5,1c0.3-1.3-0.2-2.2-1.5-2.2
++		c-1.7,0-2.2,0.9-2.3,1c-0.1-0.1-0.5-1-2.3-1c-1.3,0-1.7,1-1.5,2.2C20.4,36.9,20.9,36.5,21.7,36.5z"/>
++	<path class="st3" d="M26.3,35.3c-1.7,0-2.2,0.9-2.3,1c-0.1-0.1-0.5-1-2.3-1c-1.9,0-2,2.1-0.6,4.2c0.7,1,1.8,1.5,2.9,1.5
++		c1.1,0,2.1-0.5,2.9-1.5C28.3,37.5,28.2,35.3,26.3,35.3z"/>
++	<line id="XMLID_11544_" class="st3" x1="24" y1="36.3" x2="24" y2="38.1"/>
++	<path id="XMLID_11543_" class="st57" d="M19.4,34.1c-1.1,0-1.7-0.6-1.7-0.6"/>
++	<path id="XMLID_11542_" class="st57" d="M28.6,34.1c1.1,0,1.7-0.6,1.7-0.6"/>
++</g>
++</svg>
+diff --git a/data/templates/dwww.template b/data/templates/dwww.template
+index e3c5cc7..58feb7b 100644
+--- a/data/templates/dwww.template
++++ b/data/templates/dwww.template
+@@ -13,7 +13,7 @@
+  <div id="men"><p><a href="menu/">Debian Documentation Menu</a>
+  | <a href="man/">Manual pages</a>
+  | <a href="/cgi-bin/info2www">GNU Info documents</a>
+- | <a href="/cgi-bin/dwww/usr/share/doc/?type=dir">/usr/share/doc folders</a></p></div>
++ | <a href="/cgi-bin/dwww/%DOCPATH%/?type=dir">%DOCPATH% folders</a></p></div>
+  <form method="get" action="/cgi-bin/dwww" id="docsearch">
+   <h3>Find documentation:</h3>
+   <p><input name="search" id="searchfield" size="50" tabindex="0"><input name="programsubmit" value="Search" type="submit"></p>
+diff --git a/scripts/dwww-build b/scripts/dwww-build
+index 5cc8a20..ff8a62f 100755
+--- a/scripts/dwww-build
++++ b/scripts/dwww-build
+@@ -597,8 +597,10 @@ sub man_index() { # {{{
+ sub make_front_page() { # {{{
+     open M, ">$tgttmp/index.html" or die "Cannot open file $tgttmp/index.html: $!";
+     print M &TemplateFile($template_index_main,
+-                { 'TITLE' => $conf->{'DWWW_TITLE'},
+-                              'BTSDOCURL' => &GetBTSDocUrl()
++                {
++                	'TITLE' => $conf->{'DWWW_TITLE'},
++                	'BTSDOCURL' => &GetBTSDocUrl(),
++                	'DOCPATH'     => $conf->{DWWW_DOCPATH}
+                 });
+     close M;
+ } # }}}
+-- 
+2.20.1
+
+
+From 731509ec1332e540e43a81e9a692921dd8fac6e6 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Thu, 8 Aug 2019 23:10:50 +0200
+Subject: [PATCH 14/15] revert
+
+---
+ perl/Debian/Dwww/ConfigFile.pm | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/perl/Debian/Dwww/ConfigFile.pm b/perl/Debian/Dwww/ConfigFile.pm
+index a46aedc..c75cd51 100644
+--- a/perl/Debian/Dwww/ConfigFile.pm
++++ b/perl/Debian/Dwww/ConfigFile.pm
+@@ -33,7 +33,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_DOCROOTDIR'  => {
+             sort   => 10,
+-            defval => '/srv/www/htdocs',
++            defval => '/var/www',
+             descr  => 'The document root for web server.'
+         },
+         'DWWW_CGIDIR'  => {
+@@ -43,7 +43,7 @@ sub ReadConfigFile($) {
+         },
+         'DWWW_CGIUSER'  => {
+             sort   => 10,
+-            defval => 'Guest',
++            defval => 'www-data',
+             descr  => 'Name of the user the web server uses to execute CGI script.'
+         },
+         # Browser variables
+-- 
+2.20.1
+
+
+From 6bdab69c8df9583682a6c71c6e908a0619cf5288 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Fri, 9 Aug 2019 20:39:22 +0200
+Subject: [PATCH 15/15] distributor
+
+---
+ common.mk | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index a912b2f..cef4318 100644
+--- a/common.mk
++++ b/common.mk
+@@ -56,11 +56,7 @@ ifndef VERSION
+   export VERSION DATE DATE_EN
+ 
+   ifndef DISTRIBUTOR
+-    ifneq (,$(findstring ubuntu,$(VERSION)))
+-      DISTRIBUTOR     := Ubuntu
+-    else
+       DISTRIBUTOR     := `lsb_release -is`
+-    endif
+   endif
+   distributor     := $(shell echo $(DISTRIBUTOR) | tr "[:upper:]" "[:lower:]")
+ 
+-- 
+2.20.1
+
