@@ -1,7 +1,6 @@
 #!/bin/sh
-# This script builds https://github.com/furrymcgee/doxie-search
+# This script builds https://github.com/furrymcgee/doxygwin
 # First submodules are patched then make is called
-# build tar --clamp-time 
 
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
@@ -14,10 +13,7 @@ GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am < sensible-utils
 
 GIT_WORK_TREE=cygport GIT_DIR=cygport/.git git am < cygport.patch
 
-cat \
-0001-index-on-no-branch-d7885fe-Fix-check-for-attempt-to-.patch \
-| \
-GIT_WORK_TREE=calm GIT_DIR=calm/.git git am
+GIT_WORK_TREE=calm GIT_DIR=calm/.git git am < calm.patch
 
 GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am < dpkg.patch
 
@@ -48,7 +44,7 @@ GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am < fakeroot.patch
 net user www-data /ADD || true
 
 xargs -t -L1 make \
-DISTRIBUTOR=doxie \
+DISTRIBUTOR=doxygwin \
 PERL5LIB=/usr/share/perl5 \
 DH_COMPAT=10 \
 prefix=/usr \
