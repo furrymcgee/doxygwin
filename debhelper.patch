@@ -1,8 +1,7 @@
-From 0a5e1f58cb5e407165238687739dade0540c7c0d Mon Sep 17 00:00:00 2001
+From ed1e35ff39fd0f51cae4b4413f0336b17c9c0d3b Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Tue, 10 Mar 2020 18:49:26 +0100
-Subject: [PATCH] dpkg-architecture: warning: unknown CC system type
- i686-pc-cygwin, falling back to default (native compilation)
+Date: Sat, 11 Apr 2020 18:11:16 +0200
+Subject: [PATCH] index on (no branch): 654c00d7 Release debhelper/12.3
 
 ---
  dh_testroot                           | 2 +-
@@ -13,7 +12,7 @@ Subject: [PATCH] dpkg-architecture: warning: unknown CC system type
  5 files changed, 11 insertions(+), 5 deletions(-)
 
 diff --git debhelper/dh_testroot debhelper/dh_testroot
-index 042331b6..889dafa0 100755
+index 042331b6..eede9da4 100755
 --- debhelper/dh_testroot
 +++ debhelper/dh_testroot
 @@ -79,7 +79,7 @@ if (! -f 'debian/control') {
@@ -21,7 +20,7 @@ index 042331b6..889dafa0 100755
  # The builder /can/ choose to ignore the requirements and just call us as root.
  # If so, we do not bother checking the requirements any further.
 -exit 0 if $< == 0;
-+exit 0 if $< == +(split /:/, qx/getent passwd root Administrator/)[3];
++exit 0 if $< == +(split /:/, qx/getent passwd root Administrator/)[2];
  if ($requirements eq 'legacy-root') {
  	error("You must run this as root (or use fakeroot).");
  } else {
