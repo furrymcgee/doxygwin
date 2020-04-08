@@ -1,0 +1,26 @@
+# THIS IS A GENERATED CYGPORT FILE 
+NAME="strip-nondeterminism"
+VERSION="1.1.2-1"
+RELEASE=1
+CATEGORY="perl"
+SUMMARY="file non-deterministic information stripper — stand-alone tool"
+DESCRIPTION=""
+HOMEPAGE="http://sourceware.org/cygwinports/"
+SRC_URI="http://ftp.debian.org/debian/pool/main/s/strip-nondeterminism/strip-nondeterminism_1.1.2-1.dsc http://ftp.debian.org/debian/pool/main/s/strip-nondeterminism/strip-nondeterminism_1.1.2.orig.tar.bz2 http://ftp.debian.org/debian/pool/main/s/strip-nondeterminism/strip-nondeterminism_1.1.2-1.debian.tar.xz"
+SRC_DIR="."
+PATCH_URI=""
+DEBEMAIL="user@example.com"
+DEBFULLNAME="Firstname Lastname"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+
+# this package contains no compiled Cygwin binaries
+# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+ARCH="noarch"
+
+# Build dependencies only
+DEPEND="libarchive-cpio-perl libarchive-zip-perl libdevel-cover-perl perl"
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES="libfile-stripnondeterminism-perl perl"
+
+inherit dpkg
