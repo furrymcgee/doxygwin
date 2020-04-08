@@ -34,14 +34,10 @@ GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git config core.filemode false
 
 GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am < docx2txt.patch
 
-cat \
-0001-cygwin.patch.~2~ \
-0002-usr-bin-install-missing-destination-file-operand-aft.patch \
-0003-doc.patch.~1~ \
-| \
-GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am
+GIT_WORK_TREE=swish++ GIT_DIR=swish++/.git git am < swish++.patch
 
 rm -rf debconf/debconf debconf/Debconf
+
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.symlinks false
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.filemode false
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git checkout Debconf
