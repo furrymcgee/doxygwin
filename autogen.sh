@@ -59,13 +59,7 @@ cat \
 | \
 GIT_WORK_TREE=dh-autoreconf GIT_DIR=dh-autoreconf/.git git am
 
-cat \
-0001-cygwin.patch.~3~ \
-0002-root.patch \
-0003-doc.patch \
-0004-error.patch \
-| \
-GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am
+GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am < doc-base.patch
 
 GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am < dwww.patch
 

@@ -1,0 +1,154 @@
+From 27a35d0ad17a3587ddd4d1f08a46f139256e8036 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Thu, 20 Jun 2019 21:25:44 -0700
+Subject: [PATCH 1/4] cygwin
+
+---
+ common.mk | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 95f1698..73eb5c4 100644
+--- a/common.mk
++++ b/common.mk
+@@ -8,7 +8,7 @@ override PACKAGE  := doc-base
+ 
+ PATH            := /usr/bin:/usr/sbin:/bin:/sbin:$(PATH)
+ 
+-INSTALL         := install -o root -g root
++INSTALL         := install -o $(shell id -u) -g $(shell id -g)
+ ifndef _INSTALL
+   # remove --strip-program=true from INSTALL passed by debhelper to
+   # get rid of '--strip-program used without -s option' warnings
+@@ -26,7 +26,7 @@ etcdir          := /etc/$(PACKAGE)
+ sbindir         := $(prefix)/sbin
+ mandir          := $(prefix)/share/man
+ sharedir        := $(prefix)/share/$(PACKAGE)
+-perllibdir      := $(prefix)/share/perl5
++perllibdir      := $(prefix)/lib/perl5/site_perl/5.22
+ docdir          := $(prefix)/share/doc/$(PACKAGE)
+ libdir          := /var/lib/$(PACKAGE)
+ omfdir          := $(prefix)/share/omf
+@@ -121,15 +121,15 @@ define install
+   done;                                                             \
+   [ -n "$$files" ] ||                                               \
+     echo "$(emptyprefix) installing dir    $(ddirshort)$$dir";      \
+-  $(install_dir) "$(DESTDIR)/$$dir";                                \
++  $(install_dir) "$(DESTDIR)//$$dir";                                \
+   for file in $$files; do                                           \
+       [ -n "$$bfile" ] && tgt="$$dir/$$bfile"  ||                   \
+         tgt="$$dir/`basename "$$file"`";                            \
+       echo "$(emptyprefix) installing $$what $(ddirshort)$$tgt";    \
+-      $$prg "$$file" "$(DESTDIR)/$$tgt";                            \
++      $$prg "$$file" "$(DESTDIR)//$$tgt";                            \
+       if [ "$$doCompress" -eq 1 ] ; then                            \
+         echo "$(emptyprefix) compressing file  $(ddirshort)$$tgt";  \
+-        $(compress) "$(DESTDIR)/$$tgt";                             \
++        $(compress) "$(DESTDIR)//$$tgt";                             \
+       fi;                                                           \
+   done;
+ endef
+@@ -139,9 +139,9 @@ define install_links
+   set -e;                                                          \
+   for file in $2; do                                               \
+     echo "$(emptyprefix) installing link   $(ddirshort)$$file";    \
+-    $(install_dir) $(DESTDIR)/`dirname "$$file"`;                  \
+-    rm -f "$(DESTDIR)/$$file";                                     \
+-    $(install_link) "$1" "$(DESTDIR)/$$file";                      \
++    $(install_dir) $(DESTDIR)//`dirname "$$file"`;                  \
++    rm -f "$(DESTDIR)//$$file";                                     \
++    $(install_link) "$1" "$(DESTDIR)//$$file";                      \
+   done
+ endef
+ 
+-- 
+2.23.0.rc1
+
+From e5cc49059580beaf88cca805c2b209ae77a2ebfc Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 21 Jun 2019 07:34:29 -0700
+Subject: [PATCH 2/4] root
+
+---
+ perl/Debian/DocBase/DB.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/perl/Debian/DocBase/DB.pm b/perl/Debian/DocBase/DB.pm
+index 642ab61..e2c2124 100644
+--- a/perl/Debian/DocBase/DB.pm
++++ b/perl/Debian/DocBase/DB.pm
+@@ -74,7 +74,7 @@ sub _SaveDB() { # {{{
+   Debug(_g("Saving `%s' (%d)."), $file, $self->{'CHANGED'});
+   return unless $self->{'CHANGED'};
+   my $readonly = $> != 0;
+-  Fatal($ERR_PROCESSING, _g("Needs to be root for this operation.")) if $readonly;
++  warn($ERR_PROCESSING, _g("Needs to be root for this operation.")) if $readonly;
+   (my $newfile = $file) =~ s/^[^\.]+/$&-new/g;
+   (my $oldfile = $file) =~ s/^[^\.]+/$&-old/g;
+ 
+-- 
+2.23.0.rc1
+
+From 788790d1bf954dcf51aa1fd7be157ad89eb4c332 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sun, 28 Jul 2019 00:54:49 +0200
+Subject: [PATCH 3/4] doc
+
+---
+ perl/Debian/DocBase/DocBaseFile.pm | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/perl/Debian/DocBase/DocBaseFile.pm b/perl/Debian/DocBase/DocBaseFile.pm
+index f7dd50f..b921b4c 100644
+--- a/perl/Debian/DocBase/DocBaseFile.pm
++++ b/perl/Debian/DocBase/DocBaseFile.pm
+@@ -438,7 +438,7 @@ sub _CheckRequiredFields($$$) { # {{{
+ 
+     if (not grep { $_ eq $format } @SUPPORTED_FORMATS) {
+       $self->_PrsErr(PRS_WARN, _g("format `%s' is not supported"), $$format_data{'format'});
+-      next;
++      #next;
+     }
+ 
+     my $index_value = undef;
+-- 
+2.23.0.rc1
+
+From d716c1a3c701e01b41980bce5d8ecd8a5aff129c Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 6 Aug 2019 13:10:06 +0200
+Subject: [PATCH 4/4] error
+
+---
+ perl/Debian/DocBase/DocBaseFile.pm | 1 +
+ perl/Debian/DocBase/InstallDocs.pm | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/perl/Debian/DocBase/DocBaseFile.pm b/perl/Debian/DocBase/DocBaseFile.pm
+index b921b4c..db08adf 100644
+--- a/perl/Debian/DocBase/DocBaseFile.pm
++++ b/perl/Debian/DocBase/DocBaseFile.pm
+@@ -11,6 +11,7 @@ use warnings;
+ 
+ use File::Glob ':glob';
+ use Debian::DocBase::Common;
++use Debian::DocBase::DB;
+ use Debian::DocBase::Utils;
+ use Debian::DocBase::Gettext;
+ use Scalar::Util qw(weaken);
+diff --git a/perl/Debian/DocBase/InstallDocs.pm b/perl/Debian/DocBase/InstallDocs.pm
+index bbb6e58..076321e 100644
+--- a/perl/Debian/DocBase/InstallDocs.pm
++++ b/perl/Debian/DocBase/InstallDocs.pm
+@@ -107,7 +107,7 @@ sub _HandleCheck() { # {{{
+     my $docfile = Debian::DocBase::DocBaseFile->new($file, 1);
+     $docfile->Parse();
+     if ($docfile->Invalid()) {
+-        Inform(_g("%s: Fatal error found, the file won't be registered."), $file);
++        Error(_g("%s: Fatal error found, the file won't be registered."), $file);
+     } elsif ((my $cnt = $docfile->GetWarnErrCount()) > 0) {
+         my $msg = _ng("%d warning or non-fatal error found.",
+                    "%d warnings or non-fatal errors found.",
+-- 
+2.23.0.rc1
+
