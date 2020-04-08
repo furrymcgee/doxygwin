@@ -12,10 +12,7 @@ git submodule update --init --force --checkout
 
 GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am < sensible-utils.patch
 
-cat \
-0001-index-on-no-branch-fa850df-Bump-version-to-0.25.0.patch \
-| \
-GIT_WORK_TREE=cygport GIT_DIR=cygport/.git git am
+GIT_WORK_TREE=cygport GIT_DIR=cygport/.git git am < cygport.patch
 
 cat \
 0001-index-on-no-branch-d7885fe-Fix-check-for-attempt-to-.patch \
