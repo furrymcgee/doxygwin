@@ -10,11 +10,7 @@ git config core.filemode false
 git submodule foreach git config core.filemode false
 git submodule update --init --force --checkout
 
-cat \
-0001-cygwin.patch.~1~ \
-0002-samba.patch \
-| \
-GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am
+GIT_WORK_TREE=sensible-utils GIT_DIR=sensible-utils/.git git am < sensible-utils.patch
 
 cat \
 0001-index-on-no-branch-fa850df-Bump-version-to-0.25.0.patch \
