@@ -54,11 +54,7 @@ GIT_WORK_TREE=doc-base GIT_DIR=doc-base/.git git am < doc-base.patch
 
 GIT_WORK_TREE=dwww GIT_DIR=dwww/.git git am < dwww.patch
 
-cat \
-0001-usr-bin-install-cannot-stat-.-fakeroot.1-No-such-fil.patch \
-0002-i686-pc-cygwin.patch \
-| \
-GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am
+GIT_WORK_TREE=fakeroot GIT_DIR=fakeroot/.git git am < fakeroot.patch
 
 net user www-data /ADD || true
 
