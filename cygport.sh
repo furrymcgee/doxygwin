@@ -28,11 +28,12 @@ bash
 	)
 
 	%rec: Source
-	%key: Package
+	%key: Binary
 
 	$(
 		<Sources.gz gunzip |
-		sed /^Package:\ $1$/,/^$/\!d |
+		sed s/^\\\(Binary:\ \[\[:alnum:\]-\]*\\\).*/\\\1/ |
+		sed /^Binary:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
 		sed -z /Extra-Source/d |
 		sed s/\\\x00//

@@ -1,0 +1,28 @@
+NAME="debconf"
+VERSION="1.5.71"
+RELEASE=1
+CATEGORY="admin"
+SUMMARY="Debian configuration management system"
+DESCRIPTION=""
+HOMEPAGE="http://sourceware.org/cygwinports/"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/debconf/debconf_1.5.71.dsc http://ftp.debian.org/debian/pool/main/d/debconf/debconf_1.5.71.tar.xz"
+SRC_DIR="."
+PATCH_URI="./debconf.patch"
+DEBEMAIL="user@example.com"
+DEBFULLNAME="Firstname Lastname"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+
+# this package contains no compiled Cygwin binaries
+# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+ARCH="noarch"
+
+# Build dependencies only
+DEPEND="perl python python3 gettext libintl-perl"
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES=""
+
+echo WARNING: The debconf source package is case sensitive! See also https://cygwin.com/cygwin-ug-net/using-specialnames.html#pathnames-casesensitive
+
+inherit dpkg
+

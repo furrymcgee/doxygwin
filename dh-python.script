@@ -1,0 +1,341 @@
+Script started on Sat Apr 11 05:08:40 2020
+cygport --32 dh-python all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 dh-python all
+[1;39m>>> Preparing dh-python.noarch[0;0m
+>>> Unpacking source dh-python_3.20190308.dsc
+>>> Unpacking source dh-python_3.20190308.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Fri Mar  8 08:25:49 2019 CET using RSA key ID A7457645
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/dh-python_3.20190308.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting dh-python in dh-python
+[1mdpkg-source: [0m[32minfo[0m: unpacking dh-python_3.20190308.tar.xz
+>>> Preparing working source directory
+[1;39m>>> Compiling dh-python.noarch[0;0m
+dpkg-buildpackage: info: source package dh-python
+dpkg-buildpackage: info: source version 3.20190308
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Piotr Ożarowski <piotr@debian.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+make clean
+make[1]: Entering directory '/mnt/dh-python.noarch/build/dh-python'
+make -C tests clean
+make[2]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests'
+make -C t101 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+dh clean
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+make -C t201 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+rm -rf build
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+rm -rf lib/Foo.egg-info
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+make -C t202 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+make -C t203 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+rm -rf lib/Foo.egg-info build
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+make -C t204 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+make -C t205 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+make -C t206 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 8 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+make -C t207 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 8 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+make -C t301 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+Makefile:8: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+rm -rf build
+dh clean
+   debian/rules override_dh_auto_clean
+make[5]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+#python3 setup.py clean
+make[5]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+rm -rf lib/Foo.egg-info
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+make -C t302 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+dh clean --buildsystem=python_distutils
+   dh_clean -O--buildsystem=python_distutils
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+rm -rf lib/Foo.egg-info build
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+make -C t303 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+dh clean
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+make -C t304 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+rm -f *\.dsc *\.tar\.gz *\.build *\.changes *\.deb *\.buildinfo
+make[2]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests'
+make -C pydist clean
+make[2]: Entering directory '/mnt/dh-python.noarch/build/dh-python/pydist'
+rm -rf cache
+#rm -f dist_fallback
+rm -f README.PyDist.html
+make[2]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/pydist'
+find . -name '*.py[co]' -delete
+find . -name __pycache__ -type d | xargs rm -rf
+rm -f .coverage pybuild.1 dh_pypy.1 dh_python2.1 dh_python3.1
+make[1]: Leaving directory '/mnt/dh-python.noarch/build/dh-python'
+dh_clean
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building dh-python in dh-python_3.20190308.tar.xz
+dpkg-source: info: building dh-python in dh-python_3.20190308.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_auto_configure
+   dh_auto_build
+	make -j1
+make[1]: Entering directory '/mnt/dh-python.noarch/build/dh-python'
+make -C tests clean
+make[2]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests'
+make -C t101 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+dh clean
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t101'
+make -C t201 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+rm -rf build
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+rm -rf lib/Foo.egg-info
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t201'
+make -C t202 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t202'
+make -C t203 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+rm -rf lib/Foo.egg-info build
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t203'
+make -C t204 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t204'
+make -C t205 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 7 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t205'
+make -C t206 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 8 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t206'
+make -C t207 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 8 in use)
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t207'
+make -C t301 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+Makefile:8: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+rm -rf build
+dh clean
+   debian/rules override_dh_auto_clean
+make[5]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+#python3 setup.py clean
+make[5]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+rm -rf lib/Foo.egg-info
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t301'
+make -C t302 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+dh clean --buildsystem=python_distutils
+   dh_clean -O--buildsystem=python_distutils
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+rm -rf lib/Foo.egg-info build
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t302'
+make -C t303 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+Makefile:7: warning: overriding recipe for target 'run'
+../common.mk:14: warning: ignoring old recipe for target 'run'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+dh clean
+   dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t303'
+make -C t304 clean
+make[3]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+./debian/rules clean
+make[4]: Entering directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+dh_clean
+make[4]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+make[3]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests/t304'
+rm -f *\.dsc *\.tar\.gz *\.build *\.changes *\.deb *\.buildinfo
+make[2]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/tests'
+make -C pydist clean
+make[2]: Entering directory '/mnt/dh-python.noarch/build/dh-python/pydist'
+rm -rf cache
+#rm -f dist_fallback
+rm -f README.PyDist.html
+make[2]: Leaving directory '/mnt/dh-python.noarch/build/dh-python/pydist'
+find . -name '*.py[co]' -delete
+find . -name __pycache__ -type d | xargs rm -rf
+rm -f .coverage pybuild.1 dh_pypy.1 dh_python2.1 dh_python3.1
+make[1]: Leaving directory '/mnt/dh-python.noarch/build/dh-python'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/mnt/dh-python.noarch/build/dh-python'
+#make tests
+# FIXME: enable above line once python3 doesn't depend on dh-python anymore
+# (i.e. there are no circular dependencies)
+make[1]: Leaving directory '/mnt/dh-python.noarch/build/dh-python'
+   dh_testroot
+   dh_prep
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/mnt/dh-python.noarch/build/dh-python'
+DESTDIR=debian/dh-python PREFIX=/usr make install manpages
+make[2]: Entering directory '/mnt/dh-python.noarch/build/dh-python'
+install -m 755 -d debian/dh-python/usr/bin \
+	debian/dh-python/usr/share/debhelper/autoscripts/ \
+	debian/dh-python/usr/share/perl5/Debian/Debhelper/Sequence/ \
+	debian/dh-python/usr/share/perl5/Debian/Debhelper/Buildsystem/ \
+	debian/dh-python/usr/share/dh-python/dhpython/build \
+	debian/dh-python/usr/share/dh-python/dist
+install -m 644 pydist/*_fallback debian/dh-python/usr/share/dh-python/dist/
+install -m 644 dhpython/*.py debian/dh-python/usr/share/dh-python/dhpython/
+install -m 644 dhpython/build/*.py debian/dh-python/usr/share/dh-python/dhpython/build/
+install -m 755 pybuild debian/dh-python/usr/share/dh-python/
+install -m 755 dh_pypy debian/dh-python/usr/share/dh-python/
+install -m 755 dh_python2 debian/dh-python/usr/share/dh-python/
+install -m 755 dh_python3 debian/dh-python/usr/share/dh-python/
+sed -i -e 's/DEVELV/3.20190308/' debian/dh-python/usr/share/dh-python/pybuild
+sed -i -e 's/DEVELV/3.20190308/' debian/dh-python/usr/share/dh-python/dh_pypy
+sed -i -e 's/DEVELV/3.20190308/' debian/dh-python/usr/share/dh-python/dh_python2
+sed -i -e 's/DEVELV/3.20190308/' debian/dh-python/usr/share/dh-python/dh_python3
+install -m 644 dh/pybuild.pm debian/dh-python/usr/share/perl5/Debian/Debhelper/Buildsystem/
+install -m 644 dh/pypy.pm debian/dh-python/usr/share/perl5/Debian/Debhelper/Sequence/
+install -m 644 dh/python2.pm debian/dh-python/usr/share/perl5/Debian/Debhelper/Sequence/
+install -m 644 dh/python3.pm debian/dh-python/usr/share/perl5/Debian/Debhelper/Sequence/
+install -m 644 autoscripts/* debian/dh-python/usr/share/debhelper/autoscripts/
+rst2man pybuild.rst > pybuild.1
+/bin/sh: rst2man: command not found
+make[2]: *** [Makefile:45: pybuild.1] Error 127
+make[2]: Leaving directory '/mnt/dh-python.noarch/build/dh-python'
+make[1]: *** [debian/rules:16: override_dh_auto_install] Error 2
+make[1]: Leaving directory '/mnt/dh-python.noarch/build/dh-python'
+make: *** [debian/rules:4: binary] Error 2
+dpkg-buildpackage: error: debian/rules binary subprocess returned exit status 2
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Sat Apr 11 05:11:55 2020

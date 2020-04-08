@@ -1,0 +1,498 @@
+Script started on Sat Apr 11 03:52:12 2020
+cygport --32 po-debconf all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 po-debconf all
+[1;39m>>> Preparing po-debconf.noarch[0;0m
+>>> Unpacking source po-debconf_1.0.21.dsc
+>>> Unpacking source po-debconf_1.0.21.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Nov 20 13:13:37 2018 CET using RSA key ID AC60611A
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/po-debconf_1.0.21.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting po-debconf in po-debconf
+[1mdpkg-source: [0m[32minfo[0m: unpacking po-debconf_1.0.21.tar.xz
+>>> Preparing working source directory
+[1;39m>>> Compiling po-debconf.noarch[0;0m
+dpkg-buildpackage: info: source package po-debconf
+dpkg-buildpackage: info: source version 1.0.21
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Herbert Parentes Fortes Neto <hpfn@debian.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j1 clean
+make[1]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf'
+make[2]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf/doc'
+po4a --previous --rm-translations --rm-backups po4a/po-debconf.cfg
+rm -f de/*.? en/*.? fr/*.? pt/*.? ru/*.? vi/*.? vi/*.?.html pod2htmd.tmp pod2htmi.tmp
+make[2]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf/doc'
+make[1]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f debian/po-debconf.debhelper.log
+	rm -f -- debian/po-debconf.substvars debian/files
+	rm -fr -- debian/po-debconf/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building po-debconf in po-debconf_1.0.21.tar.xz
+dpkg-source: info: building po-debconf in po-debconf_1.0.21.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   dh_auto_build
+	make -j1 "INSTALL=install --strip-program=true"
+make[1]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf'
+make -C doc
+make[2]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf/doc'
+po4a -v --previous --rm-backups \
+     --package-name po-debconf \
+     --package-version 1.0.21 \
+     --msgid-bugs-address po-debconf@packages.debian.org \
+     po4a/po-debconf.cfg
+Updating po4a/po/de.po: 
+................................ done.
+po4a/po/de.po: 310 translated messages.
+Updating po4a/po/es.po: 
+................................ done.
+po4a/po/es.po: 310 translated messages.
+Updating po4a/po/fr.po: 
+................................ done.
+po4a/po/fr.po: 310 translated messages.
+Updating po4a/po/pt.po: 
+................................ done.
+po4a/po/pt.po: 310 translated messages.
+Updating po4a/po/ru.po: 
+................................ done.
+po4a/po/ru.po: 310 translated messages.
+Updating po4a/po/vi.po: 
+................................ done.
+po4a/po/vi.po: 310 translated messages.
+de/debconf-gettextize.1.pod is 100% translated (36 strings).
+de/debconf-updatepo.1.pod is 100% translated (30 strings).
+de/po2debconf.1.pod is 100% translated (33 strings).
+de/po-debconf.7.pod is 100% translated (98 strings).
+de/podebconf-display-po.1.pod is 100% translated (24 strings).
+de/podebconf-report-po.1.pod is 100% translated (158 strings).
+es/debconf-gettextize.1.pod is 100% translated (36 strings).
+es/debconf-updatepo.1.pod is 100% translated (30 strings).
+es/po2debconf.1.pod is 100% translated (33 strings).
+es/po-debconf.7.pod is 100% translated (98 strings).
+es/podebconf-display-po.1.pod is 100% translated (24 strings).
+es/podebconf-report-po.1.pod is 100% translated (158 strings).
+fr/debconf-gettextize.1.pod is 100% translated (36 strings).
+fr/debconf-updatepo.1.pod is 100% translated (30 strings).
+fr/po2debconf.1.pod is 100% translated (33 strings).
+fr/po-debconf.7.pod is 100% translated (98 strings).
+fr/podebconf-display-po.1.pod is 100% translated (24 strings).
+fr/podebconf-report-po.1.pod is 100% translated (158 strings).
+pt/debconf-gettextize.1.pod is 100% translated (36 strings).
+pt/debconf-updatepo.1.pod is 100% translated (30 strings).
+pt/po2debconf.1.pod is 100% translated (33 strings).
+pt/po-debconf.7.pod is 100% translated (98 strings).
+pt/podebconf-display-po.1.pod is 100% translated (24 strings).
+pt/podebconf-report-po.1.pod is 100% translated (158 strings).
+ru/debconf-gettextize.1.pod is 100% translated (36 strings).
+ru/debconf-updatepo.1.pod is 100% translated (30 strings).
+ru/po2debconf.1.pod is 100% translated (33 strings).
+ru/po-debconf.7.pod is 100% translated (98 strings).
+ru/podebconf-display-po.1.pod is 100% translated (24 strings).
+ru/podebconf-report-po.1.pod is 100% translated (158 strings).
+vi/debconf-gettextize.1.pod is 100% translated (36 strings).
+vi/debconf-updatepo.1.pod is 100% translated (30 strings).
+vi/po2debconf.1.pod is 100% translated (33 strings).
+vi/po-debconf.7.pod is 100% translated (98 strings).
+vi/podebconf-display-po.1.pod is 100% translated (24 strings).
+vi/podebconf-report-po.1.pod is 100% translated (158 strings).
+for l in de en es fr pt ru vi; do \
+  for m in debconf-gettextize.1 debconf-updatepo.1 po2debconf.1 podebconf-display-po.1 podebconf-report-po.1 po-debconf.7; do \
+    test -f $l/$m.pod || continue; \
+    s=`echo $m | sed -e 's/.*\.//'`; \
+    p=`echo $m | sed -e 's/\..//'`; \
+    cp $l/$m.pod $p.pod; \
+    pod2man -utf8 -r '' -c po-debconf --section=$s $p.pod > $l/$p.$s; \
+# Fix the POD quotes (--quotes is not sufficient for the French quotes) \
+    case $l in \
+      de) \
+        sed -i -e 's/ds C` ""$/ds C` »/' \
+               -e "s/ds C' \"\"$/ds C' «/" \
+               $l/$p.$s; \
+        ;; \
+      fr) \
+        sed -i -e 's/ds C` ""$/ds C` «\\ /' \
+               -e "s/ds C' \"\"$/ds C' \\\\ »/" \
+               $l/$p.$s; \
+        ;; \
+    esac; \
+    rm -f $p.pod; \
+    test $l = en || mv $l/$p.$s $l/$p.$l.$s; \
+  done; \
+done
+# groff does not support UTF-8 pages.
+build the Vietnames HTML pages
+for m in debconf-gettextize.1 debconf-updatepo.1 po2debconf.1 podebconf-display-po.1 podebconf-report-po.1 po-debconf.7; do \
+    test -f vi/$m.pod || continue; \
+    pod2html --quiet --noindex vi/$m.pod > vi/$m.html; \
+done
+make[2]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf/doc'
+make fix
+make[2]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf'
+make[2]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf'
+make[1]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+	rm -f -- debian/po-debconf.substvars
+	rm -fr -- debian/.debhelper/generated/po-debconf/ debian/po-debconf/ debian/tmp/
+   dh_auto_install
+	install -d /mnt/po-debconf.noarch/build/po-debconf/debian/po-debconf
+   dh_install
+	install -d debian/po-debconf/usr/bin
+	cp --reflink=auto -a ./debconf-gettextize ./debconf-updatepo ./po2debconf ./podebconf-display-po ./podebconf-report-po debian/po-debconf/usr/bin/
+	install -d debian/po-debconf/usr/share/doc/po-debconf/manpages.vi
+	cp --reflink=auto -a ./doc/vi/debconf-gettextize.1.html ./doc/vi/debconf-updatepo.1.html ./doc/vi/po-debconf.7.html ./doc/vi/po2debconf.1.html ./doc/vi/podebconf-display-po.1.html ./doc/vi/podebconf-report-po.1.html debian/po-debconf/usr/share/doc/po-debconf/manpages.vi/
+	install -d debian/po-debconf/usr/share/po-debconf
+	cp --reflink=auto -a ./encodings ./pot-header debian/po-debconf/usr/share/po-debconf/
+	install -d debian/po-debconf/usr/share/po-debconf/templates
+	cp --reflink=auto -a ./podebconf-report-po_templates/call ./podebconf-report-po_templates/call-po ./podebconf-report-po_templates/submit ./podebconf-report-po_templates/submit-po ./podebconf-report-po_templates/translators ./podebconf-report-po_templates/translators-po debian/po-debconf/usr/share/po-debconf/templates/
+	install -d debian/.debhelper/generated/po-debconf
+   dh_installdocs
+	cp --reflink=auto -a ./README debian/po-debconf/usr/share/doc/po-debconf
+	cp --reflink=auto -a ./README-trans debian/po-debconf/usr/share/doc/po-debconf
+	chmod -R u\+rw,go=rX debian/po-debconf/usr/share/doc
+	install -p -m0644 debian/copyright debian/po-debconf/usr/share/doc/po-debconf/copyright
+	install -d debian/po-debconf/usr/share/doc-base/
+	install -p -m0644 debian/po-debconf.doc-base debian/po-debconf/usr/share/doc-base/po-debconf
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/po-debconf/usr/share/doc/po-debconf/changelog
+   debian/rules override_dh_installman
+make[1]: Entering directory '/mnt/po-debconf.noarch/build/po-debconf'
+dh_installman doc/en/*.[1-7] doc/es/*.es.[1-7] doc/de/*.de.[1-7] doc/fr/*.fr.[1-7] doc/pt/*.pt.[1-7] doc/ru/*.ru.[1-7] doc/vi/*.vi.[1-7]
+	install -d debian/po-debconf/usr/share/man/man1/
+	install -p -m0644 doc/en/debconf-gettextize.1 debian/po-debconf/usr/share/man/man1/debconf-gettextize.1
+	install -p -m0644 doc/en/debconf-updatepo.1 debian/po-debconf/usr/share/man/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/man7/
+	install -p -m0644 doc/en/po-debconf.7 debian/po-debconf/usr/share/man/man7/po-debconf.7
+	install -p -m0644 doc/en/po2debconf.1 debian/po-debconf/usr/share/man/man1/po2debconf.1
+	install -p -m0644 doc/en/podebconf-display-po.1 debian/po-debconf/usr/share/man/man1/podebconf-display-po.1
+	install -p -m0644 doc/en/podebconf-report-po.1 debian/po-debconf/usr/share/man/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/es/man1/
+	install -p -m0644 doc/es/debconf-gettextize.es.1 debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1
+	install -p -m0644 doc/es/debconf-updatepo.es.1 debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/es/man7/
+	install -p -m0644 doc/es/po-debconf.es.7 debian/po-debconf/usr/share/man/es/man7/po-debconf.7
+	install -p -m0644 doc/es/po2debconf.es.1 debian/po-debconf/usr/share/man/es/man1/po2debconf.1
+	install -p -m0644 doc/es/podebconf-display-po.es.1 debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1
+	install -p -m0644 doc/es/podebconf-report-po.es.1 debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/de/man1/
+	install -p -m0644 doc/de/debconf-gettextize.de.1 debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1
+	install -p -m0644 doc/de/debconf-updatepo.de.1 debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/de/man7/
+	install -p -m0644 doc/de/po-debconf.de.7 debian/po-debconf/usr/share/man/de/man7/po-debconf.7
+	install -p -m0644 doc/de/po2debconf.de.1 debian/po-debconf/usr/share/man/de/man1/po2debconf.1
+	install -p -m0644 doc/de/podebconf-display-po.de.1 debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1
+	install -p -m0644 doc/de/podebconf-report-po.de.1 debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/fr/man1/
+	install -p -m0644 doc/fr/debconf-gettextize.fr.1 debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1
+	install -p -m0644 doc/fr/debconf-updatepo.fr.1 debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/fr/man7/
+	install -p -m0644 doc/fr/po-debconf.fr.7 debian/po-debconf/usr/share/man/fr/man7/po-debconf.7
+	install -p -m0644 doc/fr/po2debconf.fr.1 debian/po-debconf/usr/share/man/fr/man1/po2debconf.1
+	install -p -m0644 doc/fr/podebconf-display-po.fr.1 debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1
+	install -p -m0644 doc/fr/podebconf-report-po.fr.1 debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/pt/man1/
+	install -p -m0644 doc/pt/debconf-gettextize.pt.1 debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1
+	install -p -m0644 doc/pt/debconf-updatepo.pt.1 debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/pt/man7/
+	install -p -m0644 doc/pt/po-debconf.pt.7 debian/po-debconf/usr/share/man/pt/man7/po-debconf.7
+	install -p -m0644 doc/pt/po2debconf.pt.1 debian/po-debconf/usr/share/man/pt/man1/po2debconf.1
+	install -p -m0644 doc/pt/podebconf-display-po.pt.1 debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1
+	install -p -m0644 doc/pt/podebconf-report-po.pt.1 debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/ru/man1/
+	install -p -m0644 doc/ru/debconf-gettextize.ru.1 debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1
+	install -p -m0644 doc/ru/debconf-updatepo.ru.1 debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/ru/man7/
+	install -p -m0644 doc/ru/po-debconf.ru.7 debian/po-debconf/usr/share/man/ru/man7/po-debconf.7
+	install -p -m0644 doc/ru/po2debconf.ru.1 debian/po-debconf/usr/share/man/ru/man1/po2debconf.1
+	install -p -m0644 doc/ru/podebconf-display-po.ru.1 debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1
+	install -p -m0644 doc/ru/podebconf-report-po.ru.1 debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1
+	install -d debian/po-debconf/usr/share/man/vi/man1/
+	install -p -m0644 doc/vi/debconf-gettextize.vi.1 debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1
+	install -p -m0644 doc/vi/debconf-updatepo.vi.1 debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1
+	install -d debian/po-debconf/usr/share/man/vi/man7/
+	install -p -m0644 doc/vi/po-debconf.vi.7 debian/po-debconf/usr/share/man/vi/man7/po-debconf.7
+	install -p -m0644 doc/vi/po2debconf.vi.1 debian/po-debconf/usr/share/man/vi/man1/po2debconf.1
+	install -p -m0644 doc/vi/podebconf-display-po.vi.1 debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1
+	install -p -m0644 doc/vi/podebconf-report-po.vi.1 debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1
+man: unrecognized option '--version'
+Try 'man --help' or 'man --usage' for more information.
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man7/po-debconf.7 > debian/po-debconf/usr/share/man/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man7/po-debconf.7 > debian/po-debconf/usr/share/man/vi/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/vi/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man1/po2debconf.1 > debian/po-debconf/usr/share/man/vi/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/vi/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man7/po-debconf.7 > debian/po-debconf/usr/share/man/es/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/es/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/es/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man1/po2debconf.1 > debian/po-debconf/usr/share/man/es/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/es/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/es/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man7/po-debconf.7 > debian/po-debconf/usr/share/man/de/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/de/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/de/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man1/po2debconf.1 > debian/po-debconf/usr/share/man/de/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/de/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/de/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man1/po2debconf.1 > debian/po-debconf/usr/share/man/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man7/po-debconf.7 > debian/po-debconf/usr/share/man/ru/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/ru/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man1/po2debconf.1 > debian/po-debconf/usr/share/man/ru/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/ru/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man7/po-debconf.7 > debian/po-debconf/usr/share/man/pt/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/pt/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man1/po2debconf.1 > debian/po-debconf/usr/share/man/pt/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/pt/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man7/po-debconf.7 > debian/po-debconf/usr/share/man/fr/man7/po-debconf.7.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man7/po-debconf.7.dh-new debian/po-debconf/usr/share/man/fr/man7/po-debconf.7
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1 > debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1.dh-new debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1 > debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1.dh-new debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man1/po2debconf.1 > debian/po-debconf/usr/share/man/fr/man1/po2debconf.1.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man1/po2debconf.1.dh-new debian/po-debconf/usr/share/man/fr/man1/po2debconf.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1 > debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1.dh-new debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1
+	man -l --recode UTF-8 ./debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1 > debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1.dh-new
+	mv debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1.dh-new debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1
+	chmod 0644 -- debian/po-debconf/usr/share/man/man7/po-debconf.7 debian/po-debconf/usr/share/man/vi/man7/po-debconf.7 debian/po-debconf/usr/share/man/vi/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/vi/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/vi/man1/po2debconf.1 debian/po-debconf/usr/share/man/vi/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/vi/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/es/man7/po-debconf.7 debian/po-debconf/usr/share/man/es/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/es/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/es/man1/po2debconf.1 debian/po-debconf/usr/share/man/es/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/es/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/de/man7/po-debconf.7 debian/po-debconf/usr/share/man/de/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/de/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/de/man1/po2debconf.1 debian/po-debconf/usr/share/man/de/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/de/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/man1/po2debconf.1 debian/po-debconf/usr/share/man/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/ru/man7/po-debconf.7 debian/po-debconf/usr/share/man/ru/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/ru/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/ru/man1/po2debconf.1 debian/po-debconf/usr/share/man/ru/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/ru/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/pt/man7/po-debconf.7 debian/po-debconf/usr/share/man/pt/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/pt/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/pt/man1/po2debconf.1 debian/po-debconf/usr/share/man/pt/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/pt/man1/debconf-updatepo.1 debian/po-debconf/usr/share/man/fr/man7/po-debconf.7 debian/po-debconf/usr/share/man/fr/man1/debconf-gettextize.1 debian/po-debconf/usr/share/man/fr/man1/podebconf-display-po.1 debian/po-debconf/usr/share/man/fr/man1/po2debconf.1 debian/po-debconf/usr/share/man/fr/man1/podebconf-report-po.1 debian/po-debconf/usr/share/man/fr/man1/debconf-updatepo.1
+make[1]: Leaving directory '/mnt/po-debconf.noarch/build/po-debconf'
+   dh_perl
+	(grep -a -s -v perl:Depends debian/po-debconf.substvars; echo perl:Depends=perl:any) > debian/po-debconf.substvars.new
+	mv debian/po-debconf.substvars.new debian/po-debconf.substvars
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/po-debconf
+	chmod a-x usr/share/doc/po-debconf/README-trans usr/share/doc/po-debconf/changelog usr/share/man/de/man1/debconf-gettextize.1 usr/share/man/de/man1/debconf-updatepo.1 usr/share/man/de/man1/po2debconf.1 usr/share/man/de/man1/podebconf-display-po.1 usr/share/man/de/man1/podebconf-report-po.1 usr/share/man/de/man7/po-debconf.7 usr/share/man/es/man1/debconf-gettextize.1 usr/share/man/es/man1/debconf-updatepo.1 usr/share/man/es/man1/po2debconf.1 usr/share/man/es/man1/podebconf-display-po.1 usr/share/man/es/man1/podebconf-report-po.1 usr/share/man/es/man7/po-debconf.7 usr/share/man/fr/man1/debconf-gettextize.1 usr/share/man/fr/man1/debconf-updatepo.1 usr/share/man/fr/man1/po2debconf.1 usr/share/man/fr/man1/podebconf-display-po.1 usr/share/man/fr/man1/podebconf-report-po.1 usr/share/man/fr/man7/po-debconf.7 usr/share/man/man1/debconf-gettextize.1 usr/share/man/man1/debconf-updatepo.1 usr/share/man/man1/po2debconf.1 usr/share/man/man1/podebconf-display-po.1 usr/share/man/man1/podebconf-report-po.1 usr/share/man/man7/po-debconf.7 usr/share/man/pt/man1/debconf-gettextize.1 usr/share/man/pt/man1/debconf-updatepo.1 usr/share/man/pt/man1/po2debconf.1 usr/share/man/pt/man1/podebconf-display-po.1 usr/share/man/pt/man1/podebconf-report-po.1 usr/share/man/pt/man7/po-debconf.7 usr/share/man/ru/man1/debconf-gettextize.1 usr/share/man/ru/man1/debconf-updatepo.1 usr/share/man/ru/man1/po2debconf.1 usr/share/man/ru/man1/podebconf-display-po.1 usr/share/man/ru/man1/podebconf-report-po.1 usr/share/man/ru/man7/po-debconf.7 usr/share/man/vi/man1/debconf-gettextize.1 usr/share/man/vi/man1/debconf-updatepo.1 usr/share/man/vi/man1/po2debconf.1 usr/share/man/vi/man1/podebconf-display-po.1 usr/share/man/vi/man1/podebconf-report-po.1 usr/share/man/vi/man7/po-debconf.7
+	gzip -9nf usr/share/doc/po-debconf/README-trans usr/share/doc/po-debconf/changelog usr/share/man/de/man1/debconf-gettextize.1 usr/share/man/de/man1/debconf-updatepo.1 usr/share/man/de/man1/po2debconf.1 usr/share/man/de/man1/podebconf-display-po.1 usr/share/man/de/man1/podebconf-report-po.1 usr/share/man/de/man7/po-debconf.7 usr/share/man/es/man1/debconf-gettextize.1 usr/share/man/es/man1/debconf-updatepo.1 usr/share/man/es/man1/po2debconf.1 usr/share/man/es/man1/podebconf-display-po.1 usr/share/man/es/man1/podebconf-report-po.1 usr/share/man/es/man7/po-debconf.7 usr/share/man/fr/man1/debconf-gettextize.1 usr/share/man/fr/man1/debconf-updatepo.1 usr/share/man/fr/man1/po2debconf.1 usr/share/man/fr/man1/podebconf-display-po.1 usr/share/man/fr/man1/podebconf-report-po.1 usr/share/man/fr/man7/po-debconf.7 usr/share/man/man1/debconf-gettextize.1 usr/share/man/man1/debconf-updatepo.1 usr/share/man/man1/po2debconf.1 usr/share/man/man1/podebconf-display-po.1 usr/share/man/man1/podebconf-report-po.1 usr/share/man/man7/po-debconf.7 usr/share/man/pt/man1/debconf-gettextize.1 usr/share/man/pt/man1/debconf-updatepo.1 usr/share/man/pt/man1/po2debconf.1 usr/share/man/pt/man1/podebconf-display-po.1 usr/share/man/pt/man1/podebconf-report-po.1 usr/share/man/pt/man7/po-debconf.7 usr/share/man/ru/man1/debconf-gettextize.1 usr/share/man/ru/man1/debconf-updatepo.1 usr/share/man/ru/man1/po2debconf.1 usr/share/man/ru/man1/podebconf-display-po.1 usr/share/man/ru/man1/podebconf-report-po.1 usr/share/man/ru/man7/po-debconf.7 usr/share/man/vi/man1/debconf-gettextize.1 usr/share/man/vi/man1/debconf-updatepo.1 usr/share/man/vi/man1/po2debconf.1 usr/share/man/vi/man1/podebconf-display-po.1 usr/share/man/vi/man1/podebconf-report-po.1 usr/share/man/vi/man7/po-debconf.7
+	cd '/mnt/po-debconf.noarch/build/po-debconf'
+   dh_fixperms
+	find debian/po-debconf ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/po-debconf/usr/share/doc -type f -a -true -a ! -regex 'debian/po-debconf/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/po-debconf/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/po-debconf/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/po-debconf -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/po-debconf/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+   dh_missing
+   dh_installdeb
+	install -d debian/po-debconf/DEBIAN
+   dh_gencontrol
+	echo misc:Depends= >> debian/po-debconf.substvars
+	echo misc:Pre-Depends= >> debian/po-debconf.substvars
+	dpkg-gencontrol -ppo-debconf -ldebian/changelog -Tdebian/po-debconf.substvars -Pdebian/po-debconf
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+dpkg-gencontrol: warning: package po-debconf: substitution variable ${perl:Depends} unused, but is defined
+	chmod 0644 -- debian/po-debconf/DEBIAN/control
+   dh_md5sums
+	cd debian/po-debconf >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/po-debconf/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --root-owner-group --build debian/po-debconf ..
+dpkg-deb: building package 'po-debconf' in '../po-debconf_1.0.21_all.deb'.
+ dpkg-genbuildinfo
+dpkg-genbuildinfo: warning: cannot open /var/lib/dpkg/status
+readline() on closed filehandle $status_fh at /usr/bin/dpkg-genbuildinfo line 96.
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpkg/Control/HashCore.pm line 358.
+ dpkg-genchanges  >../po-debconf_1.0.21_i386.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --auto-commit --after-build .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+[1;39m>>> Installing po-debconf.noarch[0;0m
+Fixing symlinks:
+Compressing man pages:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;39m>>> Packaging po-debconf.noarch[0;0m
+>>> Creating binary package(s)
+>>> po-debconf-po-debconf-debconf.tar.xz
+usr/
+usr/share/
+usr/share/doc-base/
+usr/share/doc-base/po-debconf
+usr/share/doc/
+usr/share/doc/po-debconf/
+usr/share/doc/po-debconf/changelog.gz
+usr/share/doc/po-debconf/README
+usr/share/doc/po-debconf/manpages.vi/
+usr/share/doc/po-debconf/manpages.vi/po-debconf.7.html
+usr/share/doc/po-debconf/manpages.vi/debconf-updatepo.1.html
+usr/share/doc/po-debconf/manpages.vi/podebconf-display-po.1.html
+usr/share/doc/po-debconf/manpages.vi/podebconf-report-po.1.html
+usr/share/doc/po-debconf/manpages.vi/debconf-gettextize.1.html
+usr/share/doc/po-debconf/manpages.vi/po2debconf.1.html
+usr/share/doc/po-debconf/README-trans.gz
+usr/share/doc/po-debconf/copyright
+usr/share/man/
+usr/share/man/man7/
+usr/share/man/man7/po-debconf.7.gz
+usr/share/man/vi/
+usr/share/man/vi/man7/
+usr/share/man/vi/man7/po-debconf.7.gz
+usr/share/man/vi/man1/
+usr/share/man/vi/man1/debconf-updatepo.1.gz
+usr/share/man/vi/man1/podebconf-display-po.1.gz
+usr/share/man/vi/man1/podebconf-report-po.1.gz
+usr/share/man/vi/man1/po2debconf.1.gz
+usr/share/man/vi/man1/debconf-gettextize.1.gz
+usr/share/man/es/
+usr/share/man/es/man7/
+usr/share/man/es/man7/po-debconf.7.gz
+usr/share/man/es/man1/
+usr/share/man/es/man1/debconf-updatepo.1.gz
+usr/share/man/es/man1/podebconf-display-po.1.gz
+usr/share/man/es/man1/podebconf-report-po.1.gz
+usr/share/man/es/man1/po2debconf.1.gz
+usr/share/man/es/man1/debconf-gettextize.1.gz
+usr/share/man/de/
+usr/share/man/de/man7/
+usr/share/man/de/man7/po-debconf.7.gz
+usr/share/man/de/man1/
+usr/share/man/de/man1/debconf-updatepo.1.gz
+usr/share/man/de/man1/podebconf-display-po.1.gz
+usr/share/man/de/man1/podebconf-report-po.1.gz
+usr/share/man/de/man1/po2debconf.1.gz
+usr/share/man/de/man1/debconf-gettextize.1.gz
+usr/share/man/man1/
+usr/share/man/man1/debconf-updatepo.1.gz
+usr/share/man/man1/podebconf-display-po.1.gz
+usr/share/man/man1/podebconf-report-po.1.gz
+usr/share/man/man1/po2debconf.1.gz
+usr/share/man/man1/debconf-gettextize.1.gz
+usr/share/man/ru/
+usr/share/man/ru/man7/
+usr/share/man/ru/man7/po-debconf.7.gz
+usr/share/man/ru/man1/
+usr/share/man/ru/man1/debconf-updatepo.1.gz
+usr/share/man/ru/man1/podebconf-display-po.1.gz
+usr/share/man/ru/man1/podebconf-report-po.1.gz
+usr/share/man/ru/man1/po2debconf.1.gz
+usr/share/man/ru/man1/debconf-gettextize.1.gz
+usr/share/man/pt/
+usr/share/man/pt/man7/
+usr/share/man/pt/man7/po-debconf.7.gz
+usr/share/man/pt/man1/
+usr/share/man/pt/man1/debconf-updatepo.1.gz
+usr/share/man/pt/man1/podebconf-display-po.1.gz
+usr/share/man/pt/man1/podebconf-report-po.1.gz
+usr/share/man/pt/man1/po2debconf.1.gz
+usr/share/man/pt/man1/debconf-gettextize.1.gz
+usr/share/man/fr/
+usr/share/man/fr/man7/
+usr/share/man/fr/man7/po-debconf.7.gz
+usr/share/man/fr/man1/
+usr/share/man/fr/man1/debconf-updatepo.1.gz
+usr/share/man/fr/man1/podebconf-display-po.1.gz
+usr/share/man/fr/man1/podebconf-report-po.1.gz
+usr/share/man/fr/man1/po2debconf.1.gz
+usr/share/man/fr/man1/debconf-gettextize.1.gz
+usr/share/po-debconf/
+usr/share/po-debconf/encodings
+usr/share/po-debconf/templates/
+usr/share/po-debconf/templates/translators-po
+usr/share/po-debconf/templates/call-po
+usr/share/po-debconf/templates/call
+usr/share/po-debconf/templates/submit
+usr/share/po-debconf/templates/translators
+usr/share/po-debconf/templates/submit-po
+usr/share/po-debconf/pot-header
+usr/bin/
+usr/bin/po2debconf
+usr/bin/podebconf-report-po
+usr/bin/debconf-updatepo
+usr/bin/debconf-gettextize
+usr/bin/podebconf-display-po
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+po-debconf.src/
+po-debconf.src/po-debconf_1.0.21.tar.xz
+po-debconf.src/po-debconf_1.0.21.dsc
+po-debconf.src/po-debconf.cygport
+
+>>> po-debconf requires: bash perl perl_base gettext intltool-debian perl sensible-utils
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Sat Apr 11 04:00:15 2020

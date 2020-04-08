@@ -1,0 +1,299 @@
+Script started on Sat Apr 11 00:55:41 2020
+cygport --32 dh-exec all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 dh-exec all
+[1;39m>>> Preparing dh-exec.i686[0;0m
+>>> Unpacking source dh-exec_0.23.1.dsc
+>>> Unpacking source dh-exec_0.23.1.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Thu Jan  3 18:05:22 2019 CET using RSA key ID C433F68F
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/dh-exec_0.23.1.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting dh-exec in dh-exec
+[1mdpkg-source: [0m[32minfo[0m: unpacking dh-exec_0.23.1.tar.xz
+>>> Preparing working source directory
+[1;39m>>> Compiling dh-exec.i686[0;0m
+dpkg-buildpackage: info: source package dh-exec
+dpkg-buildpackage: info: source version 0.23.1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Gergely Nagy <algernon@madhouse-project.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+dh clean --with autoreconf
+   dh_testdir
+   dh_auto_clean
+   dh_autoreconf_clean
+   dh_clean
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building dh-exec in dh-exec_0.23.1.tar.xz
+dpkg-source: info: building dh-exec in dh-exec_0.23.1.dsc
+ debian/rules binary
+dh binary --with autoreconf
+   dh_testdir
+   dh_update_autotools_config
+   dh_autoreconf
+Unescaped left brace in regex is deprecated, passed through in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /usr/bin/automake-1.14 line 3930.
+configure.ac:11: installing './compile'
+configure.ac:5: installing './install-sh'
+configure.ac:5: installing './missing'
+Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/mnt/dh-exec.i686/build/dh-exec'
+dh_auto_configure -- --libexecdir=/usr/lib
+	cd debian/build-tree && ../../configure --build=i686-pc-cygwin --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/i386-linux-gnu --libexecdir=\${prefix}/lib/i386-linux-gnu --disable-maintainer-mode --disable-dependency-tracking --libexecdir=/usr/lib
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /usr/share/config.site
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.exe
+checking for suffix of executables... .exe
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... none
+checking whether gcc and cc understand -c and -o together... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBPIPELINE... yes
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for setenv... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strstr... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+make[1]: Leaving directory '/mnt/dh-exec.i686/build/dh-exec'
+   dh_auto_build
+	cd debian/build-tree && make -j1
+make[1]: Entering directory '/mnt/dh-exec.i686/build/dh-exec/debian/build-tree'
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make --no-print-directory all-am
+gcc -DHAVE_CONFIG_H -I. -I../..     -DDH_EXEC_SCRIPTDIR="\"/usr/share/dh-exec\"" -DDH_EXEC_LIBDIR="\"/usr/lib/dh-exec\"" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/dh-exec.o ../../src/dh-exec.c
+gcc -DHAVE_CONFIG_H -I. -I../..     -DDH_EXEC_SCRIPTDIR="\"/usr/share/dh-exec\"" -DDH_EXEC_LIBDIR="\"/usr/lib/dh-exec\"" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/dh-exec.lib.o ../../src/dh-exec.lib.c
+gcc  -DDH_EXEC_SCRIPTDIR="\"/usr/share/dh-exec\"" -DDH_EXEC_LIBDIR="\"/usr/lib/dh-exec\"" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec.exe src/dh-exec.o src/dh-exec.lib.o -lpipeline 
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"subst\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_subst-dh-exec.simple.o `test -f 'src/dh-exec.simple.c' || echo '../../'`src/dh-exec.simple.c
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"subst\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_subst-dh-exec.lib.o `test -f 'src/dh-exec.lib.c' || echo '../../'`src/dh-exec.lib.c
+gcc -DDH_EXEC_CMD=\"subst\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec-subst.exe src/src_dh_exec_subst-dh-exec.simple.o src/src_dh_exec_subst-dh-exec.lib.o -lpipeline 
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"install\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_install-dh-exec-install.o `test -f 'src/dh-exec-install.c' || echo '../../'`src/dh-exec-install.c
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"install\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_install-dh-exec.lib.o `test -f 'src/dh-exec.lib.c' || echo '../../'`src/dh-exec.lib.c
+gcc -DDH_EXEC_CMD=\"install\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec-install.exe src/src_dh_exec_install-dh-exec-install.o src/src_dh_exec_install-dh-exec.lib.o -lpipeline 
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"illiterate\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_illiterate-dh-exec.simple.o `test -f 'src/dh-exec.simple.c' || echo '../../'`src/dh-exec.simple.c
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"illiterate\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_illiterate-dh-exec.lib.o `test -f 'src/dh-exec.lib.c' || echo '../../'`src/dh-exec.lib.c
+gcc -DDH_EXEC_CMD=\"illiterate\" -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec-illiterate.exe src/src_dh_exec_illiterate-dh-exec.simple.o src/src_dh_exec_illiterate-dh-exec.lib.o -lpipeline 
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"strip\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_strip-dh-exec.simple.o `test -f 'src/dh-exec.simple.c' || echo '../../'`src/dh-exec.simple.c
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"strip\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_strip-dh-exec.lib.o `test -f 'src/dh-exec.lib.c' || echo '../../'`src/dh-exec.lib.c
+gcc -DDH_EXEC_CMD=\"strip\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec-strip.exe src/src_dh_exec_strip-dh-exec.simple.o src/src_dh_exec_strip-dh-exec.lib.o -lpipeline 
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"filter\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_filter-dh-exec.simple.o `test -f 'src/dh-exec.simple.c' || echo '../../'`src/dh-exec.simple.c
+gcc -DHAVE_CONFIG_H -I. -I../..    -DDH_EXEC_CMD=\"filter\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec -c -o src/src_dh_exec_filter-dh-exec.lib.o `test -f 'src/dh-exec.lib.c' || echo '../../'`src/dh-exec.lib.c
+gcc -DDH_EXEC_CMD=\"filter\" -DDH_EXEC_CMD_ALWAYS=1 -ggdb -O2 -pipe -Wimplicit-function-declaration -fdebug-prefix-map=/mnt/dh-exec.i686/build=/usr/src/debug/dh-exec -fdebug-prefix-map=/mnt/dh-exec.i686/src=/usr/src/debug/dh-exec   -o src/dh-exec-filter.exe src/src_dh_exec_filter-dh-exec.simple.o src/src_dh_exec_filter-dh-exec.lib.o -lpipeline 
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make[1]: Leaving directory '/mnt/dh-exec.i686/build/dh-exec/debian/build-tree'
+   dh_auto_test
+   dh_testroot
+   dh_prep
+   dh_installdirs
+   dh_auto_install
+	cd debian/build-tree && make -j1 install DESTDIR=/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/mnt/dh-exec.i686/build/dh-exec/debian/build-tree'
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+ /usr/bin/mkdir -p '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/bin'
+  /usr/bin/install -c src/dh-exec.exe '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/bin'
+ /usr/bin/mkdir -p '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/lib/dh-exec'
+  /usr/bin/install -c src/dh-exec-subst.exe src/dh-exec-install.exe src/dh-exec-illiterate.exe src/dh-exec-strip.exe src/dh-exec-filter.exe '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/lib/dh-exec'
+ /usr/bin/mkdir -p '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/share/man/man1'
+ /usr/bin/install -c -m 644 ../../src/dh-exec-subst.1 ../../src/dh-exec-install.1 ../../src/dh-exec-illiterate.1 ../../src/dh-exec-filter.1 ../../src/dh-exec.1 '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/share/man/man1'
+ /usr/bin/mkdir -p '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/share/dh-exec'
+ /usr/bin/install -c ../../lib/dh-exec-subst-env ../../lib/dh-exec-subst-multiarch ../../lib/dh-exec-install-rename ../../lib/dh-exec-illiterate-tangle ../../lib/dh-exec-strip-output ../../lib/dh-exec-filter-arch ../../lib/dh-exec-filter-comments ../../lib/dh-exec-filter-build-profiles '/mnt/dh-exec.i686/build/dh-exec/debian/dh-exec/usr/share/dh-exec'
+make[1]: Leaving directory '/mnt/dh-exec.i686/build/dh-exec/debian/build-tree'
+   dh_install
+   dh_installdocs
+   dh_installchangelogs
+   dh_installexamples
+   dh_installman
+man: unrecognized option '--version'
+Try 'man --help' or 'man --usage' for more information.
+   dh_installcatalogs
+   dh_installcron
+   dh_installdebconf
+   dh_installemacsen
+   dh_installifupdown
+   dh_installinfo
+   dh_installinit
+   dh_installmenu
+   dh_installmime
+   dh_installmodules
+   dh_installlogcheck
+   dh_installlogrotate
+   dh_installpam
+   dh_installppp
+   dh_installudev
+   dh_installgsettings
+   dh_bugfiles
+   dh_ucf
+   dh_lintian
+   dh_gconf
+dh_gconf: Please migrate to dh_installgsettings; gconf + dh_gconf is scheduled for removal.
+   dh_icons
+   dh_perl
+   dh_usrlocal
+   dh_link
+   dh_installwm
+   dh_installxfonts
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: Depends field of package dh-exec: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package 'dh-exec' in '../dh-exec_0.23.1_i386.deb'.
+ dpkg-genbuildinfo
+dpkg-genbuildinfo: warning: cannot open /var/lib/dpkg/status
+readline() on closed filehandle $status_fh at /usr/bin/dpkg-genbuildinfo line 96.
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpkg/Control/HashCore.pm line 358.
+ dpkg-genchanges  >../dh-exec_0.23.1_i386.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --auto-commit --after-build .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+[1;39m>>> Installing dh-exec.i686[0;0m
+Fixing symlinks:
+Compressing man pages:
+Stripping executables:
+        usr/lib/dh-exec/dh-exec-subst.exe
+        usr/lib/dh-exec/dh-exec-install.exe
+        usr/lib/dh-exec/dh-exec-strip.exe
+        usr/lib/dh-exec/dh-exec-filter.exe
+        usr/lib/dh-exec/dh-exec-illiterate.exe
+        usr/bin/dh-exec.exe
+Preparing debuginfo source files:
+	1 files	2 files	3 files	4 files
+[1;32m*** Info:[0;0m Removing empty directory: /usr/src/debug/dh-exec/dh-exec/debian/build-tree
+[1;32m*** Info:[0;0m Removing empty directory: /usr/src/debug/dh-exec/dh-exec/debian
+[1;39m>>> Packaging dh-exec.i686[0;0m
+>>> Creating binary package(s)
+>>> dh-exec-dh-exec-exec.tar.xz
+usr/
+usr/lib/
+usr/lib/dh-exec/
+usr/lib/dh-exec/dh-exec-subst.exe
+usr/lib/dh-exec/dh-exec-install.exe
+usr/lib/dh-exec/dh-exec-strip.exe
+usr/lib/dh-exec/dh-exec-filter.exe
+usr/lib/dh-exec/dh-exec-illiterate.exe
+usr/share/
+usr/share/doc/
+usr/share/doc/dh-exec/
+usr/share/doc/dh-exec/changelog.gz
+usr/share/doc/dh-exec/copyright
+usr/share/doc/dh-exec/README.md.gz
+usr/share/man/
+usr/share/man/man1/
+usr/share/man/man1/dh-exec.1.gz
+usr/share/man/man1/dh-exec-subst.1.gz
+usr/share/man/man1/dh-exec-illiterate.1.gz
+usr/share/man/man1/dh-exec-install.1.gz
+usr/share/man/man1/dh-exec-filter.1.gz
+usr/share/dh-exec/
+usr/share/dh-exec/dh-exec-filter-comments
+usr/share/dh-exec/dh-exec-install-rename
+usr/share/dh-exec/dh-exec-strip-output
+usr/share/dh-exec/dh-exec-illiterate-tangle
+usr/share/dh-exec/dh-exec-subst-multiarch
+usr/share/dh-exec/dh-exec-filter-build-profiles
+usr/share/dh-exec/dh-exec-filter-arch
+usr/share/dh-exec/dh-exec-subst-env
+usr/bin/
+usr/bin/dh-exec.exe
+
+>>> dh-exec-debuginfo-dh-exec-exec.tar.xz
+usr/lib/debug/
+usr/lib/debug/usr/
+usr/lib/debug/usr/lib/
+usr/lib/debug/usr/lib/dh-exec/
+usr/lib/debug/usr/lib/dh-exec/dh-exec-illiterate.exe.dbg
+usr/lib/debug/usr/lib/dh-exec/dh-exec-strip.exe.dbg
+usr/lib/debug/usr/lib/dh-exec/dh-exec-subst.exe.dbg
+usr/lib/debug/usr/lib/dh-exec/dh-exec-install.exe.dbg
+usr/lib/debug/usr/lib/dh-exec/dh-exec-filter.exe.dbg
+usr/lib/debug/usr/bin/
+usr/lib/debug/usr/bin/dh-exec.exe.dbg
+usr/src/debug/
+usr/src/debug/dh-exec/
+usr/src/debug/dh-exec/dh-exec/
+usr/src/debug/dh-exec/dh-exec/src/
+usr/src/debug/dh-exec/dh-exec/src/dh-exec-install.c
+usr/src/debug/dh-exec/dh-exec/src/dh-exec.c
+usr/src/debug/dh-exec/dh-exec/src/dh-exec.simple.c
+usr/src/debug/dh-exec/dh-exec/src/dh-exec.lib.c
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+dh-exec.src/
+dh-exec.src/dh-exec_0.23.1.dsc
+dh-exec.src/dh-exec_0.23.1.tar.xz
+dh-exec.src/dh-exec.cygport
+
+which: no KERNEL32.dll in (/mnt/dh-exec.i686/inst/usr/bin:/usr/local/bin:/usr/bin:/bin:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/usr/lib/lapack:/cygdrive/c/WINDOWS/system32)
+>>> dh-exec requires: cygwin libpipeline1 perl_base libc6 libpipeline1 perl perl debhelper libdpkg-perl
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Sat Apr 11 01:01:51 2020

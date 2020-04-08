@@ -1,87 +1,25 @@
-From 4d971424529c5f6d5a62e207f9bd8024af225c35 Mon Sep 17 00:00:00 2001
-From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Wed, 31 Jul 2019 13:05:59 +0200
-Subject: [PATCH 1/3] munge
+From 62b6c7150366e0da8e26fc7bcf008a16265e838c Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Sat, 11 Apr 2020 03:37:23 +0200
+Subject: [PATCH] index on (no branch): d59e9f3 Declare fast forward from
+ 1.5.71
 
 ---
- Makefile | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
- mode change 100644 => 100755 Makefile
+ Makefile     | 48 ++++++++++++++++++++++++------------------------
+ debian/rules |  4 ++--
+ 2 files changed, 26 insertions(+), 26 deletions(-)
 
-diff --git a/Makefile b/Makefile
-old mode 100644
-new mode 100755
-index 37385f21..17d31bff
---- a/Makefile
-+++ b/Makefile
+diff --git debconf/Makefile debconf/Makefile
+index 37385f2..78dad29 100644
+--- debconf/Makefile
++++ debconf/Makefile
 @@ -1,4 +1,4 @@
 -MUNGE=xargs perl -i.bak -ne ' \
 +MUNGE=xargs -L1 perl -i.bak -ne ' \
  		print $$_."\# This file was preprocessed, do not edit!\n" \
  			if m:^\#!/usr/bin/perl:; \
  		$$cutting=1 if /^=/; \
-@@ -33,7 +33,7 @@ install-i18n:
- 	$(MAKE) -C po install
- 
- PERL := perl
--PERL_VENDORLIB := $(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
-+PERL_VENDORLIB := //$(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
- 
- # This would probably be easier if we used setup.py ...
- PYTHON2_SUPPORTED := $(shell pyversions -s)
-@@ -82,7 +82,7 @@ install-rest:
- 	find . -maxdepth 1 -perm /100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb -or -name debconf-communicate -or -name debconf-set-selections -or -name debconf-apt-progress -or -name debconf-escape | \
- 		xargs -i install {} $(prefix)/usr/bin
- 	# Now strip all pod documentation from all .pm files and scripts.
--	find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
-+	: find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
- 	     $(prefix)/usr/share/debconf/frontend 			\
- 	     $(prefix)/usr/share/debconf/*.pl $(prefix)/usr/bin		\
- 	     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
--- 
-2.23.0.rc1
-
-From 6475f1318f5f7b535032289950c2cc89e3b633d6 Mon Sep 17 00:00:00 2001
-From: Your Name <you@example.com>
-Date: Fri, 1 Nov 2019 01:19:54 -0700
-Subject: [PATCH 2/3] No candidate position for the addendum
-
----
- Makefile | 1 -
- 1 file changed, 1 deletion(-)
- mode change 100755 => 100644 Makefile
-
-diff --git a/Makefile b/Makefile
-old mode 100755
-new mode 100644
-index 17d31bff..6a10bbc3
---- a/Makefile
-+++ b/Makefile
-@@ -9,7 +9,6 @@ MUNGE=xargs -L1 perl -i.bak -ne ' \
- 	'
- 
- all:
--	$(MAKE) -C doc
- 	$(MAKE) -C po
- 
- clean:
--- 
-2.23.0.rc1
-
-From f8487fb3605519c8ed2984c814e9dce6b6a5e547 Mon Sep 17 00:00:00 2001
-From: Your Name <you@example.com>
-Date: Sun, 10 Nov 2019 11:57:44 +0100
-Subject: [PATCH 3/3] prefix
-
----
- Makefile | 44 ++++++++++++++++++++++----------------------
- 1 file changed, 22 insertions(+), 22 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 6a10bbc3..6c1701e2 100644
---- a/Makefile
-+++ b/Makefile
-@@ -23,9 +23,9 @@ install: install-utils install-python2 install-python3 install-rest
+@@ -24,20 +24,20 @@ install: install-utils install-python2 install-python3 install-rest
  
  # Anything that goes in the debconf-utils package.
  install-utils:
@@ -93,7 +31,11 @@ index 6a10bbc3..6c1701e2 100644
  
  # Anything that goes in the debconf-i18n package.
  install-i18n:
-@@ -36,7 +36,7 @@ PERL_VENDORLIB := //$(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
+ 	$(MAKE) -C po install
+ 
+ PERL := perl
+-PERL_VENDORLIB := $(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
++PERL_VENDORLIB := //$(shell $(PERL) -MConfig -e 'print $$Config{vendorlib}')
  
  # This would probably be easier if we used setup.py ...
  PYTHON2_SUPPORTED := $(shell pyversions -s)
@@ -102,7 +44,7 @@ index 6a10bbc3..6c1701e2 100644
  
  # The Python 2 package.
  install-python2:
-@@ -47,43 +47,43 @@ install-python2:
+@@ -48,43 +48,43 @@ install-python2:
  
  # The Python 3 package.
  install-python3:
@@ -156,15 +98,32 @@ index 6a10bbc3..6c1701e2 100644
 -		xargs -i install {} $(prefix)/usr/bin
 +		xargs -i install {} $(prefix)/bin
  	# Now strip all pod documentation from all .pm files and scripts.
--	: find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
+-	find $(prefix)/$(PERL_VENDORLIB)/ $(prefix)/usr/sbin		\
 -	     $(prefix)/usr/share/debconf/frontend 			\
 -	     $(prefix)/usr/share/debconf/*.pl $(prefix)/usr/bin		\
-+	: find $(PERL_VENDORLIB)/ $(prefix)/sbin		\
++	find $(PERL_VENDORLIB)/ $(prefix)/sbin		\
 +	     $(prefix)/share/debconf/frontend 			\
 +	     $(prefix)/share/debconf/*.pl $(prefix)/bin		\
  	     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
  	     -name 'debconf-*' -or -name 'frontend' | 			\
  	     grep -v Client/ConfModule | $(MUNGE)
+diff --git debconf/debian/rules debconf/debian/rules
+index 05985d2..e19017e 100755
+--- debconf/debian/rules
++++ debconf/debian/rules
+@@ -2,10 +2,10 @@
+ 
+ # Ensure that builds are self-hosting, which means I have to use the .pm
+ # files in this package, not any that may be on the system.
+-export PERL5LIB=.
++export PERL5LIB:=.:$(PERL5LIB)
+ 
+ %:
+-	dh $@ --with python2,python3
++	dh $@
+ 
+ override_dh_auto_install:
+ 	$(MAKE) prefix=`pwd`/debian/debconf-utils install-utils
 -- 
-2.23.0.rc1
+2.8.3
 

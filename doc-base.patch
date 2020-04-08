@@ -1,26 +1,37 @@
-From 27a35d0ad17a3587ddd4d1f08a46f139256e8036 Mon Sep 17 00:00:00 2001
+From afdba4f08c621f32df7c839be42fa3e695bb6449 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
 Date: Thu, 20 Jun 2019 21:25:44 -0700
 Subject: [PATCH 1/4] cygwin
 
 ---
- common.mk | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ common.mk | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
 
-diff --git a/common.mk b/common.mk
-index 95f1698..73eb5c4 100644
---- a/common.mk
-+++ b/common.mk
-@@ -8,7 +8,7 @@ override PACKAGE  := doc-base
+diff --git doc-base/common.mk doc-base/common.mk
+index a5430cb..73eb5c4 100644
+--- doc-base/common.mk
++++ doc-base/common.mk
+@@ -8,10 +8,16 @@ override PACKAGE  := doc-base
  
  PATH            := /usr/bin:/usr/sbin:/bin:/sbin:$(PATH)
  
--INSTALL         := install -o root -g root
 +INSTALL         := install -o $(shell id -u) -g $(shell id -g)
- ifndef _INSTALL
-   # remove --strip-program=true from INSTALL passed by debhelper to
-   # get rid of '--strip-program used without -s option' warnings
-@@ -26,7 +26,7 @@ etcdir          := /etc/$(PACKAGE)
++ifndef _INSTALL
++  # remove --strip-program=true from INSTALL passed by debhelper to
++  # get rid of '--strip-program used without -s option' warnings
++  export _INSTALL := $(subst --strip-program=true,,$(INSTALL))
++endif
+ # build abstraction
+-install_file    := install -p -o root -g root -m 644
+-install_script  := install -p -o root -g root -m 755
+-install_dir     := install -d -o root -g root -m 755
++install_file    := $(_INSTALL) -p -m 644
++install_script  := $(_INSTALL) -p -m 755
++install_dir     := $(_INSTALL) -d -m 755
+ install_link    := ln -sf
+ compress        := gzip -9nf
+ 
+@@ -20,7 +26,7 @@ etcdir          := /etc/$(PACKAGE)
  sbindir         := $(prefix)/sbin
  mandir          := $(prefix)/share/man
  sharedir        := $(prefix)/share/$(PACKAGE)
@@ -29,7 +40,7 @@ index 95f1698..73eb5c4 100644
  docdir          := $(prefix)/share/doc/$(PACKAGE)
  libdir          := /var/lib/$(PACKAGE)
  omfdir          := $(prefix)/share/omf
-@@ -121,15 +121,15 @@ define install
+@@ -115,15 +121,15 @@ define install
    done;                                                             \
    [ -n "$$files" ] ||                                               \
      echo "$(emptyprefix) installing dir    $(ddirshort)$$dir";      \
@@ -48,7 +59,7 @@ index 95f1698..73eb5c4 100644
        fi;                                                           \
    done;
  endef
-@@ -139,9 +139,9 @@ define install_links
+@@ -133,9 +139,9 @@ define install_links
    set -e;                                                          \
    for file in $2; do                                               \
      echo "$(emptyprefix) installing link   $(ddirshort)$$file";    \
@@ -62,9 +73,10 @@ index 95f1698..73eb5c4 100644
  endef
  
 -- 
-2.23.0.rc1
+2.20.1
 
-From e5cc49059580beaf88cca805c2b209ae77a2ebfc Mon Sep 17 00:00:00 2001
+
+From aac966feb00eb7c89da605c769878c9c64c414a8 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
 Date: Fri, 21 Jun 2019 07:34:29 -0700
 Subject: [PATCH 2/4] root
@@ -73,10 +85,10 @@ Subject: [PATCH 2/4] root
  perl/Debian/DocBase/DB.pm | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/perl/Debian/DocBase/DB.pm b/perl/Debian/DocBase/DB.pm
+diff --git doc-base/perl/Debian/DocBase/DB.pm doc-base/perl/Debian/DocBase/DB.pm
 index 642ab61..e2c2124 100644
---- a/perl/Debian/DocBase/DB.pm
-+++ b/perl/Debian/DocBase/DB.pm
+--- doc-base/perl/Debian/DocBase/DB.pm
++++ doc-base/perl/Debian/DocBase/DB.pm
 @@ -74,7 +74,7 @@ sub _SaveDB() { # {{{
    Debug(_g("Saving `%s' (%d)."), $file, $self->{'CHANGED'});
    return unless $self->{'CHANGED'};
@@ -87,9 +99,10 @@ index 642ab61..e2c2124 100644
    (my $oldfile = $file) =~ s/^[^\.]+/$&-old/g;
  
 -- 
-2.23.0.rc1
+2.20.1
 
-From 788790d1bf954dcf51aa1fd7be157ad89eb4c332 Mon Sep 17 00:00:00 2001
+
+From 5f536f068e46caed97313622085fc62e1e80ad19 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sun, 28 Jul 2019 00:54:49 +0200
 Subject: [PATCH 3/4] doc
@@ -98,10 +111,10 @@ Subject: [PATCH 3/4] doc
  perl/Debian/DocBase/DocBaseFile.pm | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/perl/Debian/DocBase/DocBaseFile.pm b/perl/Debian/DocBase/DocBaseFile.pm
+diff --git doc-base/perl/Debian/DocBase/DocBaseFile.pm doc-base/perl/Debian/DocBase/DocBaseFile.pm
 index f7dd50f..b921b4c 100644
---- a/perl/Debian/DocBase/DocBaseFile.pm
-+++ b/perl/Debian/DocBase/DocBaseFile.pm
+--- doc-base/perl/Debian/DocBase/DocBaseFile.pm
++++ doc-base/perl/Debian/DocBase/DocBaseFile.pm
 @@ -438,7 +438,7 @@ sub _CheckRequiredFields($$$) { # {{{
  
      if (not grep { $_ eq $format } @SUPPORTED_FORMATS) {
@@ -112,9 +125,10 @@ index f7dd50f..b921b4c 100644
  
      my $index_value = undef;
 -- 
-2.23.0.rc1
+2.20.1
 
-From d716c1a3c701e01b41980bce5d8ecd8a5aff129c Mon Sep 17 00:00:00 2001
+
+From 6c93b2d269d808ed5e1bbba998acfd6b3b4bab6f Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 6 Aug 2019 13:10:06 +0200
 Subject: [PATCH 4/4] error
@@ -124,10 +138,10 @@ Subject: [PATCH 4/4] error
  perl/Debian/DocBase/InstallDocs.pm | 2 +-
  2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/perl/Debian/DocBase/DocBaseFile.pm b/perl/Debian/DocBase/DocBaseFile.pm
+diff --git doc-base/perl/Debian/DocBase/DocBaseFile.pm doc-base/perl/Debian/DocBase/DocBaseFile.pm
 index b921b4c..db08adf 100644
---- a/perl/Debian/DocBase/DocBaseFile.pm
-+++ b/perl/Debian/DocBase/DocBaseFile.pm
+--- doc-base/perl/Debian/DocBase/DocBaseFile.pm
++++ doc-base/perl/Debian/DocBase/DocBaseFile.pm
 @@ -11,6 +11,7 @@ use warnings;
  
  use File::Glob ':glob';
@@ -136,10 +150,10 @@ index b921b4c..db08adf 100644
  use Debian::DocBase::Utils;
  use Debian::DocBase::Gettext;
  use Scalar::Util qw(weaken);
-diff --git a/perl/Debian/DocBase/InstallDocs.pm b/perl/Debian/DocBase/InstallDocs.pm
+diff --git doc-base/perl/Debian/DocBase/InstallDocs.pm doc-base/perl/Debian/DocBase/InstallDocs.pm
 index bbb6e58..076321e 100644
---- a/perl/Debian/DocBase/InstallDocs.pm
-+++ b/perl/Debian/DocBase/InstallDocs.pm
+--- doc-base/perl/Debian/DocBase/InstallDocs.pm
++++ doc-base/perl/Debian/DocBase/InstallDocs.pm
 @@ -107,7 +107,7 @@ sub _HandleCheck() { # {{{
      my $docfile = Debian::DocBase::DocBaseFile->new($file, 1);
      $docfile->Parse();
@@ -150,5 +164,5 @@ index bbb6e58..076321e 100644
          my $msg = _ng("%d warning or non-fatal error found.",
                     "%d warnings or non-fatal errors found.",
 -- 
-2.23.0.rc1
+2.20.1
 
