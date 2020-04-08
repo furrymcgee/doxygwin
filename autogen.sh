@@ -31,12 +31,8 @@ GIT_WORK_TREE=dpkg GIT_DIR=dpkg/.git git am < dpkg.patch
 GIT_WORK_TREE=debhelper GIT_DIR=debhelper/.git git am < debhelper.patch
 
 GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git config core.filemode false
-cat \
-0001-apt-get-install-cvs2svn-cvs.patch \
-0002-mkdir-cannot-create-directory-_-usr_-Read-only-file-.patch \
-0003-Package-docx2txt.patch \
-| \
-GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am
+
+GIT_WORK_TREE=docx2txt GIT_DIR=docx2txt/.git git am < docx2txt.patch
 
 cat \
 0001-cygwin.patch.~2~ \

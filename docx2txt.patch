@@ -1,0 +1,851 @@
+From 4c4f1cbfd6f6550a9941768b30a23a412f5b648f Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Fri, 26 Jul 2019 17:41:00 +0200
+Subject: [PATCH 1/3] apt-get install cvs2svn cvs mkdir project.cvs rsync -av
+ rsync://${PROJECT}.cvs.sourceforge.net/cvsroot/${PROJECT}/ project.cvs
+ cvs2git --blobfile=git-blob.dat --dumpfile=git-dump.dat --username=cvs2git
+ project.cvs mkdir project.git cd project.git git init cat ../git-blob.dat
+ ../git-dump.dat | git fast-import
+
+---
+ docx2txt/AUTHORS => AUTHORS                 |  0
+ docx2txt/BSDmakefile => BSDmakefile         |  0
+ docx2txt/COPYING => COPYING                 |  0
+ CVSROOT/checkoutlist                        | 13 ----------
+ CVSROOT/commitinfo                          | 15 ------------
+ CVSROOT/config                              | 21 ----------------
+ CVSROOT/cvswrappers                         | 19 ---------------
+ CVSROOT/editinfo                            | 21 ----------------
+ CVSROOT/loginfo                             | 27 ---------------------
+ CVSROOT/modules                             | 26 --------------------
+ CVSROOT/notify                              | 12 ---------
+ CVSROOT/rcsinfo                             | 13 ----------
+ CVSROOT/taginfo                             | 20 ---------------
+ CVSROOT/verifymsg                           | 21 ----------------
+ docx2txt/ChangeLog => ChangeLog             |  0
+ docx2txt/INSTALL => INSTALL                 |  0
+ docx2txt/Makefile => Makefile               |  0
+ docx2txt/Makefile.dist => Makefile.dist     |  0
+ docx2txt/README => README                   |  0
+ docx2txt/ToDo => ToDo                       |  0
+ docx2txt/VERSION => VERSION                 |  0
+ docx2txt/WInstall.bat => WInstall.bat       |  0
+ docx2txt/docx2txt.bat => docx2txt.bat       |  0
+ docx2txt/docx2txt.config => docx2txt.config |  0
+ docx2txt/docx2txt.pl => docx2txt.pl         |  0
+ docx2txt/docx2txt.sh => docx2txt.sh         |  0
+ 26 files changed, 208 deletions(-)
+ rename docx2txt/AUTHORS => AUTHORS (100%)
+ rename docx2txt/BSDmakefile => BSDmakefile (100%)
+ rename docx2txt/COPYING => COPYING (100%)
+ delete mode 100644 CVSROOT/checkoutlist
+ delete mode 100644 CVSROOT/commitinfo
+ delete mode 100644 CVSROOT/config
+ delete mode 100644 CVSROOT/cvswrappers
+ delete mode 100644 CVSROOT/editinfo
+ delete mode 100644 CVSROOT/loginfo
+ delete mode 100644 CVSROOT/modules
+ delete mode 100644 CVSROOT/notify
+ delete mode 100644 CVSROOT/rcsinfo
+ delete mode 100644 CVSROOT/taginfo
+ delete mode 100644 CVSROOT/verifymsg
+ rename docx2txt/ChangeLog => ChangeLog (100%)
+ rename docx2txt/INSTALL => INSTALL (100%)
+ rename docx2txt/Makefile => Makefile (100%)
+ rename docx2txt/Makefile.dist => Makefile.dist (100%)
+ rename docx2txt/README => README (100%)
+ rename docx2txt/ToDo => ToDo (100%)
+ rename docx2txt/VERSION => VERSION (100%)
+ rename docx2txt/WInstall.bat => WInstall.bat (100%)
+ rename docx2txt/docx2txt.bat => docx2txt.bat (100%)
+ rename docx2txt/docx2txt.config => docx2txt.config (100%)
+ rename docx2txt/docx2txt.pl => docx2txt.pl (100%)
+ rename docx2txt/docx2txt.sh => docx2txt.sh (100%)
+
+diff --git docx2txt/docx2txt/AUTHORS docx2txt/AUTHORS
+similarity index 100%
+rename from docx2txt/AUTHORS
+rename to AUTHORS
+diff --git docx2txt/docx2txt/BSDmakefile docx2txt/BSDmakefile
+similarity index 100%
+rename from docx2txt/BSDmakefile
+rename to BSDmakefile
+diff --git docx2txt/docx2txt/COPYING docx2txt/COPYING
+similarity index 100%
+rename from docx2txt/COPYING
+rename to COPYING
+diff --git docx2txt/CVSROOT/checkoutlist docx2txt/CVSROOT/checkoutlist
+deleted file mode 100644
+index 2921bff..0000000
+--- docx2txt/CVSROOT/checkoutlist
++++ /dev/null
+@@ -1,13 +0,0 @@
+-# The "checkoutlist" file is used to support additional version controlled
+-# administrative files in $CVSROOT/CVSROOT, such as template files.
+-#
+-# The first entry on a line is a filename which will be checked out from
+-# the corresponding RCS file in the $CVSROOT/CVSROOT directory.
+-# The remainder of the line is an error message to use if the file cannot
+-# be checked out.
+-#
+-# File format:
+-#
+-#	[<whitespace>]<filename>[<whitespace><error message>]<end-of-line>
+-#
+-# comment lines begin with '#'
+diff --git docx2txt/CVSROOT/commitinfo docx2txt/CVSROOT/commitinfo
+deleted file mode 100644
+index b19e7b7..0000000
+--- docx2txt/CVSROOT/commitinfo
++++ /dev/null
+@@ -1,15 +0,0 @@
+-# The "commitinfo" file is used to control pre-commit checks.
+-# The filter on the right is invoked with the repository and a list 
+-# of files to check.  A non-zero exit of the filter program will 
+-# cause the commit to be aborted.
+-#
+-# The first entry on a line is a regular expression which is tested
+-# against the directory that the change is being committed to, relative
+-# to the $CVSROOT.  For the first match that is found, then the remainder
+-# of the line is the name of the filter to run.
+-#
+-# If the repository name does not match any of the regular expressions in this
+-# file, the "DEFAULT" line is used, if it is specified.
+-#
+-# If the name "ALL" appears as a regular expression it is always used
+-# in addition to the first matching regex or "DEFAULT".
+diff --git docx2txt/CVSROOT/config docx2txt/CVSROOT/config
+deleted file mode 100644
+index 92c150b..0000000
+--- docx2txt/CVSROOT/config
++++ /dev/null
+@@ -1,21 +0,0 @@
+-# Set this to "no" if pserver shouldn't check system users/passwords
+-#SystemAuth=no
+-
+-# Put CVS lock files in this directory rather than directly in the repository.
+-#LockDir=/var/lock/cvs
+-
+-# Set `TopLevelAdmin' to `yes' to create a CVS directory at the top
+-# level of the new working directory when using the `cvs checkout'
+-# command.
+-#TopLevelAdmin=no
+-
+-# Set `LogHistory' to `all' or `TOEFWUPCGMAR' to log all transactions to the
+-# history file, or a subset as needed (ie `TMAR' logs all write operations)
+-#LogHistory=TOEFWUPCGMAR
+-
+-# Set `RereadLogAfterVerify' to `always' (the default) to allow the verifymsg
+-# script to change the log message.  Set it to `stat' to force CVS to verify# that the file has changed before reading it (this can take up to an extra
+-# second per directory being committed, so it is not recommended for large
+-# repositories.  Set it to `never' (the previous CVS behavior) to prevent
+-# verifymsg scripts from changing the log message.
+-#RereadLogAfterVerify=always
+diff --git docx2txt/CVSROOT/cvswrappers docx2txt/CVSROOT/cvswrappers
+deleted file mode 100644
+index e989b75..0000000
+--- docx2txt/CVSROOT/cvswrappers
++++ /dev/null
+@@ -1,19 +0,0 @@
+-# This file affects handling of files based on their names.
+-#
+-# The -m option specifies whether CVS attempts to merge files.
+-#
+-# The -k option specifies keyword expansion (e.g. -kb for binary).
+-#
+-# Format of wrapper file ($CVSROOT/CVSROOT/cvswrappers or .cvswrappers)
+-#
+-#  wildcard	[option value][option value]...
+-#
+-#  where option is one of
+-#  -f		from cvs filter		value: path to filter
+-#  -t		to cvs filter		value: path to filter
+-#  -m		update methodology	value: MERGE or COPY
+-#  -k		expansion mode		value: b, o, kkv, &c
+-#
+-#  and value is a single-quote delimited value.
+-# For example:
+-#*.gif -k 'b'
+diff --git docx2txt/CVSROOT/editinfo docx2txt/CVSROOT/editinfo
+deleted file mode 100644
+index d78886c..0000000
+--- docx2txt/CVSROOT/editinfo
++++ /dev/null
+@@ -1,21 +0,0 @@
+-# The "editinfo" file is used to allow verification of logging
+-# information.  It works best when a template (as specified in the
+-# rcsinfo file) is provided for the logging procedure.  Given a
+-# template with locations for, a bug-id number, a list of people who
+-# reviewed the code before it can be checked in, and an external
+-# process to catalog the differences that were code reviewed, the
+-# following test can be applied to the code:
+-#
+-#   Making sure that the entered bug-id number is correct.
+-#   Validating that the code that was reviewed is indeed the code being
+-#       checked in (using the bug-id number or a seperate review
+-#       number to identify this particular code set.).
+-#
+-# If any of the above test failed, then the commit would be aborted.
+-#
+-# Actions such as mailing a copy of the report to each reviewer are
+-# better handled by an entry in the loginfo file.
+-#
+-# One thing that should be noted is the the ALL keyword is not
+-# supported.  There can be only one entry that matches a given
+-# repository.
+diff --git docx2txt/CVSROOT/loginfo docx2txt/CVSROOT/loginfo
+deleted file mode 100644
+index 537607d..0000000
+--- docx2txt/CVSROOT/loginfo
++++ /dev/null
+@@ -1,27 +0,0 @@
+-# The "loginfo" file controls where "cvs commit" log information
+-# is sent.  The first entry on a line is a regular expression which must match
+-# the directory that the change is being made to, relative to the
+-# $CVSROOT.  If a match is found, then the remainder of the line is a filter
+-# program that should expect log information on its standard input.
+-#
+-# If the repository name does not match any of the regular expressions in this
+-# file, the "DEFAULT" line is used, if it is specified.
+-#
+-# If the name ALL appears as a regular expression it is always used
+-# in addition to the first matching regex or DEFAULT.
+-#
+-# You may specify a format string as part of the
+-# filter.  The string is composed of a `%' followed
+-# by a single format character, or followed by a set of format
+-# characters surrounded by `{' and `}' as separators.  The format
+-# characters are:
+-#
+-#   s = file name
+-#   V = old version number (pre-checkin)
+-#   v = new version number (post-checkin)
+-#   t = tag or branch name
+-#
+-# For example:
+-#DEFAULT (echo ""; id; echo %s; date; cat) >> $CVSROOT/CVSROOT/commitlog
+-# or
+-#DEFAULT (echo ""; id; echo %{sVv}; date; cat) >> $CVSROOT/CVSROOT/commitlog
+diff --git docx2txt/CVSROOT/modules docx2txt/CVSROOT/modules
+deleted file mode 100644
+index cb9e9ef..0000000
+--- docx2txt/CVSROOT/modules
++++ /dev/null
+@@ -1,26 +0,0 @@
+-# Three different line formats are valid:
+-#	key	-a    aliases...
+-#	key [options] directory
+-#	key [options] directory files...
+-#
+-# Where "options" are composed of:
+-#	-i prog		Run "prog" on "cvs commit" from top-level of module.
+-#	-o prog		Run "prog" on "cvs checkout" of module.
+-#	-e prog		Run "prog" on "cvs export" of module.
+-#	-t prog		Run "prog" on "cvs rtag" of module.
+-#	-u prog		Run "prog" on "cvs update" of module.
+-#	-d dir		Place module in directory "dir" instead of module name.
+-#	-l		Top-level directory only -- do not recurse.
+-#
+-# NOTE:  If you change any of the "Run" options above, you'll have to
+-# release and re-checkout any working directories of these modules.
+-#
+-# And "directory" is a path to a directory relative to $CVSROOT.
+-#
+-# The "-a" option specifies an alias.  An alias is interpreted as if
+-# everything on the right of the "-a" had been typed on the command line.
+-#
+-# You can encode a module within a module by using the special '&'
+-# character to interpose another module into the current module.  This
+-# can be useful for creating a module that consists of many directories
+-# spread out over the entire source repository.
+diff --git docx2txt/CVSROOT/notify docx2txt/CVSROOT/notify
+deleted file mode 100644
+index 74ae6f9..0000000
+--- docx2txt/CVSROOT/notify
++++ /dev/null
+@@ -1,12 +0,0 @@
+-# The "notify" file controls where notifications from watches set by
+-# "cvs watch add" or "cvs edit" are sent.  The first entry on a line is
+-# a regular expression which is tested against the directory that the
+-# change is being made to, relative to the $CVSROOT.  If it matches,
+-# then the remainder of the line is a filter program that should contain
+-# one occurrence of %s for the user to notify, and information on its
+-# standard input.
+-#
+-# "ALL" or "DEFAULT" can be used in place of the regular expression.
+-#
+-# For example:
+-#ALL mail -s "CVS notification" %s
+diff --git docx2txt/CVSROOT/rcsinfo docx2txt/CVSROOT/rcsinfo
+deleted file mode 100644
+index 49e59f4..0000000
+--- docx2txt/CVSROOT/rcsinfo
++++ /dev/null
+@@ -1,13 +0,0 @@
+-# The "rcsinfo" file is used to control templates with which the editor
+-# is invoked on commit and import.
+-#
+-# The first entry on a line is a regular expression which is tested
+-# against the directory that the change is being made to, relative to the
+-# $CVSROOT.  For the first match that is found, then the remainder of the
+-# line is the name of the file that contains the template.
+-#
+-# If the repository name does not match any of the regular expressions in this
+-# file, the "DEFAULT" line is used, if it is specified.
+-#
+-# If the name "ALL" appears as a regular expression it is always used
+-# in addition to the first matching regex or "DEFAULT".
+diff --git docx2txt/CVSROOT/taginfo docx2txt/CVSROOT/taginfo
+deleted file mode 100644
+index 274a46d..0000000
+--- docx2txt/CVSROOT/taginfo
++++ /dev/null
+@@ -1,20 +0,0 @@
+-# The "taginfo" file is used to control pre-tag checks.
+-# The filter on the right is invoked with the following arguments:
+-#
+-# $1 -- tagname
+-# $2 -- operation "add" for tag, "mov" for tag -F, and "del" for tag -d
+-# $3 -- repository
+-# $4->  file revision [file revision ...]
+-#
+-# A non-zero exit of the filter program will cause the tag to be aborted.
+-#
+-# The first entry on a line is a regular expression which is tested
+-# against the directory that the change is being committed to, relative
+-# to the $CVSROOT.  For the first match that is found, then the remainder
+-# of the line is the name of the filter to run.
+-#
+-# If the repository name does not match any of the regular expressions in this
+-# file, the "DEFAULT" line is used, if it is specified.
+-#
+-# If the name "ALL" appears as a regular expression it is always used
+-# in addition to the first matching regex or "DEFAULT".
+diff --git docx2txt/CVSROOT/verifymsg docx2txt/CVSROOT/verifymsg
+deleted file mode 100644
+index 86f747c..0000000
+--- docx2txt/CVSROOT/verifymsg
++++ /dev/null
+@@ -1,21 +0,0 @@
+-# The "verifymsg" file is used to allow verification of logging
+-# information.  It works best when a template (as specified in the
+-# rcsinfo file) is provided for the logging procedure.  Given a
+-# template with locations for, a bug-id number, a list of people who
+-# reviewed the code before it can be checked in, and an external
+-# process to catalog the differences that were code reviewed, the
+-# following test can be applied to the code:
+-#
+-#   Making sure that the entered bug-id number is correct.
+-#   Validating that the code that was reviewed is indeed the code being
+-#       checked in (using the bug-id number or a seperate review
+-#       number to identify this particular code set.).
+-#
+-# If any of the above test failed, then the commit would be aborted.
+-#
+-# Actions such as mailing a copy of the report to each reviewer are
+-# better handled by an entry in the loginfo file.
+-#
+-# One thing that should be noted is the the ALL keyword is not
+-# supported.  There can be only one entry that matches a given
+-# repository.
+diff --git docx2txt/docx2txt/ChangeLog docx2txt/ChangeLog
+similarity index 100%
+rename from docx2txt/ChangeLog
+rename to ChangeLog
+diff --git docx2txt/docx2txt/INSTALL docx2txt/INSTALL
+similarity index 100%
+rename from docx2txt/INSTALL
+rename to INSTALL
+diff --git docx2txt/docx2txt/Makefile docx2txt/Makefile
+similarity index 100%
+rename from docx2txt/Makefile
+rename to Makefile
+diff --git docx2txt/docx2txt/Makefile.dist docx2txt/Makefile.dist
+similarity index 100%
+rename from docx2txt/Makefile.dist
+rename to Makefile.dist
+diff --git docx2txt/docx2txt/README docx2txt/README
+similarity index 100%
+rename from docx2txt/README
+rename to README
+diff --git docx2txt/docx2txt/ToDo docx2txt/ToDo
+similarity index 100%
+rename from docx2txt/ToDo
+rename to ToDo
+diff --git docx2txt/docx2txt/VERSION docx2txt/VERSION
+similarity index 100%
+rename from docx2txt/VERSION
+rename to VERSION
+diff --git docx2txt/docx2txt/WInstall.bat docx2txt/WInstall.bat
+similarity index 100%
+rename from docx2txt/WInstall.bat
+rename to WInstall.bat
+diff --git docx2txt/docx2txt/docx2txt.bat docx2txt/docx2txt.bat
+similarity index 100%
+rename from docx2txt/docx2txt.bat
+rename to docx2txt.bat
+diff --git docx2txt/docx2txt/docx2txt.config docx2txt/docx2txt.config
+similarity index 100%
+rename from docx2txt/docx2txt.config
+rename to docx2txt.config
+diff --git docx2txt/docx2txt/docx2txt.pl docx2txt/docx2txt.pl
+similarity index 100%
+rename from docx2txt/docx2txt.pl
+rename to docx2txt.pl
+diff --git docx2txt/docx2txt/docx2txt.sh docx2txt/docx2txt.sh
+similarity index 100%
+rename from docx2txt/docx2txt.sh
+rename to docx2txt.sh
+-- 
+2.20.1
+
+
+From 6321d7a5adcc8dcabdeceb9de1a0feac9881e922 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@users.noreply.github.com>
+Date: Fri, 26 Jul 2019 18:41:50 -0700
+Subject: [PATCH 2/3] mkdir: cannot create directory _//usr_: Read-only file
+ system
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git docx2txt/Makefile docx2txt/Makefile
+index 4b60838..030b07b 100644
+--- docx2txt/Makefile
++++ docx2txt/Makefile
+@@ -23,7 +23,7 @@ CONFIGFILE = docx2txt.config
+ install: installbin installconfig
+ 
+ installbin: $(BINFILES)
+-	$(eval override BINDIR := $(ROOTDIR)/$(BINDIR))
++	$(eval override BINDIR := $(ROOTDIR)$(BINDIR))
+ 	@echo "Installing script files [$(BINFILES)] in \"$(BINDIR)\" .."
+ 	@[ -d "$(BINDIR)" ] || mkdir -p "$(BINDIR)"
+ 	$(INSTALL) -m 755 $^ "$(BINDIR)"
+@@ -36,7 +36,7 @@ else
+ endif
+ 
+ installconfig: $(CONFIGFILE)
+-	$(eval override CONFIGDIR := $(ROOTDIR)/$(CONFIGDIR))
++	$(eval override CONFIGDIR := $(ROOTDIR)$(CONFIGDIR))
+ 	@echo "Installing config file [$(CONFIGFILE)] in \"$(CONFIGDIR)\" .."
+ 	@[ -d "$(CONFIGDIR)" ] || mkdir -p "$(CONFIGDIR)"
+ 	$(INSTALL) -m 755 $^ "$(CONFIGDIR)"
+-- 
+2.20.1
+
+
+From de91094396a245fdcbd6974b193fa52ff3ed7d6a Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@users.noreply.github.com>
+Date: Fri, 26 Jul 2019 21:00:11 +0200
+Subject: [PATCH 3/3] Package: docx2txt Version: 1.4-1 Priority: optional
+ Section: text Maintainer: Barak A. Pearlmutter <bap@debian.org>
+ Installed-Size: 49.2 kB Depends: unzip Homepage:
+ http://docx2txt.sourceforge.net Tag: interface::commandline, role::program,
+ scope::utility, use::converting, works-with-format::html,
+ works-with-format::plaintext,
+
+---
+ .pc/.quilt_patches       |  1 +
+ .pc/.quilt_series        |  1 +
+ .pc/.version             |  1 +
+ .pc/applied-patches      |  0
+ Makefile                 |  2 --
+ Makefile.dist            | 17 ------------
+ debian/changelog         | 59 ++++++++++++++++++++++++++++++++++++++++
+ debian/compat            |  1 +
+ debian/control           | 28 +++++++++++++++++++
+ debian/copyright         | 41 ++++++++++++++++++++++++++++
+ debian/dirs              |  1 +
+ debian/docs              |  2 ++
+ debian/docx2txt.1        | 55 +++++++++++++++++++++++++++++++++++++
+ debian/docx2txt.manpages |  1 +
+ debian/docx2txt.mime     |  1 +
+ debian/rules             | 18 ++++++++++++
+ debian/source/format     |  1 +
+ debian/watch             |  2 ++
+ docx2txt.config          |  1 -
+ 19 files changed, 213 insertions(+), 20 deletions(-)
+ create mode 100644 .pc/.quilt_patches
+ create mode 100644 .pc/.quilt_series
+ create mode 100644 .pc/.version
+ create mode 100644 .pc/applied-patches
+ delete mode 100644 Makefile.dist
+ create mode 100644 debian/changelog
+ create mode 100644 debian/compat
+ create mode 100644 debian/control
+ create mode 100644 debian/copyright
+ create mode 100644 debian/dirs
+ create mode 100644 debian/docs
+ create mode 100644 debian/docx2txt.1
+ create mode 100644 debian/docx2txt.manpages
+ create mode 100644 debian/docx2txt.mime
+ create mode 100755 debian/rules
+ create mode 100644 debian/source/format
+ create mode 100644 debian/watch
+
+diff --git docx2txt/.pc/.quilt_patches docx2txt/.pc/.quilt_patches
+new file mode 100644
+index 0000000..6857a8d
+--- /dev/null
++++ docx2txt/.pc/.quilt_patches
+@@ -0,0 +1 @@
++debian/patches
+diff --git docx2txt/.pc/.quilt_series docx2txt/.pc/.quilt_series
+new file mode 100644
+index 0000000..c206706
+--- /dev/null
++++ docx2txt/.pc/.quilt_series
+@@ -0,0 +1 @@
++series
+diff --git docx2txt/.pc/.version docx2txt/.pc/.version
+new file mode 100644
+index 0000000..0cfbf08
+--- /dev/null
++++ docx2txt/.pc/.version
+@@ -0,0 +1 @@
++2
+diff --git docx2txt/.pc/applied-patches docx2txt/.pc/applied-patches
+new file mode 100644
+index 0000000..e69de29
+diff --git docx2txt/Makefile docx2txt/Makefile
+index 030b07b..7394f70 100644
+--- docx2txt/Makefile
++++ docx2txt/Makefile
+@@ -23,7 +23,6 @@ CONFIGFILE = docx2txt.config
+ install: installbin installconfig
+ 
+ installbin: $(BINFILES)
+-	$(eval override BINDIR := $(ROOTDIR)$(BINDIR))
+ 	@echo "Installing script files [$(BINFILES)] in \"$(BINDIR)\" .."
+ 	@[ -d "$(BINDIR)" ] || mkdir -p "$(BINDIR)"
+ 	$(INSTALL) -m 755 $^ "$(BINDIR)"
+@@ -36,7 +35,6 @@ else
+ endif
+ 
+ installconfig: $(CONFIGFILE)
+-	$(eval override CONFIGDIR := $(ROOTDIR)$(CONFIGDIR))
+ 	@echo "Installing config file [$(CONFIGFILE)] in \"$(CONFIGDIR)\" .."
+ 	@[ -d "$(CONFIGDIR)" ] || mkdir -p "$(CONFIGDIR)"
+ 	$(INSTALL) -m 755 $^ "$(CONFIGDIR)"
+diff --git docx2txt/Makefile.dist docx2txt/Makefile.dist
+deleted file mode 100644
+index 0347b52..0000000
+--- docx2txt/Makefile.dist
++++ /dev/null
+@@ -1,17 +0,0 @@
+-#
+-# Internal Makefile for generating docx2txt distribution package
+-#
+-
+-NAME = docx2txt
+-VERSION = $(shell head -1 VERSION)
+-PKG=$(NAME)-$(VERSION)
+-
+-PKGFILES = $(NAME).{bat,config,pl,sh} BSDmakefile Makefile WInstall.bat \
+-	VERSION INSTALL README COPYING ChangeLog ToDo AUTHORS
+-
+-dist:
+-	ln -s . $(PKG)
+-	tar zcvf $(PKG).tgz $(addprefix $(PKG)/, $(PKGFILES));
+-	rm $(PKG)
+-
+-.PHONY: dist
+diff --git docx2txt/debian/changelog docx2txt/debian/changelog
+new file mode 100644
+index 0000000..631427f
+--- /dev/null
++++ docx2txt/debian/changelog
+@@ -0,0 +1,59 @@
++docx2txt (1.4-1) unstable; urgency=medium
++
++  * Adopt package (closes: #858666), with much thanks to Khalid El Fathi
++    for the original packaging; I use this constantly!
++  * bump standards version
++  * rephrase description and man page to admit non-ascii
++    output (closes: #700396)
++  * Remove obsolete emacs mode comment from debian/rules
++  * Obay hinter and set Multi-arch: foreign
++
++ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 09 Oct 2017 12:26:50 +0100
++
++docx2txt (1.4-0.2) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * debian/control 
++    - set Standards-Version: 4.0.0
++    - update Vcs-*, use https
++    - Build-Depends: debhelper (>= 10)
++  * debian/compat
++    - set 10
++  * debian/watch
++    - update to version4
++
++ -- Hideki Yamane <henrich@debian.org>  Sat, 15 Jul 2017 15:20:36 +0900
++
++docx2txt (1.4-0.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * New upstream release
++  * add "debian/docx2txt.mime" to mailcap entry for text-based mail readers.
++    Thanks to Tanguy Ortolo <tanguy+debian@ortolo.eu> for the patch.
++    (Closes: #692827)
++  * debian/contorl: set canonical URL for Vcs-* field
++
++ -- Hideki Yamane <henrich@debian.org>  Tue, 20 May 2014 01:55:31 +0900
++
++docx2txt (1.3-0.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * New upstream release
++  * debian/control
++    - set "Standards-Version: 3.9.5"
++
++ -- Hideki Yamane <henrich@debian.org>  Tue, 29 Apr 2014 13:26:49 +0900
++
++docx2txt (1.2-1.1) unstable; urgency=medium
++
++  * Non-maintainer upload.
++  * debian/control
++    - add missing "Depeneds: unzip" to show .docx files (Closes: #739597)
++
++ -- Hideki Yamane <henrich@debian.org>  Thu, 27 Feb 2014 10:06:10 +0900
++
++docx2txt (1.2-1) unstable; urgency=low
++
++  * Initial release (Closes: #651908)
++
++ -- Khalid El Fathi <khalid@elfathi.fr>  Sat, 25 Feb 2012 15:39:48 +0100
+diff --git docx2txt/debian/compat docx2txt/debian/compat
+new file mode 100644
+index 0000000..f599e28
+--- /dev/null
++++ docx2txt/debian/compat
+@@ -0,0 +1 @@
++10
+diff --git docx2txt/debian/control docx2txt/debian/control
+new file mode 100644
+index 0000000..5feda34
+--- /dev/null
++++ docx2txt/debian/control
+@@ -0,0 +1,28 @@
++Source: docx2txt
++Section: text
++Priority: extra
++Maintainer: Barak A. Pearlmutter <bap@debian.org>
++Build-Depends: debhelper (>= 10)
++Standards-Version: 4.1.1
++Homepage: http://docx2txt.sourceforge.net
++Vcs-Git: https://anonscm.debian.org/git/collab-maint/docx2txt.git
++Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/docx2txt.git
++
++Package: docx2txt
++Architecture: all
++Multi-Arch: foreign
++Depends: ${shlibs:Depends}, ${misc:Depends}, unzip
++Description: Convert Microsoft OOXML files to plain text
++ This tool attempts to generate equivalent plain text files from
++ Microsoft .docx documents, preserving some formatting and document
++ information (which MS text conversion drops) along with appropriate
++ character conversions for a good (ascii or utf-8) text experience.
++ It is a platform independent solution consisting of (core) Perl and
++ (wrapper) Unix/Windows shell scripts and a configuration file to
++ control the output text appearance to a fair extent.  It can very
++ conveniently be used to build a Web-based docx document conversion
++ service.  Some Makefiles and Windows batch files are provided for
++ easy installation of the scripts.  With unzippers like CakeCmd that
++ can deal with corrupt Zip archives, this tool can extract text from
++ corrupt docx documents in many cases, where MS Word fails to even
++ open them.
+diff --git docx2txt/debian/copyright docx2txt/debian/copyright
+new file mode 100644
+index 0000000..972d493
+--- /dev/null
++++ docx2txt/debian/copyright
+@@ -0,0 +1,41 @@
++Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
++Upstream-Name: docx2txt
++Source: http://docx2txt.sourceforge.net
++
++Files: *
++Copyright: © 2008-2012 Sandeep Kumar <shimple0@yahoo.com>
++License: GPL-3
++ This program is free software: you can redistribute it and/or modify
++ it under the terms of the GNU General Public License as published by
++ the Free Software Foundation, either version 3 of the License, or
++ (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program.  If not, see <http://www.gnu.org/licenses/>.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-3 file.
++
++Files: debian/*
++Copyright: © 2012 Khalid El Fathi <khalid@elfathi.fr>
++License: GPL-2+
++ This package is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License as published by
++ the Free Software Foundation; either version 2 of the License, or
++ (at your option) any later version.
++ .
++ This package is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program. If not, see <http://www.gnu.org/licenses/>
++ .
++ On Debian systems, the complete text of the GNU General
++ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+diff --git docx2txt/debian/dirs docx2txt/debian/dirs
+new file mode 100644
+index 0000000..415f082
+--- /dev/null
++++ docx2txt/debian/dirs
+@@ -0,0 +1 @@
++/usr/bin
+diff --git docx2txt/debian/docs docx2txt/debian/docs
+new file mode 100644
+index 0000000..29453ef
+--- /dev/null
++++ docx2txt/debian/docs
+@@ -0,0 +1,2 @@
++README
++ToDo
+diff --git docx2txt/debian/docx2txt.1 docx2txt/debian/docx2txt.1
+new file mode 100644
+index 0000000..b27684f
+--- /dev/null
++++ docx2txt/debian/docx2txt.1
+@@ -0,0 +1,55 @@
++.\"                                      Hey, EMACS: -*- nroff -*-
++.\" First parameter, NAME, should be all caps
++.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
++.\" other parameters are allowed: see man(7), man(1)
++.TH DOCX2TXT 1 "February 25, 2012"
++.\" Please adjust this date whenever revising the manpage.
++.\"
++.\" Some roff macros, for reference:
++.\" .nh        disable hyphenation
++.\" .hy        enable hyphenation
++.\" .ad l      left justify
++.\" .ad b      justify to both left and right margins
++.\" .nf        disable filling
++.\" .fi        enable filling
++.\" .br        insert line break
++.\" .sp <n>    insert n+1 empty lines
++.\" for manpage-specific macros, see man(7)
++.SH NAME
++docx2txt \- convert Microsoft OOXML files to plain text.
++.SH SYNOPSIS
++.B docx2txt
++.RI "[ infile.docx|-|-h ] [ outfile.txt|- ]"
++.br
++.B docx2txt
++.RI "< infile.docx"
++.br
++.B docx2txt
++.RI "< infile.docx > outfile.txt"
++.SH DESCRIPTION
++This manual page documents briefly the
++.B docx2txt
++commands.
++.PP
++.\" TeX users may be more comfortable with the \fB<whatever>\fP and
++.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
++.\" respectively.
++\fBdocx2txt\fP docx2txt is a tool that attempts to generate equivalent plain text files from Microsoft .docx documents, preserving some formatting and document information (which MS text conversion drops) along with appropriate character conversions for a good (ascii or utf-8) text experience.  It is a platform independent solution consisting of (core) Perl and (wrapper) Unix/Windows shell scripts and a configuration file to control the output text appearance to a fair extent.  It can very conveniently be used to build a Web-based docx document conversion service.  With unzippers like CakeCmd that can deal with corrupt Zip archives, this tool can extract text from corrupt docx documents in many cases, where MS Word fails to even open them.
++.SH OPTIONS
++.TP
++.B \-h
++As the first argument to get this usage information.
++.TP
++.B \-
++As the infile name to read the docx file from STDIN.
++.TP
++.B \-
++As the outfile name to dump the text on STDOUT.
++.br
++Output is saved in infile.txt if second argument is omitted.
++.br
++.SH AUTHOR
++docx2txt was written by Sandeep Kumar <shimple0@yahoo.com>.
++.PP
++This manual page was written by Khalid El Fathi <khalid@elfathi.fr>,
++for the Debian project (and may be used by others).
+diff --git docx2txt/debian/docx2txt.manpages docx2txt/debian/docx2txt.manpages
+new file mode 100644
+index 0000000..0a0a952
+--- /dev/null
++++ docx2txt/debian/docx2txt.manpages
+@@ -0,0 +1 @@
++debian/docx2txt.1
+diff --git docx2txt/debian/docx2txt.mime docx2txt/debian/docx2txt.mime
+new file mode 100644
+index 0000000..c4ee279
+--- /dev/null
++++ docx2txt/debian/docx2txt.mime
+@@ -0,0 +1 @@
++application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt '%s' - ; copiousoutput; description=Office Open XML Document; prority=1
+diff --git docx2txt/debian/rules docx2txt/debian/rules
+new file mode 100755
+index 0000000..c42eed9
+--- /dev/null
++++ docx2txt/debian/rules
+@@ -0,0 +1,18 @@
++#!/usr/bin/make -f
++
++# Sample debian/rules that uses debhelper.
++# This file was originally written by Joey Hess and Craig Small.
++# As a special exception, when this file is copied by dh-make into a
++# dh-make output file, you may use that output file without restriction.
++# This special exception was added by Craig Small in version 0.37 of dh-make.
++
++# Uncomment this to turn on verbose mode.
++#export DH_VERBOSE=1
++
++%:
++	dh  $@
++
++override_dh_auto_build:
++
++override_dh_auto_install:
++	cp $(CURDIR)/docx2txt.pl $(CURDIR)/debian/docx2txt/usr/bin/docx2txt
+diff --git docx2txt/debian/source/format docx2txt/debian/source/format
+new file mode 100644
+index 0000000..163aaf8
+--- /dev/null
++++ docx2txt/debian/source/format
+@@ -0,0 +1 @@
++3.0 (quilt)
+diff --git docx2txt/debian/watch docx2txt/debian/watch
+new file mode 100644
+index 0000000..73059ac
+--- /dev/null
++++ docx2txt/debian/watch
+@@ -0,0 +1,2 @@
++version=4
++http://sf.net/@PACKAGE@/@PACKAGE@@ANY_VERSION@.tgz
+diff --git docx2txt/docx2txt.config docx2txt/docx2txt.config
+index 4bb7be6..4443353 100644
+--- docx2txt/docx2txt.config
++++ docx2txt/docx2txt.config
+@@ -16,7 +16,6 @@
+ #
+ # Default : '/usr/bin/unzip'
+ #
+-#config_unzip         => 'C:\Program Files\GnuWin32\bin\unzip.exe',
+ config_unzip         => '/usr/bin/unzip',
+ 
+ #
+-- 
+2.20.1
+
