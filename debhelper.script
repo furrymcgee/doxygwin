@@ -1,4 +1,4 @@
-Script started on Tue Apr  7 16:56:35 2020
+Script started on Wed Apr  8 23:27:30 2020
 cygport --32 debhelper all
 ]0;/mnt
 [32mAdministrator@- [33m/mnt[0m
@@ -7,6 +7,7 @@ $ cygport --32 debhelper all
 >>> Unpacking source debhelper_12.1.1.dsc
 >>> Unpacking source debhelper_12.1.1.tar.xz
 [1;32m*** Info:[0;0m applying patch debhelper.patch (-p0):
+patching file debhelper/dh_testroot
 patching file debhelper/lib/Debian/Debhelper/Buildsystem.pm
 Hunk #3 succeeded at 132 (offset -7 lines).
 Hunk #4 succeeded at 153 (offset -7 lines).
@@ -19,6 +20,7 @@ patching file debhelper/t/buildsystems/buildsystem_tests.t
 [1;39m>>> Compiling debhelper.noarch[0;0m
 make: Entering directory '/mnt/debhelper.noarch/build/debhelper'
 po4a --previous -L UTF-8 man/po4a/po4a.cfg
+ (1116 entries)
 Discard man/de/dh_dwz.pod (13 of 23 strings; only 56.52% translated; need 80%).
 Discard man/de/dh_installdirs.pod (21 of 27 strings; only 77.77% translated; need 80%).
 Discard man/de/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translated; need 80%).
@@ -61,10 +63,14 @@ Discard man/pt/dh_installinitinitramfs.pod (13 of 20 strings; only 65% translate
 Discard man/pt/dh_makeshlibs.pod (37 of 55 strings; only 67.27% translated; need 80%).
 Discard man/pt/dh_testroot.pod (13 of 21 strings; only 61.9% translated; need 80%).
 touch po4a-stamp
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 set -e; \
 lang=pt ; \
 dir=man/$lang; \
@@ -81,10 +87,14 @@ if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
 fi
 touch translated-pt-stamp
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 set -e; \
 lang=fr ; \
 dir=man/$lang; \
@@ -101,10 +111,14 @@ if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
 fi
 touch translated-fr-stamp
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 set -e; \
 lang=es ; \
 dir=man/$lang; \
@@ -121,10 +135,14 @@ if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
 fi
 touch translated-es-stamp
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 set -e; \
 lang=ja ; \
 dir=man/$lang; \
@@ -141,10 +159,14 @@ if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
 fi
 touch translated-ja-stamp
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 set -e; \
 lang=de ; \
 dir=man/$lang; \
@@ -161,139 +183,205 @@ if [ -e $dir/debhelper-obsolete-compat.pod ]; then \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 $dir/debhelper-obsolete-compat.pod > debhelper-obsolete-compat.$lang.7; \
 fi
 touch translated-de-stamp
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 printf "package Debian::Debhelper::Dh_Version;\n\$version='';\n1" > \
 	lib/Debian/Debhelper/Dh_Version.pm
-make: dpkg-parsechangelog: Command not found
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 cat debhelper.pod | \
 	perl -e ' undef $/; foreach (@ARGV) { open (IN, $_) or die "$_: $!"; $file=<IN>; close IN; if ($file=~m/=head1 .*?\n\n(.*?) - (.*?)\n\n/s) { my $item="=item $1(1)\n\n$2\n\n"; if (" dh_gconf dh_installmanpages " !~ / $1 /) { $list.=$item; } else { $list_deprecated.=$item; } } } END { my $recommended_compat = q{}; $recommended_compat =~ s{^\d+\K(?:\D.*|\..*)?}{}; while (<STDIN>) { s/#LIST#/$list/g; s/#LIST_DEPRECATED#/$list_deprecated/g; s/#RECOMMENDED_COMPAT#/$recommended_compat/g; print; }; }' dh_auto_build dh_auto_clean dh_auto_configure dh_auto_install dh_auto_test dh_bugfiles dh_builddeb dh_clean dh_compress dh_dwz dh_fixperms dh_gconf dh_gencontrol dh_icons dh_install dh_installcatalogs dh_installchangelogs dh_installcron dh_installdeb dh_installdebconf dh_installdirs dh_installdocs dh_installemacsen dh_installexamples dh_installgsettings dh_installifupdown dh_installinfo dh_installinit dh_installinitramfs dh_installlogcheck dh_installlogrotate dh_installman dh_installmanpages dh_installmenu dh_installmime dh_installmodules dh_installpam dh_installppp dh_installsystemd dh_installsystemduser dh_installudev dh_installwm dh_installxfonts dh_link dh_lintian dh_listpackages dh_makeshlibs dh_md5sums dh_missing dh_movefiles dh_perl dh_prep dh_shlibdeps dh_strip dh_systemd_enable dh_systemd_start dh_testdir dh_testroot dh_ucf dh_update_autotools_config dh_usrlocal | \
 	pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7  > debhelper.7
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" --name="debhelper" --section=7 debhelper-obsolete-compat.pod > debhelper-obsolete-compat.7
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_auto_build dh_auto_build.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_auto_clean dh_auto_clean.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_auto_configure dh_auto_configure.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_auto_install dh_auto_install.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_auto_test dh_auto_test.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_bugfiles dh_bugfiles.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_builddeb dh_builddeb.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_clean dh_clean.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_compress dh_compress.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_dwz dh_dwz.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_fixperms dh_fixperms.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_gconf dh_gconf.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_gencontrol dh_gencontrol.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_icons dh_icons.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_install dh_install.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installcatalogs dh_installcatalogs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installchangelogs dh_installchangelogs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installcron dh_installcron.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installdeb dh_installdeb.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installdebconf dh_installdebconf.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installdirs dh_installdirs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installdocs dh_installdocs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installemacsen dh_installemacsen.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installexamples dh_installexamples.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installgsettings dh_installgsettings.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installifupdown dh_installifupdown.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installinfo dh_installinfo.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installinit dh_installinit.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installinitramfs dh_installinitramfs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installlogcheck dh_installlogcheck.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installlogrotate dh_installlogrotate.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installman dh_installman.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installmanpages dh_installmanpages.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installmenu dh_installmenu.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installmime dh_installmime.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installmodules dh_installmodules.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installpam dh_installpam.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installppp dh_installppp.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installsystemd dh_installsystemd.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installsystemduser dh_installsystemduser.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installudev dh_installudev.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installwm dh_installwm.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_installxfonts dh_installxfonts.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_link dh_link.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_lintian dh_lintian.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_listpackages dh_listpackages.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_makeshlibs dh_makeshlibs.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_md5sums dh_md5sums.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_missing dh_missing.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_movefiles dh_movefiles.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_perl dh_perl.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_prep dh_prep.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_shlibdeps dh_shlibdeps.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_strip dh_strip.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_systemd_enable dh_systemd_enable.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_systemd_start dh_systemd_start.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_testdir dh_testdir.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_testroot dh_testroot.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_ucf dh_ucf.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_update_autotools_config dh_update_autotools_config.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh_usrlocal dh_usrlocal.1
-make: dpkg-parsechangelog: Command not found
+Can't locate Dpkg.pm in @INC (you may need to install the Dpkg module) (@INC contains: /usr/lib/perl5/site_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/site_perl/5.22 /usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int /usr/lib/perl5/vendor_perl/5.22 /usr/lib/perl5/5.22/i686-cygwin-threads-64int /usr/lib/perl5/5.22 .) at /usr/bin/dpkg-parsechangelog line 25.
+BEGIN failed--compilation aborted at /usr/bin/dpkg-parsechangelog line 25.
 pod2man --utf8 -c Debhelper -r "" dh dh.1
 make: Leaving directory '/mnt/debhelper.noarch/build/debhelper'
 [1;39m>>> Installing debhelper.noarch[0;0m
@@ -479,4 +567,4 @@ debhelper.src/debhelper_12.1.1.tar.xz
 [32mAdministrator@- [33m/mnt[0m
 $ exit
 
-Script done on Tue Apr  7 17:03:58 2020
+Script done on Wed Apr  8 23:34:52 2020
