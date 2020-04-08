@@ -1,17 +1,17 @@
-From ecb17508ef4871e9640a5ad67274424eeff7cd17 Mon Sep 17 00:00:00 2001
+From 9bf936936bc852a1a589803c633ae5eebb597b61 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Tue, 31 Mar 2020 08:36:27 +0200
+Date: Sun, 12 Apr 2020 17:01:27 +0200
 Subject: [PATCH] index on (no branch): fa850df Bump version to 0.25.0
 
 ---
  .gitmodules                                   |  4 +-
  Makefile.am                                   |  3 +
- cygclass/dpkg.cygclass                        | 75 +++++++++++++++++++
+ cygclass/dpkg.cygclass                        | 77 +++++++++++++++++++
  ...ample.cygport => cygport-0.25.0-1.cygport} |  3 +-
  .../build/data/gnuconfig                      |  1 +
  data/gnuconfig                                |  1 -
  doc/Makefile.am                               |  4 +-
- 7 files changed, 85 insertions(+), 6 deletions(-)
+ 7 files changed, 87 insertions(+), 6 deletions(-)
  create mode 100644 cygclass/dpkg.cygclass
  rename data/{sample.cygport => cygport-0.25.0-1.cygport} (90%)
  create mode 160000 data/cygport-0.25.0-1.noarch/build/data/gnuconfig
@@ -47,10 +47,10 @@ index 2225293..1f3b9bd 100644
 +endif !HAVE_HELP2MAN
 diff --git cygport-0.25.0/cygclass/dpkg.cygclass cygport-0.25.0/cygclass/dpkg.cygclass
 new file mode 100644
-index 0000000..305fc4e
+index 0000000..ac57400
 --- /dev/null
 +++ cygport-0.25.0/cygclass/dpkg.cygclass
-@@ -0,0 +1,75 @@
+@@ -0,0 +1,77 @@
 +################################################################################
 +#
 +# dpkg.cygclass - functions for building Debian packages
@@ -79,6 +79,8 @@ index 0000000..305fc4e
 +# cross-compiling is not (yet?) supported
 +__cross_compiling_error
 +
++check_prog_req dh
++check_prog_req dh_strip_nondeterminism
 +check_prog_req dpkg-source
 +check_prog_req dpkg-buildpackage
 +
@@ -103,7 +105,8 @@ index 0000000..305fc4e
 +src_compile() {
 +	rsync --archive "${S}/." "${B}/." &&
 +	cd -P "${B}/${NAME}" &&
-+	# DEB_BUILD_OPTIONS="nocheck" \
++	DH_VERBOSE=0 \
++	DEB_BUILD_OPTIONS="nocheck" \
 +	PATH="$PWD/bin:$PATH" \
 +	PERL5LIB="$PWD/lib:/usr/share/perl5" \
 +	PERL_MM_OPT="INSTALLDIRS=vendor INSTALLVENDORLIB=/usr/share/perl5" \
@@ -121,8 +124,7 @@ index 0000000..305fc4e
 +#****o* dpkg.cygclass/src_install (dpkg)
 +#  DEFINITION
 +src_install() {
-+	cd -P "${B}" &&
-+	find -name \*.deb -exec dpkg -x {} "${D}" \;
++	find "${B}" -name \*.deb -exec dpkg -x {} "${D}" \;
 +}
 +#****
 +

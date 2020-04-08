@@ -50,7 +50,7 @@ tar: tar/configure
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
 	install --target-directory=$(shell dirname $@/$<) $<
-	cpan \
+	cpan -T \
 		File::NCopy \
 		YAML::Tiny \
 		MIME::Tools UUID \
