@@ -1,7 +1,7 @@
 From bd4420b5838748c70e8b1a475c0f8d0d8a247980 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sat, 10 Aug 2019 13:45:45 +0200
-Subject: [PATCH 01/10] error: cannot get project version
+Subject: [PATCH 01/11] error: cannot get project version
 
 ---
  get-version | 5 +----
@@ -37,7 +37,7 @@ index 3bc3c1bc0..f6c3b41ea 100755
 From 7ce1bb50ef73e0850173c5a154e0b3bcae5e5682 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Sun, 11 Aug 2019 11:41:29 +0200
-Subject: [PATCH 02/10] error Unknown architecture - cannot build
+Subject: [PATCH 02/11] error Unknown architecture - cannot build
  start-stop-daemon
 
 ---
@@ -64,7 +64,7 @@ index 88c972663..960342e8c 100644
 From 2b30615416fdba0c2e1c9f7b562be2ae509d0a8c Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Mon, 12 Aug 2019 13:00:49 +0200
-Subject: [PATCH 03/10] fixup! libcompat: Only test the strerror() if
+Subject: [PATCH 03/11] fixup! libcompat: Only test the strerror() if
  sys_errlist and sys_nerr are present
 
 ---
@@ -90,7 +90,7 @@ index e35ffc149..981be6157 100644
 From a5c9a65714578457627a78c1ef84bb7b456bebab Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 13 Aug 2019 15:36:26 +0200
-Subject: [PATCH 04/10] dpkg-genbuildinfo: warning: unknown CC system type
+Subject: [PATCH 04/11] dpkg-genbuildinfo: warning: unknown CC system type
  i686-pc-cygwin, falling back to default (native compilation)
 
 ---
@@ -136,7 +136,7 @@ index 14709d6cc..89be4a43f 100644
 From d669a05f2ddfac961539956e369d59f237cefb61 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Fri, 16 Aug 2019 10:08:58 +0200
-Subject: [PATCH 05/10] dpkg-genbuildinfo: error: cannot open
+Subject: [PATCH 05/11] dpkg-genbuildinfo: error: cannot open
  /var/lib/dpkg/status: No such file or dire ctory
 
 ---
@@ -163,7 +163,7 @@ index 827b6679f..851ef53de 100755
 From d28c3cbd66f9b64944d9bf626927fee9b6f62c76 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 18 Feb 2020 14:53:19 +0100
-Subject: [PATCH 06/10] dpkg: error: requested operation requires superuser
+Subject: [PATCH 06/11] dpkg: error: requested operation requires superuser
  privilege
 
 ---
@@ -202,7 +202,7 @@ index 5fa19ee1c..cd01c131c 100644
 From ba3bacf710ce49b086f29e380d3f2c745daa02c7 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 7 Apr 2020 15:11:24 +0200
-Subject: [PATCH 07/10] update-alternatives
+Subject: [PATCH 07/11] update-alternatives
 
 ---
  utils/Makefile.am             | 4 ----
@@ -244,7 +244,7 @@ index c80edbad5..d9c8225e1 100644
 From 41a6c5737fda364d9f540539b95086de5fea30d1 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 7 Apr 2020 15:11:55 +0200
-Subject: [PATCH 08/10] install
+Subject: [PATCH 08/11] install
 
 ---
  debian/dpkg.install | 3 +--
@@ -294,7 +294,7 @@ index a542193fc..0dba628e9 100755
 From cf908031a3a576b17fdeadcba86190c09cf15969 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 7 Apr 2020 15:12:35 +0200
-Subject: [PATCH 09/10] tar
+Subject: [PATCH 09/11] tar
 
 ---
  lib/dpkg/t/t-tarextract.t | 2 +-
@@ -335,7 +335,7 @@ index 3793fc4fd..7973d62a4 100644
 From ab8f3ca596083474014c1ccfa440a6bb597764be Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 7 Apr 2020 15:13:12 +0200
-Subject: [PATCH 10/10] test
+Subject: [PATCH 10/11] test
 
 ---
  scripts/Makefile.am | 11 -----------
@@ -404,6 +404,34 @@ index b1003f428..a6fd926b4 100644
  include $(top_srcdir)/check.am
  
  clean-local: check-clean
+-- 
+2.20.1
+
+
+From 8f0a654b94c7823da5d0ea9cd10485737f1f2ea6 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Tue, 7 Apr 2020 20:01:02 +0200
+Subject: [PATCH 11/11] postinst
+
+---
+ debian/dpkg.postinst | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git dpkg-1.19.7/debian/dpkg.postinst dpkg-1.19.7/debian/dpkg.postinst
+index 7b2582dda..514897d2b 100755
+--- dpkg-1.19.7/debian/dpkg.postinst
++++ dpkg-1.19.7/debian/dpkg.postinst
+@@ -22,7 +22,9 @@ create_logfile() {
+     if [ ! -f "$logfile" ]; then
+         touch "$logfile"
+         chmod 644 "$logfile"
+-        chown root:root "$logfile" 2>/dev/null || chown 0:0 "$logfile"
++        chown root:root "$logfile" 2>/dev/null ||
++        chown 0:0 "$logfile" ||
++        chown Administrator:Administrators "$logfile"
+     fi
+ }
+ 
 -- 
 2.20.1
 

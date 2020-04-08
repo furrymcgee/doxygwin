@@ -52,7 +52,6 @@ src_compile() {
 }
 
 src_install() {
-	cd -P "${B}/${NAME}-${VERSION}" &&
-	make -C "${B}/build-tree" DESTDIR="${D}" install 
+	make -C "${B}/${NAME}-${VERSION}/build-tree" DESTDIR="${D}" install 
 }
 
