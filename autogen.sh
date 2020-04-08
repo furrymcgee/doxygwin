@@ -46,12 +46,7 @@ GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.symlinks false
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git config core.filemode false
 GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git checkout Debconf
 
-cat \
-0001-munge.patch \
-0002-No-candidate-position-for-the-addendum.patch \
-0003-prefix.patch \
-| \
-GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git am
+GIT_WORK_TREE=debconf GIT_DIR=debconf/.git git am < debconf.patch
 
 cat \
 0001-e6b3ba4-dh_testroot-root_requirements-no-longer-read.patch \
