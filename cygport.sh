@@ -32,7 +32,7 @@ bash
 
 	$(
 		<Sources.gz gunzip |
-		sed s/^\\\(Binary:\ \[\[:alnum:\]-\]*\\\).*/\\\1/ |
+		sed s/^\\\(Binary:\ \[\[:alnum:\]+-\]*\\\).*/\\\1/ |
 		sed /^Binary:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
 		sed -z /Extra-Source/d |
@@ -101,7 +101,10 @@ REC
 			# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
 			ARCH="$(
 				<<<"${Source_Architecture}" \
-				sed -e /any/s/.*/i686/ -e /all/s/.*/noarch/
+				sed \
+					-e /any/s/.*/i686/ \
+					-e /amd64/s/.*/i686/ \
+					-e /all/s/.*/noarch/ 
 			)"
 
 			$( 
