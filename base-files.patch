@@ -1,0 +1,47 @@
+From d5448918440bb7ee814a8a961ff562a1e3d1ef65 Mon Sep 17 00:00:00 2001
+From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
+Date: Sun, 12 Apr 2020 21:17:32 +0200
+Subject: [PATCH] index on (no branch): 609199d init
+
+---
+ debian/rules                | 3 +--
+ origins/{debian => default} | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+ rename origins/{debian => default} (80%)
+
+diff --git base-files/debian/rules base-files/debian/rules
+index 88db04b..5a56a82 100644
+--- base-files/debian/rules
++++ base-files/debian/rules
+@@ -8,7 +8,7 @@ ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
+   OSNAME=GNU/Hurd
+ endif
+ 
+-VENDORFILE = debian
++VENDORFILE = default
+ DESTDIR = debian/base-files
+ 
+ %:
+@@ -44,7 +44,6 @@ override_dh_compress:
+ 
+ override_dh_fixperms:
+ 	dh_fixperms
+-	cd debian/base-files && chown root:staff   var/local
+ 	cd debian/base-files && chmod 755  `find . -type d`
+ 	cd debian/base-files && chmod 1777 `cat ../1777-dirs`
+ 	cd debian/base-files && chmod 2775 `cat ../2775-dirs`
+diff --git base-files/origins/debian base-files/origins/default
+similarity index 80%
+rename from origins/debian
+rename to origins/default
+index 91f6ed1..92503f6 100644
+--- base-files/origins/debian
++++ base-files/origins/default
+@@ -1,3 +1,3 @@
+-Vendor: Debian
++Vendor: Default
+ Vendor-URL: http://www.debian.org/
+ Bugs: debbugs://bugs.debian.org
+-- 
+2.20.1
+

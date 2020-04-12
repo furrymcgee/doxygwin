@@ -1,0 +1,279 @@
+Script started on Mon Apr 13 04:18:24 2020
+cygport --32 base-files all
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ cygport --32 base-files all
+[1;39m>>> Preparing base-files.i686[0;0m
+>>> Unpacking source base-files_10.3+deb10u3.dsc
+>>> Unpacking source base-files_10.3+deb10u3.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sat Feb  1 18:13:31 2020 CET using RSA key ID 9F1B8B32
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/base-files_10.3+deb10u3.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting base-files in base-files
+[1mdpkg-source: [0m[32minfo[0m: unpacking base-files_10.3+deb10u3.tar.xz
+[1;32m*** Info:[0;0m applying patch base-files.patch (-p0):
+patching file base-files/debian/rules
+patching file base-files/origins/default (renamed from base-files/origins/debian)
+>>> Preparing working source directory
+[1;39m>>> Compiling base-files.i686[0;0m
+dpkg-buildpackage: info: source package base-files
+dpkg-buildpackage: info: source version 10.3+deb10u3
+dpkg-buildpackage: info: source distribution buster
+dpkg-buildpackage: info: source changed by Santiago Vila <sanvila@debian.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+dh clean
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/base-files.substvars debian/files
+	rm -fr -- debian/base-files/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building base-files in base-files_10.3+deb10u3.tar.xz
+dpkg-source: info: building base-files in base-files_10.3+deb10u3.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/mnt/base-files.i686/build/base-files'
+sh debian/check-md5sum-etc profile
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" debian/copyright.in > debian/copyright
+sed -e "s/#VENDORFILE#/default/g" debian/postinst.in > debian/postinst
+make[1]: Leaving directory '/mnt/base-files.i686/build/base-files'
+   dh_testroot
+   dh_prep
+	rm -f -- debian/base-files.substvars
+	rm -fr -- debian/.debhelper/generated/base-files/ debian/base-files/ debian/tmp/
+   dh_installdirs
+	install -d debian/base-files
+	install -d debian/base-files/bin debian/base-files/boot debian/base-files/dev debian/base-files/etc debian/base-files/etc/default debian/base-files/etc/dpkg/origins debian/base-files/etc/profile.d debian/base-files/etc/skel debian/base-files/etc/update-motd.d debian/base-files/home debian/base-files/lib debian/base-files/proc debian/base-files/root debian/base-files/run debian/base-files/sbin debian/base-files/sys debian/base-files/tmp debian/base-files/usr debian/base-files/usr/bin debian/base-files/usr/games debian/base-files/usr/include debian/base-files/usr/lib debian/base-files/usr/sbin debian/base-files/usr/share debian/base-files/usr/share/base-files debian/base-files/usr/share/common-licenses debian/base-files/usr/share/dict debian/base-files/usr/share/info debian/base-files/usr/share/lintian/overrides debian/base-files/usr/share/man debian/base-files/usr/share/misc debian/base-files/usr/src debian/base-files/var debian/base-files/var/backups debian/base-files/var/cache debian/base-files/var/lib debian/base-files/var/lib/dpkg debian/base-files/var/lib/misc debian/base-files/var/local debian/base-files/var/lock debian/base-files/var/log debian/base-files/var/run debian/base-files/var/spool debian/base-files/var/tmp
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/mnt/base-files.i686/build/base-files'
+install -p -m 644 etc/*      debian/base-files/etc
+install -p -m 755 motd/*     debian/base-files/etc/update-motd.d
+install -p -m 644 licenses/* debian/base-files/usr/share/common-licenses
+install -p -m 644 origins/*  debian/base-files/etc/dpkg/origins
+install -p -m 644 share/*    debian/base-files/usr/share/base-files
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" share/motd     > debian/base-files/usr/share/base-files/motd
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" share/info.dir > debian/base-files/usr/share/base-files/info.dir
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" etc/issue      > debian/base-files/etc/issue
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" etc/issue.net  > debian/base-files/etc/issue.net
+sed -e "s&#OSNAME#&"GNU/`uname | sed -e 's/GNU\///'`"&g" etc/os-release > debian/base-files/etc/os-release
+mv debian/base-files/etc/os-release debian/base-files/usr/lib/os-release
+ln -s ../usr/lib/os-release debian/base-files/etc/os-release
+make[1]: Leaving directory '/mnt/base-files.i686/build/base-files'
+   dh_installdocs
+	install -d debian/base-files/usr/share/doc/base-files
+	install -d debian/.debhelper/generated/base-files
+	cp --reflink=auto -a ./debian/README debian/base-files/usr/share/doc/base-files
+	cp --reflink=auto -a ./debian/README.FHS debian/base-files/usr/share/doc/base-files
+	chmod -R u\+rw,go=rX debian/base-files/usr/share/doc
+	install -p -m0644 debian/copyright debian/base-files/usr/share/doc/base-files/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/base-files/usr/share/doc/base-files/changelog
+   dh_installman
+man: unrecognized option '--version'
+Try 'man --help' or 'man --usage' for more information.
+   dh_lintian
+	install -p -m0644 debian/base-files.lintian-overrides debian/base-files/usr/share/lintian/overrides/base-files
+   dh_perl
+   debian/rules override_dh_link
+make[1]: Entering directory '/mnt/base-files.i686/build/base-files'
+dh_link -X os-release
+	rm -f debian/base-files/usr/share/common-licenses/GPL
+	ln -s GPL-3 debian/base-files/usr/share/common-licenses/GPL
+	rm -f debian/base-files/usr/share/common-licenses/LGPL
+	ln -s LGPL-3 debian/base-files/usr/share/common-licenses/LGPL
+	rm -f debian/base-files/usr/share/common-licenses/GFDL
+	ln -s GFDL-1.3 debian/base-files/usr/share/common-licenses/GFDL
+	rm -f debian/base-files/usr/share/doc/base-files/FAQ
+	ln -s README debian/base-files/usr/share/doc/base-files/FAQ
+make[1]: Leaving directory '/mnt/base-files.i686/build/base-files'
+   dh_strip_nondeterminism
+   debian/rules override_dh_compress
+make[1]: Entering directory '/mnt/base-files.i686/build/base-files'
+dh_compress -X README
+	cd debian/base-files
+	chmod a-x usr/share/doc/base-files/changelog
+	gzip -9nf usr/share/doc/base-files/changelog
+	cd '/mnt/base-files.i686/build/base-files'
+make[1]: Leaving directory '/mnt/base-files.i686/build/base-files'
+   debian/rules override_dh_fixperms
+make[1]: Entering directory '/mnt/base-files.i686/build/base-files'
+dh_fixperms
+	find debian/base-files ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/base-files/usr/share/doc -type f -a -true -a ! -regex 'debian/base-files/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/base-files/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/base-files/usr/share/man debian/base-files/usr/include debian/base-files/usr/share/lintian/overrides -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/base-files -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/base-files/usr/bin debian/base-files/bin debian/base-files/usr/sbin debian/base-files/sbin debian/base-files/usr/games -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/base-files/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+cd debian/base-files && chmod 755  `find . -type d`
+cd debian/base-files && chmod 1777 `cat ../1777-dirs`
+cd debian/base-files && chmod 2775 `cat ../2775-dirs`
+cd debian/base-files && chmod 700 root
+make[1]: Leaving directory '/mnt/base-files.i686/build/base-files'
+   dh_missing
+   dh_strip
+   dh_makeshlibs
+	rm -f debian/base-files/DEBIAN/shlibs
+   dh_shlibdeps
+   dh_installdeb
+	install -d debian/base-files/DEBIAN
+	sed s/\#DEBHELPER\#// debian/postinst > debian/base-files/DEBIAN/postinst
+	chmod 0755 -- debian/base-files/DEBIAN/postinst
+	find debian/base-files/etc -type f -printf '/etc/%P
+' | LC_ALL=C sort >> debian/base-files/DEBIAN/conffiles
+	chmod 0644 -- debian/base-files/DEBIAN/conffiles
+   dh_gencontrol
+	echo misc:Depends= >> debian/base-files.substvars
+	echo misc:Pre-Depends= >> debian/base-files.substvars
+	dpkg-gencontrol -pbase-files -ldebian/changelog -Tdebian/base-files.substvars -Pdebian/base-files
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/base-files/DEBIAN/control
+   dh_md5sums
+	cd debian/base-files >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/base-files/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --root-owner-group --build debian/base-files ..
+dpkg-deb: building package 'base-files' in '../base-files_10.3+deb10u3_i386.deb'.
+ dpkg-genbuildinfo
+dpkg-genbuildinfo: warning: cannot open /var/lib/dpkg/status
+readline() on closed filehandle $status_fh at /usr/bin/dpkg-genbuildinfo line 96.
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+ dpkg-genchanges  >../base-files_10.3+deb10u3_i386.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --auto-commit --after-build .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+[1;39m>>> Installing base-files.i686[0;0m
+Fixing symlinks:
+Compressing man pages:
+Compressing info pages:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/misc
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/man
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/dict
+[1;32m*** Info:[0;0m Removing empty directory: /usr/share/info
+[1;32m*** Info:[0;0m Removing empty directory: /var/lib/misc
+[1;32m*** Info:[0;0m Removing empty directory: /var/lib/dpkg
+[1;32m*** Info:[0;0m Removing empty directory: /usr/sbin
+[1;32m*** Info:[0;0m Removing empty directory: /usr/bin
+[1;32m*** Info:[0;0m Removing empty directory: /usr/games
+[1;32m*** Info:[0;0m Removing empty directory: /usr/include
+[1;32m*** Info:[0;0m Removing empty directory: /usr/src
+[1;32m*** Info:[0;0m Removing empty directory: /etc/skel
+[1;32m*** Info:[0;0m Removing empty directory: /etc/default
+[1;32m*** Info:[0;0m Removing empty directory: /etc/profile.d
+[1;32m*** Info:[0;0m Removing empty directory: /var/local
+[1;32m*** Info:[0;0m Removing empty directory: /var/spool
+[1;32m*** Info:[0;0m Removing empty directory: /var/lib
+[1;32m*** Info:[0;0m Removing empty directory: /var/cache
+[1;32m*** Info:[0;0m Removing empty directory: /var/lock
+[1;32m*** Info:[0;0m Removing empty directory: /var/run
+[1;32m*** Info:[0;0m Removing empty directory: /var/log
+[1;32m*** Info:[0;0m Removing empty directory: /var/tmp
+[1;32m*** Info:[0;0m Removing empty directory: /var/backups
+[1;32m*** Info:[0;0m Removing empty directory: /lib
+[1;32m*** Info:[0;0m Removing empty directory: /root
+[1;32m*** Info:[0;0m Removing empty directory: /sbin
+[1;32m*** Info:[0;0m Removing empty directory: /dev
+[1;32m*** Info:[0;0m Removing empty directory: /home
+[1;32m*** Info:[0;0m Removing empty directory: /bin
+[1;32m*** Info:[0;0m Removing empty directory: /proc
+[1;32m*** Info:[0;0m Removing empty directory: /run
+[1;32m*** Info:[0;0m Removing empty directory: /sys
+[1;32m*** Info:[0;0m Removing empty directory: /tmp
+[1;32m*** Info:[0;0m Removing empty directory: /boot
+[1;32m*** Info:[0;0m Removing empty directory: /var
+[1;39m>>> Packaging base-files.i686[0;0m
+>>> Creating binary package(s)
+>>> base-files-base-files-files.tar.xz
+etc/
+etc/host.conf
+etc/os-release
+etc/issue
+etc/dpkg/
+etc/dpkg/origins/
+etc/dpkg/origins/default
+etc/issue.net
+etc/update-motd.d/
+etc/update-motd.d/10-uname
+etc/debian_version
+usr/
+usr/lib/
+usr/lib/os-release
+usr/share/
+usr/share/common-licenses/
+usr/share/common-licenses/LGPL-2
+usr/share/common-licenses/Artistic
+usr/share/common-licenses/GPL
+usr/share/common-licenses/GFDL
+usr/share/common-licenses/GPL-2
+usr/share/common-licenses/GFDL-1.2
+usr/share/common-licenses/GFDL-1.3
+usr/share/common-licenses/MPL-2.0
+usr/share/common-licenses/GPL-1
+usr/share/common-licenses/CC0-1.0
+usr/share/common-licenses/BSD
+usr/share/common-licenses/LGPL-3
+usr/share/common-licenses/LGPL-2.1
+usr/share/common-licenses/Apache-2.0
+usr/share/common-licenses/LGPL
+usr/share/common-licenses/MPL-1.1
+usr/share/common-licenses/GPL-3
+usr/share/doc/
+usr/share/doc/base-files/
+usr/share/doc/base-files/changelog.gz
+usr/share/doc/base-files/README
+usr/share/doc/base-files/README.FHS
+usr/share/doc/base-files/FAQ
+usr/share/doc/base-files/copyright
+usr/share/lintian/
+usr/share/lintian/overrides/
+usr/share/lintian/overrides/base-files
+usr/share/base-files/
+usr/share/base-files/dot.bashrc
+usr/share/base-files/dot.profile
+usr/share/base-files/info.dir
+usr/share/base-files/motd
+usr/share/base-files/dot.profile.md5sums
+usr/share/base-files/profile
+usr/share/base-files/profile.md5sums
+usr/share/base-files/staff-group-for-usr-local
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+base-files.src/
+base-files.src/base-files.cygport
+base-files.src/base-files.patch
+base-files.src/base-files_10.3+deb10u3.tar.xz
+base-files.src/base-files_10.3+deb10u3.dsc
+
+>>> base-files requires: bash 
+]0;/mnt
+[32mAdministrator@- [33m/mnt[0m
+$ exit
+
+Script done on Mon Apr 13 04:22:41 2020
