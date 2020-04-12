@@ -1,0 +1,26 @@
+# THIS IS A GENERATED CYGPORT FILE 
+NAME="dwww"
+VERSION="1.13.4+nmu3"
+RELEASE=1
+CATEGORY="doc"
+SUMMARY="Read all on-line documentation with a WWW browser"
+DESCRIPTION=""
+HOMEPAGE="http://sourceware.org/cygwinports/"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.dsc http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.tar.xz"
+SRC_DIR="."
+PATCH_URI="./dwww.patch"
+DEBEMAIL="user@example.com"
+DEBFULLNAME="Firstname Lastname"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+
+# this package contains no compiled Cygwin binaries
+# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
+ARCH="i686"
+
+# Build dependencies only
+DEPEND=""
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES=" debianutils doc-base file libfile-ncopy-perl libmime-types-perl man-db mime-support ucf  perl libc6"
+
+inherit dpkg
