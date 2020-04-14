@@ -1,0 +1,37 @@
+NAME=calm
+VERSION=20160730
+RELEASE=1
+
+GIT_URI="git://sourceware.org/git/cygwin-apps/calm.git"
+GIT_TAG=${VERSION}
+
+inherit python3-distutils
+inherit git
+
+ARCH="noarch"
+HOMEPAGE="https://sourceware.org/git/gitweb.cgi?p=cygwin-apps"
+LICENSE="MIT"
+
+CATEGORY=Devel
+SUMMARY="Cygwin package server toolkit"
+DESCRIPTION="Cygwin package server toolkit
+
+This contains:
+
+* calm, a replacement for upset
+* mksetupini, a replacement for genini
+* python3 modules which may be useful in constructing tools for working with a
+  Cygwin package server
+
+mksetupini can be used to:
+
+* generate a setup.ini file from the setup.hint files for the packages in the
+  release area
+
+calm is used to perform the following tasks on cygwin.com:
+
+* move valid package uploads to the release area and move deleted files to the
+  vault
+* generate a setup.ini file from the setup.hint files for the packages in the
+  release area
+* generate HTML package listing pages"
