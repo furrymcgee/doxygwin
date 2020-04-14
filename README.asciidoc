@@ -30,8 +30,8 @@ a log of autogen.sh build script.
 [source,sh]
 -----
 # Checkout source code
-git clone --recursive https://github.com/furrymcgee/doxie-search
-cd doxie-search
+git clone --recursive https://github.com/furrymcgee/doxygwin
+cd doxygwin
 # Execute autogen.sh and write typescript
 script -c bash\ -ex < autogen.sh
 -----
