@@ -1,51 +1,38 @@
 .DEFAULT_GOAL = install
 
-SUBDIRS = \
+PACKAGES:= \
+	apache2 \
+	automake \
+	base-files \
+	calm \
+	cygport \
 	debconf \
 	debhelper \
+	dh-autoreconf \
+	dh-exec \
+	dh-python \
 	doc-base \
+	docx2txt \
 	dpkg \
 	dwww \
-	fakeroot \
 	intltool-debian \
 	po-debconf \
-	publib \
+	publib-dev \
+	sensible-utils \
+	strip-nondeterminism \
 	swish++ \
 	tar \
 
-CONFIGURE = dpkg/configure publib/configure sensible-utils/configure fakeroot/configure tar/configure
+ETC =  /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
-ETC = ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
+.PHONY: $(.DEFAULT_GOAL) $(ETC) clean
 
-DEBIAN = strip-nondeterminism/debian
-
-.PHONY: $(.DEFAULT_GOAL) $(SUBDIRS) $(ETC) $(DEBIAN) clean
-
-$(.DEFAULT_GOAL): $(SUBDIRS) $(ETC)
+$(.DEFAULT_GOAL): $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
-
-$(CONFIGURE):
-	cd $(shell dirname $@) && \
-	autoreconf -fi && \
-	sh configure \
-		--host=i686-pc-cygwin \
-		--prefix=/usr \
-		CFLAGS=-D_STAT_VER=0
-
-$(SUBDIRS):
-	DISTRIBUTOR=doxie $(MAKE) --directory=$@ prefix=/usr 
-
-doc-base: /etc/xml/catalog sensible-utils/configure sensible-utils
-
-publib: publib/configure
-
-dpkg: dpkg/configure
-
-tar: tar/configure
 
 ~/.cpan: CPAN/MyConfig.pm
 	mkdir $@ $(shell dirname $@/$<) || true
@@ -120,20 +107,6 @@ tar: tar/configure
 		-e /cgi_module/s/#//
 
 
-#dpkg-genchanges: error: binary build with no binary artifacts found; cannot distribute
-$(DEBIAN):
-	dpkg --ignore-depends=libtool,perl:any,debhelper,autoconf,automake,autopoint -i dh-autoreconf_19_all.deb && \
-	cd $(shell dirname $@) || exit 1 && \
-	mkdir debian/tmp debian/tmp/DEBIAN || true && \
-	git -c core.symlinks reset --hard && \
-	git archive --format=tar --prefix=strip-nondeterminism-0.039/ debian/0.039-1 | bzip2 -9 > ../strip-nondeterminism_0.039.orig.tar.bz2 && \
-	perl -e " \
-		use Dpkg::Control::Info; \
-		print join qq/\n/, map { \$$_->{package} } \
-			Dpkg::Control::Info->new()->get_packages(); \
-	" | xargs -I@ dpkg-gencontrol -p@ && \
-	: PERL5LIB=/usr/share/perl5 dpkg-buildpackage -rsh\ -c -d -a i386 -t i686-pc-cygwin
-
 clean:
 	net user www-data /delete || true
 	rm -rf ~/.cpan
@@ -143,14 +116,27 @@ clean:
 	xargs -I@ \
 		git --git-dir=@/.git --work-tree=@ clean -dfx
 
+Sources:
+	wget -O- -c \
+	http://deb.debian.org/debian/dists/stable/main/source/Sources.gz | \
+	gunzip > $@
 
-Sources.gz:
-	wget -c \
-		http://deb.debian.org/debian/dists/stable/main/source/Sources.gz
+Packages:
+	wget -O- -c \
+	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
+	gunzip > $@
 
-Packages.gz:
-	wget -c \
-		http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz
+%.cygport %.cygport: cygport.sh Packages Sources
+	cat Sources | \
+	grep-dctrl -n -s Package \
+	-F Package $(word 1, $(subst _, , $(basename $@))) \
+	-a \
+	-F Version $(word 2, $(subst _, , $(basename $@))) | \
+	xargs sh $< > $@ || { unlink $@ && exit 1 ; }
 
-%.cygport: cygport.sh Packages.gz Sources.gz
-	sh $< $(basename $@) > $@
+%.dsc: %.cygport
+	cygport --32 $(basename $@) download
+
+%.script: %.dsc
+	cygport --32 $(basename $@).cygport --all
+

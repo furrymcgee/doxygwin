@@ -1,36 +1,21 @@
-From 9bf936936bc852a1a589803c633ae5eebb597b61 Mon Sep 17 00:00:00 2001
+From f53f0afd9104a42dc188be160814a3cea5d06df1 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Sun, 12 Apr 2020 17:01:27 +0200
-Subject: [PATCH] index on (no branch): fa850df Bump version to 0.25.0
+Date: Wed, 15 Apr 2020 14:31:06 +0200
+Subject: [PATCH] index on (no branch): 98a2dc1 Bump version to 0.22.0
 
 ---
- .gitmodules                                   |  4 +-
- Makefile.am                                   |  3 +
- cygclass/dpkg.cygclass                        | 77 +++++++++++++++++++
- ...ample.cygport => cygport-0.25.0-1.cygport} |  3 +-
- .../build/data/gnuconfig                      |  1 +
- data/gnuconfig                                |  1 -
- doc/Makefile.am                               |  4 +-
- 7 files changed, 87 insertions(+), 6 deletions(-)
+ Makefile.am            |  3 ++
+ cygclass/Makefile.am   |  1 +
+ cygclass/dpkg.cygclass | 77 ++++++++++++++++++++++++++++++++++++++++++
+ data/sample.cygport    | 16 +++++++--
+ doc/Makefile.am        |  4 +--
+ 5 files changed, 96 insertions(+), 5 deletions(-)
  create mode 100644 cygclass/dpkg.cygclass
- rename data/{sample.cygport => cygport-0.25.0-1.cygport} (90%)
- create mode 160000 data/cygport-0.25.0-1.noarch/build/data/gnuconfig
- delete mode 160000 data/gnuconfig
 
-diff --git cygport-0.25.0/.gitmodules cygport-0.25.0/.gitmodules
-index 2a4c09d..2d596a0 100644
---- cygport-0.25.0/.gitmodules
-+++ cygport-0.25.0/.gitmodules
-@@ -1,3 +1,3 @@
--[submodule "data/gnuconfig"]
--	path = data/gnuconfig
-+[submodule "data/cygport-0.25.0-1.noarch/build/data/gnuconfig"]
-+	path = data/cygport-0.25.0-1.noarch/build/data/gnuconfig
- 	url = git://git.sv.gnu.org/config.git
-diff --git cygport-0.25.0/Makefile.am cygport-0.25.0/Makefile.am
+diff --git cygport/Makefile.am cygport/Makefile.am
 index 2225293..1f3b9bd 100644
---- cygport-0.25.0/Makefile.am
-+++ cygport-0.25.0/Makefile.am
+--- cygport/Makefile.am
++++ cygport/Makefile.am
 @@ -21,6 +21,7 @@ EXTRA_DIST +=				\
  	cygport.spec			\
  	$(NULL)
@@ -45,11 +30,23 @@ index 2225293..1f3b9bd 100644
  	cp -r doc/manual/ $(top_distdir)/doc/
 +else !HAVE_HELP2MAN
 +endif !HAVE_HELP2MAN
-diff --git cygport-0.25.0/cygclass/dpkg.cygclass cygport-0.25.0/cygclass/dpkg.cygclass
+diff --git cygport/cygclass/Makefile.am cygport/cygclass/Makefile.am
+index bc5200f..fb03f5b 100644
+--- cygport/cygclass/Makefile.am
++++ cygport/cygclass/Makefile.am
+@@ -197,6 +197,7 @@ cygclass_DATA =					\
+ 	cygclass/distutils.cygclass		\
+ 	cygclass/distutils-multi.cygclass	\
+ 	cygclass/docbook.cygclass		\
++	cygclass/dpkg.cygclass		\
+ 	cygclass/ebook.cygclass			\
+ 	cygclass/emacs.cygclass			\
+ 	cygclass/font.cygclass			\
+diff --git cygport/cygclass/dpkg.cygclass cygport/cygclass/dpkg.cygclass
 new file mode 100644
-index 0000000..ac57400
+index 0000000..a6007a3
 --- /dev/null
-+++ cygport-0.25.0/cygclass/dpkg.cygclass
++++ cygport/cygclass/dpkg.cygclass
 @@ -0,0 +1,77 @@
 +################################################################################
 +#
@@ -105,7 +102,7 @@ index 0000000..ac57400
 +src_compile() {
 +	rsync --archive "${S}/." "${B}/." &&
 +	cd -P "${B}/${NAME}" &&
-+	DH_VERBOSE=0 \
++	DH_COMPAT=10 \
 +	DEB_BUILD_OPTIONS="nocheck" \
 +	PATH="$PWD/bin:$PATH" \
 +	PERL5LIB="$PWD/lib:/usr/share/perl5" \
@@ -128,23 +125,22 @@ index 0000000..ac57400
 +}
 +#****
 +
-diff --git cygport-0.25.0/data/sample.cygport cygport-0.25.0/data/cygport-0.25.0-1.cygport
-similarity index 90%
-rename from data/sample.cygport
-rename to data/cygport-0.25.0-1.cygport
-index 8334e9e..6bd5a18 100644
---- cygport-0.25.0/data/sample.cygport
-+++ cygport-0.25.0/data/cygport-0.25.0-1.cygport
-@@ -6,7 +6,7 @@ SUMMARY="Cygwin source packaging tool"
+diff --git cygport/data/sample.cygport cygport/data/sample.cygport
+index 86f2316..97d7a23 100644
+--- cygport/data/sample.cygport
++++ cygport/data/sample.cygport
+@@ -6,7 +6,9 @@ SUMMARY="Cygwin source packaging tool"
  DESCRIPTION="cygport is the standard method for building and maintaining
  packages for the Cygwin distribution."
  HOMEPAGE="http://sourceware.org/cygwinports/"
 -SRC_URI="https://github.com/cygwinports/cygport/${VERSION}/cygport-${VERSION}.tar.gz"
-+SRC_URI="https://github.com/cygwinports/cygport/archive/0.25.0.tar.gz#/cygport-${VERSION}.tar.gz"
++SRC_URI="https://github.com/cygwinports/${NAME}/archive/${VERSION}.tar.gz#/${NAME}-${VERSION}.tar.gz"
++SRC_DIR="${NAME}-${VERSION}"
++PATCH_URI="./cygport.patch"
  
  # this package contains no compiled Cygwin binaries
  # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-@@ -14,6 +14,7 @@ ARCH=noarch
+@@ -14,16 +16,24 @@ ARCH=noarch
  
  # Build dependencies only
  DEPEND="groff help2man robodoc"
@@ -152,24 +148,29 @@ index 8334e9e..6bd5a18 100644
  # runtime deps to go in setup.hint, and note the escaped newline
  REQUIRES="autoconf automake binutils bzip2 coreutils diffstat diffutils \
  dos2unix findutils file gawk gcc-core gcc-g++ grep gzip lftp libtool lndir \
-diff --git cygport-0.25.0/data/cygport-0.25.0-1.noarch/build/data/gnuconfig cygport-0.25.0/data/cygport-0.25.0-1.noarch/build/data/gnuconfig
-new file mode 160000
-index 0000000..5256817
---- /dev/null
-+++ cygport-0.25.0/data/cygport-0.25.0-1.noarch/build/data/gnuconfig
-@@ -0,0 +1 @@
-+Subproject commit 5256817ace8493502ec88501a19e4051c2e220b0
-diff --git cygport-0.25.0/data/gnuconfig cygport-0.25.0/data/gnuconfig
-deleted file mode 160000
-index ddf1db9..0000000
---- cygport-0.25.0/data/gnuconfig
-+++ /dev/null
-@@ -1 +0,0 @@
--Subproject commit ddf1db93f3dde9ffd9f13a2529001e20aaf527d3
-diff --git cygport-0.25.0/doc/Makefile.am cygport-0.25.0/doc/Makefile.am
+ make openssh patch perl-Authen-SASL perl-MIME-tools perl-Net-SMTP-SSL rsync \
+ sed tar texinfo unzip util-linux wget which xz"
+ 
+-# We use the standard src_compile and src_test.
++src_compile() {
++	cd -P "${S}"
++	cp -au /usr/share/cygport/config.* data/gnuconfig
++	cygautoreconf
++	cd -P "${B}"
++	cygconf
++	cygmake
++}
+ 
+ src_install() {
+-	cd ${B}
++	cd -P "${B}"
+ 	cyginstall
+ 
+ 	insinto /etc
+diff --git cygport/doc/Makefile.am cygport/doc/Makefile.am
 index 0e6ace3..e6b077f 100644
---- cygport-0.25.0/doc/Makefile.am
-+++ cygport-0.25.0/doc/Makefile.am
+--- cygport/doc/Makefile.am
++++ cygport/doc/Makefile.am
 @@ -1,9 +1,9 @@
 +if HAVE_HELP2MAN
 +

@@ -1,8 +1,12 @@
 #!/bin/sh
 
-test -r Packages.gz &&
-test -r Sources.gz || 
+
+test -r Packages &&
+test -r Sources || 
 exit 1
+
+test -n "$*" ||
+exit 2
 
 7<<-REC \
 0<<-'BASH' \
@@ -20,7 +24,7 @@ bash
 	%key: Package
 
 	$(
-		<Packages.gz gunzip |
+		cat Packages |
 		sed /^Package:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
 		sed -z /Extra-Source/d |
@@ -31,7 +35,7 @@ bash
 	%key: Binary
 
 	$(
-		<Sources.gz gunzip |
+		cat Sources |
 		sed s/^\\\(Binary:\ \[\[:alnum:\]+-\]*\\\).*/\\\1/ |
 		sed /^Binary:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
@@ -96,6 +100,7 @@ REC
 			DEBEMAIL="user@example.com"
 			DEBFULLNAME="Firstname Lastname"
 			# DEBUILD_DPKG_BUILDPACKAGE_OPTS="--force-sign --sign-key=0000000000000000"
+			# DH_VERBOSE=1
 
 			# this package contains no compiled Cygwin binaries
 			# REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
