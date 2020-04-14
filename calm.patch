@@ -1,4 +1,4 @@
-From 9bbe72bd6efbcafcdd1a16e9533b7c6afee8e959 Mon Sep 17 00:00:00 2001
+From bce47b198e5257b34f80e56bc985106c48fd896e Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
 Date: Tue, 29 Oct 2019 14:35:01 +0100
 Subject: [PATCH] index on (no branch): d7885fe Fix check for attempt to remove
@@ -8,10 +8,10 @@ Subject: [PATCH] index on (no branch): d7885fe Fix check for attempt to remove
  calm/package.py | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/calm/package.py b/calm/package.py
+diff --git calm/calm/package.py calm/calm/package.py
 index 4cd7065..0b218c2 100755
---- a/calm/package.py
-+++ b/calm/package.py
+--- calm/calm/package.py
++++ calm/calm/package.py
 @@ -80,7 +80,7 @@ def read_packages(rel_area, arch):
          releasedir = os.path.join(rel_area, root)
          logging.debug('reading packages from %s' % releasedir)
@@ -40,5 +40,5 @@ index 4cd7065..0b218c2 100755
      # do all the packages which use this source package have the same
      # current version?
 -- 
-2.23.0.rc1
+2.20.1
 
