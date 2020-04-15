@@ -1,9 +1,9 @@
-Script started on Tue Apr 14 21:00:46 2020
-cygport --32 docx2txt all
+Script started on Wed Apr 15 14:25:46 2020
+cygport --32 docx2txt.cygport all
 ]0;/mnt
 [32mAdministrator@- [33m/mnt[0m
-$ cygport --32 docx2txt all
-[1;39m>>> Preparing docx2txt.noarch[0;0m
+$ cygport --32 docx2txt.cygport all
+[1;39m>>> Preparing docx2txt-1.4-1-1.noarch[0;0m
 >>> Unpacking source docx2txt_1.4-1.dsc
 >>> Unpacking source docx2txt_1.4.orig.tar.gz
 >>> Unpacking source docx2txt_1.4-1.debian.tar.xz
@@ -15,7 +15,7 @@ gpgv: Can't check signature: public key not found
 [1mdpkg-source: [0m[32minfo[0m: unpacking docx2txt_1.4.orig.tar.gz
 [1mdpkg-source: [0m[32minfo[0m: unpacking docx2txt_1.4-1.debian.tar.xz
 >>> Preparing working source directory
-[1;39m>>> Compiling docx2txt.noarch[0;0m
+[1;39m>>> Compiling docx2txt-1.4-1-1.noarch[0;0m
 dpkg-buildpackage: info: source package docx2txt
 dpkg-buildpackage: info: source version 1.4-1
 dpkg-buildpackage: info: source distribution unstable
@@ -59,9 +59,9 @@ dh  binary
 	install -d debian/docx2txt
 	install -d debian/docx2txt/usr/bin
    debian/rules override_dh_auto_install
-make[1]: Entering directory '/mnt/docx2txt.noarch/build/docx2txt'
-cp /mnt/docx2txt.noarch/build/docx2txt/docx2txt.pl /mnt/docx2txt.noarch/build/docx2txt/debian/docx2txt/usr/bin/docx2txt
-make[1]: Leaving directory '/mnt/docx2txt.noarch/build/docx2txt'
+make[1]: Entering directory '/mnt/docx2txt-1.4-1-1.noarch/build/docx2txt'
+cp /mnt/docx2txt-1.4-1-1.noarch/build/docx2txt/docx2txt.pl /mnt/docx2txt-1.4-1-1.noarch/build/docx2txt/debian/docx2txt/usr/bin/docx2txt
+make[1]: Leaving directory '/mnt/docx2txt-1.4-1-1.noarch/build/docx2txt'
    dh_installdocs
 	install -d debian/docx2txt/usr/share/doc/docx2txt
 	install -d debian/.debhelper/generated/docx2txt
@@ -92,7 +92,7 @@ Try 'man --help' or 'man --usage' for more information.
 	cd debian/docx2txt
 	chmod a-x usr/share/doc/docx2txt/README usr/share/doc/docx2txt/changelog usr/share/doc/docx2txt/changelog.Debian usr/share/man/man1/docx2txt.1
 	gzip -9nf usr/share/doc/docx2txt/README usr/share/doc/docx2txt/changelog usr/share/doc/docx2txt/changelog.Debian usr/share/man/man1/docx2txt.1
-	cd '/mnt/docx2txt.noarch/build/docx2txt'
+	cd '/mnt/docx2txt-1.4-1-1.noarch/build/docx2txt'
    dh_fixperms
 	find debian/docx2txt ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
 	find debian/docx2txt/usr/share/doc -type f -a -true -a ! -regex 'debian/docx2txt/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
@@ -126,15 +126,15 @@ dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is 
 dpkg-genchanges: info: not including original source code in upload
  dpkg-source --auto-commit --after-build .
 dpkg-buildpackage: info: binary and diff upload (original source NOT included)
-[1;39m>>> Installing docx2txt.noarch[0;0m
+[1;39m>>> Installing docx2txt-1.4-1-1.noarch[0;0m
 Fixing symlinks:
 Compressing man pages:
 Stripping executables:
 Preparing debuginfo source files:
 
-[1;39m>>> Packaging docx2txt.noarch[0;0m
+[1;39m>>> Packaging docx2txt-1.4-1-1.noarch[0;0m
 >>> Creating binary package(s)
->>> docx2txt-docx2txt-docx2txt.tar.xz
+>>> docx2txt-1.4-1-1.tar.xz
 usr/
 usr/lib/
 usr/lib/mime/
@@ -161,15 +161,15 @@ usr/bin/docx2txt
 >>> Creating source patches
  0 files changed
 >>> Creating source package
-docx2txt.src/
-docx2txt.src/docx2txt.cygport
-docx2txt.src/docx2txt_1.4-1.debian.tar.xz
-docx2txt.src/docx2txt_1.4.orig.tar.gz
-docx2txt.src/docx2txt_1.4-1.dsc
+docx2txt-1.4-1-1.src/
+docx2txt-1.4-1-1.src/docx2txt.cygport
+docx2txt-1.4-1-1.src/docx2txt_1.4-1.debian.tar.xz
+docx2txt-1.4-1-1.src/docx2txt_1.4.orig.tar.gz
+docx2txt-1.4-1-1.src/docx2txt_1.4-1.dsc
 
 >>> docx2txt requires: perl_base unzip
 ]0;/mnt
 [32mAdministrator@- [33m/mnt[0m
 $ exit
 
-Script done on Tue Apr 14 21:03:07 2020
+Script done on Wed Apr 15 14:28:10 2020
