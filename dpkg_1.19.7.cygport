@@ -7,10 +7,11 @@ DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
 SRC_URI="http://ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.7.dsc http://ftp.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.7.tar.xz"
 SRC_DIR="."
-PATCH_URI="./dpkg.patch"
+PATCH_URI="dpkg_1.19.7.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch

@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="dh-python"
-VERSION="3.20190308"
+NAME="sensible-utils"
+VERSION="0.0.12"
 RELEASE=1
-CATEGORY="python"
-SUMMARY="Debian helper tools for packaging Python libraries and applications"
+CATEGORY="utils"
+SUMMARY="Utilities for sensible alternative selection"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/dh-python/dh-python_3.20190308.dsc http://ftp.debian.org/debian/pool/main/d/dh-python/dh-python_3.20190308.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/s/sensible-utils/sensible-utils_0.0.12.dsc http://ftp.debian.org/debian/pool/main/s/sensible-utils/sensible-utils_0.0.12.tar.xz"
 SRC_DIR="."
 PATCH_URI=""
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
 ARCH="noarch"
 
 # Build dependencies only
-DEPEND=""
+DEPEND="dpkg po4a debhelper ed"
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="python3 "
+REQUIRES=""
 
 inherit dpkg

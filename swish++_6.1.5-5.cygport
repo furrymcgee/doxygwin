@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="sensible-utils"
-VERSION="0.0.12"
+NAME="swish++"
+VERSION="6.1.5-5"
 RELEASE=1
-CATEGORY="utils"
-SUMMARY="Utilities for sensible alternative selection"
+CATEGORY="web"
+SUMMARY="Simple Document Indexing System for Humans: C++ version"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/s/sensible-utils/sensible-utils_0.0.12.dsc http://ftp.debian.org/debian/pool/main/s/sensible-utils/sensible-utils_0.0.12.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/s/swish++/swish++_6.1.5-5.dsc http://ftp.debian.org/debian/pool/main/s/swish++/swish++_6.1.5.orig.tar.gz http://ftp.debian.org/debian/pool/main/s/swish++/swish++_6.1.5-5.debian.tar.xz"
 SRC_DIR="."
-PATCH_URI=""
+PATCH_URI="swish++_6.1.5-5.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-ARCH="noarch"
+ARCH="i686"
 
 # Build dependencies only
-DEPEND="dpkg po4a debhelper ed"
+DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES=""
+REQUIRES="libc6 libstdc++6 zlib1g perl"
 
 inherit dpkg

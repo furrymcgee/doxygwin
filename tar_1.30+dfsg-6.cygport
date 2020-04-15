@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="doc-base"
-VERSION="0.10.8"
+NAME="tar"
+VERSION="1.30+dfsg-6"
 RELEASE=1
-CATEGORY="doc"
-SUMMARY="utilities to manage online documentation"
+CATEGORY="utils"
+SUMMARY="GNU version of the tar archiving utility"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.dsc http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/t/tar/tar_1.30+dfsg-6.dsc http://ftp.debian.org/debian/pool/main/t/tar/tar_1.30+dfsg.orig.tar.xz http://ftp.debian.org/debian/pool/main/t/tar/tar_1.30+dfsg-6.debian.tar.xz"
 SRC_DIR="."
-PATCH_URI="./doc-base.patch"
+PATCH_URI="tar_1.30+dfsg-6.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-ARCH="noarch"
+ARCH="i686"
 
 # Build dependencies only
-DEPEND="docbook-xml docbook-xsl libxml2-utils xsltproc lynx libuuid-perl libyaml-tiny-perl po4a"
+DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="libuuid-perl libyaml-tiny-perl"
+REQUIRES=""
 
 inherit dpkg

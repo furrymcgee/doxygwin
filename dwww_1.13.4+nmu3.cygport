@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="intltool-debian"
-VERSION="0.35.0+20060710.5"
+NAME="dwww"
+VERSION="1.13.4+nmu3"
 RELEASE=1
-CATEGORY="devel"
-SUMMARY="Help i18n of RFC822 compliant config files"
+CATEGORY="doc"
+SUMMARY="Read all on-line documentation with a WWW browser"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/i/intltool-debian/intltool-debian_0.35.0+20060710.5.dsc http://ftp.debian.org/debian/pool/main/i/intltool-debian/intltool-debian_0.35.0+20060710.5.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.dsc http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.tar.xz"
 SRC_DIR="."
-PATCH_URI=""
+PATCH_URI="dwww_1.13.4+nmu3.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-ARCH="noarch"
+ARCH="i686"
 
 # Build dependencies only
-DEPEND="perl"
+DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="gettext perl"
+REQUIRES=" debianutils doc-base file libfile-ncopy-perl libmime-types-perl man-db mime-support ucf  perl libc6"
 
 inherit dpkg

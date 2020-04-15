@@ -1,3 +1,4 @@
+# THIS IS A GENERATED CYGPORT FILE 
 NAME="debhelper"
 VERSION="12.1.1"
 RELEASE=1
@@ -7,10 +8,11 @@ DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
 SRC_URI="http://ftp.debian.org/debian/pool/main/d/debhelper/debhelper_12.1.1.dsc http://ftp.debian.org/debian/pool/main/d/debhelper/debhelper_12.1.1.tar.xz"
 SRC_DIR="."
-PATCH_URI="./debhelper.patch"
+PATCH_URI="debhelper_12.1.1.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
@@ -22,22 +24,4 @@ DEPEND=""
 # runtime deps to go in setup.hint, and note the escaped newline
 REQUIRES="autotools-dev dh-autoreconf dh-strip-nondeterminism dpkg dpkg-dev dwz file libdpkg-perl man-db po-debconf perl"
 
-CYGPORT_USE_UNSTABLE_API=1
-
-src_unpack_hook(){
-	rm -rf "${NAME}/t/dh_installsystemd"
-}
-
-src_patch_hook(){
-	:
-}
-
-src_compile() {
-	rsync --archive "${S}/." "${B}/." &&
-	PATH=".:$PATH" make -C "${B}/${NAME}"
-}
-
-src_install() {
-	PATH=".:$PATH" make -C "${B}/${NAME}" DESTDIR="${D}" install
-}
-
+inherit dpkg

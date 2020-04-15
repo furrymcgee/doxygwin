@@ -1,6 +1,6 @@
-From f53f0afd9104a42dc188be160814a3cea5d06df1 Mon Sep 17 00:00:00 2001
+From eec0168e8cc4c0bf308137e0f498e250010376f4 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Wed, 15 Apr 2020 14:31:06 +0200
+Date: Wed, 15 Apr 2020 23:28:19 +0200
 Subject: [PATCH] index on (no branch): 98a2dc1 Bump version to 0.22.0
 
 ---
@@ -44,7 +44,7 @@ index bc5200f..fb03f5b 100644
  	cygclass/font.cygclass			\
 diff --git cygport/cygclass/dpkg.cygclass cygport/cygclass/dpkg.cygclass
 new file mode 100644
-index 0000000..a6007a3
+index 0000000..9fab339
 --- /dev/null
 +++ cygport/cygclass/dpkg.cygclass
 @@ -0,0 +1,77 @@
@@ -107,7 +107,7 @@ index 0000000..a6007a3
 +	PATH="$PWD/bin:$PATH" \
 +	PERL5LIB="$PWD/lib:/usr/share/perl5" \
 +	PERL_MM_OPT="INSTALLDIRS=vendor INSTALLVENDORLIB=/usr/share/perl5" \
-+	dpkg-buildpackage -rnice -d -a i386 -t i686-pc-cygwin --source-option=--auto-commit
++	dpkg-buildpackage -rnice -d -uc -us -a i386 -t i686-pc-cygwin --source-option=--auto-commit
 +}
 +#****
 +

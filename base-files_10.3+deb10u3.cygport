@@ -1,17 +1,18 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="dh-exec"
-VERSION="0.23.1"
+NAME="base-files"
+VERSION="10.3+deb10u3"
 RELEASE=1
-CATEGORY="devel"
-SUMMARY="Scripts to help with executable debhelper files"
+CATEGORY="admin"
+SUMMARY="Debian base system miscellaneous files"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/dh-exec/dh-exec_0.23.1.dsc http://ftp.debian.org/debian/pool/main/d/dh-exec/dh-exec_0.23.1.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.dsc http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.tar.xz"
 SRC_DIR="."
-PATCH_URI=""
+PATCH_URI="base-files_10.3+deb10u3.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
@@ -21,6 +22,6 @@ ARCH="i686"
 DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="libc6 libpipeline1 perl perl debhelper libdpkg-perl"
+REQUIRES=""
 
 inherit dpkg

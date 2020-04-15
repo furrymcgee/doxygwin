@@ -1,0 +1,11 @@
+--- ../../origsrc/dctrl-tools/GNUmakefile	2020-04-15 22:29:23.000000000 +0200
++++ GNUmakefile	2020-04-15 22:40:26.438127400 +0200
+@@ -46,7 +46,7 @@
+ 	tbl-dctrl/tbl-dctrl \
+ 	join-dctrl/join-dctrl
+ 
+-LDLIBS = -L. -ldctrl
++LDLIBS = -L. -ldctrl -lintl -largp
+ 
+ # List of translated languages is given in langs.mk
+ include langs.mk

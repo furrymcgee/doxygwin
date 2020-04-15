@@ -7,10 +7,11 @@ DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
 SRC_URI="http://ftp.debian.org/debian/pool/main/d/debconf/debconf_1.5.71.dsc http://ftp.debian.org/debian/pool/main/d/debconf/debconf_1.5.71.tar.xz"
 SRC_DIR="."
-PATCH_URI="./debconf.patch"
+PATCH_URI="debconf_1.5.71.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
@@ -25,4 +26,3 @@ REQUIRES=""
 echo WARNING: The debconf source package is case sensitive! See also https://cygwin.com/cygwin-ug-net/using-specialnames.html#pathnames-casesensitive
 
 inherit dpkg
-

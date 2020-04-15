@@ -1,15 +1,17 @@
-From ed1e35ff39fd0f51cae4b4413f0336b17c9c0d3b Mon Sep 17 00:00:00 2001
+From 007c5b5653c35c6d84600414ec092702befeaf36 Mon Sep 17 00:00:00 2001
 From: furrymcgee <furrymcgee@lippydanger.jumpingcrab.com>
-Date: Sat, 11 Apr 2020 18:11:16 +0200
-Subject: [PATCH] index on (no branch): 654c00d7 Release debhelper/12.3
+Date: Wed, 15 Apr 2020 23:58:47 +0200
+Subject: [PATCH] index on (no branch): b2c15605 Release debhelper/12.1
 
 ---
  dh_testroot                           | 2 +-
+ dh_update_autotools_config            | 2 +-
  lib/Debian/Debhelper/Buildsystem.pm   | 6 ++++--
  lib/Debian/Debhelper/Dh_Lib.pm        | 3 +++
+ run                                   | 2 +-
  t/buildsystems/03-bs-auto-buildable.t | 2 +-
  t/buildsystems/buildsystem_tests.t    | 3 ++-
- 5 files changed, 11 insertions(+), 5 deletions(-)
+ 7 files changed, 13 insertions(+), 7 deletions(-)
 
 diff --git debhelper/dh_testroot debhelper/dh_testroot
 index 042331b6..eede9da4 100755
@@ -24,8 +26,21 @@ index 042331b6..eede9da4 100755
  if ($requirements eq 'legacy-root') {
  	error("You must run this as root (or use fakeroot).");
  } else {
+diff --git debhelper/dh_update_autotools_config debhelper/dh_update_autotools_config
+index 7c28bcef..5145353e 100755
+--- debhelper/dh_update_autotools_config
++++ debhelper/dh_update_autotools_config
+@@ -28,7 +28,7 @@ and restored by B<dh_clean>.
+ init();
+ 
+ for my $basename (qw(config.guess config.sub)) {
+-	my $new_version = "/usr/share/misc/$basename";
++	my $new_version = "/usr/share/libtool/build-aux/$basename";
+ 	open(my $fd, '-|', 'find', '-mindepth', '1',
+ 		 '(', '-type', 'd', '-name', '.*', '-prune', ')',
+ 		 '-o', '-type', 'f', '-name', $basename, '-print')
 diff --git debhelper/lib/Debian/Debhelper/Buildsystem.pm debhelper/lib/Debian/Debhelper/Buildsystem.pm
-index 2463fb35..d3db7dd4 100644
+index 2e467122..627534a8 100644
 --- debhelper/lib/Debian/Debhelper/Buildsystem.pm
 +++ debhelper/lib/Debian/Debhelper/Buildsystem.pm
 @@ -11,6 +11,7 @@ use warnings;
@@ -45,7 +60,7 @@ index 2463fb35..d3db7dd4 100644
  }
  
  # Return 1 if the build system generator
-@@ -138,7 +139,7 @@ sub new {
+@@ -131,7 +132,7 @@ sub new {
  		# Get relative sourcedir abs_path (without symlinks)
  		my $abspath = Cwd::abs_path($opts{sourcedir});
  		if (! -d $abspath || $abspath !~ /^\Q$this->{cwd}\E/) {
@@ -54,7 +69,7 @@ index 2463fb35..d3db7dd4 100644
  		}
  		$this->{sourcedir} = File::Spec->abs2rel($abspath, $this->{cwd});
  	}
-@@ -159,6 +160,7 @@ sub _set_builddir {
+@@ -152,6 +153,7 @@ sub _set_builddir {
  	my $this=shift;
  	my $builddir=shift || $this->DEFAULT_BUILD_DIRECTORY;
  
@@ -63,10 +78,10 @@ index 2463fb35..d3db7dd4 100644
  		$builddir = $this->canonpath($builddir); # Canonicalize
  
 diff --git debhelper/lib/Debian/Debhelper/Dh_Lib.pm debhelper/lib/Debian/Debhelper/Dh_Lib.pm
-index fe14039a..ef87a0f7 100644
+index f78f3248..090f9c65 100644
 --- debhelper/lib/Debian/Debhelper/Dh_Lib.pm
 +++ debhelper/lib/Debian/Debhelper/Dh_Lib.pm
-@@ -1476,6 +1476,8 @@ sub excludefile {
+@@ -1474,6 +1474,8 @@ sub excludefile {
  			warning("ENV[$var] is set to the empty string.  It has been ignored to avoid bugs like #862842");
  			delete($ENV{$var});
  		}
@@ -75,7 +90,7 @@ index fe14039a..ef87a0f7 100644
  		if (! exists($dpkg_arch_output{$var})) {
  			# Return here if we already consulted dpkg-architecture
  			# (saves a fork+exec on unknown variables)
-@@ -1490,6 +1492,7 @@ sub excludefile {
+@@ -1488,6 +1490,7 @@ sub excludefile {
  			}
  			close($fd);
  		}
@@ -83,6 +98,19 @@ index fe14039a..ef87a0f7 100644
  		return $dpkg_arch_output{$var};
  	}
  }
+diff --git debhelper/run debhelper/run
+index 304deaf2..bcbdba73 100755
+--- debhelper/run
++++ debhelper/run
+@@ -7,7 +7,7 @@ export PATH
+ 
+ # Ensure that builds are self-hosting, which means I have to use the .pm
+ # files in this package, not any that may be on the system.
+-export PERL5LIB=$(pwd)/lib
++export PERL5LIB="${PWD}/lib:${PERL5LIB}"
+ 
+ # If any automatic script generation is done in building this package, 
+ # be sure to use the new templates from this package.
 diff --git debhelper/t/buildsystems/03-bs-auto-buildable.t debhelper/t/buildsystems/03-bs-auto-buildable.t
 index df4405b2..5148ab3b 100755
 --- debhelper/t/buildsystems/03-bs-auto-buildable.t

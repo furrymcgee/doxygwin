@@ -1,0 +1,700 @@
+Script started on Wed Apr 15 23:33:18 2020
+makefile:137: target 'cygport_0.22.0.dsc' does not exist
+cygport --32 cygport_0.22.0.cygport download
+makefile:140: update target 'cygport_0.22.0.noarch' due to: cygport_0.22.0.dsc
+cygport --32 cygport_0.22.0.cygport all
+[1;39m>>> Preparing cygport-0.22.0-1.noarch[0;0m
+>>> Unpacking source cygport-0.22.0.tar.gz
+[1;32m*** Info:[0;0m applying patch cygport.patch:
+patching file Makefile.am
+patching file cygclass/Makefile.am
+patching file cygclass/dpkg.cygclass
+patching file data/sample.cygport
+patching file doc/Makefile.am
+>>> Preparing working source directory
+[1;39m>>> Compiling cygport-0.22.0-1.noarch[0;0m
+autoreconf-2.69: Entering directory `.'
+autoreconf-2.69: configure.ac: not using Gettext
+autoreconf-2.69: running: aclocal --force 
+autoreconf-2.69: configure.ac: tracing
+autoreconf-2.69: configure.ac: not using Libtool
+autoreconf-2.69: running: /usr/bin/autoconf-2.69 --force
+autoreconf-2.69: configure.ac: not using Autoheader
+autoreconf-2.69: running: automake --add-missing --copy --force-missing
+Unescaped left brace in regex is deprecated, passed through in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /usr/bin/automake-1.14 line 3930.
+configure.ac:8: installing './install-sh'
+configure.ac:8: installing './missing'
+doc/Makefile.am:45: warning: clean-local was already defined in condition TRUE, which includes condition HAVE_ROBODOC ...
+Makefile.am:10:   'doc/Makefile.am' included from here
+tests/Makefile.am:14: ... 'clean-local' previously defined here
+Makefile.am:8:   'tests/Makefile.am' included from here
+parallel-tests: installing './test-driver'
+autoreconf-2.69: Leaving directory `.'
+/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure --srcdir=/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0 --prefix=/usr --exec-prefix=/usr --localstatedir=/var --sysconfdir=/etc --docdir=/usr/share/doc/cygport --htmldir=/usr/share/doc/cygport/html -C
+configure: loading site script /usr/share/config.site
+configure: creating cache config.cache
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether make supports nested variables... (cached) yes
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for help2man... /usr/bin/help2man
+checking for groff... /usr/bin/groff
+checking for robodoc... /usr/bin/robodoc
+configure: updating cache config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/mnt/cygport-0.22.0-1.noarch/build'
+Makefile:1585: update target 'bin/cygport' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport;test -d bin || /usr/bin/mkdir -p bin ;		\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"			\
+	-e "s!\@cygclassdir\@!/usr/share/cygport/cygclass!"		\
+	-e "s!\@cygpartdir\@!/usr/share/cygport/lib!"		\
+	-e "s!\@gnuconfigdir\@!/usr/share/cygport!"		\
+	-e "s!\@pkgdatadir\@!/usr/share/cygport!"		\
+	-e "s!\@sysconfdir\@!/etc!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport ; 					\
+chmod 755 bin/cygport
+  GEN      bin/cygport
+Makefile:1597: update target 'bin/cygport-inplace' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport-inplace;test -d bin || /usr/bin/mkdir -p bin ;			\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"				\
+	-e "s!\@cygclassdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass!"	\
+	-e "s!\@cygpartdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib!"		\
+	-e "s!\@gnuconfigdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig!"	\
+	-e "s!\@pkgdatadir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	-e "s!\@sysconfdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport-inplace ; 						\
+chmod 755 bin/cygport-inplace
+  GEN      bin/cygport-inplace
+Makefile:1622: update target 'doc/manual/toc_index.html' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/Makefile.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/doc/robodoc.rc /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/aspell-dict.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/autotools.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/berkdb.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/bzr.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/clang.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/claws-mail.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cross.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cvs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils-multi.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/docbook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/dpkg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ebook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/emacs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/font.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fossil.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ggz.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/git.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnustep.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins0.10.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gstreamer.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtk2-perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtkmm.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/hg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/httpd.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/java.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kf5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/lua.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mate.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mono.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/multilib.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mtn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/nant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ocaml.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/octave.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/opensync.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/php.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pygtk.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qconf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/R.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rubygem.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby-gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/sugar.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/svn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/tcl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/texlive.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/toolchain.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/utils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/vim.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/waf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/wxwidgets.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xfce4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xorg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xvfb.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/check_funcs.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/compilers.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/config_registry.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/help.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/inheritance.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_cleanup.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_info.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_pkg.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_upload.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_compile.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_fetch.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_install.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_postinst.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_prep.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_test.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/syntax.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.nanorc /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mirrors /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mono.snk /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/sample.cygport
+echo "  GEN     " doc/manual/toc_index.html;test -d doc || /usr/bin/mkdir -p doc ; \
+	(cd /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0 && \
+	/usr/bin/robodoc --src /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0 --doc /mnt/cygport-0.22.0-1.noarch/build/doc/manual --rc /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/doc/robodoc.rc --html --multidoc) && \
+	/usr/bin/sed -i -e "s|/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0|cygport|g" doc/manual/*.html
+  GEN      doc/manual/toc_index.html
+Makefile:1614: update target 'doc/cygport.1' due to: bin/cygport-inplace /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/help.cygpart
+echo "  GEN     " doc/cygport.1;test -d doc || /usr/bin/mkdir -p doc ; \
+/usr/bin/help2man -o doc/cygport.1 --no-info --name="Cygwin source packaging tool" bin/cygport-inplace
+Makefile:1628: update target 'doc/manual/index.html' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/doc/index.html doc/manual/toc_index.html
+/usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/doc/index.html doc/manual/index.html
+  GEN      doc/cygport.1
+Makefile:1618: update target 'doc/manual/cygport.1.html' due to: doc/cygport.1
+/usr/bin/mkdir -p doc/manual/
+echo "  GEN     " doc/manual/cygport.1.html;/usr/bin/groff -t -mandoc -Thtml doc/cygport.1 > doc/manual/cygport.1.html
+  GEN      doc/manual/cygport.1.html
+make[1]: Leaving directory '/mnt/cygport-0.22.0-1.noarch/build'
+[1;39m>>> Installing cygport-0.22.0-1.noarch[0;0m
+make[1]: Entering directory '/mnt/cygport-0.22.0-1.noarch/build'
+Makefile:1585: update target 'bin/cygport' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport;test -d bin || /usr/bin/mkdir -p bin ;		\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"			\
+	-e "s!\@cygclassdir\@!/usr/share/cygport/cygclass!"		\
+	-e "s!\@cygpartdir\@!/usr/share/cygport/lib!"		\
+	-e "s!\@gnuconfigdir\@!/usr/share/cygport!"		\
+	-e "s!\@pkgdatadir\@!/usr/share/cygport!"		\
+	-e "s!\@sysconfdir\@!/etc!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport ; 					\
+chmod 755 bin/cygport
+  GEN      bin/cygport
+Makefile:1597: update target 'bin/cygport-inplace' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport-inplace;test -d bin || /usr/bin/mkdir -p bin ;			\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"				\
+	-e "s!\@cygclassdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass!"	\
+	-e "s!\@cygpartdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib!"		\
+	-e "s!\@gnuconfigdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig!"	\
+	-e "s!\@pkgdatadir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	-e "s!\@sysconfdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport-inplace ; 						\
+chmod 755 bin/cygport-inplace
+  GEN      bin/cygport-inplace
+Makefile:1614: update target 'doc/cygport.1' due to: bin/cygport-inplace
+echo "  GEN     " doc/cygport.1;test -d doc || /usr/bin/mkdir -p doc ; \
+/usr/bin/help2man -o doc/cygport.1 --no-info --name="Cygwin source packaging tool" bin/cygport-inplace
+  GEN      doc/cygport.1
+Makefile:1618: update target 'doc/manual/cygport.1.html' due to: doc/cygport.1
+/usr/bin/mkdir -p doc/manual/
+echo "  GEN     " doc/manual/cygport.1.html;/usr/bin/groff -t -mandoc -Thtml doc/cygport.1 > doc/manual/cygport.1.html
+  GEN      doc/manual/cygport.1.html
+Makefile:1446: update target 'install-am' due to: all-am
+make  install-exec-am install-data-am
+make[2]: Entering directory '/mnt/cygport-0.22.0-1.noarch/build'
+Makefile:1585: update target 'bin/cygport' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport;test -d bin || /usr/bin/mkdir -p bin ;		\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"			\
+	-e "s!\@cygclassdir\@!/usr/share/cygport/cygclass!"		\
+	-e "s!\@cygpartdir\@!/usr/share/cygport/lib!"		\
+	-e "s!\@gnuconfigdir\@!/usr/share/cygport!"		\
+	-e "s!\@pkgdatadir\@!/usr/share/cygport!"		\
+	-e "s!\@sysconfdir\@!/etc!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport ; 					\
+chmod 755 bin/cygport
+  GEN      bin/cygport
+Makefile:949: update target 'install-bashcompletionDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport-bash-completion
+:
+list='data/cygport-bash-completion'; test -n "/etc/bash_completion.d" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport-bash-completion '/mnt/cygport-0.22.0-1.noarch/inst/etc/bash_completion.d'
+Makefile:970: update target 'install-cygclassDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/aspell-dict.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/autotools.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/berkdb.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/bzr.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/clang.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/claws-mail.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cross.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cvs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils-multi.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/docbook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/dpkg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ebook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/emacs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/font.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fossil.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ggz.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/git.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnustep.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins0.10.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gstreamer.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtk2-perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtkmm.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/hg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/httpd.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/java.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kf5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/lua.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mate.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mono.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/multilib.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mtn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/nant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ocaml.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/octave.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/opensync.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/php.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pygtk.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qconf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/R.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rubygem.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby-gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/sugar.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/svn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/tcl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/texlive.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/toolchain.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/utils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/vim.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/waf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/wxwidgets.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xfce4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xorg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xvfb.cygclass
+:
+list='cygclass/ant.cygclass cygclass/apache.cygclass cygclass/apache2.cygclass cygclass/aspell-dict.cygclass cygclass/autotools.cygclass cygclass/berkdb.cygclass cygclass/bzr.cygclass cygclass/clang.cygclass cygclass/claws-mail.cygclass cygclass/cmake.cygclass cygclass/cross.cygclass cygclass/cvs.cygclass cygclass/distutils.cygclass cygclass/distutils-multi.cygclass cygclass/docbook.cygclass cygclass/dpkg.cygclass cygclass/ebook.cygclass cygclass/emacs.cygclass cygclass/font.cygclass cygclass/fossil.cygclass cygclass/fox.cygclass cygclass/ggz.cygclass cygclass/git.cygclass cygclass/gnome.org.cygclass cygclass/gnome2.cygclass cygclass/gnustep.cygclass cygclass/gst-plugins.cygclass cygclass/gst-plugins0.10.cygclass cygclass/gstreamer.cygclass cygclass/gtk2-perl.cygclass cygclass/gtkmm.cygclass cygclass/hg.cygclass cygclass/httpd.cygclass cygclass/java.cygclass cygclass/kde.org.cygclass cygclass/kde4.cygclass cygclass/kf5.cygclass cygclass/lua.cygclass cygclass/mate.cygclass cygclass/mono.cygclass cygclass/multilib.cygclass cygclass/mtn.cygclass cygclass/nant.cygclass cygclass/ocaml.cygclass cygclass/octave.cygclass cygclass/opensync.cygclass cygclass/perl.cygclass cygclass/php.cygclass cygclass/pygtk.cygclass cygclass/pypy.cygclass cygclass/pypy-distutils.cygclass cygclass/python.cygclass cygclass/python-distutils.cygclass cygclass/python3.cygclass cygclass/python3-distutils.cygclass cygclass/qt3.cygclass cygclass/qt3-qmake.cygclass cygclass/qt4.cygclass cygclass/qt4-cmake.cygclass cygclass/qt4-qconf.cygclass cygclass/qt4-qmake.cygclass cygclass/qt5.cygclass cygclass/qt5-qmake.cygclass cygclass/R.cygclass cygclass/rox.cygclass cygclass/ruby.cygclass cygclass/rubygem.cygclass cygclass/ruby-gnome2.cygclass cygclass/sugar.cygclass cygclass/svn.cygclass cygclass/tcl.cygclass cygclass/texlive.cygclass cygclass/toolchain.cygclass cygclass/utils.cygclass cygclass/vim.cygclass cygclass/waf.cygclass cygclass/wxwidgets.cygclass cygclass/xfce4.cygclass cygclass/xorg.cygclass cygclass/xvfb.cygclass '; test -n "/usr/share/cygport/cygclass" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass'
+Makefile:991: update target 'install-cygpartDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/check_funcs.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/compilers.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/config_registry.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/help.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/inheritance.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_cleanup.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_info.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_pkg.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_upload.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_compile.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_fetch.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_install.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_postinst.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_prep.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_test.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/syntax.cygpart
+:
+list='lib/check_funcs.cygpart lib/compilers.cygpart lib/config_registry.cygpart lib/help.cygpart lib/inheritance.cygpart lib/pkg_cleanup.cygpart lib/pkg_info.cygpart lib/pkg_pkg.cygpart lib/pkg_upload.cygpart lib/src_compile.cygpart lib/src_fetch.cygpart lib/src_install.cygpart lib/src_postinst.cygpart lib/src_prep.cygpart lib/src_test.cygpart lib/syntax.cygpart '; test -n "/usr/share/cygport/lib" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/check_funcs.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/compilers.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/config_registry.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/help.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/inheritance.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_cleanup.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_info.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_pkg.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/pkg_upload.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_compile.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_fetch.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_install.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_postinst.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_prep.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/src_test.cygpart /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib/syntax.cygpart '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/lib'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/apache2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/aspell-dict.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/autotools.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/berkdb.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/bzr.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/clang.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/claws-mail.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cross.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/cvs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/distutils-multi.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/docbook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/dpkg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ebook.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/emacs.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/font.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fossil.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/fox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ggz.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/git.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gnustep.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gst-plugins0.10.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gstreamer.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtk2-perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/gtkmm.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/hg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/httpd.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/java.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde.org.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kde4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/kf5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/lua.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mate.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mono.cygclass '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass'
+Makefile:1631: target 'install-manual' does not exist
+/usr/bin/mkdir -p /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/html/manual/
+/usr/bin/install -c -m 644 doc/manual/* /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/html/manual/
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/multilib.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/mtn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/nant.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ocaml.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/octave.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/opensync.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/perl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/php.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pygtk.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/pypy-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/python3-distutils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt3-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-cmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qconf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt4-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/qt5-qmake.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/R.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rox.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/rubygem.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/ruby-gnome2.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/sugar.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/svn.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/tcl.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/texlive.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/toolchain.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/utils.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/vim.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/waf.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/wxwidgets.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xfce4.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xorg.cygclass /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass/xvfb.cygclass '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/cygclass'
+Makefile:1597: update target 'bin/cygport-inplace' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/configure Makefile
+echo "  GEN     " bin/cygport-inplace;test -d bin || /usr/bin/mkdir -p bin ;			\
+_version=0.22.0;	\
+sed	-e "s!\@VERSION\@!$_version!"				\
+	-e "s!\@cygclassdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/cygclass!"	\
+	-e "s!\@cygpartdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/lib!"		\
+	-e "s!\@gnuconfigdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig!"	\
+	-e "s!\@pkgdatadir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	-e "s!\@sysconfdir\@!/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data!"		\
+	/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/bin/cygport.in > bin/cygport-inplace ; 						\
+chmod 755 bin/cygport-inplace
+  GEN      bin/cygport-inplace
+Makefile:1012: update target 'install-mimeDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.xml
+:
+list='data/cygport.xml'; test -n "/usr/share/mime/packages" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.xml '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/mime/packages'
+Makefile:1033: update target 'install-pkgdataDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.nanorc /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mirrors /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mono.snk /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/sample.cygport
+:
+list='data/cygport.nanorc data/mirrors data/mono.snk data/sample.cygport '; test -n "/usr/share/cygport" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.nanorc /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mirrors /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/mono.snk /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/sample.cygport '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'
+Makefile:836: update target 'install-pkgdataSCRIPTS' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig/config.guess /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig/config.sub
+:
+list='data/gnuconfig/config.guess data/gnuconfig/config.sub'; test -n "/usr/share/cygport" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  if test -f "$d$p"; then echo "$d$p"; echo "$p"; else :; fi; \
+done | \
+sed -e 'p;s,.*/,,;n' \
+    -e 'h;s|.*|.|' \
+    -e 'p;x;s,.*/,,;s,x,x,' | sed 'N;N;N;s,\n, ,g' | \
+gawk 'BEGIN { files["."] = ""; dirs["."] = 1; } \
+  { d=$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
+    if ($2 == $4) { files[d] = files[d] " " $1; \
+      if (++n[d] == 40) { \
+	print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
+    else { print "f", d "/" $4, $1 } } \
+  END { for (d in files) print "f", d, files[d] }' | \
+while read type dir files; do \
+     if test "$dir" = .; then dir=; else dir=/$dir; fi; \
+     test -z "$files" || { \
+       echo " /usr/bin/install -c $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport$dir'"; \
+       /usr/bin/install -c $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport$dir" || exit $?; \
+     } \
+; done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'
+ /usr/bin/install -c /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig/config.guess /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/gnuconfig/config.sub '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport'
+Makefile:871: update target 'install-toolsSCRIPTS' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/deb2targz /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/pkgrip /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/sysrootize
+:
+list='tools/deb2targz tools/pkgrip tools/sysrootize '; test -n "/usr/share/cygport/tools" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  if test -f "$d$p"; then echo "$d$p"; echo "$p"; else :; fi; \
+done | \
+sed -e 'p;s,.*/,,;n' \
+    -e 'h;s|.*|.|' \
+    -e 'p;x;s,.*/,,;s,x,x,' | sed 'N;N;N;s,\n, ,g' | \
+gawk 'BEGIN { files["."] = ""; dirs["."] = 1; } \
+  { d=$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
+    if ($2 == $4) { files[d] = files[d] " " $1; \
+      if (++n[d] == 40) { \
+	print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
+    else { print "f", d "/" $4, $1 } } \
+  END { for (d in files) print "f", d, files[d] }' | \
+while read type dir files; do \
+     if test "$dir" = .; then dir=; else dir=/$dir; fi; \
+     test -z "$files" || { \
+       echo " /usr/bin/install -c $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools$dir'"; \
+       /usr/bin/install -c $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools$dir" || exit $?; \
+     } \
+; done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools'
+ /usr/bin/install -c /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/deb2targz /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/pkgrip /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/tools/sysrootize '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/cygport/tools'
+Makefile:1054: update target 'install-vimftdetectDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.vim
+:
+list='data/cygport.vim'; test -n "/usr/share/vim/vimfiles/ftdetect" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.vim '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/vim/vimfiles/ftdetect'
+Makefile:1075: update target 'install-xorgconfDATA' due to: /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport-xvfb.conf
+:
+list='data/cygport-xvfb.conf'; test -n "/etc/X11" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/etc/X11'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/etc/X11" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; \
+done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/etc/X11'"; \
+  /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/etc/X11" || exit $?; \
+done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/etc/X11'
+ /usr/bin/install -c -m 644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport-xvfb.conf '/mnt/cygport-0.22.0-1.noarch/inst/etc/X11'
+Makefile:801: update target 'install-binSCRIPTS' due to: bin/cygport
+:
+list='bin/cygport'; test -n "/usr/bin" || list=; \
+if test -n "$list"; then \
+  echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/bin'"; \
+  /usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/bin" || exit 1; \
+fi; \
+for p in $list; do \
+  if test -f "$p"; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  if test -f "$d$p"; then echo "$d$p"; echo "$p"; else :; fi; \
+done | \
+sed -e 'p;s,.*/,,;n' \
+    -e 'h;s|.*|.|' \
+    -e 'p;x;s,.*/,,;s,x,x,' | sed 'N;N;N;s,\n, ,g' | \
+gawk 'BEGIN { files["."] = ""; dirs["."] = 1; } \
+  { d=$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
+    if ($2 == $4) { files[d] = files[d] " " $1; \
+      if (++n[d] == 40) { \
+	print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
+    else { print "f", d "/" $4, $1 } } \
+  END { for (d in files) print "f", d, files[d] }' | \
+while read type dir files; do \
+     if test "$dir" = .; then dir=; else dir=/$dir; fi; \
+     test -z "$files" || { \
+       echo " /usr/bin/install -c $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/bin$dir'"; \
+       /usr/bin/install -c $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/bin$dir" || exit $?; \
+     } \
+; done
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/bin'
+ /usr/bin/install -c bin/cygport '/mnt/cygport-0.22.0-1.noarch/inst/usr/bin'
+Makefile:1614: update target 'doc/cygport.1' due to: bin/cygport-inplace
+echo "  GEN     " doc/cygport.1;test -d doc || /usr/bin/mkdir -p doc ; \
+/usr/bin/help2man -o doc/cygport.1 --no-info --name="Cygwin source packaging tool" bin/cygport-inplace
+  GEN      doc/cygport.1
+Makefile:906: update target 'install-man1' due to: doc/cygport.1
+:
+list1=''; \
+list2='doc/cygport.1'; \
+test -n "/usr/share/man/man1" \
+  && test -n "`echo $list1$list2`" \
+  || exit 0; \
+echo " /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1'"; \
+/usr/bin/mkdir -p "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1" || exit 1; \
+{ for i in $list1; do echo "$i"; done;  \
+if test -n "$list2"; then \
+  for i in $list2; do echo "$i"; done \
+    | sed -n '/\.1[a-z]*$/p'; \
+fi; \
+} | while read p; do \
+  if test -f $p; then d=; else d="/mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/"; fi; \
+  echo "$d$p"; echo "$p"; \
+done | \
+sed -e 'n;s,.*/,,;p;h;s,.*\.,,;s,^[^1][0-9a-z]*$,1,;x' \
+      -e 's,\.[0-9a-z]*$,,;s,x,x,;G;s,\n,.,' | \
+sed 'N;N;s,\n, ,g' | { \
+list=; while read file base inst; do \
+  if test "$base" = "$inst"; then list="$list $file"; else \
+    echo " /usr/bin/install -c -m 644 '$file' '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1/$inst'"; \
+    /usr/bin/install -c -m 644 "$file" "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1/$inst" || exit $?; \
+  fi; \
+done; \
+for i in $list; do echo "$i"; done | sed '$!N;$!N;$!N;$!N;$!N;$!N;$!N;s/\n/ /g' | sed '$!N;$!N;$!N;$!N;s/\n/ /g' | \
+while read files; do \
+  test -z "$files" || { \
+    echo " /usr/bin/install -c -m 644 $files '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1'"; \
+    /usr/bin/install -c -m 644 $files "/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1" || exit $?; }; \
+done; }
+ /usr/bin/mkdir -p '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1'
+ /usr/bin/install -c -m 644 doc/cygport.1 '/mnt/cygport-0.22.0-1.noarch/inst/usr/share/man/man1'
+make[2]: Leaving directory '/mnt/cygport-0.22.0-1.noarch/build'
+make[1]: Leaving directory '/mnt/cygport-0.22.0-1.noarch/build'
+/usr/bin/install -m0644 /mnt/cygport-0.22.0-1.noarch/src/cygport-0.22.0/data/cygport.conf /mnt/cygport-0.22.0-1.noarch/inst/etc/cygport.conf
+/usr/bin/install -m0644 AUTHORS /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/AUTHORS
+/usr/bin/install -m0644 COPYING /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/COPYING
+/usr/bin/install -m0644 COPYING-DOCS /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/COPYING-DOCS
+/usr/bin/install -m0644 NEWS /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/NEWS
+/usr/bin/install -m0644 README /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/README
+/usr/bin/install -m0644 TODO /mnt/cygport-0.22.0-1.noarch/inst/usr/share/doc/cygport/TODO
+Fixing symlinks:
+Compressing man pages:
+        cygport.1
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;32m*** Info:[0;0m Removing empty directory: /etc/X11
+[1;39m>>> Packaging cygport-0.22.0-1.noarch[0;0m
+>>> Creating binary package(s)
+>>> cygport-0.22.0-1.tar.xz
+etc/
+etc/postinstall/
+etc/postinstall/cygport.sh
+etc/preremove/
+etc/preremove/cygport.sh
+etc/bash_completion.d/
+etc/bash_completion.d/cygport-bash-completion
+etc/defaults/
+etc/defaults/etc/
+etc/defaults/etc/X11/
+etc/defaults/etc/X11/cygport-xvfb.conf
+etc/defaults/etc/cygport.conf
+usr/
+usr/share/
+usr/share/doc/
+usr/share/doc/cygport/
+usr/share/doc/cygport/html/
+usr/share/doc/cygport/html/manual/
+usr/share/doc/cygport/html/manual/src_fetch_cygpart.html
+usr/share/doc/cygport/html/manual/berkdb_cygclass.html
+usr/share/doc/cygport/html/manual/src_test_cygpart.html
+usr/share/doc/cygport/html/manual/qt4-qmake_cygclass.html
+usr/share/doc/cygport/html/manual/utils_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_install_functions.html
+usr/share/doc/cygport/html/manual/hg_cygclass.html
+usr/share/doc/cygport/html/manual/distutils_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_conf.html
+usr/share/doc/cygport/html/manual/python3-distutils_cygclass.html
+usr/share/doc/cygport/html/manual/texlive_cygclass.html
+usr/share/doc/cygport/html/manual/src_compile_cygpart.html
+usr/share/doc/cygport/html/manual/gnustep_cygclass.html
+usr/share/doc/cygport/html/manual/src_prep_cygpart.html
+usr/share/doc/cygport/html/manual/fossil_cygclass.html
+usr/share/doc/cygport/html/manual/dpkg_cygclass.html
+usr/share/doc/cygport/html/manual/octave_cygclass.html
+usr/share/doc/cygport/html/manual/qt3_cygclass.html
+usr/share/doc/cygport/html/manual/clang_cygclass.html
+usr/share/doc/cygport/html/manual/python_cygclass.html
+usr/share/doc/cygport/html/manual/autotools_cygclass.html
+usr/share/doc/cygport/html/manual/docbook_cygclass.html
+usr/share/doc/cygport/html/manual/cygport.1.html
+usr/share/doc/cygport/html/manual/vim_cygclass.html
+usr/share/doc/cygport/html/manual/gtk2-perl_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_definitions.html
+usr/share/doc/cygport/html/manual/mate_cygclass.html
+usr/share/doc/cygport/html/manual/php_cygclass.html
+usr/share/doc/cygport/html/manual/ant_cygclass.html
+usr/share/doc/cygport/html/manual/qt3-qmake_cygclass.html
+usr/share/doc/cygport/html/manual/cvs_cygclass.html
+usr/share/doc/cygport/html/manual/java_cygclass.html
+usr/share/doc/cygport/html/manual/ocaml_cygclass.html
+usr/share/doc/cygport/html/manual/python-distutils_cygclass.html
+usr/share/doc/cygport/html/manual/pypy-distutils_cygclass.html
+usr/share/doc/cygport/html/manual/Makefile_am.html
+usr/share/doc/cygport/html/manual/pygtk_cygclass.html
+usr/share/doc/cygport/html/manual/xorg_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_chapters.html
+usr/share/doc/cygport/html/manual/R_cygclass.html
+usr/share/doc/cygport/html/manual/compilers_cygpart.html
+usr/share/doc/cygport/html/manual/cygport_testsuite_functions.html
+usr/share/doc/cygport/html/manual/cmake_cygclass.html
+usr/share/doc/cygport/html/manual/apache_cygclass.html
+usr/share/doc/cygport/html/manual/pkg_pkg_cygpart.html
+usr/share/doc/cygport/html/manual/pkg_info_cygpart.html
+usr/share/doc/cygport/html/manual/inheritance_cygpart.html
+usr/share/doc/cygport/html/manual/svn_cygclass.html
+usr/share/doc/cygport/html/manual/gnome2_cygclass.html
+usr/share/doc/cygport/html/manual/qt4-qconf_cygclass.html
+usr/share/doc/cygport/html/manual/emacs_cygclass.html
+usr/share/doc/cygport/html/manual/syntax_cygpart.html
+usr/share/doc/cygport/html/manual/cygport_general_functions.html
+usr/share/doc/cygport/html/manual/toc_index.html
+usr/share/doc/cygport/html/manual/gnome_org_cygclass.html
+usr/share/doc/cygport/html/manual/kde_org_cygclass.html
+usr/share/doc/cygport/html/manual/nant_cygclass.html
+usr/share/doc/cygport/html/manual/opensync_cygclass.html
+usr/share/doc/cygport/html/manual/aspell-dict_cygclass.html
+usr/share/doc/cygport/html/manual/distutils-multi_cygclass.html
+usr/share/doc/cygport/html/manual/pkg_upload_cygpart.html
+usr/share/doc/cygport/html/manual/gtkmm_cygclass.html
+usr/share/doc/cygport/html/manual/xvfb_cygclass.html
+usr/share/doc/cygport/html/manual/claws-mail_cygclass.html
+usr/share/doc/cygport/html/manual/pypy_cygclass.html
+usr/share/doc/cygport/html/manual/mtn_cygclass.html
+usr/share/doc/cygport/html/manual/font_cygclass.html
+usr/share/doc/cygport/html/manual/apache2_cygclass.html
+usr/share/doc/cygport/html/manual/bzr_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_compile_functions.html
+usr/share/doc/cygport/html/manual/robodoc.css
+usr/share/doc/cygport/html/manual/cygport_cygclasses.html
+usr/share/doc/cygport/html/manual/toolchain_cygclass.html
+usr/share/doc/cygport/html/manual/httpd_cygclass.html
+usr/share/doc/cygport/html/manual/robo_sourcefiles.html
+usr/share/doc/cygport/html/manual/cygport_postinstall_steps.html
+usr/share/doc/cygport/html/manual/gst-plugins_cygclass.html
+usr/share/doc/cygport/html/manual/python3_cygclass.html
+usr/share/doc/cygport/html/manual/masterindex.html
+usr/share/doc/cygport/html/manual/COPYING-DOCS.html
+usr/share/doc/cygport/html/manual/check_funcs_cygpart.html
+usr/share/doc/cygport/html/manual/waf_cygclass.html
+usr/share/doc/cygport/html/manual/git_cygclass.html
+usr/share/doc/cygport/html/manual/perl_cygclass.html
+usr/share/doc/cygport/html/manual/qt5-qmake_cygclass.html
+usr/share/doc/cygport/html/manual/cross_cygclass.html
+usr/share/doc/cygport/html/manual/kf5_cygclass.html
+usr/share/doc/cygport/html/manual/qt4_cygclass.html
+usr/share/doc/cygport/html/manual/gstreamer_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_variables.html
+usr/share/doc/cygport/html/manual/src_install_cygpart.html
+usr/share/doc/cygport/html/manual/ebook_cygclass.html
+usr/share/doc/cygport/html/manual/lua_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_concepts.html
+usr/share/doc/cygport/html/manual/sugar_cygclass.html
+usr/share/doc/cygport/html/manual/src_postinst_cygpart.html
+usr/share/doc/cygport/html/manual/qt4-cmake_cygclass.html
+usr/share/doc/cygport/html/manual/ruby-gnome2_cygclass.html
+usr/share/doc/cygport/html/manual/qt5_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_in.html
+usr/share/doc/cygport/html/manual/ggz_cygclass.html
+usr/share/doc/cygport/html/manual/cygport_overloads.html
+usr/share/doc/cygport/html/manual/rubygem_cygclass.html
+usr/share/doc/cygport/html/manual/multilib_cygclass.html
+usr/share/doc/cygport/html/manual/mono_cygclass.html
+usr/share/doc/cygport/html/manual/tcl_cygclass.html
+usr/share/doc/cygport/html/manual/kde4_cygclass.html
+usr/share/doc/cygport/html/manual/fox_cygclass.html
+usr/share/doc/cygport/html/manual/xfce4_cygclass.html
+usr/share/doc/cygport/html/manual/index.html
+usr/share/doc/cygport/html/manual/wxwidgets_cygclass.html
+usr/share/doc/cygport/html/manual/mirrors.html
+usr/share/doc/cygport/html/manual/ruby_cygclass.html
+usr/share/doc/cygport/html/manual/rox_cygclass.html
+usr/share/doc/cygport/AUTHORS
+usr/share/doc/cygport/TODO
+usr/share/doc/cygport/README
+usr/share/doc/cygport/COPYING
+usr/share/doc/cygport/COPYING-DOCS
+usr/share/doc/cygport/NEWS
+usr/share/man/
+usr/share/man/man1/
+usr/share/man/man1/cygport.1.gz
+usr/share/cygport/
+usr/share/cygport/mirrors
+usr/share/cygport/cygclass/
+usr/share/cygport/cygclass/gnustep.cygclass
+usr/share/cygport/cygclass/nant.cygclass
+usr/share/cygport/cygclass/multilib.cygclass
+usr/share/cygport/cygclass/lua.cygclass
+usr/share/cygport/cygclass/httpd.cygclass
+usr/share/cygport/cygclass/python3-distutils.cygclass
+usr/share/cygport/cygclass/emacs.cygclass
+usr/share/cygport/cygclass/gtk2-perl.cygclass
+usr/share/cygport/cygclass/wxwidgets.cygclass
+usr/share/cygport/cygclass/distutils.cygclass
+usr/share/cygport/cygclass/xfce4.cygclass
+usr/share/cygport/cygclass/python-distutils.cygclass
+usr/share/cygport/cygclass/gstreamer.cygclass
+usr/share/cygport/cygclass/python.cygclass
+usr/share/cygport/cygclass/gtkmm.cygclass
+usr/share/cygport/cygclass/sugar.cygclass
+usr/share/cygport/cygclass/qt4-qmake.cygclass
+usr/share/cygport/cygclass/clang.cygclass
+usr/share/cygport/cygclass/kde.org.cygclass
+usr/share/cygport/cygclass/toolchain.cygclass
+usr/share/cygport/cygclass/R.cygclass
+usr/share/cygport/cygclass/qt4-qconf.cygclass
+usr/share/cygport/cygclass/cross.cygclass
+usr/share/cygport/cygclass/gnome.org.cygclass
+usr/share/cygport/cygclass/octave.cygclass
+usr/share/cygport/cygclass/ebook.cygclass
+usr/share/cygport/cygclass/mono.cygclass
+usr/share/cygport/cygclass/ocaml.cygclass
+usr/share/cygport/cygclass/waf.cygclass
+usr/share/cygport/cygclass/fox.cygclass
+usr/share/cygport/cygclass/opensync.cygclass
+usr/share/cygport/cygclass/aspell-dict.cygclass
+usr/share/cygport/cygclass/claws-mail.cygclass
+usr/share/cygport/cygclass/mtn.cygclass
+usr/share/cygport/cygclass/gnome2.cygclass
+usr/share/cygport/cygclass/tcl.cygclass
+usr/share/cygport/cygclass/perl.cygclass
+usr/share/cygport/cygclass/pygtk.cygclass
+usr/share/cygport/cygclass/xorg.cygclass
+usr/share/cygport/cygclass/xvfb.cygclass
+usr/share/cygport/cygclass/distutils-multi.cygclass
+usr/share/cygport/cygclass/rubygem.cygclass
+usr/share/cygport/cygclass/dpkg.cygclass
+usr/share/cygport/cygclass/berkdb.cygclass
+usr/share/cygport/cygclass/hg.cygclass
+usr/share/cygport/cygclass/ruby.cygclass
+usr/share/cygport/cygclass/pypy.cygclass
+usr/share/cygport/cygclass/apache2.cygclass
+usr/share/cygport/cygclass/font.cygclass
+usr/share/cygport/cygclass/rox.cygclass
+usr/share/cygport/cygclass/pypy-distutils.cygclass
+usr/share/cygport/cygclass/python3.cygclass
+usr/share/cygport/cygclass/utils.cygclass
+usr/share/cygport/cygclass/mate.cygclass
+usr/share/cygport/cygclass/autotools.cygclass
+usr/share/cygport/cygclass/cmake.cygclass
+usr/share/cygport/cygclass/qt5.cygclass
+usr/share/cygport/cygclass/docbook.cygclass
+usr/share/cygport/cygclass/gst-plugins0.10.cygclass
+usr/share/cygport/cygclass/kf5.cygclass
+usr/share/cygport/cygclass/cvs.cygclass
+usr/share/cygport/cygclass/qt3.cygclass
+usr/share/cygport/cygclass/ruby-gnome2.cygclass
+usr/share/cygport/cygclass/fossil.cygclass
+usr/share/cygport/cygclass/gst-plugins.cygclass
+usr/share/cygport/cygclass/texlive.cygclass
+usr/share/cygport/cygclass/ant.cygclass
+usr/share/cygport/cygclass/qt4.cygclass
+usr/share/cygport/cygclass/qt3-qmake.cygclass
+usr/share/cygport/cygclass/bzr.cygclass
+usr/share/cygport/cygclass/qt5-qmake.cygclass
+usr/share/cygport/cygclass/ggz.cygclass
+usr/share/cygport/cygclass/qt4-cmake.cygclass
+usr/share/cygport/cygclass/kde4.cygclass
+usr/share/cygport/cygclass/git.cygclass
+usr/share/cygport/cygclass/apache.cygclass
+usr/share/cygport/cygclass/vim.cygclass
+usr/share/cygport/cygclass/svn.cygclass
+usr/share/cygport/cygclass/java.cygclass
+usr/share/cygport/cygclass/php.cygclass
+usr/share/cygport/lib/
+usr/share/cygport/lib/pkg_upload.cygpart
+usr/share/cygport/lib/src_install.cygpart
+usr/share/cygport/lib/inheritance.cygpart
+usr/share/cygport/lib/syntax.cygpart
+usr/share/cygport/lib/src_postinst.cygpart
+usr/share/cygport/lib/src_test.cygpart
+usr/share/cygport/lib/compilers.cygpart
+usr/share/cygport/lib/config_registry.cygpart
+usr/share/cygport/lib/pkg_pkg.cygpart
+usr/share/cygport/lib/src_prep.cygpart
+usr/share/cygport/lib/pkg_cleanup.cygpart
+usr/share/cygport/lib/check_funcs.cygpart
+usr/share/cygport/lib/pkg_info.cygpart
+usr/share/cygport/lib/src_fetch.cygpart
+usr/share/cygport/lib/src_compile.cygpart
+usr/share/cygport/lib/help.cygpart
+usr/share/cygport/tools/
+usr/share/cygport/tools/sysrootize
+usr/share/cygport/tools/pkgrip
+usr/share/cygport/tools/deb2targz
+usr/share/cygport/cygport.nanorc
+usr/share/cygport/config.sub
+usr/share/cygport/sample.cygport
+usr/share/cygport/mono.snk
+usr/share/cygport/config.guess
+usr/share/mime/
+usr/share/mime/packages/
+usr/share/mime/packages/cygport.xml
+usr/share/vim/
+usr/share/vim/vimfiles/
+usr/share/vim/vimfiles/ftdetect/
+usr/share/vim/vimfiles/ftdetect/cygport.vim
+usr/bin/
+usr/bin/cygport
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+cygport-0.22.0-1.src/
+cygport-0.22.0-1.src/cygport.patch
+cygport-0.22.0-1.src/cygport_0.22.0.cygport
+cygport-0.22.0-1.src/cygport-0.22.0.tar.gz
+
+>>> cygport requires: bash autoconf automake binutils bzip2 coreutils diffstat diffutils dos2unix findutils file gawk gcc-core gcc-g++ grep gzip lftp libtool lndir make openssh patch perl-Authen-SASL perl-MIME-tools perl-Net-SMTP-SSL rsync sed tar texinfo unzip util-linux wget which xz
+
+Script done on Wed Apr 15 23:39:48 2020

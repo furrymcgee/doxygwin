@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="base-files"
-VERSION="10.3+deb10u3"
+NAME="intltool-debian"
+VERSION="0.35.0+20060710.5"
 RELEASE=1
-CATEGORY="admin"
-SUMMARY="Debian base system miscellaneous files"
+CATEGORY="devel"
+SUMMARY="Help i18n of RFC822 compliant config files"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.dsc http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/i/intltool-debian/intltool-debian_0.35.0+20060710.5.dsc http://ftp.debian.org/debian/pool/main/i/intltool-debian/intltool-debian_0.35.0+20060710.5.tar.xz"
 SRC_DIR="."
-PATCH_URI="./base-files.patch"
+PATCH_URI=""
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-ARCH="i686"
+ARCH="noarch"
 
 # Build dependencies only
-DEPEND=""
+DEPEND="perl"
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES=""
+REQUIRES="gettext perl"
 
 inherit dpkg

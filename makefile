@@ -1,31 +1,32 @@
 .DEFAULT_GOAL = install
 
-PACKAGES:= \
-	apache2 \
-	automake \
-	base-files \
-	calm \
-	cygport \
-	debconf \
-	debhelper \
-	dh-autoreconf \
-	dh-exec \
-	dh-python \
-	doc-base \
-	docx2txt \
-	dpkg \
-	dwww \
-	intltool-debian \
-	po-debconf \
-	publib-dev \
-	sensible-utils \
-	strip-nondeterminism \
-	swish++ \
-	tar \
+TARGETS= \
+	automake_1.16.1.noarch \
+	base-files_10.3+deb10u3.i686 \
+	calm_20160730.noarch \
+	cygport_0.22.0.noarch \
+	dctrl-tools_2.24-3.i686 \
+	debconf_1.5.71.noarch \
+	debhelper_12.1.1.noarch \
+	dh-autoreconf_19.noarch \
+	dh-exec_0.23.1.i686 \
+	dh-python_3.20190308.noarch \
+	doc-base_0.10.8.noarch \
+	docx2txt_1.4-1.noarch \
+	dpkg_1.19.7.i686 \
+	dwww_1.13.4+nmu3.i686 \
+	intltool-debian_0.35.0+20060710.5.noarch \
+	libfile-stripnondeterminism-perl_1.1.2-1.noarch \
+	po-debconf_1.0.21.noarch \
+	publib_0.40-3.i686 \
+	recutils_1.7-3.i686 \
+	sensible-utils_0.0.12.noarch \
+	swish++_6.1.5-5.i686 \
+	tar_1.30+dfsg-6.i686 \
 
-ETC =  /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
+ETC = /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
-.PHONY: $(.DEFAULT_GOAL) $(ETC) clean
+.PHONY: $(.DEFAULT_GOAL) $(TARGETS) $(ETC) clean
 
 $(.DEFAULT_GOAL): $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
@@ -126,17 +127,18 @@ Packages:
 	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
 	gunzip > $@
 
-%.cygport %.cygport: cygport.sh Packages Sources
-	cat Sources | \
-	grep-dctrl -n -s Package \
-	-F Package $(word 1, $(subst _, , $(basename $@))) \
-	-a \
-	-F Version $(word 2, $(subst _, , $(basename $@))) | \
-	xargs sh $< > $@ || { unlink $@ && exit 1 ; }
+%.cygport: cygport.sh Packages Sources
+	cat Sources | grep-dctrl -n -s Package \
+	-F Package $(word 1, $(subst _, , $*)) -a \
+	-F Version $(word 2, $(subst _, , $*)) | \
+	xargs sh $< > $@ || { rm $@ && exit 1 ; }
 
 %.dsc: %.cygport
-	cygport --32 $(basename $@) download
+	cygport --32 $*.cygport download && touch -r $@ $<
 
-%.script: %.dsc
-	cygport --32 $(basename $@).cygport --all
+$(filter %.noarch,$(TARGETS)): %.noarch: %.dsc
+	cygport --32 $*.cygport all
+
+$(filter %.i686,$(TARGETS)): %.i686: %.dsc
+	cygport --32 $*.cygport all
 

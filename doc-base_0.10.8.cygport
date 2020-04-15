@@ -1,26 +1,27 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="docx2txt"
-VERSION="1.4-1"
+NAME="doc-base"
+VERSION="0.10.8"
 RELEASE=1
-CATEGORY="text"
-SUMMARY="Convert Microsoft OOXML files to plain text"
+CATEGORY="doc"
+SUMMARY="utilities to manage online documentation"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/docx2txt/docx2txt_1.4-1.dsc http://ftp.debian.org/debian/pool/main/d/docx2txt/docx2txt_1.4.orig.tar.gz http://ftp.debian.org/debian/pool/main/d/docx2txt/docx2txt_1.4-1.debian.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.dsc http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.tar.xz"
 SRC_DIR="."
-PATCH_URI=""
+PATCH_URI="doc-base_0.10.8.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
 ARCH="noarch"
 
 # Build dependencies only
-DEPEND=""
+DEPEND="docbook-xml docbook-xsl libxml2-utils xsltproc lynx libuuid-perl libyaml-tiny-perl po4a"
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="unzip"
+REQUIRES="libuuid-perl libyaml-tiny-perl"
 
 inherit dpkg
