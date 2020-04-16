@@ -2,6 +2,7 @@
 
 TARGETS= \
 	automake_1.16.1.noarch \
+	autotools-dev_20180224.1.noarch \
 	base-files_10.3+deb10u3.i686 \
 	calm_20160730.noarch \
 	cygport_0.22.0.noarch \
@@ -127,11 +128,11 @@ Packages:
 	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
 	gunzip > $@
 
-%.cygport: cygport.sh Packages Sources
+%.cygport: Packages Sources
 	cat Sources | grep-dctrl -n -s Package \
 	-F Package $(word 1, $(subst _, , $*)) -a \
 	-F Version $(word 2, $(subst _, , $*)) | \
-	xargs sh $< > $@ || { rm $@ && exit 1 ; }
+	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
 
 %.dsc: %.cygport
 	cygport --32 $*.cygport download && touch -r $@ $<
@@ -142,3 +143,5 @@ $(filter %.noarch,$(TARGETS)): %.noarch: %.dsc
 $(filter %.i686,$(TARGETS)): %.i686: %.dsc
 	cygport --32 $*.cygport all
 
+%.i686 %.noarch: %.dsc
+	cygport --32 $*.cygport all

@@ -1,14 +1,14 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="recutils"
-VERSION="1.7-3"
+NAME="chrpath"
+VERSION="0.16-2+b1"
 RELEASE=1
-CATEGORY="database"
-SUMMARY="text-based databases called recfiles"
+CATEGORY="utils"
+SUMMARY="Tool to edit the rpath in ELF binaries"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7-3.dsc http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7.orig.tar.gz http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7.orig.tar.gz.asc http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7-3.debian.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/c/chrpath/chrpath_0.16-2.dsc http://ftp.debian.org/debian/pool/main/c/chrpath/chrpath_0.16.orig.tar.gz http://ftp.debian.org/debian/pool/main/c/chrpath/chrpath_0.16-2.diff.gz"
 SRC_DIR="."
-PATCH_URI="recutils_1.7-3.patch"
+PATCH_URI=""
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
@@ -22,6 +22,6 @@ ARCH="i686"
 DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="libc6 libgcrypt20 libgpg-error0 libreadline7 librec1"
+REQUIRES="libc6"
 
 inherit dpkg

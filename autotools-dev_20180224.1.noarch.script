@@ -1,0 +1,133 @@
+Script started on Thu Apr 16 19:51:23 2020
+makefile:138: update target 'autotools-dev_20180224.1.dsc' due to: autotools-dev_20180224.1.cygport
+cygport --32 autotools-dev_20180224.1.cygport download && touch -r autotools-dev_20180224.1.dsc autotools-dev_20180224.1.cygport
+makefile:141: update target 'autotools-dev_20180224.1.noarch' due to: autotools-dev_20180224.1.dsc
+cygport --32 autotools-dev_20180224.1.cygport all
+[1;39m>>> Preparing autotools-dev-20180224.1-1.noarch[0;0m
+>>> Unpacking source autotools-dev_20180224.1.dsc
+>>> Unpacking source autotools-dev_20180224.1.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Sat Feb 24 17:13:43 2018 CET using RSA key ID 8B158E98
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/autotools-dev_20180224.1.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting autotools-dev in autotools-dev
+[1mdpkg-source: [0m[32minfo[0m: unpacking autotools-dev_20180224.1.tar.xz
+>>> Preparing working source directory
+[1;39m>>> Compiling autotools-dev-20180224.1-1.noarch[0;0m
+dpkg-buildpackage: info: source package autotools-dev
+dpkg-buildpackage: info: source version 20180224.1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Henrique de Moraes Holschuh <hmh@debian.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+make[1]: Entering directory '/mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev'
+debian/rules:17: target 'clean' does not exist
+dh_testdir
+dh_testroot
+rm -f debian/dh_autotools-dev_updateconfig.1 debian/dh_autotools-dev_restoreconfig.1
+rm -f build-stamp
+dh_clean
+make[1]: Leaving directory '/mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev'
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building autotools-dev in autotools-dev_20180224.1.tar.xz
+dpkg-source: info: building autotools-dev in autotools-dev_20180224.1.dsc
+ debian/rules binary
+make[1]: Entering directory '/mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev'
+debian/rules:11: target 'build-stamp' does not exist
+dh_testdir
+pod2man -c Debhelper debian/dh_autotools-dev_updateconfig  debian/dh_autotools-dev_updateconfig.1
+pod2man -c Debhelper debian/dh_autotools-dev_restoreconfig debian/dh_autotools-dev_restoreconfig.1
+touch build-stamp
+debian/rules:24: update target 'install' due to: build
+dh_testdir
+dh_testroot
+dh_prep
+dh_installdirs
+install config.guess config.sub /mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev/debian/autotools-dev/usr/share/misc
+install debian/dh_autotools-dev_updateconfig debian/dh_autotools-dev_restoreconfig /mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev/debian/autotools-dev/usr/bin
+install debian/autotools_dev.pm /mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev/debian/autotools-dev/usr/share/perl5/Debian/Debhelper/Sequence
+debian/rules:41: update target 'binary-indep' due to: build-indep install
+dh_testdir
+dh_testroot
+dh_installdocs
+dh_installexamples
+dh_installman
+man: unrecognized option '--version'
+Try 'man --help' or 'man --usage' for more information.
+dh_installchangelogs ChangeLog
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package 'autotools-dev' in '../autotools-dev_20180224.1_all.deb'.
+make[1]: Leaving directory '/mnt/autotools-dev-20180224.1-1.noarch/build/autotools-dev'
+ dpkg-genbuildinfo
+dpkg-genbuildinfo: warning: cannot open /var/lib/dpkg/status
+readline() on closed filehandle $status_fh at /usr/bin/dpkg-genbuildinfo line 96.
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+ dpkg-genchanges  >../autotools-dev_20180224.1_i386.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --auto-commit --after-build .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+[1;39m>>> Installing autotools-dev-20180224.1-1.noarch[0;0m
+Fixing symlinks:
+Compressing man pages:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;39m>>> Packaging autotools-dev-20180224.1-1.noarch[0;0m
+>>> Creating binary package(s)
+>>> autotools-dev-20180224.1-1.tar.xz
+usr/
+usr/share/
+usr/share/misc/
+usr/share/misc/config.sub
+usr/share/misc/config.guess
+usr/share/doc/
+usr/share/doc/autotools-dev/
+usr/share/doc/autotools-dev/changelog.gz
+usr/share/doc/autotools-dev/TODO
+usr/share/doc/autotools-dev/upstream.mail.template
+usr/share/doc/autotools-dev/README.Debian.gz
+usr/share/doc/autotools-dev/copyright
+usr/share/doc/autotools-dev/NEWS.Debian.gz
+usr/share/doc/autotools-dev/changelog.Debian.gz
+usr/share/man/
+usr/share/man/man1/
+usr/share/man/man1/dh_autotools-dev_updateconfig.1.gz
+usr/share/man/man1/dh_autotools-dev_restoreconfig.1.gz
+usr/share/perl5/
+usr/share/perl5/Debian/
+usr/share/perl5/Debian/Debhelper/
+usr/share/perl5/Debian/Debhelper/Sequence/
+usr/share/perl5/Debian/Debhelper/Sequence/autotools_dev.pm
+usr/bin/
+usr/bin/dh_autotools-dev_updateconfig
+usr/bin/dh_autotools-dev_restoreconfig
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+autotools-dev-20180224.1-1.src/
+autotools-dev-20180224.1-1.src/autotools-dev_20180224.1.cygport
+autotools-dev-20180224.1-1.src/autotools-dev_20180224.1.tar.xz
+autotools-dev-20180224.1-1.src/autotools-dev_20180224.1.dsc
+
+>>> autotools-dev requires: bash perl_base 
+
+Script done on Thu Apr 16 19:53:22 2020

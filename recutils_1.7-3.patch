@@ -1,0 +1,262 @@
+From 11287fb68a8251bf9493504e9209b4e93f23d633 Mon Sep 17 00:00:00 2001
+From: Firstname Lastname <furrymcgee@users.noreply.github.com>
+Date: Thu, 23 Apr 2020 18:46:05 +0200
+Subject: [PATCH] index on (no branch): 9711326 Preparing Debian Package 1.7-3
+
+---
+ bash/Makefile.am          |  3 +--
+ bash/readrec.c            | 46 +++++++++++++++++++++++++++------------
+ bash/testrec.c            | 20 +++++++++++++++--
+ configure.ac              | 11 ++++++++++
+ debian/librec-dev.install |  3 +--
+ debian/librec1.install    |  2 +-
+ debian/recutils.install   |  2 +-
+ debian/rules              |  6 -----
+ lib/Makefile.am           |  2 +-
+ src/Makefile.am           |  3 +--
+ 10 files changed, 67 insertions(+), 31 deletions(-)
+
+diff --git recutils/bash/Makefile.am recutils/bash/Makefile.am
+index 03346d7..92992b8 100644
+--- recutils/bash/Makefile.am
++++ recutils/bash/Makefile.am
+@@ -23,13 +23,12 @@ COMMON_CPPFLAGS = -I$(top_srcdir)/src -DHAVE_CONFIG_H \
+ 
+ lib_LTLIBRARIES = readrec.la testrec.la
+ 
++AM_LDFLAGS = -module $(AC_LDFLAGS)
+ AM_CPPFLAGS = $(COMMON_CPPFLAGS)
+ 
+-readrec_la_LDFLAGS = -module
+ readrec_la_LIBADD = $(top_builddir)/src/librec.la
+ readrec_la_SOURCES = readrec.c
+ 
+-testrec_la_LDFLAGS = -module
+ testrec_la_LIBADD = $(top_builddir)/src/librec.la
+ testrec_la_SOURCES = testrec.c
+ 
+diff --git recutils/bash/readrec.c recutils/bash/readrec.c
+index f29458d..c79bb00 100644
+--- recutils/bash/readrec.c
++++ recutils/bash/readrec.c
+@@ -23,7 +23,8 @@
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  */
+ 
+-#include <bash/config.h>
++#include <config.h>
++#include <dlfcn.h>
+ #include <unistd.h>
+ 
+ #include <stdio.h>
+@@ -32,7 +33,10 @@
+ #include "builtins.h"
+ #include "shell.h"
+ #include "common.h"
+-#include "builtins/bashgetopt.h"
++#include "bashgetopt.h"
++
++int readrec_builtin_load (/* char * */) { return true; }
++int readrec_builtin_unload (/* char * */) { }
+ 
+ /* The function implementing the builtin.  It uses internal_getopt to
+    parse options.  It is the same as getopt(3), but it takes a pointer
+@@ -51,22 +55,34 @@ readrec_builtin (WORD_LIST *list)
+   rec_parser_t parser;
+   rec_record_t record;
+ 
+-  no_options (list);
++  void * lib;
++  SHELL_VAR * (*bind_array_variable) (char *, arrayind_t, char *, int);
++  SHELL_VAR * (*bind_variable) (const char *, char *, int);
++  char * (*dequote_string) (char *);
++  int (*no_options) (WORD_LIST *);
++  void (*xfree) (void *);
++
++  if (
++    ! (lib = dlopen(NULL, RTLD_NOW)) ||
++    ! (bind_array_variable = dlsym(lib, "bind_array_variable")) ||
++    ! (bind_variable = dlsym(lib, "bind_variable")) ||
++    ! (dequote_string = dlsym(lib, "dequote_string")) ||
++    ! (no_options = dlsym(lib, "no_options")) ||
++    ! (xfree = dlsym(lib, "xfree"))
++  )
++    return printf("readrec: %s\n", dlerror()), dlclose(lib), EXECUTION_FAILURE; 
++
++  if ( no_options (list) != 0 )
++    return dlclose(lib), EX_BADUSAGE;
+ 
+   /* Create a librec parser to operate on the standard input and try
+      to read a record.  If there is a parse error then report it and
+      fail.  */
+ 
+-  parser = rec_parser_new (stdin, "stdin");
+-  if (!parser)
+-    return EXECUTION_FAILURE;
+-
+-  if (!rec_parse_record (parser, &record))
+-    {
+-      return EXECUTION_FAILURE;
+-    }
+-
+-  {
++  if (
++    (parser = rec_parser_new (stdin, "stdin")) &&
++    rec_parse_record (parser, &record)
++  ) {
+     size_t record_str_size = 0;
+     char *record_str = NULL;
+     char *record_str_dequoted = NULL;
+@@ -123,8 +139,10 @@ readrec_builtin (WORD_LIST *list)
+       rec_mset_iterator_free (&iter);
+     }
+   }
++  else
++    return dlclose(lib), EXECUTION_FAILURE;
+ 
+-  return EXECUTION_SUCCESS;
++  return dlclose(lib), EXECUTION_SUCCESS;
+ }
+ 
+ /* An array of strings forming the `long' documentation for the builtin,
+diff --git recutils/bash/testrec.c recutils/bash/testrec.c
+index f7f329a..64af229 100644
+--- recutils/bash/testrec.c
++++ recutils/bash/testrec.c
+@@ -23,7 +23,8 @@
+  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  */
+ 
+-#include <bash/config.h>
++#include <config.h>
++#include <dlfcn.h>
+ #include <unistd.h>
+ 
+ #include <stdio.h>
+@@ -32,7 +33,10 @@
+ #include "builtins.h"
+ #include "shell.h"
+ #include "common.h"
+-#include "builtins/bashgetopt.h"
++#include "bashgetopt.h"
++
++int testrec_builtin_load (/* char * */) { return true; }
++int testrec_builtin_unload (/* char * */) { }
+ 
+ /* The function implementing the builtin.  It uses internal_getopt to
+    parse options.  It is the same as getopt(3), but it takes a pointer
+@@ -54,6 +58,18 @@ testrec_builtin (WORD_LIST *list)
+   rec_record_t record;
+   rec_parser_t parser;
+   char *record_str, *sex_str;
++  void * lib;
++  char ** (*make_builtin_argv) (WORD_LIST *, int *);
++  SHELL_VAR * (*find_variable) (const char *);
++  char * (*get_variable_value) (SHELL_VAR *);
++
++  if (
++    ! (lib = dlopen(NULL, RTLD_NOW)) ||
++    ! (make_builtin_argv = dlsym(lib, "bind_array_variable")) ||
++    ! (find_variable = dlsym(lib, "find_variable")) ||
++    ! (get_variable_value = dlsym(lib, "get_variable_value"))
++  )
++    return printf("readrec: %s\n", dlerror()), EXECUTION_FAILURE;
+ 
+   /* Get arguments and verify them.  */
+ 
+diff --git recutils/configure.ac recutils/configure.ac
+index b31039f..8bd6f5a 100644
+--- recutils/configure.ac
++++ recutils/configure.ac
+@@ -52,6 +52,17 @@ dnl System
+ AC_CANONICAL_HOST
+ canonical=$host
+ 
++if test "$host_os" = cygwin
++then
++  dnl The dlopen() function is in the C library for *BSD and in
++  dnl libdl on GLIBC-based systems
++  AC_SEARCH_LIBS([dlopen], [dl dld], [ ], [
++    AC_MSG_ERROR([unable to find the dlopen() function])
++  ])
++  AC_LDFLAGS="-no-undefined -shared -module"
++  AC_SUBST([AC_LDFLAGS])
++fi
++
+ gl_INIT
+ 
+ # GNU help2man creates man pages from --help output; in many cases, this
+diff --git recutils/debian/librec-dev.install recutils/debian/librec-dev.install
+index a3c8f6c..f366aa5 100644
+--- recutils/debian/librec-dev.install
++++ recutils/debian/librec-dev.install
+@@ -1,3 +1,2 @@
+ usr/include/*
+-usr/lib/*/lib*.a
+-usr/lib/*/lib*.so
++usr/lib/*/*
+diff --git recutils/debian/librec1.install recutils/debian/librec1.install
+index 3ddde58..0700f5f 100644
+--- recutils/debian/librec1.install
++++ recutils/debian/librec1.install
+@@ -1 +1 @@
+-usr/lib/*/lib*.so.*
++usr/lib/*/*
+diff --git recutils/debian/recutils.install recutils/debian/recutils.install
+index 19388b7..edc6155 100644
+--- recutils/debian/recutils.install
++++ recutils/debian/recutils.install
+@@ -4,4 +4,4 @@ usr/share/locale/*
+ usr/share/man/man1/*
+ usr/share/recutils/*
+ usr/share/emacs/*
+-usr/lib/*/readrec.so usr/lib/recutils/bash-builtins
++usr/lib/*/* usr/lib/recutils/bash-builtins
+diff --git recutils/debian/rules recutils/debian/rules
+index 6266e18..fbf5511 100755
+--- recutils/debian/rules
++++ recutils/debian/rules
+@@ -12,12 +12,6 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+ override_dh_auto_clean:
+ 	[ ! -f Makefile ] || make clean
+ 
+-override_dh_install:
+-	chrpath -d debian/tmp/usr/bin/* debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/*.so.[0-9].*
+-	mv debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/readrec.so.0.0.0 \
+-		debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/readrec.so
+-	dh_install
+-
+ override_dh_makeshlibs:
+ 	dh_makeshlibs -Xreadrec.so
+ 
+diff --git recutils/lib/Makefile.am recutils/lib/Makefile.am
+index 1025964..17fb706 100644
+--- recutils/lib/Makefile.am
++++ recutils/lib/Makefile.am
+@@ -47,7 +47,7 @@ librecutils_la_SOURCES =
+ librecutils_la_LIBADD = $(gl_LTLIBOBJS)
+ librecutils_la_DEPENDENCIES = $(gl_LTLIBOBJS)
+ EXTRA_librecutils_la_SOURCES =
+-librecutils_la_LDFLAGS = $(AM_LDFLAGS)
++librecutils_la_LDFLAGS = $(AC_LDFLAGS)
+ librecutils_la_LDFLAGS += -no-undefined
+ librecutils_la_LDFLAGS += $(FLOOR_LIBM)
+ librecutils_la_LDFLAGS += $(LIB_ACL)
+diff --git recutils/src/Makefile.am recutils/src/Makefile.am
+index 0161bc8..638be2f 100644
+--- recutils/src/Makefile.am
++++ recutils/src/Makefile.am
+@@ -59,9 +59,8 @@ if USE_COVERAGE
+   AM_CFLAGS += -fprofile-arcs -ftest-coverage
+ endif
+ 
+-AM_LDFLAGS = -no-undefined
+ AM_CPPFLAGS = -I$(top_srcdir)/lib -DLOCALEDIR=\"$(localedir)\"
+-librec_la_LDFLAGS = -version-info 1:0:0
++AM_LDFLAGS = -version-info 1:0:0 -no-undefined $(AC_LDFLAGS)
+ librec_la_LIBADD = $(top_builddir)/lib/librecutils.la \
+                    $(LIB_CLOCK_GETTIME)
+ 
+-- 
+2.20.1
+

@@ -1,14 +1,14 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="recutils"
-VERSION="1.7-3"
+NAME="bash"
+VERSION="5.0-4"
 RELEASE=1
-CATEGORY="database"
-SUMMARY="text-based databases called recfiles"
+CATEGORY="shells"
+SUMMARY="GNU Bourne Again SHell"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7-3.dsc http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7.orig.tar.gz http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7.orig.tar.gz.asc http://ftp.debian.org/debian/pool/main/r/recutils/recutils_1.7-3.debian.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/b/bash/bash_5.0-4.dsc http://ftp.debian.org/debian/pool/main/b/bash/bash_5.0.orig.tar.xz http://ftp.debian.org/debian/pool/main/b/bash/bash_5.0-4.debian.tar.xz"
 SRC_DIR="."
-PATCH_URI="recutils_1.7-3.patch"
+PATCH_URI=""
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
@@ -19,9 +19,9 @@ DEBFULLNAME="Firstname Lastname"
 ARCH="i686"
 
 # Build dependencies only
-DEPEND=""
+DEPEND="texlive-latex-base ghostscript texlive-fonts-recommended man2html-base"
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="libc6 libgcrypt20 libgpg-error0 libreadline7 librec1"
+REQUIRES="base-files debianutils"
 
 inherit dpkg
