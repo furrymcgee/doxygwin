@@ -29,6 +29,7 @@ check_prog_req dh
 
 src_unpack_hook(){
 	rm -f "${NAME}-${VERSION}/configure"
+	find -name Makefile.in -delete
 }
 
 src_patch_hook(){
