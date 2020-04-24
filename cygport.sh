@@ -36,8 +36,8 @@ bash
 
 	$(
 		cat Sources |
-		sed s/^\\\(Binary:\ \[\[:alnum:\]+-\]*\\\).*/\\\1/ |
-		sed /^Binary:\ $1$/,/^$/\!d |
+		sed s/Binary:.*\ $1.*/Binary:\ $1/ |
+		sed /^Binary:\ $1/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
 		sed -z /Extra-Source/d |
 		sed s/\\\x00//
