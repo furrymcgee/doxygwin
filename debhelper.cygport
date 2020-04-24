@@ -1,14 +1,14 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="doc-base"
-VERSION="0.10.8"
+NAME="debhelper"
+VERSION="12.1.1"
 RELEASE=1
-CATEGORY="doc"
-SUMMARY="utilities to manage online documentation"
+CATEGORY="devel"
+SUMMARY="helper programs for debian/rules"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.dsc http://ftp.debian.org/debian/pool/main/d/doc-base/doc-base_0.10.8.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/debhelper/debhelper_12.1.1.dsc http://ftp.debian.org/debian/pool/main/d/debhelper/debhelper_12.1.1.tar.xz"
 SRC_DIR="."
-PATCH_URI="doc-base_0.10.8.patch"
+PATCH_URI="debhelper.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
@@ -19,9 +19,9 @@ DEBFULLNAME="Firstname Lastname"
 ARCH="noarch"
 
 # Build dependencies only
-DEPEND="docbook-xml docbook-xsl libxml2-utils xsltproc lynx libuuid-perl libyaml-tiny-perl po4a"
+DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="libuuid-perl libyaml-tiny-perl"
+REQUIRES="autotools-dev dh-autoreconf dh-strip-nondeterminism dpkg dpkg-dev dwz file libdpkg-perl man-db po-debconf perl"
 
 inherit dpkg

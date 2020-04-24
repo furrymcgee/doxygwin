@@ -1,14 +1,14 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="dh-autoreconf"
-VERSION="19"
+NAME="dctrl-tools"
+VERSION="2.24-3"
 RELEASE=1
-CATEGORY="devel"
-SUMMARY="debhelper add-on to call autoreconf and clean up after the build"
+CATEGORY="utils"
+SUMMARY="Command-line tools to process Debian package information"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/dh-autoreconf/dh-autoreconf_19.dsc http://ftp.debian.org/debian/pool/main/d/dh-autoreconf/dh-autoreconf_19.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/d/dctrl-tools/dctrl-tools_2.24-3.dsc http://ftp.debian.org/debian/pool/main/d/dctrl-tools/dctrl-tools_2.24.orig.tar.gz http://ftp.debian.org/debian/pool/main/d/dctrl-tools/dctrl-tools_2.24-3.debian.tar.xz"
 SRC_DIR="."
-PATCH_URI="dh-autoreconf_19.patch"
+PATCH_URI="dctrl-tools.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
@@ -16,12 +16,12 @@ DEBFULLNAME="Firstname Lastname"
 
 # this package contains no compiled Cygwin binaries
 # REMOVE THE FOLLOWING LINE for packages which are to be compiled for each arch
-ARCH="noarch"
+ARCH="i686"
 
 # Build dependencies only
 DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES="perl debhelper autoconf automake autopoint libtool"
+REQUIRES="libc6"
 
 inherit dpkg

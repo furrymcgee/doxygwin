@@ -1,14 +1,14 @@
 # THIS IS A GENERATED CYGPORT FILE 
-NAME="dwww"
-VERSION="1.13.4+nmu3"
+NAME="base-files"
+VERSION="10.3+deb10u3"
 RELEASE=1
-CATEGORY="doc"
-SUMMARY="Read all on-line documentation with a WWW browser"
+CATEGORY="admin"
+SUMMARY="Debian base system miscellaneous files"
 DESCRIPTION=""
 HOMEPAGE="http://sourceware.org/cygwinports/"
-SRC_URI="http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.dsc http://ftp.debian.org/debian/pool/main/d/dwww/dwww_1.13.4+nmu3.tar.xz"
+SRC_URI="http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.dsc http://ftp.debian.org/debian/pool/main/b/base-files/base-files_10.3+deb10u3.tar.xz"
 SRC_DIR="."
-PATCH_URI="dwww_1.13.4+nmu3.patch"
+PATCH_URI="base-files.patch"
 DEBEMAIL="user@example.com"
 DEBFULLNAME="Firstname Lastname"
 # DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
@@ -22,6 +22,6 @@ ARCH="i686"
 DEPEND=""
 
 # runtime deps to go in setup.hint, and note the escaped newline
-REQUIRES=" debianutils doc-base file libfile-ncopy-perl libmime-types-perl man-db mime-support ucf  perl libc6"
+REQUIRES=""
 
 inherit dpkg
