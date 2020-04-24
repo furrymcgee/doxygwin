@@ -1,35 +1,25 @@
-.DEFAULT_GOAL = install
+.DEFAULT_GOAL = x86
 
-TARGETS= \
-	automake_1.16.1.noarch \
-	autotools-dev_20180224.1.noarch \
-	base-files_10.3+deb10u3.i686 \
-	calm_20160730.noarch \
-	cygport_0.22.0.noarch \
-	dctrl-tools_2.24-3.i686 \
-	debconf_1.5.71.noarch \
-	debhelper_12.1.1.noarch \
-	dh-autoreconf_19.noarch \
-	dh-exec_0.23.1.i686 \
-	dh-python_3.20190308.noarch \
-	doc-base_0.10.8.noarch \
-	docx2txt_1.4-1.noarch \
-	dpkg_1.19.7.i686 \
-	dwww_1.13.4+nmu3.i686 \
-	intltool-debian_0.35.0+20060710.5.noarch \
-	libfile-stripnondeterminism-perl_1.1.2-1.noarch \
-	po-debconf_1.0.21.noarch \
-	publib_0.40-3.i686 \
-	recutils_1.7-3.i686 \
-	sensible-utils_0.0.12.noarch \
-	swish++_6.1.5-5.i686 \
-	tar_1.30+dfsg-6.i686 \
+NOARCH= \
+	calm.cygport \
+	debconf.cygport \
+	doc-base.cygport \
+	sensible-utils.cygport \
+	strip-nondeterminism.cygport \
+
+I686= \
+	dh-exec.cygport \
+	dpkg.cygport \
+	publib-dev.cygport \
+	recutils.cygport \
+	swish++.cygport \
+
 
 ETC = /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
-.PHONY: $(.DEFAULT_GOAL) $(TARGETS) $(ETC) clean
+.PHONY: $(ETC) clean
 
-$(.DEFAULT_GOAL): $(ETC)
+install: $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
@@ -128,20 +118,30 @@ Packages:
 	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
 	gunzip > $@
 
+%.dsc:
+	cygport --32 $(word 1, $(subst _, , $@)).cygport download
+
+%.i686 %.noarch:
+	$(MAKE) $(word 1, $(subst _, , $@)).cygport
+	$(MAKE) $(word 1, $(subst _, , $@))_$(word 2, $(subst _, , $@)).dsc
+	grep -H ^PATCH_URI $(word 1, $(subst _, , $@)).cygport | \
+	cut -d= -f2 | \
+	xargs | \
+	xargs -L1 -r $(MAKE)
+	cygport --32 $(word 1, $(subst _, , $@)).cygport all
+	
 %.cygport: Packages Sources
-	cat Sources | grep-dctrl -n -s Package \
-	-F Package $(word 1, $(subst _, , $*)) -a \
-	-F Version $(word 2, $(subst _, , $*)) | \
-	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
+	cat Packages | \
+	grep-dctrl -n -s Package -F Package $(basename $@) | \
+	xargs sh cygport.sh > $@ || \
+	{ rm $@ && exit 1 ; }
 
-%.dsc: %.cygport
-	cygport --32 $*.cygport download && touch -r $@ $<
+$(.DEFAULT_GOAL): $(I686) $(NOARCH)
+	$(MAKE) $^
+	grep -H ^NAME\\\|^VERSION\\\|RELEASE\\\|^ARCH $^ | \
+	cut -d= -f2 | \
+	paste - - - - | \
+	xargs -r -L4 printf %s_%s_%s.%s\\\n | \
+	xargs -r $(MAKE)
 
-$(filter %.noarch,$(TARGETS)): %.noarch: %.dsc
-	cygport --32 $*.cygport all
 
-$(filter %.i686,$(TARGETS)): %.i686: %.dsc
-	cygport --32 $*.cygport all
-
-%.i686 %.noarch: %.dsc
-	cygport --32 $*.cygport all
