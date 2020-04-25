@@ -1,0 +1,1458 @@
+Script started on Fri Apr 24 15:32:24 2020
+cygport --32 debconf_1.5.71.cygport all
+]0;/tmp
+[32mAdministrator@- [33m/tmp[0m
+$ cygport --32 debconf_1.5.71.cygport all
+WARNING: The debconf source package is case sensitive! See also https://cygwin.com/cygwin-ug-net/using-specialnames.html#pathnames-casesensitive
+[1;39m>>> Preparing debconf-1.5.71-1.noarch[0;0m
+>>> Unpacking source debconf_1.5.71.dsc
+>>> Unpacking source debconf_1.5.71.tar.xz
+gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
+gpgv: Signature made Tue Feb 26 10:30:45 2019 CET using RSA key ID 7D86500B
+gpgv: Can't check signature: public key not found
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /tmp/debconf_1.5.71.dsc
+[1mdpkg-source: [0m[32minfo[0m: extracting debconf in debconf
+[1mdpkg-source: [0m[32minfo[0m: unpacking debconf_1.5.71.tar.xz
+[1;32m*** Info:[0;0m applying patch debconf_1.5.71.patch:
+patching file debconf/Makefile
+patching file debconf/debian/rules
+>>> Preparing working source directory
+[1;33m*** Warning:[0;0m Some build dependencies are not installed.
+[1;33m*** Warning:[0;0m This package may end up missing features, or not build at all.
+[1;33m*** Warning:[0;0m Consider installing these packages first before continuing:
+[1;33m*** Warning:[0;0m     libintl-perl 
+[1;39m>>> Compiling debconf-1.5.71-1.noarch[0;0m
+dpkg-buildpackage: info: source package debconf
+dpkg-buildpackage: info: source version 1.5.71
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Colin Watson <cjwatson@debian.org>
+dpkg-architecture: warning: default GNU system type i686-linux-gnu for Debian arch i386 does not match specified GNU system type i686-pc-cygwin
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture i386
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+ debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j1 clean
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+find . \( -name \*~ -o -name \*.pyc -o -name \*.pyo \) | xargs rm -f
+rm -rf __pycache__
+make -C doc clean
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/doc'
+cd man && po4a --rm-translations po4a/po4a.cfg
+rm -f man/po4a/po/*~
+rm -f hierarchy.txt
+rm -rf man/gen
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/doc'
+make -C po clean
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+rm -f pt.mo it.mo el.mo ne.mo zh_TW.mo hu.mo sk.mo zh_CN.mo km.mo nl.mo tl.mo bg.mo ar.mo sv.mo uk.mo ro.mo gl.mo bs.mo he.mo cs.mo sl.mo bn.mo eu.mo th.mo pt_BR.mo es.mo fi.mo dz.mo pl.mo mr.mo ast.mo eo.mo id.mo ru.mo ca.mo da.mo vi.mo fr.mo tr.mo ko.mo ja.mo nn.mo pa.mo de.mo ku.mo nb.mo debconf.pot.new messages messages.mo
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/debconf.substvars debian/debconf-i18n.substvars debian/debconf-doc.substvars debian/debconf-utils.substvars debian/python-debconf.substvars debian/python3-debconf.substvars debian/files
+	rm -fr -- debian/debconf/ debian/tmp/ debian/debconf-i18n/ debian/debconf-doc/ debian/debconf-utils/ debian/python-debconf/ debian/python3-debconf/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+ dpkg-source --auto-commit -b .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building debconf in debconf_1.5.71.tar.xz
+dpkg-source: info: building debconf in debconf_1.5.71.dsc
+ debian/rules binary
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   dh_auto_build
+	make -j1
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+make -C doc
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/doc'
+cd man && po4a po4a/po4a.cfg
+Discard debconf-apt-progress.da.1.pod (32 of 42 strings; only 76.19% translated; need 80%).
+Discard debconf-escape.da.1.pod (7 of 10 strings; only 70% translated; need 80%).
+Discard debconf-communicate.da.1.pod (13 of 17 strings; only 76.47% translated; need 80%).
+Discard debconf-copydb.da.1.pod (12 of 32 strings; only 37.5% translated; need 80%).
+Discard debconf-getlang.da.1.pod (14 of 23 strings; only 60.86% translated; need 80%).
+Discard debconf-loadtemplate.da.1.pod (8 of 12 strings; only 66.66% translated; need 80%).
+Discard debconf-mergetemplate.da.1.pod (7 of 19 strings; only 36.84% translated; need 80%).
+Discard debconf-set-selections.da.1.pod (9 of 25 strings; only 36% translated; need 80%).
+Discard debconf-show.da.1.pod (6 of 17 strings; only 35.29% translated; need 80%).
+Discard dpkg-reconfigure.da.8.pod (14 of 28 strings; only 50% translated; need 80%).
+Discard debconf.conf.da.5 (34 of 171 strings; only 19.88% translated; need 80%).
+Discard confmodule.da.3 (5 of 14 strings; only 35.71% translated; need 80%).
+Discard debconf.da.7 (26 of 117 strings; only 22.22% translated; need 80%).
+Discard debconf-devel.da.7 (75 of 239 strings; only 31.38% translated; need 80%).
+Discard debconf.pt_BR.1.pod (10 of 27 strings; only 37.03% translated; need 80%).
+Discard Debconf::Client::ConfModule.pt_BR.3.pod (5 of 18 strings; only 27.77% translated; need 80%).
+Discard debconf-apt-progress.pt_BR.1.pod (5 of 42 strings; only 11.9% translated; need 80%).
+Discard debconf-escape.pt_BR.1.pod (5 of 10 strings; only 50% translated; need 80%).
+Discard debconf-copydb.pt_BR.1.pod (25 of 32 strings; only 78.12% translated; need 80%).
+Discard debconf-get-selections.pt_BR.1.pod (4 of 9 strings; only 44.44% translated; need 80%).
+Discard debconf-mergetemplate.pt_BR.1.pod (11 of 19 strings; only 57.89% translated; need 80%).
+Discard debconf-set-selections.pt_BR.1.pod (8 of 25 strings; only 32% translated; need 80%).
+Discard debconf-show.pt_BR.1.pod (6 of 17 strings; only 35.29% translated; need 80%).
+Discard dpkg-reconfigure.pt_BR.8.pod (17 of 28 strings; only 60.71% translated; need 80%).
+Discard debconf.conf.pt_BR.5 (123 of 171 strings; only 71.92% translated; need 80%).
+Discard debconf.pt_BR.7 (59 of 117 strings; only 50.42% translated; need 80%).
+Discard debconf-devel.pt_BR.7 (15 of 239 strings; only 6.27% translated; need 80%).
+for pod in man/*.pod; do \
+	perl -pi -e '/^=encoding/ and $seen = 1; if (not $seen and /^=head1/) { print "=encoding UTF-8\n\n"; $seen = 1; }' $pod; \
+done
+install -d man/gen
+for num in 1 3 8; do \
+	find man -maxdepth 1 -type f -name "*.$num.pod" -printf '%P\n' | \
+		xargs -i sh -c "cd man ; pod2man -c Debconf -r '' --utf8 --section=$num {} > gen/\`basename {} .pod\`"; \
+done
+pod2man -c Debconf -r '' --utf8 --section=3 ../Debconf/Client/ConfModule.pm \
+	> man/gen/Debconf::Client::ConfModule.3pm
+find .. -maxdepth 1 -perm /100 -type f \( -name debconf -or -name 'debconf-*' \) -printf '%P\n' | \
+	xargs -i sh -c "cd .. ; pod2man -c Debconf -r '' --utf8 --section=1 {} > doc/man/gen/{}.1"
+find .. -maxdepth 1 -perm /100 -type f -name 'dpkg-*' -printf '%P\n' | \
+	xargs -i sh -c "cd .. ; pod2man -c Debconf -r '' --utf8 --section=8 {} > doc/man/gen/{}.8"
+./graph.pl `find .. -name \*.pm` > hierarchy.txt
+Negative repeat count does nothing at ./graph.pl line 50.
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/doc'
+make -C po
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+Rebuilding the pot file
+TZ=UTC xgettext ../Debconf/AutoSelect.pm ../Debconf/Base.pm ../Debconf/Client/ConfModule.pm ../Debconf/ConfModule.pm ../Debconf/Config.pm ../Debconf/Db.pm ../Debconf/DbDriver.pm ../Debconf/DbDriver/Backup.pm ../Debconf/DbDriver/Cache.pm ../Debconf/DbDriver/Copy.pm ../Debconf/DbDriver/Debug.pm ../Debconf/DbDriver/DirTree.pm ../Debconf/DbDriver/Directory.pm ../Debconf/DbDriver/File.pm ../Debconf/DbDriver/LDAP.pm ../Debconf/DbDriver/PackageDir.pm ../Debconf/DbDriver/Pipe.pm ../Debconf/DbDriver/Stack.pm ../Debconf/Element.pm ../Debconf/Element/Dialog/Boolean.pm ../Debconf/Element/Dialog/Error.pm ../Debconf/Element/Dialog/Multiselect.pm ../Debconf/Element/Dialog/Note.pm ../Debconf/Element/Dialog/Password.pm ../Debconf/Element/Dialog/Progress.pm ../Debconf/Element/Dialog/Select.pm ../Debconf/Element/Dialog/String.pm ../Debconf/Element/Dialog/Text.pm ../Debconf/Element/Editor/Boolean.pm ../Debconf/Element/Editor/Error.pm ../Debconf/Element/Editor/Multiselect.pm ../Debconf/Element/Editor/Note.pm ../Debconf/Element/Editor/Password.pm ../Debconf/Element/Editor/Progress.pm ../Debconf/Element/Editor/Select.pm ../Debconf/Element/Editor/String.pm ../Debconf/Element/Editor/Text.pm ../Debconf/Element/Gnome.pm ../Debconf/Element/Gnome/Boolean.pm ../Debconf/Element/Gnome/Error.pm ../Debconf/Element/Gnome/Multiselect.pm ../Debconf/Element/Gnome/Note.pm ../Debconf/Element/Gnome/Password.pm ../Debconf/Element/Gnome/Progress.pm ../Debconf/Element/Gnome/Select.pm ../Debconf/Element/Gnome/String.pm ../Debconf/Element/Gnome/Text.pm ../Debconf/Element/Multiselect.pm ../Debconf/Element/Noninteractive.pm ../Debconf/Element/Noninteractive/Boolean.pm ../Debconf/Element/Noninteractive/Error.pm ../Debconf/Element/Noninteractive/Multiselect.pm ../Debconf/Element/Noninteractive/Note.pm ../Debconf/Element/Noninteractive/Password.pm ../Debconf/Element/Noninteractive/Progress.pm ../Debconf/Element/Noninteractive/Select.pm ../Debconf/Element/Noninteractive/String.pm ../Debconf/Element/Noninteractive/Text.pm ../Debconf/Element/Select.pm ../Debconf/Element/Teletype/Boolean.pm ../Debconf/Element/Teletype/Error.pm ../Debconf/Element/Teletype/Multiselect.pm ../Debconf/Element/Teletype/Note.pm ../Debconf/Element/Teletype/Password.pm ../Debconf/Element/Teletype/Progress.pm ../Debconf/Element/Teletype/Select.pm ../Debconf/Element/Teletype/String.pm ../Debconf/Element/Teletype/Text.pm ../Debconf/Element/Web/Boolean.pm ../Debconf/Element/Web/Error.pm ../Debconf/Element/Web/Multiselect.pm ../Debconf/Element/Web/Note.pm ../Debconf/Element/Web/Password.pm ../Debconf/Element/Web/Progress.pm ../Debconf/Element/Web/Select.pm ../Debconf/Element/Web/String.pm ../Debconf/Element/Web/Text.pm ../Debconf/Encoding.pm ../Debconf/Format.pm ../Debconf/Format/822.pm ../Debconf/FrontEnd.pm ../Debconf/FrontEnd/Dialog.pm ../Debconf/FrontEnd/Editor.pm ../Debconf/FrontEnd/Gnome.pm ../Debconf/FrontEnd/Kde.pm ../Debconf/FrontEnd/Noninteractive.pm ../Debconf/FrontEnd/Passthrough.pm ../Debconf/FrontEnd/Readline.pm ../Debconf/FrontEnd/ScreenSize.pm ../Debconf/FrontEnd/Teletype.pm ../Debconf/FrontEnd/Text.pm ../Debconf/FrontEnd/Web.pm ../Debconf/Gettext.pm ../Debconf/Iterator.pm ../Debconf/Log.pm ../Debconf/Path.pm ../Debconf/Priority.pm ../Debconf/Question.pm ../Debconf/Template.pm ../Debconf/Template/Transient.pm ../Debconf/TmpFile.pm ../dpkg-* ../debconf-* ../debconf -o debconf.pot.new -Lperl
+if [ -f debconf.pot ]; then \
+	./remove-potcdate.pl < debconf.pot > debconf.1po && \
+	./remove-potcdate.pl < debconf.pot.new > debconf.2po && \
+	if cmp debconf.1po debconf.2po >/dev/null 2>&1; then \
+		rm -f debconf.1po debconf.2po debconf.pot.new; \
+	else \
+		rm -f debconf.1po debconf.2po && \
+		mv debconf.pot.new debconf.pot; \
+	fi; \
+else \
+	mv debconf.pot.new debconf.pot; \
+fi
+Merging debconf.pot and pt.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o pt.mo pt.po
+Merging debconf.pot and it.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o it.mo it.po
+Merging debconf.pot and el.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o el.mo el.po
+Merging debconf.pot and ne.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o ne.mo ne.po
+Merging debconf.pot and zh_TW.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o zh_TW.mo zh_TW.po
+Merging debconf.pot and hu.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o hu.mo hu.po
+Merging debconf.pot and sk.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o sk.mo sk.po
+Merging debconf.pot and zh_CN.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o zh_CN.mo zh_CN.po
+Merging debconf.pot and km.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o km.mo km.po
+Merging debconf.pot and nl.po........ done.
+74 translated messages, 2 fuzzy translations, 1 untranslated message.
+msgfmt -o nl.mo nl.po
+Merging debconf.pot and tl.po........ done.
+67 translated messages, 6 fuzzy translations, 4 untranslated messages.
+msgfmt -o tl.mo tl.po
+Merging debconf.pot and bg.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o bg.mo bg.po
+Merging debconf.pot and ar.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o ar.mo ar.po
+Merging debconf.pot and sv.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o sv.mo sv.po
+Merging debconf.pot and uk.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o uk.mo uk.po
+Merging debconf.pot and ro.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o ro.mo ro.po
+Merging debconf.pot and gl.po........ done.
+67 translated messages, 6 fuzzy translations, 4 untranslated messages.
+msgfmt -o gl.mo gl.po
+Merging debconf.pot and bs.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o bs.mo bs.po
+Merging debconf.pot and he.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o he.mo he.po
+Merging debconf.pot and cs.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o cs.mo cs.po
+Merging debconf.pot and sl.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o sl.mo sl.po
+Merging debconf.pot and bn.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o bn.mo bn.po
+Merging debconf.pot and eu.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o eu.mo eu.po
+Merging debconf.pot and th.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o th.mo th.po
+Merging debconf.pot and pt_BR.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o pt_BR.mo pt_BR.po
+Merging debconf.pot and es.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o es.mo es.po
+Merging debconf.pot and fi.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o fi.mo fi.po
+Merging debconf.pot and dz.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o dz.mo dz.po
+Merging debconf.pot and pl.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o pl.mo pl.po
+Merging debconf.pot and mr.po........ done.
+67 translated messages, 6 fuzzy translations, 4 untranslated messages.
+msgfmt -o mr.mo mr.po
+Merging debconf.pot and ast.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o ast.mo ast.po
+Merging debconf.pot and eo.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o eo.mo eo.po
+Merging debconf.pot and id.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o id.mo id.po
+Merging debconf.pot and ru.po........ done.
+77 translated messages.
+msgfmt -o ru.mo ru.po
+Merging debconf.pot and ca.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o ca.mo ca.po
+Merging debconf.pot and da.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o da.mo da.po
+Merging debconf.pot and vi.po........ done.
+69 translated messages, 4 fuzzy translations, 4 untranslated messages.
+msgfmt -o vi.mo vi.po
+Merging debconf.pot and fr.po........ done.
+77 translated messages.
+msgfmt -o fr.mo fr.po
+Merging debconf.pot and tr.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o tr.mo tr.po
+Merging debconf.pot and ko.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o ko.mo ko.po
+Merging debconf.pot and ja.po........ done.
+70 translated messages, 3 fuzzy translations, 4 untranslated messages.
+msgfmt -o ja.mo ja.po
+Merging debconf.pot and nn.po........ done.
+59 translated messages, 6 fuzzy translations, 12 untranslated messages.
+msgfmt -o nn.mo nn.po
+Merging debconf.pot and pa.po........ done.
+67 translated messages, 5 fuzzy translations, 5 untranslated messages.
+msgfmt -o pa.mo pa.po
+Merging debconf.pot and de.po........ done.
+77 translated messages.
+msgfmt -o de.mo de.po
+Merging debconf.pot and ku.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o ku.mo ku.po
+Merging debconf.pot and nb.po........ done.
+68 translated messages, 5 fuzzy translations, 4 untranslated messages.
+msgfmt -o nb.mo nb.po
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+	rm -f -- debian/debconf.substvars debian/debconf-i18n.substvars debian/debconf-doc.substvars debian/debconf-utils.substvars debian/python-debconf.substvars debian/python3-debconf.substvars
+	rm -fr -- debian/.debhelper/generated/debconf/ debian/debconf/ debian/tmp/ debian/.debhelper/generated/debconf-i18n/ debian/debconf-i18n/ debian/.debhelper/generated/debconf-doc/ debian/debconf-doc/ debian/.debhelper/generated/debconf-utils/ debian/debconf-utils/ debian/.debhelper/generated/python-debconf/ debian/python-debconf/ debian/.debhelper/generated/python3-debconf/ debian/python3-debconf/
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make prefix=`pwd`/debian/debconf-utils install-utils
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+install -d /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf-utils/bin
+find . -maxdepth 1 -perm /100 -type f -name 'debconf-*' | grep -v debconf-set-selections | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-communicate | grep -v debconf-apt-progress | grep -v debconf-escape | \
+	xargs -i install {} /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf-utils/bin
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make prefix=`pwd`/debian/debconf-i18n install-i18n
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make -C po install
+make[3]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+for file in ko.mo sv.mo nl.mo de.mo ar.mo ja.mo id.mo he.mo pl.mo eu.mo fi.mo nn.mo mr.mo zh_TW.mo nb.mo tl.mo it.mo ne.mo ca.mo da.mo vi.mo tr.mo ru.mo pa.mo bn.mo hu.mo sk.mo el.mo zh_CN.mo sl.mo uk.mo gl.mo bs.mo th.mo ro.mo cs.mo pt_BR.mo es.mo ast.mo pt.mo km.mo fr.mo eo.mo dz.mo bg.mo ku.mo; do \
+	lang=`echo $file | sed 's/\.mo//'`; \
+	install -d /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf-i18n/usr/share/locale/$lang/LC_MESSAGES/; \
+	install -m 0644 $file /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf-i18n/usr/share/locale/$lang/LC_MESSAGES/debconf.mo; \
+done
+make[3]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf/po'
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make prefix=`pwd`/debian/python-debconf install-python2
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+set -e; for dir in /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/python-debconf/lib/python2.7/dist-packages; do \
+	install -d $dir; \
+	install -m 0644 debconf.py $dir/; \
+done
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make prefix=`pwd`/debian/python3-debconf install-python3
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+install -d /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/python3-debconf/lib/python3/dist-packages
+install -m 0644 debconf.py /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/python3-debconf/lib/python3/dist-packages/
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+/usr/bin/make prefix=`pwd`/debian/debconf install-rest
+make[2]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+install -d /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/etc \
+	/tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/var/cache/debconf \
+	/tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf \
+	/tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/pixmaps
+install -m 0644 debconf.conf /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/etc/
+install -m 0644 debian-logo.png /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/pixmaps/
+# This one is the ultimate backup copy.
+grep -v '^#' debconf.conf > /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/debconf.conf
+# Make module directories.
+find Debconf -type d |grep -v CVS | \
+	xargs -i install -d ///usr/lib/perl5/vendor_perl/5.22/{}
+# Install modules.
+find Debconf -type f -name '*.pm' |grep -v CVS | \
+	xargs -i install -m 0644 {} ///usr/lib/perl5/vendor_perl/5.22/{}
+# Special case for back-compatability.
+install -d ///usr/lib/perl5/vendor_perl/5.22/Debian/DebConf/Client
+cp Debconf/Client/ConfModule.stub \
+	///usr/lib/perl5/vendor_perl/5.22/Debian/DebConf/Client/ConfModule.pm
+# Other libs and helper stuff.
+install -m 0644 confmodule.sh confmodule /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/
+install frontend /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/
+install -m 0755 transition_db.pl fix_db.pl /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/
+# Install essential programs.
+install -d /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/sbin /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/bin
+find . -maxdepth 1 -perm /100 -type f -name 'dpkg-*' | \
+	xargs -i install {} /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/sbin
+find . -maxdepth 1 -perm /100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb -or -name debconf-communicate -or -name debconf-set-selections -or -name debconf-apt-progress -or -name debconf-escape | \
+	xargs -i install {} /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/bin
+# Now strip all pod documentation from all .pm files and scripts.
+find ///usr/lib/perl5/vendor_perl/5.22/ /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/sbin		\
+     /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/frontend 			\
+     /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/share/debconf/*.pl /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf/bin		\
+     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
+     -name 'debconf-*' -or -name 'frontend' | 			\
+     grep -v Client/ConfModule | xargs -L1 perl -i.bak -ne ' print $_."# This file was preprocessed, do not edit!\n" if m:^#!/usr/bin/perl:; $cutting=1 if /^=/; $cutting="" if /^=cut/; next if /use lib/; next if $cutting || /^(=|\s*#)/; print $_ '
+find /tmp/debconf-1.5.71-1.noarch/build/debconf/debian/debconf -name '*.bak' | xargs rm -f
+make[2]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_install
+	install -d debian/debconf/etc/apt/apt.conf.d/
+	cp --reflink=auto -a ./debian/tmp/dh-exec.LB1mvhED/etc/apt/apt.conf.d/70debconf debian/debconf/etc/apt/apt.conf.d//
+	install -d debian/debconf/usr/share/bash-completion/completions/
+	cp --reflink=auto -a ./debian/tmp/dh-exec.LB1mvhED/usr/share/bash-completion/completions/debconf debian/debconf/usr/share/bash-completion/completions//
+	install -d debian/.debhelper/generated/debconf
+	install -d debian/.debhelper/generated/debconf-i18n
+	install -d debian/.debhelper/generated/debconf-doc
+	install -d debian/.debhelper/generated/debconf-utils
+	install -d debian/.debhelper/generated/python-debconf
+	install -d debian/.debhelper/generated/python3-debconf
+   debian/rules override_dh_installdocs
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+dh_installdocs -Ndebconf-doc --link-doc=debconf
+	install -d debian/debconf/usr/share/doc/debconf
+	install -p -m0644 debian/README.Debian debian/debconf/usr/share/doc/debconf/README.Debian
+	install -p -m0644 debian/copyright debian/debconf/usr/share/doc/debconf/copyright
+	install -d debian/debconf-i18n/usr/share/doc
+	ln -s debconf debian/debconf-i18n/usr/share/doc/debconf-i18n
+	(grep -a -s -v misc:Depends debian/debconf-i18n.substvars; echo "misc:Depends=debconf (= \${binary:Version})") > debian/debconf-i18n.substvars.new
+	mv debian/debconf-i18n.substvars.new debian/debconf-i18n.substvars
+	install -d debian/debconf-utils/usr/share/doc
+	ln -s debconf debian/debconf-utils/usr/share/doc/debconf-utils
+	(grep -a -s -v misc:Depends debian/debconf-utils.substvars; echo "misc:Depends=debconf (= \${binary:Version})") > debian/debconf-utils.substvars.new
+	mv debian/debconf-utils.substvars.new debian/debconf-utils.substvars
+	install -d debian/python-debconf/usr/share/doc
+	ln -s debconf debian/python-debconf/usr/share/doc/python-debconf
+	(grep -a -s -v misc:Depends debian/python-debconf.substvars; echo "misc:Depends=debconf (= \${binary:Version})") > debian/python-debconf.substvars.new
+	mv debian/python-debconf.substvars.new debian/python-debconf.substvars
+	install -d debian/python3-debconf/usr/share/doc
+	ln -s debconf debian/python3-debconf/usr/share/doc/python3-debconf
+	(grep -a -s -v misc:Depends debian/python3-debconf.substvars; echo "misc:Depends=debconf (= \${binary:Version})") > debian/python3-debconf.substvars.new
+	mv debian/python3-debconf.substvars.new debian/python3-debconf.substvars
+dh_installdocs -pdebconf-doc
+	install -d debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/namespace.txt debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/hierarchy.txt debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/namespace.txt debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/passthrough.txt debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/TODO debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/CREDITS debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/passthrough.txt debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/README debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/README.LDAP debian/debconf-doc/usr/share/doc/debconf-doc
+	cp --reflink=auto -a ./doc/debconf.schema debian/debconf-doc/usr/share/doc/debconf-doc
+	chmod -R u\+rw,go=rX debian/debconf-doc/usr/share/doc
+	install -p -m0644 debian/copyright debian/debconf-doc/usr/share/doc/debconf-doc/copyright
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	rm -f debian/debconf-doc.debhelper.log debian/debconf-i18n.debhelper.log debian/debconf-utils.debhelper.log debian/debconf.debhelper.log debian/python-debconf.debhelper.log debian/python3-debconf.debhelper.log
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+# Changelog reduction hack for debconf. Only include top 100 entries.
+perl -ne '$c++ if /^debconf /; last if $c > 100 ; print $_' \
+	< debian/changelog > debian/debconf.changelog
+dh_installchangelogs
+	install -p -m0644 debian/debconf.changelog debian/debconf/usr/share/doc/debconf/changelog
+	install -p -m0644 debian/NEWS debian/debconf/usr/share/doc/debconf/NEWS.Debian
+	install -p -m0644 debian/changelog debian/debconf-doc/usr/share/doc/debconf-doc/changelog
+	install -p -m0644 debian/NEWS debian/debconf-doc/usr/share/doc/debconf-doc/NEWS.Debian
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_installexamples
+	install -d debian/debconf-doc/usr/share/doc/debconf-doc/examples
+	cp --reflink=auto -a ./samples/demo debian/debconf-doc/usr/share/doc/debconf-doc/examples
+	cp --reflink=auto -a ./samples/demo.templates debian/debconf-doc/usr/share/doc/debconf-doc/examples
+	cp --reflink=auto -a ./samples/tutorial debian/debconf-doc/usr/share/doc/debconf-doc/examples
+	cp --reflink=auto -a ./samples/tutorial-back debian/debconf-doc/usr/share/doc/debconf-doc/examples
+	cp --reflink=auto -a ./samples/tutorial.templates debian/debconf-doc/usr/share/doc/debconf-doc/examples
+   dh_installman
+	install -d debian/debconf/usr/share/man/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.8 debian/debconf/usr/share/man/man8/dpkg-preconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.8 debian/debconf/usr/share/man/man8/dpkg-reconfigure.8
+	install -d debian/debconf/usr/share/man/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.1 debian/debconf/usr/share/man/man1/debconf-show.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.1 debian/debconf/usr/share/man/man1/debconf-copydb.1
+	install -p -m0644 ./doc/man/gen/debconf.1 debian/debconf/usr/share/man/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.1 debian/debconf/usr/share/man/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.1 debian/debconf/usr/share/man/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.1 debian/debconf/usr/share/man/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.1 debian/debconf/usr/share/man/man1/debconf-escape.1
+	install -d debian/debconf-i18n/usr/share/man/da/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.da.8 debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/de/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.de.8 debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/es/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.es.8 debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/fr/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.fr.8 debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/pt/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.pt.8 debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/pt_BR/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.pt_BR.8 debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/ru/man8/
+	install -p -m0644 ./doc/man/gen/dpkg-preconfigure.ru.8 debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.de.8 debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.es.8 debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.fr.8 debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.pt.8 debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8
+	install -p -m0644 ./doc/man/gen/dpkg-reconfigure.ru.8 debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8
+	install -d debian/debconf-i18n/usr/share/man/de/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1
+	install -d debian/debconf-i18n/usr/share/man/es/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1
+	install -d debian/debconf-i18n/usr/share/man/fr/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1
+	install -d debian/debconf-i18n/usr/share/man/pt/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1
+	install -d debian/debconf-i18n/usr/share/man/ru/man1/
+	install -p -m0644 ./doc/man/gen/debconf-show.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1
+	install -p -m0644 ./doc/man/gen/debconf-copydb.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1
+	install -d debian/debconf-i18n/usr/share/man/da/man1/
+	install -p -m0644 ./doc/man/gen/debconf.da.1 debian/debconf-i18n/usr/share/man/da/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1
+	install -d debian/debconf-i18n/usr/share/man/pt_BR/man1/
+	install -p -m0644 ./doc/man/gen/debconf-communicate.pt_BR.1 debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-communicate.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-set-selections.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-apt-progress.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.de.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.es.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.fr.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.pt.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1
+	install -p -m0644 ./doc/man/gen/debconf-escape.ru.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1
+	install -d debian/debconf-doc/usr/share/man/man3/
+	install -p -m0644 ./doc/man/confmodule.3 debian/debconf-doc/usr/share/man/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/de/man3/
+	install -p -m0644 ./doc/man/confmodule.de.3 debian/debconf-doc/usr/share/man/de/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/es/man3/
+	install -p -m0644 ./doc/man/confmodule.es.3 debian/debconf-doc/usr/share/man/es/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/fr/man3/
+	install -p -m0644 ./doc/man/confmodule.fr.3 debian/debconf-doc/usr/share/man/fr/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/pt/man3/
+	install -p -m0644 ./doc/man/confmodule.pt.3 debian/debconf-doc/usr/share/man/pt/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/pt_BR/man3/
+	install -p -m0644 ./doc/man/confmodule.pt_BR.3 debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/ru/man3/
+	install -p -m0644 ./doc/man/confmodule.ru.3 debian/debconf-doc/usr/share/man/ru/man3/confmodule.3
+	install -d debian/debconf-doc/usr/share/man/man7/
+	install -p -m0644 ./doc/man/debconf-devel.7 debian/debconf-doc/usr/share/man/man7/debconf-devel.7
+	install -d debian/debconf-doc/usr/share/man/de/man7/
+	install -p -m0644 ./doc/man/debconf-devel.de.7 debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7
+	install -d debian/debconf-doc/usr/share/man/es/man7/
+	install -p -m0644 ./doc/man/debconf-devel.es.7 debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7
+	install -d debian/debconf-doc/usr/share/man/fr/man7/
+	install -p -m0644 ./doc/man/debconf-devel.fr.7 debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7
+	install -d debian/debconf-doc/usr/share/man/pt/man7/
+	install -p -m0644 ./doc/man/debconf-devel.pt.7 debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7
+	install -d debian/debconf-doc/usr/share/man/ru/man7/
+	install -p -m0644 ./doc/man/debconf-devel.ru.7 debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7
+	install -p -m0644 ./doc/man/debconf.7 debian/debconf-doc/usr/share/man/man7/debconf.7
+	install -p -m0644 ./doc/man/debconf.de.7 debian/debconf-doc/usr/share/man/de/man7/debconf.7
+	install -p -m0644 ./doc/man/debconf.es.7 debian/debconf-doc/usr/share/man/es/man7/debconf.7
+	install -p -m0644 ./doc/man/debconf.fr.7 debian/debconf-doc/usr/share/man/fr/man7/debconf.7
+	install -p -m0644 ./doc/man/debconf.pt.7 debian/debconf-doc/usr/share/man/pt/man7/debconf.7
+	install -p -m0644 ./doc/man/debconf.ru.7 debian/debconf-doc/usr/share/man/ru/man7/debconf.7
+	install -d debian/debconf-doc/usr/share/man/man5/
+	install -p -m0644 ./doc/man/debconf.conf.5 debian/debconf-doc/usr/share/man/man5/debconf.conf.5
+	install -d debian/debconf-doc/usr/share/man/de/man5/
+	install -p -m0644 ./doc/man/debconf.conf.de.5 debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5
+	install -d debian/debconf-doc/usr/share/man/es/man5/
+	install -p -m0644 ./doc/man/debconf.conf.es.5 debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5
+	install -d debian/debconf-doc/usr/share/man/fr/man5/
+	install -p -m0644 ./doc/man/debconf.conf.fr.5 debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5
+	install -d debian/debconf-doc/usr/share/man/pt/man5/
+	install -p -m0644 ./doc/man/debconf.conf.pt.5 debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5
+	install -d debian/debconf-doc/usr/share/man/ru/man5/
+	install -p -m0644 ./doc/man/debconf.conf.ru.5 debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.3pm debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3
+	install -d debian/debconf-doc/usr/share/man/da/man3/
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.da.3 debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.de.3 debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.es.3 debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.fr.3 debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.pt.3 debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3
+	install -p -m0644 ./doc/man/gen/Debconf::Client::ConfModule.ru.3 debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3
+	install -d debian/debconf-utils/usr/share/man/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.1 debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/da/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.da.1 debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/de/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.de.1 debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/es/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.es.1 debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/fr/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.fr.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/pt/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.pt.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1
+	install -d debian/debconf-utils/usr/share/man/ru/man1/
+	install -p -m0644 ./doc/man/gen/debconf-get-selections.ru.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.1 debian/debconf-utils/usr/share/man/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.de.1 debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.es.1 debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.fr.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.pt.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1
+	install -d debian/debconf-utils/usr/share/man/pt_BR/man1/
+	install -p -m0644 ./doc/man/gen/debconf-getlang.pt_BR.1 debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-getlang.ru.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.de.1 debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.es.1 debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.fr.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.pt.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.pt_BR.1 debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-loadtemplate.ru.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.de.1 debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.es.1 debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.fr.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.pt.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1
+	install -p -m0644 ./doc/man/gen/debconf-mergetemplate.ru.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1
+man: unrecognized option '--version'
+Try 'man --help' or 'man --usage' for more information.
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-apt-progress.1 > debian/debconf/usr/share/man/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-apt-progress.1.dh-new debian/debconf/usr/share/man/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-communicate.1 > debian/debconf/usr/share/man/man1/debconf-communicate.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-communicate.1.dh-new debian/debconf/usr/share/man/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-copydb.1 > debian/debconf/usr/share/man/man1/debconf-copydb.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-copydb.1.dh-new debian/debconf/usr/share/man/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-escape.1 > debian/debconf/usr/share/man/man1/debconf-escape.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-escape.1.dh-new debian/debconf/usr/share/man/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-set-selections.1 > debian/debconf/usr/share/man/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-set-selections.1.dh-new debian/debconf/usr/share/man/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf-show.1 > debian/debconf/usr/share/man/man1/debconf-show.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf-show.1.dh-new debian/debconf/usr/share/man/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man1/debconf.1 > debian/debconf/usr/share/man/man1/debconf.1.dh-new
+	mv debian/debconf/usr/share/man/man1/debconf.1.dh-new debian/debconf/usr/share/man/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man8/dpkg-preconfigure.8 > debian/debconf/usr/share/man/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf/usr/share/man/man8/dpkg-preconfigure.8.dh-new debian/debconf/usr/share/man/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf/usr/share/man/man8/dpkg-reconfigure.8 > debian/debconf/usr/share/man/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf/usr/share/man/man8/dpkg-reconfigure.8.dh-new debian/debconf/usr/share/man/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/da/man1/debconf.1 > debian/debconf-i18n/usr/share/man/da/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/da/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/da/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man1/debconf.1 > debian/debconf-i18n/usr/share/man/de/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/de/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8 > debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8.dh-new debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man1/debconf.1 > debian/debconf-i18n/usr/share/man/es/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/es/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8 > debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8.dh-new debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man1/debconf.1 > debian/debconf-i18n/usr/share/man/fr/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/fr/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8 > debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8.dh-new debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man1/debconf.1 > debian/debconf-i18n/usr/share/man/pt/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/pt/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8 > debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8.dh-new debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man1/debconf.1 > debian/debconf-i18n/usr/share/man/ru/man1/debconf.1.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man1/debconf.1.dh-new debian/debconf-i18n/usr/share/man/ru/man1/debconf.1
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8 > debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8.dh-new debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8 > debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8.dh-new
+	mv debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8.dh-new debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/de/man3/confmodule.3 > debian/debconf-doc/usr/share/man/de/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/de/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/de/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/de/man7/debconf.7 > debian/debconf-doc/usr/share/man/de/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/de/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/de/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/es/man3/confmodule.3 > debian/debconf-doc/usr/share/man/es/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/es/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/es/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/es/man7/debconf.7 > debian/debconf-doc/usr/share/man/es/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/es/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/es/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/fr/man3/confmodule.3 > debian/debconf-doc/usr/share/man/fr/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/fr/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/fr/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/fr/man7/debconf.7 > debian/debconf-doc/usr/share/man/fr/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/fr/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/fr/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/man3/confmodule.3 > debian/debconf-doc/usr/share/man/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/man7/debconf.7 > debian/debconf-doc/usr/share/man/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt/man3/confmodule.3 > debian/debconf-doc/usr/share/man/pt/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/pt/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/pt/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt/man7/debconf.7 > debian/debconf-doc/usr/share/man/pt/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/pt/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/pt/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3 > debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/ru/man3/confmodule.3 > debian/debconf-doc/usr/share/man/ru/man3/confmodule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/ru/man3/confmodule.3.dh-new debian/debconf-doc/usr/share/man/ru/man3/confmodule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3 > debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3.dh-new
+	mv debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3.dh-new debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5 > debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5.dh-new
+	mv debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5.dh-new debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7 > debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7.dh-new
+	mv debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7.dh-new debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7
+	man -l --recode UTF-8 ./debian/debconf-doc/usr/share/man/ru/man7/debconf.7 > debian/debconf-doc/usr/share/man/ru/man7/debconf.7.dh-new
+	mv debian/debconf-doc/usr/share/man/ru/man7/debconf.7.dh-new debian/debconf-doc/usr/share/man/ru/man7/debconf.7
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1 > debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1.dh-new
+	mv debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1.dh-new debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1 > debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1.dh-new
+	mv debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1.dh-new debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1 > debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1.dh-new debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1
+	man -l --recode UTF-8 ./debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1 > debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1.dh-new
+	mv debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1.dh-new debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1
+	chmod 0644 -- debian/debconf/usr/share/man/man1/debconf-apt-progress.1 debian/debconf/usr/share/man/man1/debconf-communicate.1 debian/debconf/usr/share/man/man1/debconf-copydb.1 debian/debconf/usr/share/man/man1/debconf-escape.1 debian/debconf/usr/share/man/man1/debconf-set-selections.1 debian/debconf/usr/share/man/man1/debconf-show.1 debian/debconf/usr/share/man/man1/debconf.1 debian/debconf/usr/share/man/man8/dpkg-preconfigure.8 debian/debconf/usr/share/man/man8/dpkg-reconfigure.8 debian/debconf-i18n/usr/share/man/da/man1/debconf.1 debian/debconf-i18n/usr/share/man/da/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/de/man1/debconf-apt-progress.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-copydb.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-escape.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-set-selections.1 debian/debconf-i18n/usr/share/man/de/man1/debconf-show.1 debian/debconf-i18n/usr/share/man/de/man1/debconf.1 debian/debconf-i18n/usr/share/man/de/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/de/man8/dpkg-reconfigure.8 debian/debconf-i18n/usr/share/man/es/man1/debconf-apt-progress.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-copydb.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-escape.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-set-selections.1 debian/debconf-i18n/usr/share/man/es/man1/debconf-show.1 debian/debconf-i18n/usr/share/man/es/man1/debconf.1 debian/debconf-i18n/usr/share/man/es/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/es/man8/dpkg-reconfigure.8 debian/debconf-i18n/usr/share/man/fr/man1/debconf-apt-progress.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-copydb.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-escape.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-set-selections.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf-show.1 debian/debconf-i18n/usr/share/man/fr/man1/debconf.1 debian/debconf-i18n/usr/share/man/fr/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/fr/man8/dpkg-reconfigure.8 debian/debconf-i18n/usr/share/man/pt/man1/debconf-apt-progress.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-copydb.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-escape.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-set-selections.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf-show.1 debian/debconf-i18n/usr/share/man/pt/man1/debconf.1 debian/debconf-i18n/usr/share/man/pt/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/pt/man8/dpkg-reconfigure.8 debian/debconf-i18n/usr/share/man/pt_BR/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/pt_BR/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/ru/man1/debconf-apt-progress.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-communicate.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-copydb.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-escape.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-set-selections.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf-show.1 debian/debconf-i18n/usr/share/man/ru/man1/debconf.1 debian/debconf-i18n/usr/share/man/ru/man8/dpkg-preconfigure.8 debian/debconf-i18n/usr/share/man/ru/man8/dpkg-reconfigure.8 debian/debconf-doc/usr/share/man/da/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/de/man3/confmodule.3 debian/debconf-doc/usr/share/man/de/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/de/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/de/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/de/man7/debconf.7 debian/debconf-doc/usr/share/man/es/man3/confmodule.3 debian/debconf-doc/usr/share/man/es/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/es/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/es/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/es/man7/debconf.7 debian/debconf-doc/usr/share/man/fr/man3/confmodule.3 debian/debconf-doc/usr/share/man/fr/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/fr/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/fr/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/fr/man7/debconf.7 debian/debconf-doc/usr/share/man/man3/confmodule.3 debian/debconf-doc/usr/share/man/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/man7/debconf.7 debian/debconf-doc/usr/share/man/pt/man3/confmodule.3 debian/debconf-doc/usr/share/man/pt/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/pt/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/pt/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/pt/man7/debconf.7 debian/debconf-doc/usr/share/man/pt_BR/man3/confmodule.3 debian/debconf-doc/usr/share/man/ru/man3/confmodule.3 debian/debconf-doc/usr/share/man/ru/man3/Debconf::Client::ConfModule.3 debian/debconf-doc/usr/share/man/ru/man5/debconf.conf.5 debian/debconf-doc/usr/share/man/ru/man7/debconf-devel.7 debian/debconf-doc/usr/share/man/ru/man7/debconf.7 debian/debconf-utils/usr/share/man/da/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/de/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/de/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/de/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/de/man1/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/es/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/es/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/es/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/es/man1/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/fr/man1/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/man1/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/pt/man1/debconf-mergetemplate.1 debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/pt_BR/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-get-selections.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-getlang.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-loadtemplate.1 debian/debconf-utils/usr/share/man/ru/man1/debconf-mergetemplate.1
+	rm -f debian/debconf-doc.debhelper.log debian/debconf-i18n.debhelper.log debian/debconf-utils.debhelper.log debian/debconf.debhelper.log debian/python-debconf.debhelper.log debian/python3-debconf.debhelper.log
+   debian/rules override_dh_installdebconf
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+# Don't modify postrm, I purge differently than normal packages
+# using me
+dh_installdebconf -n
+	install -d debian/debconf/DEBIAN
+	sed s/\#DEBHELPER\#// debian/config > debian/debconf/DEBIAN/config
+	chmod 0755 -- debian/debconf/DEBIAN/config
+	po2debconf  debian/templates > debian/debconf/DEBIAN/templates
+	(grep -a -s -v misc:Depends debian/debconf.substvars; echo "misc:Depends=debconf (>= 0.5) | debconf-2.0") > debian/debconf.substvars.new
+	mv debian/debconf.substvars.new debian/debconf.substvars
+	install -d debian/debconf-i18n/DEBIAN
+	install -d debian/debconf-doc/DEBIAN
+	install -d debian/debconf-utils/DEBIAN
+	install -d debian/python-debconf/DEBIAN
+	install -d debian/python3-debconf/DEBIAN
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_lintian
+	install -d debian/debconf/usr/share/lintian/overrides
+	install -p -m0644 debian/debconf.lintian-overrides debian/debconf/usr/share/lintian/overrides/debconf
+   dh_perl
+	(grep -a -s -v perl:Depends debian/debconf.substvars; echo perl:Depends=perl:any) > debian/debconf.substvars.new
+	mv debian/debconf.substvars.new debian/debconf.substvars
+	(grep -a -s -v perl:Depends debian/debconf-utils.substvars; echo perl:Depends=perl:any) > debian/debconf-utils.substvars.new
+	mv debian/debconf-utils.substvars.new debian/debconf-utils.substvars
+   dh_link
+	rm -f debian/debconf/usr/share/bash-completion/completions/debconf-show
+	ln -s debconf debian/debconf/usr/share/bash-completion/completions/debconf-show
+	rm -f debian/debconf-i18n/usr/share/doc/debconf-i18n
+	ln -s debconf debian/debconf-i18n/usr/share/doc/debconf-i18n
+	rm -f debian/debconf-utils/usr/share/doc/debconf-utils
+	ln -s debconf debian/debconf-utils/usr/share/doc/debconf-utils
+	rm -f debian/python-debconf/usr/share/doc/python-debconf
+	ln -s debconf debian/python-debconf/usr/share/doc/python-debconf
+	rm -f debian/python3-debconf/usr/share/doc/python3-debconf
+	ln -s debconf debian/python3-debconf/usr/share/doc/python3-debconf
+   dh_strip_nondeterminism
+	Using 1551173435 as canonical time
+	Normalizing debian/debconf/share/pixmaps/debian-logo.png using File::StripNondeterminism::handlers::png
+	Using 1551173435 as canonical time
+	Normalizing debian/debconf-i18n/usr/share/locale/ar/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ast/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/bg/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/bn/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/bs/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ca/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/cs/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/da/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/de/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/dz/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/el/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/eo/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/es/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/eu/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/fi/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/fr/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/gl/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/he/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/hu/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/id/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/it/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ja/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/km/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ko/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ku/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/mr/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/nb/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ne/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/nl/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/nn/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/pa/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/pl/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/pt/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/pt_BR/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ro/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/ru/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/sk/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/sl/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/sv/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/th/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/tl/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/tr/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/uk/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/vi/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/zh_CN/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	Normalizing debian/debconf-i18n/usr/share/locale/zh_TW/LC_MESSAGES/debconf.mo using File::StripNondeterminism::handlers::gettext
+	rm -f debian/debconf-doc.debhelper.log debian/debconf-i18n.debhelper.log debian/debconf-utils.debhelper.log debian/debconf.debhelper.log debian/python-debconf.debhelper.log debian/python3-debconf.debhelper.log
+   debian/rules override_dh_compress
+make[1]: Entering directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+dh_compress -X demo.templates -X tutorial.templates
+	cd debian/debconf
+	chmod a-x usr/share/doc/debconf/NEWS.Debian usr/share/doc/debconf/changelog usr/share/man/man1/debconf-apt-progress.1 usr/share/man/man1/debconf-communicate.1 usr/share/man/man1/debconf-copydb.1 usr/share/man/man1/debconf-escape.1 usr/share/man/man1/debconf-set-selections.1 usr/share/man/man1/debconf-show.1 usr/share/man/man1/debconf.1 usr/share/man/man8/dpkg-preconfigure.8 usr/share/man/man8/dpkg-reconfigure.8
+	gzip -9nf usr/share/doc/debconf/NEWS.Debian usr/share/doc/debconf/changelog usr/share/man/man1/debconf-apt-progress.1 usr/share/man/man1/debconf-communicate.1 usr/share/man/man1/debconf-copydb.1 usr/share/man/man1/debconf-escape.1 usr/share/man/man1/debconf-set-selections.1 usr/share/man/man1/debconf-show.1 usr/share/man/man1/debconf.1 usr/share/man/man8/dpkg-preconfigure.8 usr/share/man/man8/dpkg-reconfigure.8
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	cd debian/debconf-i18n
+	chmod a-x usr/share/man/da/man1/debconf.1 usr/share/man/da/man8/dpkg-preconfigure.8 usr/share/man/de/man1/debconf-apt-progress.1 usr/share/man/de/man1/debconf-communicate.1 usr/share/man/de/man1/debconf-copydb.1 usr/share/man/de/man1/debconf-escape.1 usr/share/man/de/man1/debconf-set-selections.1 usr/share/man/de/man1/debconf-show.1 usr/share/man/de/man1/debconf.1 usr/share/man/de/man8/dpkg-preconfigure.8 usr/share/man/de/man8/dpkg-reconfigure.8 usr/share/man/es/man1/debconf-apt-progress.1 usr/share/man/es/man1/debconf-communicate.1 usr/share/man/es/man1/debconf-copydb.1 usr/share/man/es/man1/debconf-escape.1 usr/share/man/es/man1/debconf-set-selections.1 usr/share/man/es/man1/debconf-show.1 usr/share/man/es/man1/debconf.1 usr/share/man/es/man8/dpkg-preconfigure.8 usr/share/man/es/man8/dpkg-reconfigure.8 usr/share/man/fr/man1/debconf-apt-progress.1 usr/share/man/fr/man1/debconf-communicate.1 usr/share/man/fr/man1/debconf-copydb.1 usr/share/man/fr/man1/debconf-escape.1 usr/share/man/fr/man1/debconf-set-selections.1 usr/share/man/fr/man1/debconf-show.1 usr/share/man/fr/man1/debconf.1 usr/share/man/fr/man8/dpkg-preconfigure.8 usr/share/man/fr/man8/dpkg-reconfigure.8 usr/share/man/pt/man1/debconf-apt-progress.1 usr/share/man/pt/man1/debconf-communicate.1 usr/share/man/pt/man1/debconf-copydb.1 usr/share/man/pt/man1/debconf-escape.1 usr/share/man/pt/man1/debconf-set-selections.1 usr/share/man/pt/man1/debconf-show.1 usr/share/man/pt/man1/debconf.1 usr/share/man/pt/man8/dpkg-preconfigure.8 usr/share/man/pt/man8/dpkg-reconfigure.8 usr/share/man/pt_BR/man1/debconf-communicate.1 usr/share/man/pt_BR/man8/dpkg-preconfigure.8 usr/share/man/ru/man1/debconf-apt-progress.1 usr/share/man/ru/man1/debconf-communicate.1 usr/share/man/ru/man1/debconf-copydb.1 usr/share/man/ru/man1/debconf-escape.1 usr/share/man/ru/man1/debconf-set-selections.1 usr/share/man/ru/man1/debconf-show.1 usr/share/man/ru/man1/debconf.1 usr/share/man/ru/man8/dpkg-preconfigure.8 usr/share/man/ru/man8/dpkg-reconfigure.8
+	gzip -9nf usr/share/man/da/man1/debconf.1 usr/share/man/da/man8/dpkg-preconfigure.8 usr/share/man/de/man1/debconf-apt-progress.1 usr/share/man/de/man1/debconf-communicate.1 usr/share/man/de/man1/debconf-copydb.1 usr/share/man/de/man1/debconf-escape.1 usr/share/man/de/man1/debconf-set-selections.1 usr/share/man/de/man1/debconf-show.1 usr/share/man/de/man1/debconf.1 usr/share/man/de/man8/dpkg-preconfigure.8 usr/share/man/de/man8/dpkg-reconfigure.8 usr/share/man/es/man1/debconf-apt-progress.1 usr/share/man/es/man1/debconf-communicate.1 usr/share/man/es/man1/debconf-copydb.1 usr/share/man/es/man1/debconf-escape.1 usr/share/man/es/man1/debconf-set-selections.1 usr/share/man/es/man1/debconf-show.1 usr/share/man/es/man1/debconf.1 usr/share/man/es/man8/dpkg-preconfigure.8 usr/share/man/es/man8/dpkg-reconfigure.8 usr/share/man/fr/man1/debconf-apt-progress.1 usr/share/man/fr/man1/debconf-communicate.1 usr/share/man/fr/man1/debconf-copydb.1 usr/share/man/fr/man1/debconf-escape.1 usr/share/man/fr/man1/debconf-set-selections.1 usr/share/man/fr/man1/debconf-show.1 usr/share/man/fr/man1/debconf.1 usr/share/man/fr/man8/dpkg-preconfigure.8 usr/share/man/fr/man8/dpkg-reconfigure.8 usr/share/man/pt/man1/debconf-apt-progress.1 usr/share/man/pt/man1/debconf-communicate.1 usr/share/man/pt/man1/debconf-copydb.1 usr/share/man/pt/man1/debconf-escape.1 usr/share/man/pt/man1/debconf-set-selections.1 usr/share/man/pt/man1/debconf-show.1 usr/share/man/pt/man1/debconf.1 usr/share/man/pt/man8/dpkg-preconfigure.8 usr/share/man/pt/man8/dpkg-reconfigure.8 usr/share/man/pt_BR/man1/debconf-communicate.1 usr/share/man/pt_BR/man8/dpkg-preconfigure.8 usr/share/man/ru/man1/debconf-apt-progress.1 usr/share/man/ru/man1/debconf-communicate.1 usr/share/man/ru/man1/debconf-copydb.1 usr/share/man/ru/man1/debconf-escape.1 usr/share/man/ru/man1/debconf-set-selections.1 usr/share/man/ru/man1/debconf-show.1 usr/share/man/ru/man1/debconf.1 usr/share/man/ru/man8/dpkg-preconfigure.8 usr/share/man/ru/man8/dpkg-reconfigure.8
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	cd debian/debconf-doc
+	chmod a-x usr/share/doc/debconf-doc/NEWS.Debian usr/share/doc/debconf-doc/TODO usr/share/doc/debconf-doc/changelog usr/share/doc/debconf-doc/hierarchy.txt usr/share/doc/debconf-doc/passthrough.txt usr/share/man/da/man3/Debconf::Client::ConfModule.3 usr/share/man/de/man3/Debconf::Client::ConfModule.3 usr/share/man/de/man3/confmodule.3 usr/share/man/de/man5/debconf.conf.5 usr/share/man/de/man7/debconf-devel.7 usr/share/man/de/man7/debconf.7 usr/share/man/es/man3/Debconf::Client::ConfModule.3 usr/share/man/es/man3/confmodule.3 usr/share/man/es/man5/debconf.conf.5 usr/share/man/es/man7/debconf-devel.7 usr/share/man/es/man7/debconf.7 usr/share/man/fr/man3/Debconf::Client::ConfModule.3 usr/share/man/fr/man3/confmodule.3 usr/share/man/fr/man5/debconf.conf.5 usr/share/man/fr/man7/debconf-devel.7 usr/share/man/fr/man7/debconf.7 usr/share/man/man3/Debconf::Client::ConfModule.3 usr/share/man/man3/confmodule.3 usr/share/man/man5/debconf.conf.5 usr/share/man/man7/debconf-devel.7 usr/share/man/man7/debconf.7 usr/share/man/pt/man3/Debconf::Client::ConfModule.3 usr/share/man/pt/man3/confmodule.3 usr/share/man/pt/man5/debconf.conf.5 usr/share/man/pt/man7/debconf-devel.7 usr/share/man/pt/man7/debconf.7 usr/share/man/pt_BR/man3/confmodule.3 usr/share/man/ru/man3/Debconf::Client::ConfModule.3 usr/share/man/ru/man3/confmodule.3 usr/share/man/ru/man5/debconf.conf.5 usr/share/man/ru/man7/debconf-devel.7 usr/share/man/ru/man7/debconf.7
+	gzip -9nf usr/share/doc/debconf-doc/NEWS.Debian usr/share/doc/debconf-doc/TODO usr/share/doc/debconf-doc/changelog usr/share/doc/debconf-doc/hierarchy.txt usr/share/doc/debconf-doc/passthrough.txt usr/share/man/da/man3/Debconf::Client::ConfModule.3 usr/share/man/de/man3/Debconf::Client::ConfModule.3 usr/share/man/de/man3/confmodule.3 usr/share/man/de/man5/debconf.conf.5 usr/share/man/de/man7/debconf-devel.7 usr/share/man/de/man7/debconf.7 usr/share/man/es/man3/Debconf::Client::ConfModule.3 usr/share/man/es/man3/confmodule.3 usr/share/man/es/man5/debconf.conf.5 usr/share/man/es/man7/debconf-devel.7 usr/share/man/es/man7/debconf.7 usr/share/man/fr/man3/Debconf::Client::ConfModule.3 usr/share/man/fr/man3/confmodule.3 usr/share/man/fr/man5/debconf.conf.5 usr/share/man/fr/man7/debconf-devel.7 usr/share/man/fr/man7/debconf.7 usr/share/man/man3/Debconf::Client::ConfModule.3 usr/share/man/man3/confmodule.3 usr/share/man/man5/debconf.conf.5 usr/share/man/man7/debconf-devel.7 usr/share/man/man7/debconf.7 usr/share/man/pt/man3/Debconf::Client::ConfModule.3 usr/share/man/pt/man3/confmodule.3 usr/share/man/pt/man5/debconf.conf.5 usr/share/man/pt/man7/debconf-devel.7 usr/share/man/pt/man7/debconf.7 usr/share/man/pt_BR/man3/confmodule.3 usr/share/man/ru/man3/Debconf::Client::ConfModule.3 usr/share/man/ru/man3/confmodule.3 usr/share/man/ru/man5/debconf.conf.5 usr/share/man/ru/man7/debconf-devel.7 usr/share/man/ru/man7/debconf.7
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	cd debian/debconf-utils
+	chmod a-x usr/share/man/da/man1/debconf-get-selections.1 usr/share/man/de/man1/debconf-get-selections.1 usr/share/man/de/man1/debconf-getlang.1 usr/share/man/de/man1/debconf-loadtemplate.1 usr/share/man/de/man1/debconf-mergetemplate.1 usr/share/man/es/man1/debconf-get-selections.1 usr/share/man/es/man1/debconf-getlang.1 usr/share/man/es/man1/debconf-loadtemplate.1 usr/share/man/es/man1/debconf-mergetemplate.1 usr/share/man/fr/man1/debconf-get-selections.1 usr/share/man/fr/man1/debconf-getlang.1 usr/share/man/fr/man1/debconf-loadtemplate.1 usr/share/man/fr/man1/debconf-mergetemplate.1 usr/share/man/man1/debconf-get-selections.1 usr/share/man/man1/debconf-getlang.1 usr/share/man/man1/debconf-loadtemplate.1 usr/share/man/man1/debconf-mergetemplate.1 usr/share/man/pt/man1/debconf-get-selections.1 usr/share/man/pt/man1/debconf-getlang.1 usr/share/man/pt/man1/debconf-loadtemplate.1 usr/share/man/pt/man1/debconf-mergetemplate.1 usr/share/man/pt_BR/man1/debconf-getlang.1 usr/share/man/pt_BR/man1/debconf-loadtemplate.1 usr/share/man/ru/man1/debconf-get-selections.1 usr/share/man/ru/man1/debconf-getlang.1 usr/share/man/ru/man1/debconf-loadtemplate.1 usr/share/man/ru/man1/debconf-mergetemplate.1
+	gzip -9nf usr/share/man/da/man1/debconf-get-selections.1 usr/share/man/de/man1/debconf-get-selections.1 usr/share/man/de/man1/debconf-getlang.1 usr/share/man/de/man1/debconf-loadtemplate.1 usr/share/man/de/man1/debconf-mergetemplate.1 usr/share/man/es/man1/debconf-get-selections.1 usr/share/man/es/man1/debconf-getlang.1 usr/share/man/es/man1/debconf-loadtemplate.1 usr/share/man/es/man1/debconf-mergetemplate.1 usr/share/man/fr/man1/debconf-get-selections.1 usr/share/man/fr/man1/debconf-getlang.1 usr/share/man/fr/man1/debconf-loadtemplate.1 usr/share/man/fr/man1/debconf-mergetemplate.1 usr/share/man/man1/debconf-get-selections.1 usr/share/man/man1/debconf-getlang.1 usr/share/man/man1/debconf-loadtemplate.1 usr/share/man/man1/debconf-mergetemplate.1 usr/share/man/pt/man1/debconf-get-selections.1 usr/share/man/pt/man1/debconf-getlang.1 usr/share/man/pt/man1/debconf-loadtemplate.1 usr/share/man/pt/man1/debconf-mergetemplate.1 usr/share/man/pt_BR/man1/debconf-getlang.1 usr/share/man/pt_BR/man1/debconf-loadtemplate.1 usr/share/man/ru/man1/debconf-get-selections.1 usr/share/man/ru/man1/debconf-getlang.1 usr/share/man/ru/man1/debconf-loadtemplate.1 usr/share/man/ru/man1/debconf-mergetemplate.1
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	cd debian/python-debconf
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+	cd debian/python3-debconf
+	cd '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+make[1]: Leaving directory '/tmp/debconf-1.5.71-1.noarch/build/debconf'
+   dh_fixperms
+	find debian/debconf ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/debconf/usr/share/doc -type f -a -true -a ! -regex 'debian/debconf/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/debconf/usr/share/man debian/debconf/usr/share/lintian/overrides -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf/bin debian/debconf/sbin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/debconf-i18n ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/debconf-i18n/usr/share/doc -type f -a -true -a ! -regex 'debian/debconf-i18n/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-i18n/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/debconf-i18n/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-i18n -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-doc ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/debconf-doc/usr/share/doc -type f -a -true -a ! -regex 'debian/debconf-doc/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-doc/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/debconf-doc/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-doc -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-utils ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/debconf-utils/usr/share/doc -type f -a -true -a ! -regex 'debian/debconf-utils/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-utils/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/debconf-utils/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-utils -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debconf-utils/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/python-debconf ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/python-debconf/usr/share/doc -type f -a -true -a ! -regex 'debian/python-debconf/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python-debconf/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/python-debconf -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python3-debconf ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/python3-debconf/usr/share/doc -type f -a -true -a ! -regex 'debian/python3-debconf/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/python3-debconf/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/python3-debconf -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+   dh_missing
+   dh_installdeb
+	[META] Append autosnippet "maintscript-helper" to postinst [debian/debconf.postinst.debhelper]
+	[META] Append autosnippet "maintscript-helper" to preinst [debian/debconf.preinst.debhelper]
+	[META] Append autosnippet "maintscript-helper" to prerm [debian/debconf.prerm.debhelper]
+	[META] Append autosnippet "maintscript-helper" to postrm [debian/debconf.postrm.debhelper]
+	cp -f debian/postinst debian/debconf/DEBIAN/postinst
+	perl -p -i -e "s~#DEBHELPER#~qx{cat debian/debconf.postinst.debhelper}~eg" debian/debconf/DEBIAN/postinst
+	chmod 0755 -- debian/debconf/DEBIAN/postinst
+	cp -f debian/preinst debian/debconf/DEBIAN/preinst
+	perl -p -i -e "s~#DEBHELPER#~qx{cat debian/debconf.preinst.debhelper}~eg" debian/debconf/DEBIAN/preinst
+	chmod 0755 -- debian/debconf/DEBIAN/preinst
+	printf '#!/bin/sh\nset -e\n' > debian/debconf/DEBIAN/prerm
+	cat debian/debconf.prerm.debhelper >> debian/debconf/DEBIAN/prerm
+	chmod 0755 -- debian/debconf/DEBIAN/prerm
+	printf '#!/bin/sh\nset -e\n' > debian/debconf/DEBIAN/postrm
+	cat debian/debconf.postrm.debhelper >> debian/debconf/DEBIAN/postrm
+	chmod 0755 -- debian/debconf/DEBIAN/postrm
+	find debian/debconf/etc -type f -printf '/etc/%P
+' | LC_ALL=C sort >> debian/debconf/DEBIAN/conffiles
+	chmod 0644 -- debian/debconf/DEBIAN/conffiles
+	sed s/\#DEBHELPER\#// debian/debconf-utils.postinst > debian/debconf-utils/DEBIAN/postinst
+	chmod 0755 -- debian/debconf-utils/DEBIAN/postinst
+   dh_gencontrol
+	echo misc:Pre-Depends= >> debian/debconf.substvars
+	dpkg-gencontrol -pdebconf -ldebian/debconf.changelog -Tdebian/debconf.substvars -Pdebian/debconf
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+dpkg-gencontrol: warning: package debconf: substitution variable ${perl:Depends} unused, but is defined
+	chmod 0644 -- debian/debconf/DEBIAN/control
+	echo misc:Pre-Depends= >> debian/debconf-i18n.substvars
+	dpkg-gencontrol -pdebconf-i18n -ldebian/changelog -Tdebian/debconf-i18n.substvars -Pdebian/debconf-i18n
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/debconf-i18n/DEBIAN/control
+	echo misc:Depends= >> debian/debconf-doc.substvars
+	echo misc:Pre-Depends= >> debian/debconf-doc.substvars
+	dpkg-gencontrol -pdebconf-doc -ldebian/changelog -Tdebian/debconf-doc.substvars -Pdebian/debconf-doc
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/debconf-doc/DEBIAN/control
+	echo misc:Pre-Depends= >> debian/debconf-utils.substvars
+	dpkg-gencontrol -pdebconf-utils -ldebian/changelog -Tdebian/debconf-utils.substvars -Pdebian/debconf-utils
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+dpkg-gencontrol: warning: package debconf-utils: substitution variable ${perl:Depends} unused, but is defined
+	chmod 0644 -- debian/debconf-utils/DEBIAN/control
+	echo misc:Pre-Depends= >> debian/python-debconf.substvars
+	dpkg-gencontrol -ppython-debconf -ldebian/changelog -Tdebian/python-debconf.substvars -Pdebian/python-debconf
+dpkg-gencontrol: warning: Depends field of package python-debconf: substitution variable ${python:Depends} used, but is not defined
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/python-debconf/DEBIAN/control
+	echo misc:Pre-Depends= >> debian/python3-debconf.substvars
+	dpkg-gencontrol -ppython3-debconf -ldebian/changelog -Tdebian/python3-debconf.substvars -Pdebian/python3-debconf
+dpkg-gencontrol: warning: Depends field of package python3-debconf: substitution variable ${python3:Depends} used, but is not defined
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/python3-debconf/DEBIAN/control
+   dh_md5sums
+	cd debian/debconf >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/debconf/DEBIAN/md5sums
+	cd debian/debconf-i18n >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/debconf-i18n/DEBIAN/md5sums
+	cd debian/debconf-doc >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/debconf-doc/DEBIAN/md5sums
+	cd debian/debconf-utils >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/debconf-utils/DEBIAN/md5sums
+	cd debian/python-debconf >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/python-debconf/DEBIAN/md5sums
+	cd debian/python3-debconf >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/python3-debconf/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --root-owner-group --build debian/debconf ..
+dpkg-deb: building package 'debconf' in '../debconf_1.5.71_all.deb'.
+	dpkg-deb --root-owner-group --build debian/debconf-i18n ..
+dpkg-deb: building package 'debconf-i18n' in '../debconf-i18n_1.5.71_all.deb'.
+	dpkg-deb --root-owner-group --build debian/debconf-doc ..
+dpkg-deb: building package 'debconf-doc' in '../debconf-doc_1.5.71_all.deb'.
+	dpkg-deb --root-owner-group --build debian/debconf-utils ..
+dpkg-deb: building package 'debconf-utils' in '../debconf-utils_1.5.71_all.deb'.
+	dpkg-deb --root-owner-group --build debian/python-debconf ..
+dpkg-deb: building package 'python-debconf' in '../python-debconf_1.5.71_all.deb'.
+	dpkg-deb --root-owner-group --build debian/python3-debconf ..
+dpkg-deb: building package 'python3-debconf' in '../python3-debconf_1.5.71_all.deb'.
+ dpkg-genbuildinfo
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+ dpkg-genchanges  >../debconf_1.5.71_i386.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --auto-commit --after-build .
+dpkg-source: warning: --auto-commit is not a valid option for Dpkg::Source::Package::V3::Native
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
+[1;39m>>> Installing debconf-1.5.71-1.noarch[0;0m
+Fixing symlinks:
+Compressing man pages:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;32m*** Info:[0;0m Removing empty directory: /var/cache/debconf
+[1;32m*** Info:[0;0m Removing empty directory: /var/cache
+[1;32m*** Info:[0;0m Removing empty directory: /var
+[1;39m>>> Packaging debconf-1.5.71-1.noarch[0;0m
+>>> Creating binary package(s)
+>>> debconf-1.5.71-1.tar.xz
+bin/
+bin/debconf
+bin/debconf-apt-progress
+bin/debconf-communicate
+bin/debconf-copydb
+bin/debconf-escape
+bin/debconf-get-selections
+bin/debconf-getlang
+bin/debconf-loadtemplate
+bin/debconf-mergetemplate
+bin/debconf-set-selections
+bin/debconf-show
+etc/
+etc/apt/
+etc/apt/apt.conf.d/
+etc/apt/apt.conf.d/70debconf
+etc/debconf.conf
+lib/
+lib/python2.7/
+lib/python2.7/dist-packages/
+lib/python2.7/dist-packages/debconf.py
+lib/python3/
+lib/python3/dist-packages/
+lib/python3/dist-packages/debconf.py
+sbin/
+sbin/dpkg-preconfigure
+sbin/dpkg-reconfigure
+share/
+share/debconf/
+share/debconf/confmodule
+share/debconf/confmodule.sh
+share/debconf/debconf.conf
+share/debconf/fix_db.pl
+share/debconf/frontend
+share/debconf/transition_db.pl
+share/pixmaps/
+share/pixmaps/debian-logo.png
+usr/
+usr/share/
+usr/share/bash-completion/
+usr/share/bash-completion/completions/
+usr/share/bash-completion/completions/debconf
+usr/share/bash-completion/completions/debconf-show
+usr/share/doc/
+usr/share/doc/debconf/
+usr/share/doc/debconf/changelog.gz
+usr/share/doc/debconf/copyright
+usr/share/doc/debconf/NEWS.Debian.gz
+usr/share/doc/debconf/README.Debian
+usr/share/doc/debconf-doc/
+usr/share/doc/debconf-doc/changelog.gz
+usr/share/doc/debconf-doc/copyright
+usr/share/doc/debconf-doc/CREDITS
+usr/share/doc/debconf-doc/debconf.schema
+usr/share/doc/debconf-doc/examples/
+usr/share/doc/debconf-doc/examples/demo
+usr/share/doc/debconf-doc/examples/demo.templates
+usr/share/doc/debconf-doc/examples/tutorial
+usr/share/doc/debconf-doc/examples/tutorial-back
+usr/share/doc/debconf-doc/examples/tutorial.templates
+usr/share/doc/debconf-doc/hierarchy.txt.gz
+usr/share/doc/debconf-doc/namespace.txt
+usr/share/doc/debconf-doc/NEWS.Debian.gz
+usr/share/doc/debconf-doc/passthrough.txt.gz
+usr/share/doc/debconf-doc/README
+usr/share/doc/debconf-doc/README.LDAP
+usr/share/doc/debconf-doc/TODO.gz
+usr/share/doc/debconf-i18n
+usr/share/doc/debconf-utils
+usr/share/doc/python-debconf
+usr/share/doc/python3-debconf
+usr/share/lintian/
+usr/share/lintian/overrides/
+usr/share/lintian/overrides/debconf
+usr/share/locale/
+usr/share/locale/ar/
+usr/share/locale/ar/LC_MESSAGES/
+usr/share/locale/ar/LC_MESSAGES/debconf.mo
+usr/share/locale/ast/
+usr/share/locale/ast/LC_MESSAGES/
+usr/share/locale/ast/LC_MESSAGES/debconf.mo
+usr/share/locale/bg/
+usr/share/locale/bg/LC_MESSAGES/
+usr/share/locale/bg/LC_MESSAGES/debconf.mo
+usr/share/locale/bn/
+usr/share/locale/bn/LC_MESSAGES/
+usr/share/locale/bn/LC_MESSAGES/debconf.mo
+usr/share/locale/bs/
+usr/share/locale/bs/LC_MESSAGES/
+usr/share/locale/bs/LC_MESSAGES/debconf.mo
+usr/share/locale/ca/
+usr/share/locale/ca/LC_MESSAGES/
+usr/share/locale/ca/LC_MESSAGES/debconf.mo
+usr/share/locale/cs/
+usr/share/locale/cs/LC_MESSAGES/
+usr/share/locale/cs/LC_MESSAGES/debconf.mo
+usr/share/locale/da/
+usr/share/locale/da/LC_MESSAGES/
+usr/share/locale/da/LC_MESSAGES/debconf.mo
+usr/share/locale/de/
+usr/share/locale/de/LC_MESSAGES/
+usr/share/locale/de/LC_MESSAGES/debconf.mo
+usr/share/locale/dz/
+usr/share/locale/dz/LC_MESSAGES/
+usr/share/locale/dz/LC_MESSAGES/debconf.mo
+usr/share/locale/el/
+usr/share/locale/el/LC_MESSAGES/
+usr/share/locale/el/LC_MESSAGES/debconf.mo
+usr/share/locale/eo/
+usr/share/locale/eo/LC_MESSAGES/
+usr/share/locale/eo/LC_MESSAGES/debconf.mo
+usr/share/locale/es/
+usr/share/locale/es/LC_MESSAGES/
+usr/share/locale/es/LC_MESSAGES/debconf.mo
+usr/share/locale/eu/
+usr/share/locale/eu/LC_MESSAGES/
+usr/share/locale/eu/LC_MESSAGES/debconf.mo
+usr/share/locale/fi/
+usr/share/locale/fi/LC_MESSAGES/
+usr/share/locale/fi/LC_MESSAGES/debconf.mo
+usr/share/locale/fr/
+usr/share/locale/fr/LC_MESSAGES/
+usr/share/locale/fr/LC_MESSAGES/debconf.mo
+usr/share/locale/gl/
+usr/share/locale/gl/LC_MESSAGES/
+usr/share/locale/gl/LC_MESSAGES/debconf.mo
+usr/share/locale/he/
+usr/share/locale/he/LC_MESSAGES/
+usr/share/locale/he/LC_MESSAGES/debconf.mo
+usr/share/locale/hu/
+usr/share/locale/hu/LC_MESSAGES/
+usr/share/locale/hu/LC_MESSAGES/debconf.mo
+usr/share/locale/id/
+usr/share/locale/id/LC_MESSAGES/
+usr/share/locale/id/LC_MESSAGES/debconf.mo
+usr/share/locale/it/
+usr/share/locale/it/LC_MESSAGES/
+usr/share/locale/it/LC_MESSAGES/debconf.mo
+usr/share/locale/ja/
+usr/share/locale/ja/LC_MESSAGES/
+usr/share/locale/ja/LC_MESSAGES/debconf.mo
+usr/share/locale/km/
+usr/share/locale/km/LC_MESSAGES/
+usr/share/locale/km/LC_MESSAGES/debconf.mo
+usr/share/locale/ko/
+usr/share/locale/ko/LC_MESSAGES/
+usr/share/locale/ko/LC_MESSAGES/debconf.mo
+usr/share/locale/ku/
+usr/share/locale/ku/LC_MESSAGES/
+usr/share/locale/ku/LC_MESSAGES/debconf.mo
+usr/share/locale/mr/
+usr/share/locale/mr/LC_MESSAGES/
+usr/share/locale/mr/LC_MESSAGES/debconf.mo
+usr/share/locale/nb/
+usr/share/locale/nb/LC_MESSAGES/
+usr/share/locale/nb/LC_MESSAGES/debconf.mo
+usr/share/locale/ne/
+usr/share/locale/ne/LC_MESSAGES/
+usr/share/locale/ne/LC_MESSAGES/debconf.mo
+usr/share/locale/nl/
+usr/share/locale/nl/LC_MESSAGES/
+usr/share/locale/nl/LC_MESSAGES/debconf.mo
+usr/share/locale/nn/
+usr/share/locale/nn/LC_MESSAGES/
+usr/share/locale/nn/LC_MESSAGES/debconf.mo
+usr/share/locale/pa/
+usr/share/locale/pa/LC_MESSAGES/
+usr/share/locale/pa/LC_MESSAGES/debconf.mo
+usr/share/locale/pl/
+usr/share/locale/pl/LC_MESSAGES/
+usr/share/locale/pl/LC_MESSAGES/debconf.mo
+usr/share/locale/pt/
+usr/share/locale/pt/LC_MESSAGES/
+usr/share/locale/pt/LC_MESSAGES/debconf.mo
+usr/share/locale/pt_BR/
+usr/share/locale/pt_BR/LC_MESSAGES/
+usr/share/locale/pt_BR/LC_MESSAGES/debconf.mo
+usr/share/locale/ro/
+usr/share/locale/ro/LC_MESSAGES/
+usr/share/locale/ro/LC_MESSAGES/debconf.mo
+usr/share/locale/ru/
+usr/share/locale/ru/LC_MESSAGES/
+usr/share/locale/ru/LC_MESSAGES/debconf.mo
+usr/share/locale/sk/
+usr/share/locale/sk/LC_MESSAGES/
+usr/share/locale/sk/LC_MESSAGES/debconf.mo
+usr/share/locale/sl/
+usr/share/locale/sl/LC_MESSAGES/
+usr/share/locale/sl/LC_MESSAGES/debconf.mo
+usr/share/locale/sv/
+usr/share/locale/sv/LC_MESSAGES/
+usr/share/locale/sv/LC_MESSAGES/debconf.mo
+usr/share/locale/th/
+usr/share/locale/th/LC_MESSAGES/
+usr/share/locale/th/LC_MESSAGES/debconf.mo
+usr/share/locale/tl/
+usr/share/locale/tl/LC_MESSAGES/
+usr/share/locale/tl/LC_MESSAGES/debconf.mo
+usr/share/locale/tr/
+usr/share/locale/tr/LC_MESSAGES/
+usr/share/locale/tr/LC_MESSAGES/debconf.mo
+usr/share/locale/uk/
+usr/share/locale/uk/LC_MESSAGES/
+usr/share/locale/uk/LC_MESSAGES/debconf.mo
+usr/share/locale/vi/
+usr/share/locale/vi/LC_MESSAGES/
+usr/share/locale/vi/LC_MESSAGES/debconf.mo
+usr/share/locale/zh_CN/
+usr/share/locale/zh_CN/LC_MESSAGES/
+usr/share/locale/zh_CN/LC_MESSAGES/debconf.mo
+usr/share/locale/zh_TW/
+usr/share/locale/zh_TW/LC_MESSAGES/
+usr/share/locale/zh_TW/LC_MESSAGES/debconf.mo
+usr/share/man/
+usr/share/man/da/
+usr/share/man/da/man1/
+usr/share/man/da/man1/debconf-get-selections.1.gz
+usr/share/man/da/man1/debconf.1.gz
+usr/share/man/da/man3/
+usr/share/man/da/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/da/man8/
+usr/share/man/da/man8/dpkg-preconfigure.8.gz
+usr/share/man/de/
+usr/share/man/de/man1/
+usr/share/man/de/man1/debconf-apt-progress.1.gz
+usr/share/man/de/man1/debconf-communicate.1.gz
+usr/share/man/de/man1/debconf-copydb.1.gz
+usr/share/man/de/man1/debconf-escape.1.gz
+usr/share/man/de/man1/debconf-get-selections.1.gz
+usr/share/man/de/man1/debconf-getlang.1.gz
+usr/share/man/de/man1/debconf-loadtemplate.1.gz
+usr/share/man/de/man1/debconf-mergetemplate.1.gz
+usr/share/man/de/man1/debconf-set-selections.1.gz
+usr/share/man/de/man1/debconf-show.1.gz
+usr/share/man/de/man1/debconf.1.gz
+usr/share/man/de/man3/
+usr/share/man/de/man3/confmodule.3.gz
+usr/share/man/de/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/de/man5/
+usr/share/man/de/man5/debconf.conf.5.gz
+usr/share/man/de/man7/
+usr/share/man/de/man7/debconf-devel.7.gz
+usr/share/man/de/man7/debconf.7.gz
+usr/share/man/de/man8/
+usr/share/man/de/man8/dpkg-preconfigure.8.gz
+usr/share/man/de/man8/dpkg-reconfigure.8.gz
+usr/share/man/es/
+usr/share/man/es/man1/
+usr/share/man/es/man1/debconf-apt-progress.1.gz
+usr/share/man/es/man1/debconf-communicate.1.gz
+usr/share/man/es/man1/debconf-copydb.1.gz
+usr/share/man/es/man1/debconf-escape.1.gz
+usr/share/man/es/man1/debconf-get-selections.1.gz
+usr/share/man/es/man1/debconf-getlang.1.gz
+usr/share/man/es/man1/debconf-loadtemplate.1.gz
+usr/share/man/es/man1/debconf-mergetemplate.1.gz
+usr/share/man/es/man1/debconf-set-selections.1.gz
+usr/share/man/es/man1/debconf-show.1.gz
+usr/share/man/es/man1/debconf.1.gz
+usr/share/man/es/man3/
+usr/share/man/es/man3/confmodule.3.gz
+usr/share/man/es/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/es/man5/
+usr/share/man/es/man5/debconf.conf.5.gz
+usr/share/man/es/man7/
+usr/share/man/es/man7/debconf-devel.7.gz
+usr/share/man/es/man7/debconf.7.gz
+usr/share/man/es/man8/
+usr/share/man/es/man8/dpkg-preconfigure.8.gz
+usr/share/man/es/man8/dpkg-reconfigure.8.gz
+usr/share/man/fr/
+usr/share/man/fr/man1/
+usr/share/man/fr/man1/debconf-apt-progress.1.gz
+usr/share/man/fr/man1/debconf-communicate.1.gz
+usr/share/man/fr/man1/debconf-copydb.1.gz
+usr/share/man/fr/man1/debconf-escape.1.gz
+usr/share/man/fr/man1/debconf-get-selections.1.gz
+usr/share/man/fr/man1/debconf-getlang.1.gz
+usr/share/man/fr/man1/debconf-loadtemplate.1.gz
+usr/share/man/fr/man1/debconf-mergetemplate.1.gz
+usr/share/man/fr/man1/debconf-set-selections.1.gz
+usr/share/man/fr/man1/debconf-show.1.gz
+usr/share/man/fr/man1/debconf.1.gz
+usr/share/man/fr/man3/
+usr/share/man/fr/man3/confmodule.3.gz
+usr/share/man/fr/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/fr/man5/
+usr/share/man/fr/man5/debconf.conf.5.gz
+usr/share/man/fr/man7/
+usr/share/man/fr/man7/debconf-devel.7.gz
+usr/share/man/fr/man7/debconf.7.gz
+usr/share/man/fr/man8/
+usr/share/man/fr/man8/dpkg-preconfigure.8.gz
+usr/share/man/fr/man8/dpkg-reconfigure.8.gz
+usr/share/man/man1/
+usr/share/man/man1/debconf-apt-progress.1.gz
+usr/share/man/man1/debconf-communicate.1.gz
+usr/share/man/man1/debconf-copydb.1.gz
+usr/share/man/man1/debconf-escape.1.gz
+usr/share/man/man1/debconf-get-selections.1.gz
+usr/share/man/man1/debconf-getlang.1.gz
+usr/share/man/man1/debconf-loadtemplate.1.gz
+usr/share/man/man1/debconf-mergetemplate.1.gz
+usr/share/man/man1/debconf-set-selections.1.gz
+usr/share/man/man1/debconf-show.1.gz
+usr/share/man/man1/debconf.1.gz
+usr/share/man/man3/
+usr/share/man/man3/confmodule.3.gz
+usr/share/man/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/man5/
+usr/share/man/man5/debconf.conf.5.gz
+usr/share/man/man7/
+usr/share/man/man7/debconf-devel.7.gz
+usr/share/man/man7/debconf.7.gz
+usr/share/man/man8/
+usr/share/man/man8/dpkg-preconfigure.8.gz
+usr/share/man/man8/dpkg-reconfigure.8.gz
+usr/share/man/pt/
+usr/share/man/pt/man1/
+usr/share/man/pt/man1/debconf-apt-progress.1.gz
+usr/share/man/pt/man1/debconf-communicate.1.gz
+usr/share/man/pt/man1/debconf-copydb.1.gz
+usr/share/man/pt/man1/debconf-escape.1.gz
+usr/share/man/pt/man1/debconf-get-selections.1.gz
+usr/share/man/pt/man1/debconf-getlang.1.gz
+usr/share/man/pt/man1/debconf-loadtemplate.1.gz
+usr/share/man/pt/man1/debconf-mergetemplate.1.gz
+usr/share/man/pt/man1/debconf-set-selections.1.gz
+usr/share/man/pt/man1/debconf-show.1.gz
+usr/share/man/pt/man1/debconf.1.gz
+usr/share/man/pt/man3/
+usr/share/man/pt/man3/confmodule.3.gz
+usr/share/man/pt/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/pt/man5/
+usr/share/man/pt/man5/debconf.conf.5.gz
+usr/share/man/pt/man7/
+usr/share/man/pt/man7/debconf-devel.7.gz
+usr/share/man/pt/man7/debconf.7.gz
+usr/share/man/pt/man8/
+usr/share/man/pt/man8/dpkg-preconfigure.8.gz
+usr/share/man/pt/man8/dpkg-reconfigure.8.gz
+usr/share/man/pt_BR/
+usr/share/man/pt_BR/man1/
+usr/share/man/pt_BR/man1/debconf-communicate.1.gz
+usr/share/man/pt_BR/man1/debconf-getlang.1.gz
+usr/share/man/pt_BR/man1/debconf-loadtemplate.1.gz
+usr/share/man/pt_BR/man3/
+usr/share/man/pt_BR/man3/confmodule.3.gz
+usr/share/man/pt_BR/man8/
+usr/share/man/pt_BR/man8/dpkg-preconfigure.8.gz
+usr/share/man/ru/
+usr/share/man/ru/man1/
+usr/share/man/ru/man1/debconf-apt-progress.1.gz
+usr/share/man/ru/man1/debconf-communicate.1.gz
+usr/share/man/ru/man1/debconf-copydb.1.gz
+usr/share/man/ru/man1/debconf-escape.1.gz
+usr/share/man/ru/man1/debconf-get-selections.1.gz
+usr/share/man/ru/man1/debconf-getlang.1.gz
+usr/share/man/ru/man1/debconf-loadtemplate.1.gz
+usr/share/man/ru/man1/debconf-mergetemplate.1.gz
+usr/share/man/ru/man1/debconf-set-selections.1.gz
+usr/share/man/ru/man1/debconf-show.1.gz
+usr/share/man/ru/man1/debconf.1.gz
+usr/share/man/ru/man3/
+usr/share/man/ru/man3/confmodule.3.gz
+usr/share/man/ru/man3/Debconf.Client.ConfModule.3.gz
+usr/share/man/ru/man5/
+usr/share/man/ru/man5/debconf.conf.5.gz
+usr/share/man/ru/man7/
+usr/share/man/ru/man7/debconf-devel.7.gz
+usr/share/man/ru/man7/debconf.7.gz
+usr/share/man/ru/man8/
+usr/share/man/ru/man8/dpkg-preconfigure.8.gz
+usr/share/man/ru/man8/dpkg-reconfigure.8.gz
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+debconf-1.5.71-1.src/
+debconf-1.5.71-1.src/debconf_1.5.71.cygport
+debconf-1.5.71-1.src/debconf_1.5.71.dsc
+debconf-1.5.71-1.src/debconf_1.5.71.patch
+debconf-1.5.71-1.src/debconf_1.5.71.tar.xz
+
+>>> debconf requires: perl_base python python3 
+]0;/tmp
+[32mAdministrator@- [33m/tmp[0m
+$ exit
+
+Script done on Fri Apr 24 15:34:47 2020

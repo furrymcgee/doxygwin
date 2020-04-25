@@ -1,16 +1,16 @@
-Script started on Sat Apr 11 21:24:47 2020
-cygport --32 swish++ all
-]0;/mnt
-[32mAdministrator@- [33m/mnt[0m
-$ cygport --32 swish++ all
-[1;39m>>> Preparing swish++.i686[0;0m
+Script started on Fri Apr 24 15:45:21 2020
+cygport --32 swish++_6.1.5-5.cygport all
+]0;/tmp
+[32mAdministrator@- [33m/tmp[0m
+$ cygport --32 swish++_6.1.5-5.cygport all
+[1;39m>>> Preparing swish++-6.1.5-5-1.i686[0;0m
 >>> Unpacking source swish++_6.1.5-5.dsc
 >>> Unpacking source swish++_6.1.5.orig.tar.gz
 >>> Unpacking source swish++_6.1.5-5.debian.tar.xz
 gpgv: keyblock resource `/home/Administrator/.gnupg/trustedkeys.gpg': file open error
 gpgv: Signature made Sat Aug 12 14:38:33 2017 CEST using RSA key ID 17BD5D36
 gpgv: Can't check signature: public key not found
-[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /mnt/swish++_6.1.5-5.dsc
+[1mdpkg-source: [0m[1;33mwarning[0m: failed to verify signature on /tmp/swish++_6.1.5-5.dsc
 [1mdpkg-source: [0m[32minfo[0m: extracting swish++ in swish++
 [1mdpkg-source: [0m[32minfo[0m: unpacking swish++_6.1.5.orig.tar.gz
 [1mdpkg-source: [0m[32minfo[0m: unpacking swish++_6.1.5-5.debian.tar.xz
@@ -32,7 +32,7 @@ gpgv: Can't check signature: public key not found
 [1mdpkg-source: [0m[32minfo[0m: applying fix_ftbfs_with_gcc6
 [1mdpkg-source: [0m[32minfo[0m: applying fix_663620.patch
 [1mdpkg-source: [0m[32minfo[0m: applying 853673.patch
-[1;32m*** Info:[0;0m applying patch swish++.patch (-p0):
+[1;32m*** Info:[0;0m applying patch swish++_6.1.5-5.patch:
 patching file swish++/config/config.mk
 patching file swish++/debian/rules
 patching file swish++/directory.c
@@ -40,7 +40,7 @@ patching file swish++/man/GNUmakefile
 patching file swish++/man/man4/GNUmakefile
 patching file swish++/swish++.conf
 >>> Preparing working source directory
-[1;39m>>> Compiling swish++.i686[0;0m
+[1;39m>>> Compiling swish++-6.1.5-5-1.i686[0;0m
 dpkg-buildpackage: info: source package swish++
 dpkg-buildpackage: info: source version 6.1.5-5
 dpkg-buildpackage: info: source distribution unstable
@@ -58,112 +58,112 @@ dh_testroot
 #rm -f build-stamp configure-stamp
 # Add here commands to clean up after the build process.
 /usr/bin/make distclean
-make[1]: Entering directory '/mnt/swish++.i686/build/swish++'
+make[1]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++'
 rm -fr *.o core  swish++.index
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/config'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 make[2]: Nothing to be done for 'clean'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/config'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/man'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man1'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man1'
 rm -fr httpindex.txt search.txt splitmail.txt index.txt extract.txt httpindex.pdf search.pdf splitmail.pdf index.pdf extract.pdf httpindex.ps search.ps splitmail.ps index.ps extract.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man1'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man3'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man1'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man3'
 rm -fr WWW.txt WWW.pdf WWW.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man3'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man4'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man3'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man4'
 rm -fr swish++.index.txt swish++.conf.txt swish++.index.pdf swish++.conf.pdf swish++.index.ps swish++.conf.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man4'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man8'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man4'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man8'
 rm -fr searchmonitor.txt searchd.txt searchmonitor.pdf searchd.pdf searchmonitor.ps searchd.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man8'
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/man'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/html'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man8'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/html'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/id3'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/id3'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/latex'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/latex'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/mail'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/mail'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/man'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/man'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/rtf'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/rtf'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/scripts'
 make[2]: Nothing to be done for 'clean'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/charsets'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/scripts'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/charsets'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/encodings'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
 rm -fr *.o 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/encodings'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
 rm -fr index search extract scripts/httpindex scripts/searchd scripts/splitmail scripts/searchc scripts/searchmonitor .*.d init_modules.c
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/config'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 rm -fr ../platform.h platform.mk
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/config'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/man'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man1'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man1'
 rm -fr httpindex.txt search.txt splitmail.txt index.txt extract.txt httpindex.pdf search.pdf splitmail.pdf index.pdf extract.pdf httpindex.ps search.ps splitmail.ps index.ps extract.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man1'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man3'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man1'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man3'
 rm -fr WWW.txt WWW.pdf WWW.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man3'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man4'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man3'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man4'
 rm -fr swish++.index.txt swish++.conf.txt swish++.index.pdf swish++.conf.pdf swish++.index.ps swish++.conf.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man4'
-make[3]: Entering directory '/mnt/swish++.i686/build/swish++/man/man8'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man4'
+make[3]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man8'
 rm -fr searchmonitor.txt searchd.txt searchmonitor.pdf searchd.pdf searchmonitor.ps searchd.ps
-make[3]: Leaving directory '/mnt/swish++.i686/build/swish++/man/man8'
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/man'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/html'
+make[3]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man8'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/man'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
 rm -fr *.o 
 rm -fr libmod_html.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/html'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/id3'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
 rm -fr *.o 
 rm -fr libmod_id3.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/id3'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/latex'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
 rm -fr *.o 
 rm -fr libmod_latex.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/latex'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/mail'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
 rm -fr *.o 
 rm -fr libmod_mail.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/mail'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/man'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
 rm -fr *.o 
 rm -fr libmod_man.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/man'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/rtf'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
 rm -fr *.o 
 rm -fr libmod_rtf.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/rtf'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/scripts'
 rm -fr httpindex searchd splitmail searchc searchmonitor
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/charsets'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/scripts'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
 rm -fr *.o 
 rm -fr libcharsets.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/charsets'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/encodings'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
 rm -fr *.o 
 rm -fr libencodings.a .*.d
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/encodings'
-make[1]: Leaving directory '/mnt/swish++.i686/build/swish++'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
+make[1]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++'
 # Clean up a left over file
 rm -f init_mod_vars.c
 # Clean up the renamed man pages
-for i in extract index search splitmail ; do rm -f /mnt/swish++.i686/build/swish++/man/man1/${i}++.1; done;
+for i in extract index search splitmail ; do rm -f /tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man1/${i}++.1; done;
 # Remove copied manpages
-rm -rf /mnt/swish++.i686/build/swish++/man/man5
+rm -rf /tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man5
 rm -f build-stamp configure-stamp
 dh_clean
 	rm -f debian/debhelper-build-stamp
@@ -197,14 +197,14 @@ dh_testdir
 #ln -s debian/patches
 #quilt push -a || test $? = 2
 # Fix location of man pages
-mkdir -p /mnt/swish++.i686/build/swish++/man/man5
+mkdir -p /tmp/swish++-6.1.5-5-1.i686/build/swish++/man/man5
 for i in man4/swish++.conf.4  man4/swish++.index.4  ; do j=$(echo ${i} | tr '4' '5'); cp -p man/${i} man/${j}; done
 touch configure-stamp	
 dh_testdir
 # Add here commands to compile the package.
 /usr/bin/make
-make[1]: Entering directory '/mnt/swish++.i686/build/swish++'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/config'
+make[1]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 ./config-sh ../platform.h platform.mk g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions
 
 config-sh: checking C++ compiler g++
@@ -215,7 +215,7 @@ config-sh: checking C++ compiler g++
 + checking for "socket length type is unsigned"...
 + checking for "zlib.h"...
 
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/config'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  User.c | sed "s!\([^:]*\):!\1 .User.d : !g" > .User.d; [ -s .User.d ] || rm -fr .User.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  SocketAddress.c | sed "s!\([^:]*\):!\1 .SocketAddress.d : !g" > .SocketAddress.d; [ -s .SocketAddress.d ] || rm -fr .SocketAddress.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  SearchDaemon.c | sed "s!\([^:]*\):!\1 .SearchDaemon.d : !g" > .SearchDaemon.d; [ -s .SearchDaemon.d ] || rm -fr .SearchDaemon.d'
@@ -269,9 +269,9 @@ make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/config'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  IncludeFile.c | sed "s!\([^:]*\):!\1 .IncludeFile.d : !g" > .IncludeFile.d; [ -s .IncludeFile.d ] || rm -fr .IncludeFile.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  encoded_char.c | sed "s!\([^:]*\):!\1 .encoded_char.d : !g" > .encoded_char.d; [ -s .encoded_char.d ] || rm -fr .encoded_char.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  conf_percent.c | sed "s!\([^:]*\):!\1 .conf_percent.d : !g" > .conf_percent.d; [ -s .conf_percent.d ] || rm -fr .conf_percent.d'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/config'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/config'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/config'
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o enc_int.o enc_int.c
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o mmap_file.o mmap_file.c
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o conf_var.o conf_var.c
@@ -306,7 +306,7 @@ g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODI
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o WordThreshold.o WordThreshold.c
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o word_util.o word_util.c
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o index.o index.c
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/charsets'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I.. utf16.c | sed "s!\([^:]*\):!\1 .utf16.d : !g" > .utf16.d; [ -s .utf16.d ] || rm -fr .utf16.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I.. utf8.c | sed "s!\([^:]*\):!\1 .utf8.d : !g" > .utf8.d; [ -s .utf8.d ] || rm -fr .utf8.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I.. utf7.c | sed "s!\([^:]*\):!\1 .utf7.d : !g" > .utf7.d; [ -s .utf7.d ] || rm -fr .utf7.d'
@@ -320,8 +320,8 @@ a - utf7.o
 a - utf8.o
 a - utf16.o
 ranlib libcharsets.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/charsets'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/encodings'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/charsets'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I.. quoted_printable.c | sed "s!\([^:]*\):!\1 .quoted_printable.d : !g" > .quoted_printable.d; [ -s .quoted_printable.d ] || rm -fr .quoted_printable.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I.. base64.c | sed "s!\([^:]*\):!\1 .base64.d : !g" > .base64.d; [ -s .base64.d ] || rm -fr .base64.d'
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I..   -c -o base64.o base64.c
@@ -332,8 +332,8 @@ ar: creating libencodings.a
 a - base64.o
 a - quoted_printable.o
 ranlib libencodings.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/encodings'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/html'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/encodings'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. elements.c | sed "s!\([^:]*\):!\1 .elements.d : !g" > .elements.d; [ -s .elements.d ] || rm -fr .elements.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_html.c | sed "s!\([^:]*\):!\1 .mod_html.d : !g" > .mod_html.d; [ -s .mod_html.d ] || rm -fr .mod_html.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. entities.c | sed "s!\([^:]*\):!\1 .entities.d : !g" > .entities.d; [ -s .entities.d ] || rm -fr .entities.d'
@@ -347,8 +347,8 @@ a - entities.o
 a - mod_html.o
 a - elements.o
 ranlib libmod_html.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/html'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/id3'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/html'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_id3.c | sed "s!\([^:]*\):!\1 .mod_id3.d : !g" > .mod_id3.d; [ -s .mod_id3.d ] || rm -fr .mod_id3.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. id3v1.c | sed "s!\([^:]*\):!\1 .id3v1.d : !g" > .id3v1.d; [ -s .id3v1.d ] || rm -fr .id3v1.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. id3v2.c | sed "s!\([^:]*\):!\1 .id3v2.d : !g" > .id3v2.d; [ -s .id3v2.d ] || rm -fr .id3v2.d'
@@ -362,8 +362,8 @@ a - id3v2.o
 a - id3v1.o
 a - mod_id3.o
 ranlib libmod_id3.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/id3'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/latex'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/id3'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. commands.c | sed "s!\([^:]*\):!\1 .commands.d : !g" > .commands.d; [ -s .commands.d ] || rm -fr .commands.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_latex.c | sed "s!\([^:]*\):!\1 .mod_latex.d : !g" > .mod_latex.d; [ -s .mod_latex.d ] || rm -fr .mod_latex.d'
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../..   -c -o mod_latex.o mod_latex.c
@@ -374,8 +374,8 @@ ar: creating libmod_latex.a
 a - mod_latex.o
 a - commands.o
 ranlib libmod_latex.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/latex'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/mail'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/latex'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. vcard.c | sed "s!\([^:]*\):!\1 .vcard.d : !g" > .vcard.d; [ -s .vcard.d ] || rm -fr .vcard.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. multipart.c | sed "s!\([^:]*\):!\1 .multipart.d : !g" > .multipart.d; [ -s .multipart.d ] || rm -fr .multipart.d'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_mail.c | sed "s!\([^:]*\):!\1 .mod_mail.d : !g" > .mod_mail.d; [ -s .mod_mail.d ] || rm -fr .mod_mail.d'
@@ -389,8 +389,8 @@ a - mod_mail.o
 a - multipart.o
 a - vcard.o
 ranlib libmod_mail.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/mail'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/man'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/mail'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_man.c | sed "s!\([^:]*\):!\1 .mod_man.d : !g" > .mod_man.d; [ -s .mod_man.d ] || rm -fr .mod_man.d'
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../..   -c -o mod_man.o mod_man.c
 rm -fr libmod_man.a
@@ -398,8 +398,8 @@ ar rv libmod_man.a mod_man.o
 ar: creating libmod_man.a
 a - mod_man.o
 ranlib libmod_man.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/man'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/mod/rtf'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/man'
+make[2]: Entering directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
 /bin/sh -ec 'g++ -MM -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../.. mod_rtf.c | sed "s!\([^:]*\):!\1 .mod_rtf.d : !g" > .mod_rtf.d; [ -s .mod_rtf.d ] || rm -fr .mod_rtf.d'
 g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -I../..   -c -o mod_rtf.o mod_rtf.c
 rm -fr libmod_rtf.a
@@ -407,265 +407,6 @@ ar rv libmod_rtf.a mod_rtf.o
 ar: creating libmod_rtf.a
 a - mod_rtf.o
 ranlib libmod_rtf.a
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/mod/rtf'
+make[2]: Leaving directory '/tmp/swish++-6.1.5-5-1.i686/build/swish++/mod/rtf'
 gcc -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -Lcharsets -Lencodings \
-	-Lmod/html -Lmod/id3 -Lmod/latex -Lmod/mail -Lmod/man -Lmod/rtf -o index enc_int.o mmap_file.o conf_var.o conf_bool.o conf_filter.o conf_int.o conf_percent.o conf_set.o conf_string.o encoded_char.o ExcludeFile.o file_info.o file_list.o filter.o IncludeFile.o IncludeMeta.o indexer.o index_segment.o init_modules.o init_mod_vars.o iso8859-1.o itoa.o option_stream.o stop_words.o TempDirectory.o util.o word_info.o WordThreshold.o word_util.o index.o -lmod_html -lmod_id3 -lmod_latex -lmod_mail -lmod_man -lmod_rtf -lencodings -lcharsets -lpthread -lz -lstdc++ -lgcc -lm
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o conf_enum.o conf_enum.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o query_node.o query_node.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o query.o query.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o ResultsFormat.o ResultsFormat.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o results_formatter.o results_formatter.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o classic_formatter.o classic_formatter.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o xml_formatter.o xml_formatter.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o token.o token.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o stem_word.o stem_word.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o search.o search.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o fdbuf.o fdbuf.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o Group.o Group.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o thread_pool.o thread_pool.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o search_thread.o search_thread.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o search_daemon.o search_daemon.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o SearchDaemon.o SearchDaemon.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o SocketAddress.o SocketAddress.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o User.o User.c
-gcc -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -o search enc_int.o mmap_file.o conf_var.o conf_bool.o conf_enum.o conf_int.o conf_string.o index_segment.o init_mod_vars.o file_info.o file_list.o iso8859-1.o option_stream.o query_node.o query.o ResultsFormat.o results_formatter.o classic_formatter.o xml_formatter.o token.o stem_word.o util.o word_info.o word_util.o search.o fdbuf.o Group.o thread_pool.o search_thread.o search_daemon.o SearchDaemon.o SocketAddress.o User.o  -lpthread -lstdc++ -lgcc -lm
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o ExtractFile.o ExtractFile.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o postscript.o postscript.c
-g++ -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions    -c -o extract.o extract.c
-gcc -I. -DCHARSET_utf7 -DCHARSET_utf8 -DCHARSET_utf16 -DENCODING_base64 -DENCODING_quoted_printable -DIMPLEMENT_DECODING -DMOD_html -DMOD_id3 -DMOD_latex -DMOD_mail -DMOD_man -DMOD_rtf -DFEATURE_word_pos -DSEARCH_DAEMON -DMULTI_THREADED -D_REENTRANT -D_XOPEN_SOURCE=500 -O2 -fomit-frame-pointer -D_BSD_SOURCE -fno-exceptions  -o extract mmap_file.o conf_var.o conf_bool.o conf_filter.o conf_int.o conf_set.o conf_string.o ExcludeFile.o ExtractFile.o filter.o index_segment.o init_mod_vars.o iso8859-1.o option_stream.o postscript.o stop_words.o util.o word_util.o extract.o -lpthread -lstdc++ -lgcc -lm
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
-/usr/bin/perl ../config/config.pl httpindex.in < ../config/config.mk
-/usr/bin/perl ../config/config.pl searchd.in < ../config/config.mk
-/usr/bin/perl ../config/config.pl splitmail.in < ../config/config.mk
-/usr/bin/perl ../config/config.pl searchc.in < ../config/config.mk
-/usr/bin/perl ../config/config.pl searchmonitor.in < ../config/config.mk
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Entering directory '/mnt/swish++.i686/build/swish++/scripts'
-make[2]: Nothing to be done for 'all'.
-make[2]: Leaving directory '/mnt/swish++.i686/build/swish++/scripts'
-make[1]: Leaving directory '/mnt/swish++.i686/build/swish++'
-touch build-stamp
-dh_testdir
-dh_testroot
-dh_clean -k
-dh_clean: dh_clean -k is deprecated; use dh_prep instead
-dh_clean: This feature will be removed in compat 12.
-	rm -f debian/debhelper-build-stamp
-	rm -rf debian/.debhelper/
-	rm -f -- debian/swish\+\+.substvars
-	rm -fr -- debian/swish\+\+/ debian/tmp/
-	find .  \( \( \
-		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
-	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
-		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
-		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
-		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
-		\) -exec rm -f {} + \) -o \
-		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
-install -p -d -o 197108 -g 197121 -m 755 /mnt/swish++.i686/build/swish++/debian/swish++/usr/lib/swish++
-install -p -d -o 197108 -g 197121 -m 755 /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin
-install -p    -o 197108 -g 197121 -m 644 WWW.pm /mnt/swish++.i686/build/swish++/debian/swish++/usr/lib/swish++/
-install -p    -o 197108 -g 197121 -m 755 -s search /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin/search++
-install -p    -o 197108 -g 197121 -m 755 -s extract /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin/extract++
-install -p    -o 197108 -g 197121 -m 755 -s index /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin/index++
-install -p    -o 197108 -g 197121 -m 755 scripts/splitmail /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin/splitmail++
-install -p    -o 197108 -g 197121 -m 755 scripts/httpindex /mnt/swish++.i686/build/swish++/debian/swish++/usr/bin/httpindex
-cd /mnt/swish++.i686/build/swish++/man/man1 && for i in extract index search splitmail ; do cp -p ${i}.1 ${i}++.1; done;
-install -p -d -o 197108 -g 197121 -m 755 /mnt/swish++.i686/build/swish++/debian/daemon
-install -p    -o 197108 -g 197121 -m 755 scripts/searchmonitor /mnt/swish++.i686/build/swish++/debian/daemon/searchmonitor
-install -p    -o 197108 -g 197121 -m 755 scripts/searchc /mnt/swish++.i686/build/swish++/debian/daemon/searchc
-install -p    -o 197108 -g 197121 -m 755 scripts/searchd /mnt/swish++.i686/build/swish++/debian/daemon/searchd
-# should customize the whole install as it's really opaque now
-dh_testdir
-dh_testroot
-dh_installdocs 
-	install -d debian/swish\+\+/usr/share/doc/swish\+\+
-	install -d debian/.debhelper/generated/swish\+\+
-	cp --reflink=auto -a ./README debian/swish\+\+/usr/share/doc/swish\+\+
-	cp --reflink=auto -a ././debian/README.Debian debian/swish\+\+/usr/share/doc/swish\+\+
-	cp --reflink=auto -a ././debian/FAQ.Debian debian/swish\+\+/usr/share/doc/swish\+\+
-	chmod -R u\+rw,go=rX debian/swish\+\+/usr/share/doc
-	install -p -m0644 debian/README.Debian debian/swish\+\+/usr/share/doc/swish\+\+/README.Debian
-	install -p -m0644 debian/copyright debian/swish\+\+/usr/share/doc/swish\+\+/copyright
-dh_installexamples /mnt/swish++.i686/build/swish++/debian/email_indexing/ \
-	/mnt/swish++.i686/build/swish++/debian/oo_indexing /mnt/swish++.i686/build/swish++/debian/daemon/ \
-	/mnt/swish++.i686/build/swish++/swish++.conf  /mnt/swish++.i686/build/swish++/www_example/ \
-	/mnt/swish++.i686/build/swish++/debian/rlimit
-	install -d debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/debian/email_indexing/ debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/debian/oo_indexing debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/debian/daemon/ debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/swish\+\+.conf debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/www_example/ debian/swish\+\+/usr/share/doc/swish\+\+/examples
-	cp --reflink=auto -a /mnt/swish\+\+.i686/build/swish\+\+/debian/rlimit debian/swish\+\+/usr/share/doc/swish\+\+/examples
-dh_installmenu
-dh_installcron
-dh_installman man/man1/splitmail++.1 man/man1/search++.1 man/man1/extract++.1 man/man1/index++.1 \
-man/man1/httpindex.1 man/man3/WWW.3 man/man5/swish++.conf.5 man/man5/swish++.index.5
-	install -d debian/swish\+\+/usr/share/man/man1/
-	install -p -m0644 man/man1/splitmail\+\+.1 debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1
-	install -p -m0644 man/man1/search\+\+.1 debian/swish\+\+/usr/share/man/man1/search\+\+.1
-	install -p -m0644 man/man1/extract\+\+.1 debian/swish\+\+/usr/share/man/man1/extract\+\+.1
-	install -p -m0644 man/man1/index\+\+.1 debian/swish\+\+/usr/share/man/man1/index\+\+.1
-	install -p -m0644 man/man1/httpindex.1 debian/swish\+\+/usr/share/man/man1/httpindex.1
-	install -d debian/swish\+\+/usr/share/man/man3/
-	install -p -m0644 man/man3/WWW.3 debian/swish\+\+/usr/share/man/man3/WWW.3
-	install -d debian/swish\+\+/usr/share/man/man5/
-	install -p -m0644 man/man5/swish\+\+.conf.5 debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5
-	install -p -m0644 man/man5/swish\+\+.index.5 debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5
-man: unrecognized option '--version'
-Try 'man --help' or 'man --usage' for more information.
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man3/WWW.3 > debian/swish\+\+/usr/share/man/man3/WWW.3.dh-new
-	mv debian/swish\+\+/usr/share/man/man3/WWW.3.dh-new debian/swish\+\+/usr/share/man/man3/WWW.3
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man1/index\+\+.1 > debian/swish\+\+/usr/share/man/man1/index\+\+.1.dh-new
-	mv debian/swish\+\+/usr/share/man/man1/index\+\+.1.dh-new debian/swish\+\+/usr/share/man/man1/index\+\+.1
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man1/search\+\+.1 > debian/swish\+\+/usr/share/man/man1/search\+\+.1.dh-new
-	mv debian/swish\+\+/usr/share/man/man1/search\+\+.1.dh-new debian/swish\+\+/usr/share/man/man1/search\+\+.1
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man1/httpindex.1 > debian/swish\+\+/usr/share/man/man1/httpindex.1.dh-new
-	mv debian/swish\+\+/usr/share/man/man1/httpindex.1.dh-new debian/swish\+\+/usr/share/man/man1/httpindex.1
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man1/extract\+\+.1 > debian/swish\+\+/usr/share/man/man1/extract\+\+.1.dh-new
-	mv debian/swish\+\+/usr/share/man/man1/extract\+\+.1.dh-new debian/swish\+\+/usr/share/man/man1/extract\+\+.1
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1 > debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1.dh-new
-	mv debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1.dh-new debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5 > debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5.dh-new
-	mv debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5.dh-new debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5
-	man -l --recode UTF-8 ./debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5 > debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5.dh-new
-	mv debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5.dh-new debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5
-	chmod 0644 -- debian/swish\+\+/usr/share/man/man3/WWW.3 debian/swish\+\+/usr/share/man/man1/index\+\+.1 debian/swish\+\+/usr/share/man/man1/search\+\+.1 debian/swish\+\+/usr/share/man/man1/httpindex.1 debian/swish\+\+/usr/share/man/man1/extract\+\+.1 debian/swish\+\+/usr/share/man/man1/splitmail\+\+.1 debian/swish\+\+/usr/share/man/man5/swish\+\+.conf.5 debian/swish\+\+/usr/share/man/man5/swish\+\+.index.5
-dh_installinfo
-dh_installchangelogs Changes
-	install -p -m0644 debian/changelog debian/swish\+\+/usr/share/doc/swish\+\+/changelog.Debian
-	install -p -m0644 Changes debian/swish\+\+/usr/share/doc/swish\+\+/changelog
-dh_link
-dh_strip
-dh_compress
-	cd debian/swish++
-	chmod a-x usr/share/doc/swish\+\+/README usr/share/doc/swish\+\+/changelog usr/share/doc/swish\+\+/changelog.Debian usr/share/doc/swish\+\+/examples/daemon/searchc usr/share/doc/swish\+\+/examples/daemon/searchmonitor usr/share/doc/swish\+\+/examples/email_indexing/Email-Indexing-Mini-Howto.txt usr/share/doc/swish\+\+/examples/email_indexing/nnir.el usr/share/doc/swish\+\+/examples/swish\+\+.conf usr/share/doc/swish\+\+/examples/www_example/search.cgi usr/share/man/man1/extract\+\+.1 usr/share/man/man1/httpindex.1 usr/share/man/man1/index\+\+.1 usr/share/man/man1/search\+\+.1 usr/share/man/man1/splitmail\+\+.1 usr/share/man/man3/WWW.3 usr/share/man/man5/swish\+\+.conf.5 usr/share/man/man5/swish\+\+.index.5
-	gzip -9nf usr/share/doc/swish\+\+/README usr/share/doc/swish\+\+/changelog usr/share/doc/swish\+\+/changelog.Debian usr/share/doc/swish\+\+/examples/daemon/searchc usr/share/doc/swish\+\+/examples/daemon/searchmonitor usr/share/doc/swish\+\+/examples/email_indexing/Email-Indexing-Mini-Howto.txt usr/share/doc/swish\+\+/examples/email_indexing/nnir.el usr/share/doc/swish\+\+/examples/swish\+\+.conf usr/share/doc/swish\+\+/examples/www_example/search.cgi usr/share/man/man1/extract\+\+.1 usr/share/man/man1/httpindex.1 usr/share/man/man1/index\+\+.1 usr/share/man/man1/search\+\+.1 usr/share/man/man1/splitmail\+\+.1 usr/share/man/man3/WWW.3 usr/share/man/man5/swish\+\+.conf.5 usr/share/man/man5/swish\+\+.index.5
-	cd '/mnt/swish++.i686/build/swish++'
-dh_fixperms
-	find debian/swish\+\+ ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
-	find debian/swish\+\+/usr/share/doc -type f -a -true -a ! -regex 'debian/swish++/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
-	find debian/swish\+\+/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
-	find debian/swish\+\+/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
-	find debian/swish\+\+ -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
-	find debian/swish\+\+/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
-	find debian/swish\+\+/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
-dh_installdeb
-	install -d debian/swish\+\+/DEBIAN
-dh_shlibdeps
-dh_gencontrol
-	echo misc:Depends= >> debian/swish++.substvars
-	echo misc:Pre-Depends= >> debian/swish++.substvars
-	dpkg-gencontrol -pswish\+\+ -ldebian/changelog -Tdebian/swish\+\+.substvars -Pdebian/swish\+\+ -UMulti-Arch
-dpkg-gencontrol: warning: Depends field of package swish++: substitution variable ${shlibs:Depends} used, but is not defined
-dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
-	chmod 0644 -- debian/swish\+\+/DEBIAN/control
-dh_md5sums
-	cd debian/swish++ >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
-	chmod 0644 -- debian/swish\+\+/DEBIAN/md5sums
-dh_builddeb
-	dpkg-deb --root-owner-group --build debian/swish\+\+ ..
-dpkg-deb: building package 'swish++' in '../swish++_6.1.5-5_i386.deb'.
- dpkg-genbuildinfo
-dpkg-genbuildinfo: warning: cannot open /var/lib/dpkg/status
-readline() on closed filehandle $status_fh at /usr/bin/dpkg-genbuildinfo line 96.
-dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
-Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpkg/Control/HashCore.pm line 358.
- dpkg-genchanges  >../swish++_6.1.5-5_i386.changes
-dpkg-genchanges: info: not including original source code in upload
- dpkg-source --auto-commit --after-build .
-dpkg-buildpackage: info: binary and diff upload (original source NOT included)
-[1;39m>>> Installing swish++.i686[0;0m
-Fixing symlinks:
-Compressing man pages:
-Stripping executables:
-        usr/bin/index++.exe
-        usr/bin/search++.exe
-        usr/bin/extract++.exe
-Preparing debuginfo source files:
-
-[1;39m>>> Packaging swish++.i686[0;0m
->>> Creating binary package(s)
->>> swish++-swish++-swish++.tar.xz
-usr/
-usr/lib/
-usr/lib/swish++/
-usr/lib/swish++/WWW.pm
-usr/share/
-usr/share/doc/
-usr/share/doc/swish++/
-usr/share/doc/swish++/changelog.gz
-usr/share/doc/swish++/FAQ.Debian
-usr/share/doc/swish++/README.gz
-usr/share/doc/swish++/copyright
-usr/share/doc/swish++/changelog.Debian.gz
-usr/share/doc/swish++/README.Debian
-usr/share/doc/swish++/examples/
-usr/share/doc/swish++/examples/email_indexing/
-usr/share/doc/swish++/examples/email_indexing/swishmutt.sh
-usr/share/doc/swish++/examples/email_indexing/nnir.el.gz
-usr/share/doc/swish++/examples/email_indexing/Email-Indexing-Mini-Howto.txt.gz
-usr/share/doc/swish++/examples/daemon/
-usr/share/doc/swish++/examples/daemon/searchmonitor.gz
-usr/share/doc/swish++/examples/daemon/searchc.gz
-usr/share/doc/swish++/examples/daemon/searchd
-usr/share/doc/swish++/examples/swish++.conf.gz
-usr/share/doc/swish++/examples/rlimit
-usr/share/doc/swish++/examples/oo_indexing/
-usr/share/doc/swish++/examples/oo_indexing/oo.conf
-usr/share/doc/swish++/examples/oo_indexing/oocontent.xsl
-usr/share/doc/swish++/examples/oo_indexing/oometa.xsl
-usr/share/doc/swish++/examples/oo_indexing/oototext.sh
-usr/share/doc/swish++/examples/www_example/
-usr/share/doc/swish++/examples/www_example/search.html
-usr/share/doc/swish++/examples/www_example/search.cgi.gz
-usr/share/man/
-usr/share/man/man3/
-usr/share/man/man3/WWW.3.gz
-usr/share/man/man1/
-usr/share/man/man1/search++.1.gz
-usr/share/man/man1/httpindex.1.gz
-usr/share/man/man1/index++.1.gz
-usr/share/man/man1/splitmail++.1.gz
-usr/share/man/man1/extract++.1.gz
-usr/share/man/man5/
-usr/share/man/man5/swish++.conf.5.gz
-usr/share/man/man5/swish++.index.5.gz
-usr/bin/
-usr/bin/httpindex
-usr/bin/index++.exe
-usr/bin/search++.exe
-usr/bin/extract++.exe
-usr/bin/splitmail++
-
-[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
-
->>> Checking packages for missing or duplicate files
-
->>> Creating source patches
- 0 files changed
->>> Creating source package
-swish++.src/
-swish++.src/swish++_6.1.5.orig.tar.gz
-swish++.src/swish++_6.1.5-5.dsc
-swish++.src/swish++.patch
-swish++.src/swish++.cygport
-swish++.src/swish++_6.1.5-5.debian.tar.xz
-
-which: no KERNEL32.dll in (/mnt/swish++.i686/inst/usr/bin:/usr/local/bin:/usr/bin:/bin:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/usr/lib/lapack:/cygdrive/c/WINDOWS/system32)
->>> swish++ requires: cygwin libstdc++6 perl_base zlib0 libc6 libstdc++6 zlib1g perl
-]0;/mnt
-[32mAdministrator@- [33m/mnt[0m
-$ exit
-
-Script done on Sat Apr 11 21:56:06 2020
+	-Lmod/html -Lmod/id3 -Lmod/latex -Lmod/mail -Lmod/man -Lmod/rtf -o index enc_int.o mmap_file.o conf_var.o conf_bool.o conf_filter.o conf_int.o conf_percent.o conf_set.o conf_string.o encoded_char.o ExcludeFile.o file_info.o fi
