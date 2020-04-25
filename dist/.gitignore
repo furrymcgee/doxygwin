@@ -1,0 +1,10 @@
+*.bz2
+*.gz
+*.xz
+*.dsc
+*.deb
+*.buildinfo
+*.changes
+*.noarch
+*.i686
+
