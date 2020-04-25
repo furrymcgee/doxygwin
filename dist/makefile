@@ -4,7 +4,7 @@ NOARCH = calm debconf doc-base sensible-utils strip-nondeterminism
 
 I686 = dh-exec dpkg publib-dev recutils swish++
 
-$(.DEFAULT_GOAL): $(I686) $(NOARCH)
+$(.DEFAULT_GOAL): dpkg
 	$(MAKE) $^
 
 Sources:
@@ -29,17 +29,22 @@ Packages:
 	$(MAKE) $(word 1, $(subst _, ,$@))_$(word 2, $(subst _, , $@)).dsc
 	grep -H ^PATCH_URI $(word 1, $(subst _, ,$@)).cygport | \
 	cut -d= -f2 | xargs | xargs -L1 -r $(MAKE)
-	cygport --32 $(word 1, $(subst _, , $@)).cygport all
-	
+	cygport --32 $(word 1, $(subst _, , $@)).cygport prep
+	rename $(subst _,-,$@) $@
+
+.INTERMEDIATE: dpkg_1.19.7_1.i686
+
+dpkg: dpkg_1.19.7_1.i686
 %: %.cygport
 	grep -H ^NAME\\\|^VERSION\\\|RELEASE\\\|^ARCH $< | \
 	cut -d= -f2 | paste - - - - | \
 	xargs -L4 printf %s_%s_%s.%s\\\n | xargs $(MAKE)
-	mv $(subst _,-,$@)/dist/* .
+	mv $@_*/dist/* $@
+
 
 ETC = /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
-.PHONY: $(ETC) clean
+.PHONY: $(ETC) clean $(.DEFAULT_GOAL)
 
 install: $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
