@@ -1,19 +1,41 @@
 .DEFAULT_GOAL = x86
 
-NOARCH= \
-	calm.cygport \
-	debconf.cygport \
-	doc-base.cygport \
-	sensible-utils.cygport \
-	strip-nondeterminism.cygport \
+NOARCH = calm debconf doc-base sensible-utils strip-nondeterminism
 
-I686= \
-	dh-exec.cygport \
-	dpkg.cygport \
-	publib-dev.cygport \
-	recutils.cygport \
-	swish++.cygport \
+I686 = dh-exec dpkg publib-dev recutils swish++
 
+$(.DEFAULT_GOAL): $(I686) $(NOARCH)
+	$(MAKE) $^
+
+Sources:
+	wget -O- -c \
+	http://deb.debian.org/debian/dists/stable/main/source/Sources.gz | \
+	gunzip > $@
+
+Packages:
+	wget -O- -c \
+	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
+	gunzip > $@
+
+%.cygport:
+	grep-dctrl -n -s Package -F Package $(basename $@) Packages | \
+	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
+
+%.dsc:
+	cygport --32 $(word 1, $(subst _, , $@)).cygport download
+
+%.i686 %.noarch:
+	$(MAKE) $(word 1, $(subst _, ,$@)).cygport
+	$(MAKE) $(word 1, $(subst _, ,$@))_$(word 2, $(subst _, , $@)).dsc
+	grep -H ^PATCH_URI $(word 1, $(subst _, ,$@)).cygport | \
+	cut -d= -f2 | xargs | xargs -L1 -r $(MAKE)
+	cygport --32 $(word 1, $(subst _, , $@)).cygport all
+	
+%: %.cygport
+	grep -H ^NAME\\\|^VERSION\\\|RELEASE\\\|^ARCH $< | \
+	cut -d= -f2 | paste - - - - | \
+	xargs -L4 printf %s_%s_%s.%s\\\n | xargs $(MAKE)
+	mv $(subst _,-,$@)/dist/* .
 
 ETC = /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
 
@@ -107,41 +129,4 @@ clean:
 	grep -v cygwin-auto-install | \
 	xargs -I@ \
 		git --git-dir=@/.git --work-tree=@ clean -dfx
-
-Sources:
-	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/source/Sources.gz | \
-	gunzip > $@
-
-Packages:
-	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
-	gunzip > $@
-
-%.dsc:
-	cygport --32 $(word 1, $(subst _, , $@)).cygport download
-
-%.i686 %.noarch:
-	$(MAKE) $(word 1, $(subst _, , $@)).cygport
-	$(MAKE) $(word 1, $(subst _, , $@))_$(word 2, $(subst _, , $@)).dsc
-	grep -H ^PATCH_URI $(word 1, $(subst _, , $@)).cygport | \
-	cut -d= -f2 | \
-	xargs | \
-	xargs -L1 -r $(MAKE)
-	cygport --32 $(word 1, $(subst _, , $@)).cygport all
-	
-%.cygport: Packages Sources
-	cat Packages | \
-	grep-dctrl -n -s Package -F Package $(basename $@) | \
-	xargs sh cygport.sh > $@ || \
-	{ rm $@ && exit 1 ; }
-
-$(.DEFAULT_GOAL): $(I686) $(NOARCH)
-	$(MAKE) $^
-	grep -H ^NAME\\\|^VERSION\\\|RELEASE\\\|^ARCH $^ | \
-	cut -d= -f2 | \
-	paste - - - - | \
-	xargs -r -L4 printf %s_%s_%s.%s\\\n | \
-	xargs -r $(MAKE)
-
 
