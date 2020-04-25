@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-test -r Packages &&
-test -r Sources || 
+test -r "$(dirname $0)/Packages" &&
+test -r  "$(dirname $0)/Sources" || 
 exit 1
 
 test -n "$*" ||
@@ -24,7 +24,7 @@ bash
 	%key: Package
 
 	$(
-		cat Packages |
+		cat "$(dirname $0)/Packages" |
 		sed /^Package:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |
 		sed -z /Extra-Source/d |
@@ -35,7 +35,7 @@ bash
 	%key: Binary
 
 	$(
-		cat Sources |
+		cat "$(dirname $0)/Sources" |
 		sed s/Binary:.*\ $1.*/Binary:\ $1/ |
 		sed /^Binary:\ $1/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/ |

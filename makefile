@@ -1,52 +1,8 @@
-.DEFAULT_GOAL = x86
-
-NOARCH = calm debconf doc-base sensible-utils strip-nondeterminism
-
-I686 = dh-exec dpkg publib-dev recutils swish++
-
-$(.DEFAULT_GOAL): dpkg
-	$(MAKE) $^
-
-Sources:
-	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/source/Sources.gz | \
-	gunzip > $@
-
-Packages:
-	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
-	gunzip > $@
-
-%.cygport:
-	grep-dctrl -n -s Package -F Package $(basename $@) Packages | \
-	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
-
-%.dsc:
-	cygport --32 $(word 1, $(subst _, , $@)).cygport download
-
-%.i686 %.noarch:
-	$(MAKE) $(word 1, $(subst _, ,$@)).cygport
-	$(MAKE) $(word 1, $(subst _, ,$@))_$(word 2, $(subst _, , $@)).dsc
-	grep -H ^PATCH_URI $(word 1, $(subst _, ,$@)).cygport | \
-	cut -d= -f2 | xargs | xargs -L1 -r $(MAKE)
-	cygport --32 $(word 1, $(subst _, , $@)).cygport prep
-	rename $(subst _,-,$@) $@
-
-.INTERMEDIATE: dpkg_1.19.7_1.i686
-
-dpkg: dpkg_1.19.7_1.i686
-%: %.cygport
-	grep -H ^NAME\\\|^VERSION\\\|RELEASE\\\|^ARCH $< | \
-	cut -d= -f2 | paste - - - - | \
-	xargs -L4 printf %s_%s_%s.%s\\\n | xargs $(MAKE)
-	mv $@_*/dist/* $@
-
-
-ETC = /etc/xml/catalog ~/.cpan /var/cache/debconf /var/lib/doc-base/documents po-debconf
+.DEFAULT_GOAL: install
 
 .PHONY: $(ETC) clean $(.DEFAULT_GOAL)
 
-install: $(ETC)
+${.DEFAULT_GOAL}: $(ETC)
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
