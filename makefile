@@ -1,28 +1,12 @@
-.DEFAULT_GOAL: .
+.DEFAULT_GOAL:=.
 
-ETC := ~/.cpan /var/cache/debconf /var/lib/doc-base/documents
+ETC:=/var/cache/debconf /var/lib/doc-base/documents
 
-.PHONY: $(ETC) clean $(.DEFAULT_GOAL)
+.PHONY: $(ETC) $(.DEFAULT_GOAL) clean
 
-${.DEFAULT_GOAL}: $(ETC)
-	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
-	cygserver-config --yes || true
-	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
-	cygrunsrv -S cygserver
-	cygrunsrv -S httpd
-
-~/.cpan: CPAN/MyConfig.pm
-	mkdir $@ $(shell dirname $@/$<) || true
-	install --target-directory=$(shell dirname $@/$<) $<
-	cpan -T \
-		File::NCopy \
-		YAML::Tiny \
-		MIME::Tools UUID \
-		Email::Outlook::Message \
-		Devel::Cover \
-		Archive::Cpio
-	find ~/.cpan -name mimeexplode | \
-	xargs install --mode=755 --target-directory=/usr/local/bin
+clean:
+	net user www-data /delete || true
+	rm -rf ~/.cpan
 
 /var/lib/doc-base/documents:
 	mkdir $@ || true
@@ -83,13 +67,10 @@ ${.DEFAULT_GOAL}: $(ETC)
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
-
-clean:
-	net user www-data /delete || true
-	rm -rf ~/.cpan
-	git submodule foreach | \
-	cut -d\' -f2 | \
-	grep -v cygwin-auto-install | \
-	xargs -I@ \
-		git --git-dir=@/.git --work-tree=@ clean -dfx
+$(.DEFAULT_GOAL): $(ETC)
+	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
+	cygserver-config --yes || true
+	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
+	cygrunsrv -S cygserver
+	cygrunsrv -S httpd
 
