@@ -1,4 +1,6 @@
-.DEFAULT_GOAL: install
+.DEFAULT_GOAL: .
+
+ETC := ~/.cpan /var/cache/debconf /var/lib/doc-base/documents
 
 .PHONY: $(ETC) clean $(.DEFAULT_GOAL)
 
