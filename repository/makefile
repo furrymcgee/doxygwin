@@ -1,6 +1,8 @@
 # This makefile builds cygwin packages from debian source
-# The debian package names are phony targets of this makefile
-# The process is simulated with make --dry-run
+# The debian package names are defined phony targets in a template
+# It uses cygport.sh to generate a cygport files
+# The cygport files inherit dpkg.cygclass
+# The make process is simulated with make --dry-run
 # Additional information is printed with make --trace 
 
 .DEFAULT_GOAL = .DEFAULT
@@ -32,10 +34,14 @@ Sources:
 	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@)) Packages | \
 	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
 
-# Template rule with prerequisites
+# Grep debian package name, version and architecture
 define CYGPORT =
-$(eval $(call TEMPLATE,$(shell \
-	cat Packages | \
+$(foreach cygport, $(shell \
+	cat Packages* | \
+	sed /^Package:\ $1$$/,/^$$/\!d | \
+	sed -z s/\\x0a\\x0a/\\x00/g | \
+	sed -z /Extra-Source/d | \
+	sed s/\\x00/\\x0a\\x0a/ | \
 	grep ^Package:\\\|^Version:\\\|^Architecture: | \
 	sed /^Version:\ /aRELEASE=1 | \
 	sed '1h;1d;5~4x;$$G' | \
@@ -59,15 +65,14 @@ $(eval $(call TEMPLATE,$(shell \
 		-e s@\\\t@/@ \
 		-e s@\\\t@_@ \
 		-e s@\\\t@_@ \
-		-e s@\\\t@.@ | \
-	grep "$1" | \
-	head -n1 \
-)))
+		-e s@\\\t@.@ \
+	),
+	$(eval $(call TEMPLATE,$(cygport)))
+)
 endef
 
-# Template rule with prerequisites
+# Define rule with prerequisites
 define TEMPLATE =
-$(info Template: $1)
 
 #.INTERMEDIATE: $1
 .PHONY: $(word 1, $(subst _, , $(notdir $1)))
@@ -90,10 +95,8 @@ $(word 1, $(subst _, , $(notdir $1))): $(word 1, $(subst _, ,$1))_$(word 2, $(su
 
 endef
 
-# Grep MAKECMDGOALS from Packages
+# Call cygport foreach MAKECMDGOALS
 ifeq (0,${MAKELEVEL})
-$(foreach x, $(MAKECMDGOALS), $(eval $(call CYGPORT,$(x))))
+$(foreach package, $(MAKECMDGOALS), $(eval $(call CYGPORT,$(package))))
 endif
-
-
 

@@ -1,5 +1,8 @@
 #!/bin/sh
-
+# This scripts converts debian packages data to cygport files
+# It requires bash with a recutils builtin
+# The generated cygport file inherits dpkg.cygclass
+# This scripts can be used in debian and cygwin
 
 test -r "$(dirname $0)/Packages" &&
 test -r  "$(dirname $0)/Sources" || 
