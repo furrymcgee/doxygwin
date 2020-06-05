@@ -13,26 +13,6 @@ ETC:=/var/cache/debconf /var/lib/doc-base/documents /usr
 .PHONY: $(ETC) $(.DEFAULT_GOAL)
 
 /usr:
-	$(MAKE) -B tar/configure
-	$(MAKE) tar
-	$(MAKE) install -C tar
-	$(MAKE) dpkg/configure dpkg
-	$(MAKE) install -C dpkg
-	$(MAKE) install -C debhelper
-	$(MAKE) intltool-debian
-	$(MAKE) install -C intltool-debian
-	$(MAKE) publib/configure
-	$(MAKE) publib
-	$(MAKE) install -C publib
-	$(MAKE) doc-base
-	$(MAKE) install -C doc-base
-	$(MAKE) debconf
-	$(MAKE) install -C debconf
-	$(MAKE) swish++
-	$(MAKE) install -C swish++
-	$(MAKE) dwww
-	$(MAKE) install -C dwww
-	$(MAKE) po-debconf
 	$(MAKE) /var/cache/debconf /var/lib/doc-base/documents
 
 
