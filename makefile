@@ -1,40 +1,16 @@
 #!/usr/bin/make -f
 # This script installs https://github.com/furrymcgee/doxygwin
 
-.DEFAULT_GOAL:=.
-
 export DISTRIBUTOR?=doxygwin
 export PERL5LIB?=/usr/share/perl5
 export DH_COMPAT?=10
 export prefix?=/usr
 	
-ETC:=/var/cache/debconf /var/lib/doc-base/documents /usr
+.DEFAULT_GOAL:=.
 
-.PHONY: $(ETC) $(.DEFAULT_GOAL)
+REQUISITES:=/etc/xml/catalog /var/cache/debconf /var/lib/doc-base/documents 
 
-/usr:
-	$(MAKE) /var/cache/debconf /var/lib/doc-base/documents
-
-
-/var/lib/doc-base/documents:
-	mkdir $@ || true
-	find documents/* | \
-	xargs -r install -p --target-directory=/etc/doc-base/documents
-	mkdir /usr/local/share /usr/local/share/doc || true
-	find doc/* | \
-	xargs -r install -p --target-directory=/usr/local/share/doc
-	find /etc/doc-base/documents \
-		-type f \
-		-newer /etc/doc-base/documents/README | \
-	xargs -r /usr/sbin/install-docs --verbose --install
-	test -d /usr/var/lib/dpkg || \
-	mkdir -p /usr/var/lib/dpkg
-	test -r /usr/var/lib/dpkg/status || \
-	touch /usr/var/lib/dpkg/status
-	/usr/sbin/dwww-build
-	/usr/sbin/dwww-build-menu
-	/usr/sbin/dwww-refresh-cache
-	/usr/sbin/dwww-index++ -v -f -- -v4
+.PHONY: $(.DEFAULT_GOAL) $(REQUISITES)
 
 /etc/xml/catalog:
 	xmlcatalog --create > $@
@@ -75,10 +51,31 @@ ETC:=/var/cache/debconf /var/lib/doc-base/documents /usr
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
-$(.DEFAULT_GOAL): $(ETC)
+/var/lib/doc-base/documents:
+	mkdir $@ || true
+	find documents/* | \
+	xargs -r install -p --target-directory=/etc/doc-base/documents
+	mkdir /usr/local/share /usr/local/share/doc || true
+	find doc/* | \
+	xargs -r install -p --target-directory=/usr/local/share/doc
+	find /etc/doc-base/documents \
+		-type f \
+		-newer /etc/doc-base/documents/README | \
+	xargs -r /usr/sbin/install-docs --verbose --install
+	test -d /usr/var/lib/dpkg || \
+	mkdir -p /usr/var/lib/dpkg
+	test -r /usr/var/lib/dpkg/status || \
+	touch /usr/var/lib/dpkg/status
+	/usr/sbin/dwww-build
+	/usr/sbin/dwww-build-menu
+	/usr/sbin/dwww-refresh-cache
+	/usr/sbin/dwww-index++ -v -f -- -v4
+
+$(.DEFAULT_GOAL): $(REQUISITES)
 	net user www-data /ADD || true
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
+
