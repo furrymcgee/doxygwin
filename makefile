@@ -1,12 +1,40 @@
+#!/usr/bin/make -f
+# This script installs https://github.com/furrymcgee/doxygwin
+
 .DEFAULT_GOAL:=.
 
-ETC:=/var/cache/debconf /var/lib/doc-base/documents
+export DISTRIBUTOR?=doxygwin
+export PERL5LIB?=/usr/share/perl5
+export DH_COMPAT?=10
+export prefix?=/usr
+	
+ETC:=/var/cache/debconf /var/lib/doc-base/documents /usr
 
-.PHONY: $(ETC) $(.DEFAULT_GOAL) clean
+.PHONY: $(ETC) $(.DEFAULT_GOAL)
 
-clean:
-	net user www-data /delete || true
-	rm -rf ~/.cpan
+/usr:
+	$(MAKE) -B tar/configure
+	$(MAKE) tar
+	$(MAKE) install -C tar
+	$(MAKE) dpkg/configure dpkg
+	$(MAKE) install -C dpkg
+	$(MAKE) install -C debhelper
+	$(MAKE) intltool-debian
+	$(MAKE) install -C intltool-debian
+	$(MAKE) publib/configure
+	$(MAKE) publib
+	$(MAKE) install -C publib
+	$(MAKE) doc-base
+	$(MAKE) install -C doc-base
+	$(MAKE) debconf
+	$(MAKE) install -C debconf
+	$(MAKE) swish++
+	$(MAKE) install -C swish++
+	$(MAKE) dwww
+	$(MAKE) install -C dwww
+	$(MAKE) po-debconf
+	$(MAKE) /var/cache/debconf /var/lib/doc-base/documents
+
 
 /var/lib/doc-base/documents:
 	mkdir $@ || true
@@ -68,9 +96,9 @@ clean:
 		-e /cgi_module/s/#//
 
 $(.DEFAULT_GOAL): $(ETC)
+	net user www-data /ADD || true
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
 	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
-
