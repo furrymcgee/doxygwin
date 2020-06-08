@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-# This script installs https://github.com/furrymcgee/doxygwin
+# This makefiles installs https://github.com/furrymcgee/doxygwin
 
 export DISTRIBUTOR?=doxygwin
 export PERL5LIB?=/usr/share/perl5
@@ -8,7 +8,11 @@ export prefix?=/usr
 	
 .DEFAULT_GOAL:=.
 
-REQUISITES:=/etc/xml/catalog /var/cache/debconf /var/lib/doc-base/documents 
+REQUISITES:=\
+	/etc/httpd/conf/httpd.conf \
+	/etc/xml/catalog \
+	/var/cache/debconf \
+	/var/lib/doc-base/documents 
 
 .PHONY: $(.DEFAULT_GOAL) $(REQUISITES)
 
@@ -23,31 +27,10 @@ REQUISITES:=/etc/xml/catalog /var/cache/debconf /var/lib/doc-base/documents
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/var/cache/debconf: dwww/debian/dwww.config
-	mkdir $@ || true
-	po-debconf/po2debconf --output $<.templates \
-		dwww/debian/dwww.templates
-	touch \
-		$@/templates.dat \
-		$@/passwords.dat \
-		$@/config.dat
-	echo "\
-		unknown dwww/docrootdir string /var/www\
-		unknown dwww/cgiuser    string Guest\
-		unknown dwww/servername string localhost\
-		unknown dwww/nosuchdir  note\
-		unknown dwww/cgidir     string /usr/lib/cgi-bin\
-		unknown dwww/badport    note\
-		unknown dwww/index_docs boolean false\
-		unknown dwww/nosuchuser note\
-		unknown dwww/serverport string 80\
-	" | \
-	tr \\t \\n | \
-	debconf-set-selections
-	perl $<
+/etc/httpd/conf/httpd.conf:
 	sed \
-		-i /etc/httpd/conf/httpd.conf \
-		-e s/^#*ServerName\ .*/ServerName\ 192.168.33.152/ \
+		-i $@ \
+		-e s/^#*ServerName\ .*/ServerName\ localhost/ \
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
