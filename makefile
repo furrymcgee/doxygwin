@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 # This makefiles installs https://github.com/furrymcgee/doxygwin
 
-export DISTRIBUTOR?=doxygwin
-export PERL5LIB?=/usr/share/perl5
+export DISTRIBUTOR?=default
+export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
 export DH_COMPAT?=10
 export prefix?=/usr
 	
@@ -11,8 +11,7 @@ export prefix?=/usr
 REQUISITES:=\
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
-	/var/cache/debconf \
-	/var/lib/doc-base/documents 
+	/var/lib/doc-base \ 
 
 .PHONY: $(.DEFAULT_GOAL) $(REQUISITES)
 
@@ -34,8 +33,15 @@ REQUISITES:=\
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
-/var/lib/doc-base/documents:
-	mkdir $@ || true
+/var/lib/doc-base:
+	mkdir \
+		$@ \
+		$@/documents \
+		/var/lib/doc-base/info \
+		/var/lib/dpkg \
+		/var/lib/dpkg/updates \
+		/var/lib/dwww \
+	|| true
 	find documents/* | \
 	xargs -r install -p --target-directory=/etc/doc-base/documents
 	mkdir /usr/local/share /usr/local/share/doc || true
@@ -45,10 +51,8 @@ REQUISITES:=\
 		-type f \
 		-newer /etc/doc-base/documents/README | \
 	xargs -r /usr/sbin/install-docs --verbose --install
-	test -d /usr/var/lib/dpkg || \
-	mkdir -p /usr/var/lib/dpkg
-	test -r /usr/var/lib/dpkg/status || \
-	touch /usr/var/lib/dpkg/status
+	test -r /var/lib/dpkg/status || \
+	touch /var/lib/dpkg/status
 	/usr/sbin/dwww-build
 	/usr/sbin/dwww-build-menu
 	/usr/sbin/dwww-refresh-cache
