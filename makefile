@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-# This makefiles installs https://github.com/furrymcgee/doxygwin
+# This makefile installs https://github.com/furrymcgee/doxygwin
 
 export DISTRIBUTOR?=default
 export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
@@ -62,7 +62,7 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 	net user www-data /ADD || true
 	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
 	cygserver-config --yes || true
-	cygrunsrv.exe -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
+	cygrunsrv -I httpd -p /usr/sbin/httpd -a -DONE_PROCESS || true
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
 

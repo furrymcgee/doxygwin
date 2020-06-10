@@ -26,7 +26,7 @@ Sources:
 .PRECIOUS: %.cygport
 
 .DEFAULT:
-	# Notice: This makefiles requires MAKECMDGOALS to build debian packages
+	# Notice: This makefile requires MAKECMDGOALS set to debian package name
 
 # Create %.cygport files from debian data
 %.cygport: Packages
