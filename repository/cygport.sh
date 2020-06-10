@@ -117,12 +117,17 @@ REC
 			)"
 
 			$( 
-				tr _? -_ <<-DEPS |
-					${Source_Build_Depends_Indep}
-					${Binary_Depends}
-				DEPS
 				PERL5LIB=/usr/share/perl5 \
-				perl 9<&0 0<<-'PERL'
+				9<<-TR \
+				0<<-'PERL' \
+				perl 
+				$(
+					tr _? -_ <<-DEPS
+						${Source_Build_Depends_Indep}
+						${Binary_Depends}
+					DEPS
+				)
+				TR
 					use Dpkg::Deps;
 					open(STDIN, '<&=', 9);
 					local @_=<>;
