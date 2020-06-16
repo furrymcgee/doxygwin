@@ -1,0 +1,6 @@
+[autorun]
+Icon=Cygwin.ico
+Label=Cygwin
+Action=Start Cygwin
+ShellExecute=cygwin-auto-install\cygwin-install.bat
+UseAutoPlay=0
