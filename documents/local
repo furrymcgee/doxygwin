@@ -23,3 +23,6 @@ Files: /usr/local/share/doc/*.xlsx
 Format: msg
 Files: /usr/local/share/doc/*.msg
 
+Format: md
+Files: /usr/local/share/doc/*.md
+
