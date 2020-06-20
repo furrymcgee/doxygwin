@@ -1,11 +1,11 @@
-DOXIE
+DOXYGWIN
 -----
 
-Doxie Search is a search engine for your office documents and emails on
+Doxygwin is a search engine for your office documents and emails on
 Windows. A typical system has documentation in many formats (docx, pdf, email,
-...). The Doxie Search finds all of them in a web browser.
+...). The Doxygwin finds all of them in a web browser.
 
-Doxie Search is based on dwww and other Debian packages ported to Cygwin:
+Doxygwin is based on dwww and other Debian packages ported to Cygwin:
 "All installed on-line documentation will be served via a local HTTP
 server at http://localhost/dwww/. This package runs cron scripts to
 convert available resources to the HTML pages.  Executing the dwww
@@ -14,21 +14,24 @@ command starts a sensible WWW browser locally to access them."
 REQUIREMENTS
 ------------
 
-A Cygwin installation is required for building and installation. Please see
+A Cygwin installation is used for building and installation.
+The autorun.inf starts the installation. Please see
 link below how to install required Cygwin packages with cygwin-auto-install.
-CPAN access is also required to build and install Doxie Search.
+There is a repository with all packages built for x86.
 
 INSTALL
 -------
 
-Download scripts and packages from repository.
+Start cygwin-auto-installer/cygwin-install.bat with autorun.inf or manually.
+Install dpkg and cygport to build packages from debian sources.
 
-- https://github.com/furrymcgee/cygwin-auto-install
+- https://github.com/furrymcgee/doxygwin
 
-BOOTSTRAP
+TOOLCHAIN
 ---------
 
-Install dpkg and cygport to build packages from debian sources.
+The doxygwin toolchain is avilable as packages or can be build from source.
+There is a bootstrap.sh script to build and install the toolchain from source.
 
 .Bootstrap
 [source,sh]
@@ -36,11 +39,20 @@ Install dpkg and cygport to build packages from debian sources.
 source bootstrap.sh
 -----
 
+CYGPORT
+-------
+
+Cyport is a tool to build new packages for cygwin distribution.
+The dpkg toolchain can build packages from debian sources.
+There is a dpkg.cygclass file to build debian sources with cygport.
+The dwww.cygport for example inherits dpkg.cygclass to build a dwww package.
+
 
 SETUP
 -----
 
-Execute following commands to create a setup.ini file.
+The repository contains packages and a setup.ini file with checksums.
+There is a autogen.sh script to create a setup.ini file.
 The typescript file contains a log of the autogen.sh build script.
 
 .Setup
@@ -51,8 +63,7 @@ git clone --recursive https://github.com/furrymcgee/doxygwin
 # Change to submodule
 cd doxygwin/cygwin-auto-install/doxygwin/Y%3a%2f
 # Execute autogen.sh and write typescript
-printf %q\\\n source\ ../autogen.sh |
-script -c bash\ -ex
+printf %q\\\n source\ ../autogen.sh | script -c bash\ -ex
 -----
 
 
