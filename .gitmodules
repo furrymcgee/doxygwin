@@ -4,6 +4,3 @@
 [submodule "repository/Y%3a%2f"]
 	path = repository/Y%3a%2f
 	url = https://github.com/furrymcgee/repository
-[submodule "windows"]
-	path = windows
-	url = https://github.com/furrymcgee/windows
