@@ -11,6 +11,15 @@ server at http://localhost/dwww/. This package runs cron scripts to
 convert available resources to the HTML pages.  Executing the dwww
 command starts a sensible WWW browser locally to access them."
 
+OVERVIEW
+--------
+Directories
+- repository, Wygwin setup directory
+- windows, Windows XP Virtual Machine
+- doc-base, Documents
+- bin, mailexplode tool
+- cygwin-auto-install, setup script
+
 REQUIREMENTS
 ------------
 
@@ -66,4 +75,6 @@ cd doxygwin/cygwin-auto-install/doxygwin/Y%3a%2f
 printf %q\\\n source\ ../autogen.sh | script -c bash\ -ex
 -----
 
-
+LINKS
+-----
+dwww, doc-base, swish++, apache2
