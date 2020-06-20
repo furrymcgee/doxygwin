@@ -22,7 +22,7 @@ There is a repository with all packages built for x86.
 INSTALL
 -------
 
-Start cygwin-auto-installer/cygwin-install.bat with autorun.inf or manually.
+Install doxygwin with autorun.bat.
 Install dpkg and cygport to build packages from debian sources.
 
 - https://github.com/furrymcgee/doxygwin
