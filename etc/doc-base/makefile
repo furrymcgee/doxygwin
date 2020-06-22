@@ -44,14 +44,16 @@ REQUISITES:=\
 		/var/lib/dwww \
 	|| true
 	find documents/* | \
-	xargs -r install -p --target-directory=/etc/doc-base/documents
+	xargs -r -I@ \
+		install -p --target-directory=/etc/doc-base/documents @
 	mkdir /usr/local/share /usr/local/share/doc || true
-	find doc/* | \
-	xargs -r install -p --target-directory=/usr/local/share/doc
+	: find doc/* | \
+	xargs -I@ -r \
+		install -p --target-directory=/usr/local/share/doc @
 	find /etc/doc-base/documents \
 		-type f \
 		-newer /etc/doc-base/documents/README | \
-	xargs -r /usr/sbin/install-docs --verbose --install
+	xargs -I@ -r /usr/sbin/install-docs --verbose --install @
 	test -r /var/lib/dpkg/status || \
 	touch /var/lib/dpkg/status
 	/usr/sbin/dwww-build
@@ -60,7 +62,7 @@ REQUISITES:=\
 	/usr/sbin/dwww-index++ -v -f -- -v4
 
 $(.DEFAULT_GOAL): $(REQUISITES)
-	install --mode=755 --target-directory=/usr/local/bin bin/mailexplode
+	install --mode=755 --target-directory=/usr/local/bin ../bin/mailexplode
 	cygserver-config --yes \
 		|| true
 	cygrunsrv \
