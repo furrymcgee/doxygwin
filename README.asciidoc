@@ -14,11 +14,12 @@ command starts a sensible WWW browser locally to access them."
 OVERVIEW
 --------
 Directories
-- repository, Wygwin setup directory
+
+- repository, Doxygwin package repository
+- cygwin-auto-install, Script for download and setup
 - windows, Windows XP Virtual Machine
-- doc-base, Documents
-- bin, mailexplode tool
-- cygwin-auto-install, setup script
+- etc, Documents
+- bin, Tools
 
 REQUIREMENTS
 ------------
