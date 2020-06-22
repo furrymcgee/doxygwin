@@ -10,6 +10,8 @@ exit 1
 
 test -n "$*" ||
 exit 2
+	
+export PATH=/usr/lib/recutils/bash-builtins/:$PATH
 
 7<<-REC \
 0<<-'BASH' \
@@ -47,7 +49,6 @@ bash
 	)
 
 REC
-	export PATH=/usr/lib/recutils/bash-builtins/:$PATH
 	enable -f /usr/lib/recutils/bash-builtins/readrec.so readrec 2> /dev/null ||
 	enable -f readrec-0.dll readrec ||
 	exit 1
