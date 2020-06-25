@@ -33,14 +33,19 @@ INSTALL
 -------
 
 Install doxygwin with autorun.bat.
-Install dpkg and cygport to build packages from debian sources.
 
 - https://github.com/furrymcgee/doxygwin
+
+.Installation
+[source,bat]
+-----
+include::autorun.bat[]
+-----
 
 TOOLCHAIN
 ---------
 
-The doxygwin toolchain is avilable as packages or can be build from source.
+The doxygwin toolchain is available as packages or can be build from source.
 There is a bootstrap.sh script to build and install the toolchain from source.
 
 .Bootstrap

@@ -1,3 +1,4 @@
 REM install doygwin packages and configuration
-call cygwin-auto-install/cygwin-install
-call etc/doc-base/install
+call %~dp0/cygwin-auto-install/cygwin-install
+call %~dp0/etc/doc-base/install
+pause

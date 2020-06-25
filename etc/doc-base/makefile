@@ -63,7 +63,7 @@ REQUISITES:=\
 	/usr/sbin/dwww-index++ -v -f -- -v4
 
 $(.DEFAULT_GOAL): $(REQUISITES)
-	install --mode=755 --target-directory=/usr/local/bin ../bin/mailexplode
+	install --mode=755 --target-directory=/usr/local/bin ../../bin/mailexplode
 	cygserver-config --yes \
 		|| true
 	cygrunsrv \
