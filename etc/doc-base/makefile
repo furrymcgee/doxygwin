@@ -38,6 +38,7 @@ REQUISITES:=\
 	mkdir \
 		$@ \
 		$@/documents \
+		/var/cache/dwww \
 		/var/lib/doc-base/info \
 		/var/lib/dpkg \
 		/var/lib/dpkg/updates \
