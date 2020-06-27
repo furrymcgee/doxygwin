@@ -9,6 +9,7 @@ export prefix?=/usr
 .DEFAULT_GOAL:=.
 
 REQUISITES:=\
+	~/.cpan \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
 	/var/lib/doc-base \ 
@@ -25,6 +26,16 @@ REQUISITES:=\
 		--add rewriteURI \
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
+
+~/.cpan: ../../CPAN/MyConfig.pm
+	mkdir $@ $(shell dirname $@/$<) || true
+	install --target-directory=$(shell dirname $@/$<) $<
+	cpan -T \
+		Encode \
+		MIME::Tools \
+	
+	find ~/.cpan -name mimeexplode | \
+	xargs install --mode=755 --target-directory=/usr/local/bin
 
 /etc/httpd/conf/httpd.conf:
 	net user www-data /ADD || true
