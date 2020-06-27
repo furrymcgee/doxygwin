@@ -48,9 +48,7 @@ REQUISITES:=\
 	xargs -r -I@ \
 		install -p --target-directory=/etc/doc-base/documents @
 	mkdir /usr/local/share /usr/local/share/doc || true
-	: find doc/* | \
-	xargs -I@ -r \
-		install -p --target-directory=/usr/local/share/doc @
+	rsync -av doc/* /usr/local/share/doc/
 	find /etc/doc-base/documents \
 		-type f \
 		-newer /etc/doc-base/documents/README | \
