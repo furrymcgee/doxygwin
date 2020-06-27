@@ -31,10 +31,8 @@ REQUISITES:=\
 	mkdir $@ $(shell dirname $@/$<) || true
 	install --target-directory=$(shell dirname $@/$<) $<
 	cpan -T \
-		Encode \
-		MIME::Tools \
-	
-	find ~/.cpan -name mimeexplode | \
+		Encode
+	find /usr/share/doc/libmime-tools-perl/examples/mimeexplode | \
 	xargs install --mode=755 --target-directory=/usr/local/bin
 
 /etc/httpd/conf/httpd.conf:
