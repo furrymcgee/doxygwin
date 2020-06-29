@@ -50,14 +50,13 @@ REQUISITES:=\
 		../../bin/mailexplode \
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
 	install --mode=755 --target-directory=$@/bin $^
+	mkdir -p $@/share/doc
 	rsync -av doc/* $@/share/doc/
 
 /var/lib:
 	mkdir -p \
-		$@/doc-base \
-		$@/doc-base/documents \
 		$@/doc-base/info \
-		$@/dpkg \
+		$@/doc-base/documents \
 		$@/dpkg/updates \
 		$@/dwww
 	test -r $@/dpkg/status || \
