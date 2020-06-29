@@ -1,6 +1,8 @@
-REM start ssh server and install documents
+ECHO.
+ECHO %~n0: start ssh server and install documents
+SET X=%~dp0
 c:/doxygwin/bin/bash -l -c "sed -i /etc/fstab -e /^none/s/posix=0/posix=1/ -e '$a//samba/share /mnt smbfs noacl 0 0'"
+c:/doxygwin/bin/bash -l -c "mkdir /usr/local/share && ln -s \"$(cygpath -O)\" /usr/local/share/doc"
+c:/doxygwin/bin/bash -l -c "make -C \"$( cygpath '%X:\=\\%' )\""
 c:/doxygwin/bin/bash -l -c "ssh-host-config --yes && cygrunsrv -S sshd"
-REM c:/doxygwin/bin/bash -l -c "make -C $(cygpath '%~dp0')"
-c:/doxygwin/bin/bash -l -c "make -C /mnt/etc/doc-base"
 exit /b

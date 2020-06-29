@@ -5,15 +5,27 @@ export DISTRIBUTOR?=default
 export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
 export DH_COMPAT?=10
 export prefix?=/usr
+export PATH:=/usr/sbin:$(PATH)
 	
 .DEFAULT_GOAL:=.
 
 REQUISITES:=\
+	/usr/local \
+	/var/lib \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
-	/var/lib/doc-base \ 
+	/etc/doc-base \
+	/var/cache \
 
 .PHONY: $(.DEFAULT_GOAL) $(REQUISITES)
+
+/etc/httpd/conf/httpd.conf:
+	net user www-data /ADD || true
+	sed \
+		-i $@ \
+		-e s/^#*ServerName\ .*/ServerName\ localhost/ \
+		-e /slotmem_shm_module/s/^#// \
+		-e /cgi_module/s/#//
 
 /etc/xml/catalog:
 	xmlcatalog --create > $@
@@ -26,42 +38,37 @@ REQUISITES:=\
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/httpd/conf/httpd.conf:
-	net user www-data /ADD || true
-	sed \
-		-i $@ \
-		-e s/^#*ServerName\ .*/ServerName\ localhost/ \
-		-e /slotmem_shm_module/s/^#// \
-		-e /cgi_module/s/#//
+/etc/doc-base: documents
+	rsync -av $^ /etc/doc-base/
+	find $@ \
+		-type f \
+		-newer $@/$^/README \
+		-exec \
+			install-docs --verbose --install {} \+
 
-/var/lib/doc-base:
-	install --mode=755 --target-directory=/usr/local/bin \
+/usr/local: \
 		../../bin/mailexplode \
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
-	mkdir \
-		$@ \
-		$@/documents \
-		/var/cache/dwww \
-		/var/lib/doc-base/info \
-		/var/lib/dpkg \
-		/var/lib/dpkg/updates \
-		/var/lib/dwww \
-	|| true
-	find documents/* | \
-	xargs -r -I@ \
-		install -p --target-directory=/etc/doc-base/documents @
-	mkdir /usr/local/share /usr/local/share/doc || true
-	rsync -av doc/* /usr/local/share/doc/
-	find /etc/doc-base/documents \
-		-type f \
-		-newer /etc/doc-base/documents/README | \
-	xargs -I@ -r /usr/sbin/install-docs --verbose --install @
-	test -r /var/lib/dpkg/status || \
-	touch /var/lib/dpkg/status
-	/usr/sbin/dwww-build
-	/usr/sbin/dwww-build-menu
-	/usr/sbin/dwww-refresh-cache
-	/usr/sbin/dwww-index++ -v -f -- -v4
+	install --mode=755 --target-directory=$@/bin $^
+	rsync -av doc/* $@/share/doc/
+
+/var/lib:
+	mkdir -p \
+		$@/doc-base \
+		$@/doc-base/documents \
+		$@/doc-base/info \
+		$@/dpkg \
+		$@/dpkg/updates \
+		$@/dwww
+	test -r $@/dpkg/status || \
+	touch $@/dpkg/status
+
+/var/cache:
+	mkdir -p $@/dwww
+	dwww-build
+	dwww-build-menu
+	dwww-refresh-cache
+	dwww-index++ -v -f -- -v4
 
 $(.DEFAULT_GOAL): $(REQUISITES)
 	cygserver-config --yes \
