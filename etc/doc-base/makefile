@@ -9,7 +9,6 @@ export prefix?=/usr
 .DEFAULT_GOAL:=.
 
 REQUISITES:=\
-	~/.cpan \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
 	/var/lib/doc-base \ 
@@ -27,14 +26,6 @@ REQUISITES:=\
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-~/.cpan: ../../CPAN/MyConfig.pm
-	mkdir $@ $(shell dirname $@/$<) || true
-	install --target-directory=$(shell dirname $@/$<) $<
-	cpan -T \
-		Encode
-	find /usr/share/doc/libmime-tools-perl/examples/mimeexplode | \
-	xargs install --mode=755 --target-directory=/usr/local/bin
-
 /etc/httpd/conf/httpd.conf:
 	net user www-data /ADD || true
 	sed \
@@ -44,6 +35,9 @@ REQUISITES:=\
 		-e /cgi_module/s/#//
 
 /var/lib/doc-base:
+	install --mode=755 --target-directory=/usr/local/bin \
+		../../bin/mailexplode \
+		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
 	mkdir \
 		$@ \
 		$@/documents \
@@ -70,7 +64,6 @@ REQUISITES:=\
 	/usr/sbin/dwww-index++ -v -f -- -v4
 
 $(.DEFAULT_GOAL): $(REQUISITES)
-	install --mode=755 --target-directory=/usr/local/bin ../../bin/mailexplode
 	cygserver-config --yes \
 		|| true
 	cygrunsrv \
