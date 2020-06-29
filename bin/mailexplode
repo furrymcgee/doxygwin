@@ -1,5 +1,5 @@
 #!/bin/sh
-cd -P "$(mktemp -d)" &&
+cd /tmp &&
 mimeexplode - |
 grep Part: |
 tr \( : |
@@ -10,6 +10,5 @@ index++ -c /usr/share/dwww/swish++.conf -p101 -v4 - &&
 search++ -D | 
 grep ^\\w &&
 rm swish++.index msg0/* &&
-cd - &&
-rmdir $OLDPWD/msg0 $OLDPWD
+cd -
 
