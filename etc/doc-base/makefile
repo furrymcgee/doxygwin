@@ -17,7 +17,7 @@ REQUISITES:=\
 	/etc/doc-base \
 	/var/cache \
 
-.PHONY: $(.DEFAULT_GOAL) $(REQUISITES)
+.PHONY: $(.DEFAULT_GOAL) $(REQUISITES) test
 
 /etc/httpd/conf/httpd.conf:
 	net user www-data /ADD || true
@@ -80,3 +80,10 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
 
+test:
+	REQUEST_METHOD=GET \
+	QUERY_STRING=search='$@&programsubmit=Search&searchtype=d' \
+	/srv/www/cgi-bin/dwww
+
+dump:
+	/usr/bin/search++ --config-file=/usr/share/dwww/swish++.conf --index-file=/var/cache/dwww/dwww.swish++.index --skip-results=0 -m 50 -D

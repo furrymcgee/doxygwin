@@ -9,6 +9,6 @@ grep -o \\w.*\\w |
 index++ -c /usr/share/dwww/swish++.conf -p101 -v4 - &&
 search++ -D | 
 grep ^\\w &&
-rm swish++.index msg0/* &&
+rm -rf swish++.index msg0 &&
 cd -
 
