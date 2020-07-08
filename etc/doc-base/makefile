@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
-# This makefile installs doxygwin documents https://github.com/furrymcgee/doxygwin
+# This makefile installs doxygwin documents
+# https://github.com/furrymcgee/doxygwin
 
 export DISTRIBUTOR?=default
 export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
@@ -50,8 +51,9 @@ REQUISITES:=\
 		../../bin/mailexplode \
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
 	install --mode=755 --target-directory=$@/bin $^
-	mkdir -p $@/share/doc
-	rsync -av doc/* $@/share/doc/
+	mkdir -p $@/share
+	cygpath --mydocs | \
+	xargs -r -t -I@ ln -s @ $@/share/doc
 
 /var/lib:
 	mkdir -p \
@@ -62,7 +64,7 @@ REQUISITES:=\
 	test -r $@/dpkg/status || \
 	touch $@/dpkg/status
 
-/var/cache:
+/var/cache: /etc/doc-base
 	mkdir -p $@/dwww
 	dwww-build
 	dwww-build-menu
