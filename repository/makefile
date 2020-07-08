@@ -31,7 +31,7 @@ Sources:
 # Create %.cygport files from debian data
 %.cygport: Packages
 	mkdir $(@D) && \
-	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@)) Packages | \
+	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@))$$ Packages | \
 	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
 
 # Grep debian package name, version and architecture

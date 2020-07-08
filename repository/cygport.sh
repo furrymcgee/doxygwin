@@ -33,16 +33,17 @@ bash
 		sed /^Package:\ $1$/,/^$/\!d |
 		sed -z s/\\x0a\\x0a/\\x00/g |
 		sed -z /Extra-Source/d |
-		sed s/\\x00/\\x0a\\x0a/ 
+		sed s/\\x00/\\x0a\\x0a/
 	)
 
 	%rec: Source
 	%key: Binary
 
 	$(
+        # moc, automake
 		cat "$(dirname $0)/Sources" |
-		sed s/Binary:.*\ $1.*/Binary:\ $1/ |
-		sed /^Binary:\ $1/,/^$/\!d |
+		sed -E s/Binary:.*\ $1\(-.*\)\?$/Binary:\ $1/ |
+		sed /^Binary:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/g |
 		sed -z /Extra-Source/d |
 		sed s/\\\x00/\\x0a\\x0a/
