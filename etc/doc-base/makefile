@@ -53,7 +53,7 @@ REQUISITES:=\
 	install --mode=755 --target-directory=$@/bin $^
 	mkdir -p $@/share
 	cygpath --mydocs | \
-	xargs -r -t -I@ ln -s @ $@/share/doc
+	xargs -r -t -I@ ln -s "@" $@/share/doc
 
 /var/lib:
 	mkdir -p \
