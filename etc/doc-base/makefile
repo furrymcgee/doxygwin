@@ -52,8 +52,7 @@ REQUISITES:=\
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
 	install --mode=755 --target-directory=$@/bin $^
 	mkdir -p $@/share
-	cygpath --mydocs | \
-	xargs -r -t -I@ ln -s "@" $@/share/doc
+	ln -s "$$(cygpath --mydocs)" $@/share/doc
 
 /var/lib:
 	mkdir -p \
