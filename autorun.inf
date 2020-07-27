@@ -1,6 +1,5 @@
 [autorun]
 Icon=Cygwin.ico
-Label=Cygwin
-Action=Start Cygwin
-ShellExecute=autorun.bat
-UseAutoPlay=0
+Label=Doxygwin
+Action=Readme
+ShellExecute=cmd /c start index.html

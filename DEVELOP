@@ -1,0 +1,64 @@
+
+Development
+-----------
+
+This describes how to create a iso image for doxygwin installation.
+
+.Iso
+[source,sh]
+------
+# Checkout source code
+git clone --recursive https://github.com/furrymcgee/doxygwin
+
+#Create html documentation
+asciidoc -a toc index
+
+# Create the iso image
+genisoimage -iso-level 4 -m .git\* -o doxygwin.iso .
+------
+
+Repository
+~~~~~~~~~~
+
+The repository folder contains packages and a setup.ini file.
+There is also a autogen.sh script to create a new setup.ini file.
+The typescript file contains a log of the autogen.sh build script.
+
+.Setup
+[source,sh]
+-----
+# Change to submodule
+cd repository/Y%3a%2f
+
+# Execute autogen.sh and write typescript
+sh autogen.sh
+-----
+
+Packaging
+~~~~~~~~~
+
+New packages can be build with cygport command and the cygport files.
+The tools can be installed from binary packages or build from source.
+
+Cygport
+^^^^^^^
+
+Cyport is a tool to build new packages for cygwin distribution.
+With the dpkg cygclass new packages can be build from debian sources.
+The cygport file inherits cygclass to build package.
+
+Bootstrap
+^^^^^^^^^
+
+Building doxygwin requires cygport with dpkg cygclass.
+There is a bootstrap.sh script that builds and installs them from source.
+
+.Bootstrap
+[source,sh]
+-----
+# Y%3a%2f is the local package repository
+cd repository/Y%3a%2f && sh bootstrap.sh
+-----
+
+
+

@@ -1,0 +1,44 @@
+
+Installation
+------------
+
+Overview
+~~~~~~~~
+
+Doxygwin is a search engine for office documents and emails on Windows.
+A officce system uses documentation in many different formats.
+There are docx, pdf, email for example.
+The Doxygwin search engine uses dwww to search documents in a web browser.
+
+Doxygwin is based on dwww, doc-base and other debian packages ported to cygwin.
+
+All installed on-line documentation will be served via a local HTTP
+server at http://localhost/dwww/. This package runs cron scripts to
+convert available resources to the HTML pages.  Executing the dwww
+command starts a sensible WWW browser locally to access them.
+
+Requirements
+~~~~~~~~~~~~
+
+The repository contains packages for Windows.
+
+Directories
+~~~~~~~~~~~
+
+- cygwin-auto-install, Install script for cygwin download and setup
+- repository, Cygwin package repository with dpkg, dwww and doc-base
+- etc, Install scripts and configuration of doc-base
+- bin, Doxygwin scripts
+
+
+Installation
+~~~~~~~~~~~~
+
+The autorun.bat starts the cygwin installation.
+This needs run as Administrator to create www-data and sshd users.
+
+[source,bat]
+-----
+include::autorun.bat[]
+-----
+
