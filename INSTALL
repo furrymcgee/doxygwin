@@ -1,34 +1,23 @@
 
-Installation
-------------
-
-Overview
-~~~~~~~~
+Doxygwin
+--------
 
 Doxygwin is a search engine for office documents and emails on Windows.
-A officce system uses documentation in many different formats.
-There are docx, pdf, email for example.
-The Doxygwin search engine uses dwww to search documents in a web browser.
-
-Doxygwin is based on dwww, doc-base and other debian packages ported to cygwin.
-
-All installed on-line documentation will be served via a local HTTP
-server at http://localhost/dwww/. This package runs cron scripts to
-convert available resources to the HTML pages.  Executing the dwww
-command starts a sensible WWW browser locally to access them.
+It is based on dwww, doc-base ported to cygwin.
+The dwww package provides a search engine documents in a web browser.
+It can be used to search documents in docx, pdf, email format.
 
 Requirements
 ~~~~~~~~~~~~
 
 The repository contains packages for Windows.
 
-Directories
-~~~~~~~~~~~
-
-- cygwin-auto-install, Install script for cygwin download and setup
-- repository, Cygwin package repository with dpkg, dwww and doc-base
-- etc, Install scripts and configuration of doc-base
-- bin, Doxygwin scripts
+.Directories
+[horizontal]
+'cygwin-auto-install:':: Install script for cygwin download and setup
+'repository:':: Cygwin package repository with dpkg, dwww and doc-base
+'etc:':: Install scripts and configuration of doc-base
+'bin:':: Doxygwin scripts
 
 
 Installation
@@ -41,4 +30,77 @@ This needs run as Administrator to create www-data and sshd users.
 -----
 include::autorun.bat[]
 -----
+
+Development
+~~~~~~~~~~~
+
+Dpkg is used to build cygwin packages from debian sources.
+
+
+Dpkg
+----
+
+[abstract]
+--
+sys::[apt show dpkg | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel -P Description | head -n-2 | tail -n+2]
+--
+
+Dwww
+----
+
+[abstract]
+--
+sys::[apt show doc-base | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel -P Description | head -n-2 | tail -n+2]
+--
+
+
+Doc-Base
+--------
+
+[abstract]
+--
+sys::[apt show doc-base | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel -P Description | head -n-2 | tail -n+2]
+--
+
+.Files
+[horizontal]
+/var/lib/doc-base/documents/doc-base:: Control file
+/usr/share/doc-base/data/section.list:: Section list
+
+Control Files
+~~~~~~~~~~~~~
+[abstract]
+--
+sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-files' | grep '2.3. Control Files' -A 4 | tail -n3]
+--
+
+--
+[horizontal]
+'Document:'::
+dasd
+'Section:'::
+A section defined in section.list and documented in s\{...\}.html
+'Title:'::
+Title of the document
+'Author:'::
+Author of the document
+'Abstract:'::
+Abstract of the document
+'Format:'::
+A file format (text, md, pdf, html, ...) used for the document
+'Files:'::
+A file glob representing all files of a certain format
+'Index:'::
+Index file for html format
+--
+
+The documentation consists of one or more files of the same or different format.
+In a control file each format may be used only once.
+The Index field may be used only for html format.
+Dwww uses title and abstract fields sor search type menu
+
+.Example:
+------
+include::/var/lib/doc-base/documents/doc-base[]
+------
 
