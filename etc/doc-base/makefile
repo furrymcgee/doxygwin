@@ -15,7 +15,6 @@ REQUISITES:=\
 	/var/lib \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
-	/etc/doc-base \
 
 .PHONY: $(.DEFAULT_GOAL) $(REQUISITES) test
 
