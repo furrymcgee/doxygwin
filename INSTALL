@@ -6,18 +6,10 @@ Doxygwin is a search engine for office documents and emails on Windows.
 It is based on dwww, doc-base ported to cygwin.
 The dwww package provides a search engine documents in a web browser.
 It can be used to search documents in docx, pdf, email format.
+The Dpkg tool is used to build cygwin packages from debian sources.
 
-Requirements
-~~~~~~~~~~~~
+After installation documents can be searched in a browser at http://localhost/dwww .
 
-The repository contains packages for Windows.
-
-.Directories
-[horizontal]
-'cygwin-auto-install:':: Install script for cygwin download and setup
-'repository:':: Cygwin package repository with dpkg, dwww and doc-base
-'etc:':: Install scripts and configuration of doc-base
-'bin:':: Doxygwin scripts
 
 
 Installation
@@ -34,7 +26,12 @@ include::autorun.bat[]
 Development
 ~~~~~~~~~~~
 
-Dpkg is used to build cygwin packages from debian sources.
+.Directories
+[horizontal]
+'cygwin-auto-install:':: Install script for cygwin download and setup
+'repository:':: Cygwin package repository with dpkg, dwww and doc-base
+'etc:':: Install scripts and configuration of doc-base
+'bin:':: Doxygwin scripts
 
 
 Dpkg
@@ -76,28 +73,20 @@ sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-f
 
 --
 [horizontal]
-'Document:'::
-dasd
-'Section:'::
-A section defined in section.list and documented in s\{...\}.html
-'Title:'::
-Title of the document
-'Author:'::
-Author of the document
-'Abstract:'::
-Abstract of the document
-'Format:'::
-A file format (text, md, pdf, html, ...) used for the document
-'Files:'::
-A file glob representing all files of a certain format
-'Index:'::
-Index file for html format
+'Document:':: dasd
+'Author:':: Author of the document
+'Section:':: A section defined in section.list and documented in s\{...\}.html (dwww-build-menu)
+'Title:':: Title of the document
+'Abstract:':: Abstract of the document
+'Format:':: A file format (text, md, pdf, html, ...) used for the document
+'Files:':: A file glob representing all files of a certain format
+'Index:':: Index file for html format
 --
 
-The documentation consists of one or more files of the same or different format.
 In a control file each format may be used only once.
 The Index field may be used only for html format.
-Dwww uses title and abstract fields sor search type menu
+Dwww uses title and abstract fields to search menu.
+
 
 .Example:
 ------

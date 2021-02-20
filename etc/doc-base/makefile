@@ -28,6 +28,7 @@ REQUISITES:=\
 		-e /slotmem_shm_module/s/^#// \
 		-e /cgi_module/s/#//
 
+# https://github.com/TortoiseGit/tgit/commit/0edf06dc4008ff8152cf777c44875ef49d04b6f7
 /etc/xml/catalog:
 	xmlcatalog --create > $@
 	xmlcatalog --noout \
@@ -78,10 +79,21 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 		-p /usr/sbin/httpd \
 		-a -DONE_PROCESS \
 		|| true
+	cygrunsrv -Q cron || \
+	printf 'yes\n\nno\nyes\n' | \
+	cron-config
+	find /etc/cron.*/dwww -type f | \
+	sed \
+		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=/usr/share/perl5/:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data/ /etc/cron.\1/dwww%' \
+		| \
+	EDITOR=tee crontab -e
 	cygrunsrv -S cygserver
 	cygrunsrv -S httpd
+	cygrunsrv -S cron
 
 test:
+	SERVER_PORT=80 \
+	SERVER_NAME=localhost \
 	REQUEST_METHOD=GET \
 	QUERY_STRING=search='$@&programsubmit=Search&searchtype=d' \
 	/srv/www/cgi-bin/dwww
