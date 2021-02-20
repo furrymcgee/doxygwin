@@ -38,20 +38,12 @@ REQUISITES:=\
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
-/etc/doc-base: documents
-	rsync -av $^ /etc/doc-base/
-	find $@ \
-		-type f \
-		-newer $@/$^/README \
-		-exec \
-			install-docs --verbose --install {} \+
-
 /usr/local: \
 		../../bin/mailexplode \
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
 	install --mode=755 --target-directory=$@/bin $^
 	mkdir -p $@/share
-	ln -s "$$(cygpath --mydocs)" $@/share/doc
+	ln -s "$$(cygpath --mydocs)" $@/share/doc || true
 
 /var/lib:
 	mkdir -p \
@@ -61,13 +53,6 @@ REQUISITES:=\
 		$@/dwww
 	test -r $@/dpkg/status || \
 	touch $@/dpkg/status
-
-/var/cache: /etc/doc-base
-	mkdir -p $@/dwww
-	dwww-build
-	dwww-build-menu
-	dwww-refresh-cache
-	dwww-index++ -v -f -- -v4
 
 $(.DEFAULT_GOAL): $(REQUISITES)
 	cygserver-config --yes \
