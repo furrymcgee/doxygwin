@@ -62,17 +62,13 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 		-p /usr/sbin/httpd \
 		-a -DONE_PROCESS \
 		|| true
-	cygrunsrv -Q cron || \
-	printf 'yes\n\nno\nyes\n' | \
-	cron-config
+	cygrunsrv -L | grep cron \
+		|| printf 'yes\n\nno\nyes\n' | cron-config
 	find /etc/cron.*/dwww -type f | \
 	sed \
 		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=/usr/share/perl5/:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data/ /etc/cron.\1/dwww%' \
 		| \
-	crontab -
-	cygrunsrv -S cygserver
-	cygrunsrv -S httpd
-	cygrunsrv -S cron
+	crontab - && crontab -l | cut -f2- | sh
 
 test:
 	SERVER_PORT=80 \
