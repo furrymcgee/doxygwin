@@ -15,6 +15,9 @@ asciidoc -a toc index
 
 # Create the iso image
 genisoimage -iso-level 4 -m .git\* -o doxygwin.iso .
+
+# Create setup.ini
+cd /cygdrive/d/repository/Y%3a%2f && bash autogen.sh
 ------
 
 Repository
