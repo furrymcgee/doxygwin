@@ -68,7 +68,7 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 	sed \
 		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=/usr/share/perl5/:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data/ /etc/cron.\1/dwww%' \
 		| \
-	crontab - && crontab -l | cut -f2- | sh
+	crontab -
 
 test:
 	SERVER_PORT=80 \
