@@ -10,13 +10,13 @@
 # Get a list f debian binary packages
 Packages:
 	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz | \
+	http://deb.debian.org/debian/dists/sid/main/binary-amd64/Packages.gz | \
 	gunzip > $@
 
 # Get a list of debian source packages
 Sources:
 	wget -O- -c \
-	http://deb.debian.org/debian/dists/stable/main/source/Sources.gz | \
+	http://deb.debian.org/debian/dists/sid/main/source/Sources.gz | \
 	gunzip > $@
 
 # Source description is downloaded with debian packages
@@ -32,7 +32,7 @@ Sources:
 %.cygport: Packages
 	mkdir $(@D) && \
 	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@))$$ Packages | \
-	xargs sh cygport.sh > $@ || { rm $@ && exit 1 ; }
+	xargs -t sh cygport.sh > $@ || { rm $@ && exit 1 ; }
 
 # Grep debian package name, version and architecture
 define CYGPORT =
