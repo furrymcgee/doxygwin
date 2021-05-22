@@ -20,7 +20,7 @@ This needs run as Administrator to create www-data and sshd users.
 
 [source,bat]
 -----
-include::autorun.bat[]
+include::../../autorun.bat[]
 -----
 
 Development

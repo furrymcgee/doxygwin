@@ -1,7 +1,2 @@
-REM install doygwin packages and configuration
-
-REM install cygwin with all packages 
+REM install doxygwin packages and configuration
 call %~dp0\cygwin-auto-install\cygwin-install
-
-REM configure dwww and doc-base documents
-call %~dp0\etc\doc-base\postinstall

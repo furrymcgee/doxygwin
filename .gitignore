@@ -17,7 +17,6 @@ rebootstrap
 sensible-utils
 swish++
 tar
-tar
 *~
 *.deb
 *.noarch
@@ -25,3 +24,4 @@ tar
 *_*.bz2
 *_*.gz
 *_*.xz
+!etc/defaults/doc-base

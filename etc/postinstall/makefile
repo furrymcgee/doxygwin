@@ -38,6 +38,11 @@ REQUISITES:=\
 		http://docbook.sourceforge.net/release/xsl/current \
 		/usr/share/sgml/docbook/xsl-stylesheets $@
 
+
+# dummy
+/usr/share/doc/libmime-tools-perl/examples/mimeexplode:
+	mkdir -p $$(dirname $@) && printf die > $@	
+
 /usr/local: \
 		../../bin/mailexplode \
 		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
@@ -64,7 +69,7 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 		|| true
 	cygrunsrv -L | grep cron \
 		|| printf 'yes\n\nno\nno\n' | cron-config
-	find /etc/cron.*/dwww -type f | \
+	find /etc -name dwww -type f | \
 	sed \
 		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=/usr/share/perl5/:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data/ /etc/cron.\1/dwww%' \
 		| \
