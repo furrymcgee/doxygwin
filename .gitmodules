@@ -4,3 +4,6 @@
 [submodule "repository/Y%3a%2f"]
 	path = repository/Y%3a%2f
 	url = https://github.com/furrymcgee/repository
+[submodule "repository/debian"]
+	path = repository/debian
+	url = https://github.com/furrymcgee/debian

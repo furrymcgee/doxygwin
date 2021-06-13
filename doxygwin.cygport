@@ -1,0 +1,25 @@
+NAME="doxygwin"
+VERSION="0.0.1"
+RELEASE=1
+CATEGORY="doc"
+SUMMARY="dwww and doc-base for cygwin"
+DESCRIPTION="online documentation tool"
+HOMEPAGE="https://github.com/furrymcgee/doxygwin"
+SRC_URI="https://raw.githubusercontent.com/furrymcgee/repository/master/noarch/release/doxygwin/doxygwin_0.0.1-1.dsc https://raw.githubusercontent.com/furrymcgee/repository/master/noarch/release/doxygwin/doxygwin_0.0.1.orig.tar.xz https://raw.githubusercontent.com/furrymcgee/repository/master/noarch/release/doxygwin/doxygwin_0.0.1-1.debian.tar.xz
+doxygwin_0.0.1-1.debian.tar.xz"
+SRC_DIR="."
+PATCH_URI=""
+DEBEMAIL="furrymcgee@lippydanger.jumpingcrab.com"
+DEBFULLNAME="furrymcgee"
+# DEBUILD-DPKG-BUILDPACKAGE-OPTS="--force-sign --sign-key=0000000000000000"
+# DH-VERBOSE=1
+
+ARCH="noarch"
+
+# Build dependencies only
+DEPEND="dpkg"
+
+# runtime deps to go in setup.hint, and note the escaped newline
+REQUIRES="dwww swish++ doc-base httpd cron"
+
+inherit dpkg

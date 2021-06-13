@@ -1,0 +1,194 @@
+Script started on Wed Jun 16 14:30:52 2021
+PERL5LIB=/usr/share/perl5 make
+]0;/tmp/doxygwin-0.0.1
+[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
+$ PERL5LIB=/usr/share/perl5 make
+dh_make --indep --yes --createorig --copyright=artistic
+Version             : 0.0.1
+Package Name        : doxygwin
+License             : artistic
+Email-Address       : Administrator@unknown
+Date                : Wed, 16 Jun 2021 14:30:52 -0700
+Package Type        : indep
+Maintainer Name     : U--\Administrator
+Done. Please edit the files in the debian/ subdirectory now.
+
+cp -av doxygwin.install debian
+'doxygwin.install' -> 'debian/doxygwin.install'
+dpkg-buildpackage -uc -us -d -S
+[1mdpkg-buildpackage: [0m[32minfo[0m: source package doxygwin
+[1mdpkg-buildpackage: [0m[32minfo[0m: source version 0.0.1-1
+[1mdpkg-buildpackage: [0m[32minfo[0m: source distribution unstable
+[1mdpkg-buildpackage: [0m[32minfo[0m: source changed by U--\Administrator <Administrator@unknown>
+[1;35m dpkg-source --before-build .
+[0m[1;35m debian/rules clean
+[0mmake[1]: Entering directory '/tmp/doxygwin-0.0.1'
+dh clean
+   dh_auto_clean
+   dh_clean
+make[1]: Leaving directory '/tmp/doxygwin-0.0.1'
+[1;35m dpkg-source -b .
+[0m[1mdpkg-source: [0m[32minfo[0m: using source format '3.0 (quilt)'
+[1mdpkg-source: [0m[32minfo[0m: building doxygwin using existing ./doxygwin_0.0.1.orig.tar.xz
+[1mdpkg-source: [0m[32minfo[0m: building doxygwin in doxygwin_0.0.1-1.debian.tar.xz
+[1mdpkg-source: [0m[32minfo[0m: building doxygwin in doxygwin_0.0.1-1.dsc
+[1;35m dpkg-genbuildinfo --build=source
+[0m[1mdpkg-genbuildinfo: [0m[1;33mwarning[0m: File::FcntlLock not available; using flock which is not NFS-safe
+Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpkg/Control/HashCore.pm line 358.
+[1;35m dpkg-genchanges --build=source >../doxygwin_0.0.1-1_source.changes
+[0m[1mdpkg-genchanges: [0m[32minfo[0m: including full source code in upload
+[1;35m dpkg-source --after-build .
+[0m[1mdpkg-buildpackage: [0m[32minfo[0m: full upload (original source is included)
+cp -av doxygwin.cygport ..
+'doxygwin.cygport' -> '../doxygwin.cygport'
+cygport --32 ../doxygwin.cygport all
+[1;39m>>> Preparing doxygwin-0.0.1-1.noarch[0;0m
+>>> Unpacking source doxygwin_0.0.1-1.dsc
+>>> Unpacking source doxygwin_0.0.1.orig.tar.xz
+>>> Unpacking source doxygwin_0.0.1-1.debian.tar.xz
+>>> Unpacking source doxygwin_0.0.1-1.debian.tar.xz
+dpkg-source --extract /tmp/doxygwin_0.0.1-1.dsc doxygwin 
+[1mdpkg-source: [0m[1;33mwarning[0m: extracting unsigned source package (/tmp/doxygwin_0.0.1-1.dsc)
+[1mdpkg-source: [0m[32minfo[0m: extracting doxygwin in doxygwin
+[1mdpkg-source: [0m[32minfo[0m: unpacking doxygwin_0.0.1.orig.tar.xz
+[1mdpkg-source: [0m[32minfo[0m: unpacking doxygwin_0.0.1-1.debian.tar.xz
+>>> Preparing working source directory
+[1;39m>>> Compiling doxygwin-0.0.1-1.noarch[0;0m
+dpkg-buildpackage: info: source package doxygwin
+dpkg-buildpackage: info: source version 0.0.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by U--\Administrator <Administrator@unknown>
+ dpkg-source --auto-commit --before-build .
+dpkg-buildpackage: info: host architecture cygwin-i386
+ debian/rules binary
+make[1]: Entering directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
+dh binary
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   dh_auto_build
+	make -j1
+make[2]: Entering directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
+make[2]: 'debian' is up to date.
+make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot
+   dh_prep
+	rm -f -- debian/doxygwin.substvars
+	rm -fr -- debian/.debhelper/generated/doxygwin/ debian/doxygwin/ debian/tmp/
+   dh_auto_install
+	install -d debian/doxygwin
+   dh_install
+	install -d debian/doxygwin/etc
+	cp --reflink=auto -a ./etc/defaults ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
+	install -d debian/doxygwin/usr/bin
+	cp --reflink=auto -a ./bin/mailexplode debian/doxygwin/usr/bin/
+	install -d debian/doxygwin/usr/share/doc/
+	cp --reflink=auto -a ./doc/doxygwin debian/doxygwin/usr/share/doc//
+	install -d debian/.debhelper/generated/doxygwin
+   dh_installdocs
+	install -p -m0644 debian/README.Debian debian/doxygwin/usr/share/doc/doxygwin/README.Debian
+	install -p -m0644 debian/copyright debian/doxygwin/usr/share/doc/doxygwin/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/doxygwin/usr/share/doc/doxygwin/changelog.Debian
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/doxygwin
+	chmod a-x usr/share/doc/doxygwin/changelog.Debian
+	gzip -9nf usr/share/doc/doxygwin/changelog.Debian
+	cd '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
+   dh_fixperms
+	find debian/doxygwin ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/doxygwin/usr/share/doc -type f -a -true -a ! -regex 'debian/doxygwin/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/doxygwin/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/doxygwin -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/doxygwin/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+   dh_missing
+   dh_installdeb
+	install -d debian/doxygwin/DEBIAN
+	find debian/doxygwin/etc -type f -printf '/etc/%P
+' | LC_ALL=C sort >> debian/doxygwin/DEBIAN/conffiles
+	chmod 0644 -- debian/doxygwin/DEBIAN/conffiles
+   dh_gencontrol
+	echo misc:Depends= >> debian/doxygwin.substvars
+	echo misc:Pre-Depends= >> debian/doxygwin.substvars
+	dpkg-gencontrol -pdoxygwin -ldebian/changelog -Tdebian/doxygwin.substvars -Pdebian/doxygwin -UMulti-Arch
+dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is not NFS-safe
+	chmod 0644 -- debian/doxygwin/DEBIAN/control
+   dh_md5sums
+	cd debian/doxygwin >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/doxygwin/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --root-owner-group --build debian/doxygwin ..
+dpkg-deb: building package 'doxygwin' in '../doxygwin_0.0.1-1_all.deb'.
+make[1]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
+ dpkg-genbuildinfo --build=binary
+dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
+Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpkg/Control/HashCore.pm line 358.
+ dpkg-genchanges --build=binary >../doxygwin_0.0.1-1_cygwin-i386.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --auto-commit --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+[1;39m>>> Installing doxygwin-0.0.1-1.noarch[0;0m
+Fixing symlinks:
+Stripping executables:
+Preparing debuginfo source files:
+
+[1;39m>>> Packaging doxygwin-0.0.1-1.noarch[0;0m
+>>> Creating binary package(s)
+>>> doxygwin-0.0.1-1.tar.xz
+etc/
+etc/defaults/
+etc/defaults/doc-base/
+etc/defaults/doc-base/doxygwin
+etc/defaults/doxygwin/
+etc/defaults/doxygwin/documents/
+etc/defaults/doxygwin/documents/local
+etc/postinstall/
+etc/postinstall/doxygwin.sh
+etc/postinstall/makefile
+etc/preremove/
+etc/preremove/doxygwin.sh
+usr/
+usr/bin/
+usr/bin/mailexplode
+usr/share/
+usr/share/doc/
+usr/share/doc/doxygwin/
+usr/share/doc/doxygwin/changelog.Debian.gz
+usr/share/doc/doxygwin/copyright
+usr/share/doc/doxygwin/DEVELOP
+usr/share/doc/doxygwin/index
+usr/share/doc/doxygwin/INSTALL
+usr/share/doc/doxygwin/README.Debian
+
+[1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
+
+>>> Checking packages for missing or duplicate files
+
+>>> Creating source patches
+ 0 files changed
+>>> Creating source package
+doxygwin-0.0.1-1.src/
+doxygwin-0.0.1-1.src/doxygwin.cygport
+doxygwin-0.0.1-1.src/doxygwin_0.0.1-1.debian.tar.xz
+doxygwin-0.0.1-1.src/doxygwin_0.0.1-1.dsc
+doxygwin-0.0.1-1.src/doxygwin_0.0.1.orig.tar.xz
+
+>>> doxygwin requires: bash make dwww swish++ doc-base httpd cron
+cp -av ../doxygwin-0.0.1-1.noarch/dist/doxygwin/* ..
+'../doxygwin-0.0.1-1.noarch/dist/doxygwin/doxygwin-0.0.1-1-src.tar.xz' -> '../doxygwin-0.0.1-1-src.tar.xz'
+'../doxygwin-0.0.1-1.noarch/dist/doxygwin/doxygwin-0.0.1-1.tar.xz' -> '../doxygwin-0.0.1-1.tar.xz'
+'../doxygwin-0.0.1-1.noarch/dist/doxygwin/setup.hint' -> '../setup.hint'
+cygport --32 ../doxygwin.cygport finish
+>>> Removing work directory in 5 seconds...
+>>> Removing work directory NOW.
+>>> Finished.
+]0;/tmp/doxygwin-0.0.1
+[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
+$ exit
+
+Script done on Wed Jun 16 14:31:31 2021

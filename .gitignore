@@ -3,6 +3,7 @@ cygport
 cygwin-setup
 debconf
 debconf
+debian
 debhelper
 dh-autoreconf
 doc-base

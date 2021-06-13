@@ -1,0 +1,3 @@
+bin/* usr/bin
+etc/* etc
+doc/doxygwin usr/share/doc/

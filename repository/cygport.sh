@@ -4,8 +4,9 @@
 # The generated cygport file inherits dpkg.cygclass
 # This scripts can be used in debian and cygwin
 
-test -r "$(dirname $0)/Packages" &&
-test -r  "$(dirname $0)/Sources" || 
+test -d "$(dirname $0)/debian" &&
+test -r "$(dirname $0)/debian/Packages" &&
+test -r  "$(dirname $0)/debian/Sources" || 
 exit 1
 
 test -n "$*" ||
@@ -29,7 +30,7 @@ bash
 	%key: Package
 
 	$(
-		cat "$(dirname $0)/Packages" |
+		cat "$(dirname $0)/debian/Packages" |
 		sed /^Package:\ $1$/,/^$/\!d |
 		sed -z s/\\x0a\\x0a/\\x00/g |
 		sed -z /Extra-Source/d |
@@ -41,8 +42,8 @@ bash
 
 	$(
         # moc, automake
-		cat "$(dirname $0)/Sources" |
-		sed -E s/Binary:.*\ $1\(-.*\)\?$/Binary:\ $1/ |
+		cat "$(dirname $0)/debian/Sources" |
+		sed -E s/Binary:.*\ $1\([-,].*\)\?$/Binary:\ $1/ |
 		sed /^Binary:\ $1$/,/^$/\!d |
 		sed -z s/\\\x0a\\\x0a/\\x00/g |
 		sed -z /Extra-Source/d |

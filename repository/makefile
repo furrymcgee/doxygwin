@@ -8,13 +8,13 @@
 .DEFAULT_GOAL = .DEFAULT
 
 # Get a list f debian binary packages
-Packages:
+debian/Packages:
 	wget -O- -c \
 	http://deb.debian.org/debian/dists/sid/main/binary-amd64/Packages.gz | \
 	gunzip > $@
 
 # Get a list of debian source packages
-Sources:
+debian/Sources:
 	wget -O- -c \
 	http://deb.debian.org/debian/dists/sid/main/source/Sources.gz | \
 	gunzip > $@
@@ -29,15 +29,15 @@ Sources:
 	# Notice: This makefile requires MAKECMDGOALS set to debian package name
 
 # Create %.cygport files from debian data
-%.cygport: Packages
+%.cygport: debian/Packages debian/Sources
 	mkdir $(@D) && \
-	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@))$$ Packages | \
+	grep-dctrl -r -n -s Package -F Package ^$(notdir $(basename $@))$$ $< | \
 	xargs -t sh cygport.sh > $@ || { rm $@ && exit 1 ; }
 
 # Grep debian package name, version and architecture
 define CYGPORT =
 $(foreach cygport, $(shell \
-	cat Packages* | \
+	cat debian/Packages* | \
 	sed /^Package:\ $1$$/,/^$$/\!d | \
 	sed -z s/\\x0a\\x0a/\\x00/g | \
 	sed -z /Extra-Source/d | \
