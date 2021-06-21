@@ -1,9 +1,99 @@
 #!/bin/bash
-cygrunsrv -L | xargs -t -r -L1 cygrunsrv -R
-sed -i /etc/fstab -e /^none/s/posix=0/posix=1/ -e '$a//samba/share /mnt smbfs noacl 0 0' 
+sed \
+    -i /etc/fstab \
+    -e /^none/s/posix=0/posix=1/ \
+    -e '$a//samba/share /mnt smbfs noacl 0 0' 
+
 ssh-host-config --yes --pwd cyg_server 
-pwd
-make -C /etc/postinstall
+make -C /etc/postinstall -f - <<'MAKE'
+#!/usr/bin/make -f
+# This makefile installs doxygwin documents
+# https://github.com/furrymcgee/doxygwin
+
+export DISTRIBUTOR?=default
+export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
+export DH_COMPAT?=10
+export prefix?=/usr
+export PATH:=/usr/sbin:$(PATH)
+	
+.DEFAULT_GOAL:=.
+
+REQUISITES:=\
+	/usr/local \
+	/var/lib \
+	/etc/httpd/conf/httpd.conf \
+	/etc/xml/catalog \
+
+.PHONY: $(.DEFAULT_GOAL) $(REQUISITES) test
+
+/etc/httpd/conf/httpd.conf:
+	net user www-data /ADD || true
+	sed \
+		-i $@ \
+		-e s/^#*ServerName\ .*/ServerName\ localhost/ \
+		-e /slotmem_shm_module/s/^#// \
+		-e /cgi_module/s/#//
+
+# https://github.com/TortoiseGit/tgit/commit/0edf06dc4008ff8152cf777c44875ef49d04b6f7
+/etc/xml/catalog:
+	xmlcatalog --create > $@
+	xmlcatalog --noout \
+		--add rewriteURI \
+		http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd \
+		/usr/share/sgml/docbook/xml-dtd-4.5/docbookx.dtd $@
+	xmlcatalog --noout \
+		--add rewriteURI \
+		http://docbook.sourceforge.net/release/xsl/current \
+		/usr/share/sgml/docbook/xsl-stylesheets $@
+
+
+# dummy
+/usr/share/doc/libmime-tools-perl/examples/mimeexplode:
+	mkdir -p $$(dirname $@) && printf die > $@	
+
+/usr/local: \
+		../../bin/mailexplode \
+		/usr/share/doc/libmime-tools-perl/examples/mimeexplode
+	install --mode=755 --target-directory=$@/bin $^
+	mkdir -p $@/share
+	ln -s "$$(cygpath --mydocs)" $@/share/doc || true
+
+/var/lib:
+	mkdir -p \
+		$@/doc-base/info \
+		$@/doc-base/documents \
+		$@/dpkg/updates \
+		$@/dwww
+	test -r $@/dpkg/status || \
+	touch $@/dpkg/status
+
+$(.DEFAULT_GOAL): $(REQUISITES)
+	cygserver-config --yes \
+		|| true
+	cygrunsrv \
+		-I httpd \
+		-p /usr/sbin/httpd \
+		-a -DONE_PROCESS \
+		|| true
+	cygrunsrv -L | grep cron \
+		|| printf 'yes\n\nno\nno\n' | cron-config
+	find /etc -name dwww -type f | \
+	sed \
+		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=/usr/share/perl5/:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data/ /etc/cron.\1/dwww%' \
+		| \
+	crontab -
+
+test:
+	SERVER_PORT=80 \
+	SERVER_NAME=localhost \
+	REQUEST_METHOD=GET \
+	QUERY_STRING=search='$@&programsubmit=Search&searchtype=d' \
+	/srv/www/cgi-bin/dwww
+
+dump:
+	/usr/bin/search++ --config-file=/usr/share/dwww/swish++.conf --index-file=/var/cache/dwww/dwww.swish++.index --skip-results=0 -m 50 -D
+MAKE
+
 mkdir /var/cache/dwww
 crontab -l | cut -f2- | sh
 

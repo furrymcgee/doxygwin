@@ -1,16 +1,16 @@
-Script started on Wed Jun 16 14:30:52 2021
+Script started on Wed Jun 16 19:14:53 2021
 PERL5LIB=/usr/share/perl5 make
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ PERL5LIB=/usr/share/perl5 make
 dh_make --indep --yes --createorig --copyright=artistic
+License             : artistic
+Maintainer Name     : U--\Administrator
 Version             : 0.0.1
 Package Name        : doxygwin
-License             : artistic
-Email-Address       : Administrator@unknown
-Date                : Wed, 16 Jun 2021 14:30:52 -0700
 Package Type        : indep
-Maintainer Name     : U--\Administrator
+Email-Address       : Administrator@unknown
+Date                : Wed, 16 Jun 2021 19:14:53 -0700
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -41,6 +41,7 @@ Use of uninitialized value $value in pattern match (m//) at /usr/share/perl5/Dpk
 [0m[1mdpkg-buildpackage: [0m[32minfo[0m: full upload (original source is included)
 cp -av doxygwin.cygport ..
 'doxygwin.cygport' -> '../doxygwin.cygport'
+cygport --32 ../doxygwin.cygport download
 cygport --32 ../doxygwin.cygport all
 [1;39m>>> Preparing doxygwin-0.0.1-1.noarch[0;0m
 >>> Unpacking source doxygwin_0.0.1-1.dsc
@@ -191,4 +192,4 @@ cygport --32 ../doxygwin.cygport finish
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Wed Jun 16 14:31:31 2021
+Script done on Wed Jun 16 19:15:34 2021
