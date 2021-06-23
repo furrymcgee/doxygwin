@@ -6,10 +6,10 @@ ARCH=noarch
 
 .DEFAULT_GOAL=debian
 
-index.html: doc/$(PACKAGE)/index
+%.html: %
 	asciidoc -a toc -o - $^ > $@
 
-${.DEFAULT_GOAL}:
+${.DEFAULT_GOAL}: doc/$(PACKAGE)/index
 	dh_make --indep --yes --createorig --copyright=artistic
 	cp -av $(PACKAGE).install debian
 	dpkg-buildpackage -uc -us -d -S

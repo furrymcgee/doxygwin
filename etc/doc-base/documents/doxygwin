@@ -1,0 +1,28 @@
+Document: doxygwin
+Title: Documentation
+Author: John Doe <foo@example.net>
+Abstract: Documents in /usr/share/doc/doxygwin directory
+Section: Text
+
+Format: html
+Files: /usr/share/doc/doxygwin/*.html
+Index: /usr/share/doc/doxygwin/index.html
+
+Format: pdf
+Files: /usr/share/doc/doxygwin/*.pdf
+
+Format: doc
+Files: /usr/share/doc/doxygwin/*.doc
+
+Format: xls
+Files: /usr/share/doc/doxygwin/*.xls
+
+Format: xlsx
+Files: /usr/share/doc/doxygwin/*.xlsx
+
+Format: msg
+Files: /usr/share/doc/doxygwin/*.msg
+
+Format: md
+Files: /usr/share/doc/INSTALL /usr/share/doc/INSTALL
+

@@ -1,16 +1,16 @@
-Script started on Wed Jun 16 19:14:53 2021
+Script started on Wed, Jun 23, 2021 11:36:35 AM
 PERL5LIB=/usr/share/perl5 make
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ PERL5LIB=/usr/share/perl5 make
 dh_make --indep --yes --createorig --copyright=artistic
-License             : artistic
 Maintainer Name     : U--\Administrator
-Version             : 0.0.1
+Date                : Wed, 23 Jun 2021 11:36:35 -0700
+Email-Address       : Administrator@unknown
+License             : artistic
 Package Name        : doxygwin
 Package Type        : indep
-Email-Address       : Administrator@unknown
-Date                : Wed, 16 Jun 2021 19:14:53 -0700
+Version             : 0.0.1
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -82,7 +82,7 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
 	install -d debian/doxygwin
    dh_install
 	install -d debian/doxygwin/etc
-	cp --reflink=auto -a ./etc/defaults ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
+	cp --reflink=auto -a ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
 	install -d debian/doxygwin/usr/bin
 	cp --reflink=auto -a ./bin/mailexplode debian/doxygwin/usr/bin/
 	install -d debian/doxygwin/usr/share/doc/
@@ -142,15 +142,8 @@ Preparing debuginfo source files:
 >>> Creating binary package(s)
 >>> doxygwin-0.0.1-1.tar.xz
 etc/
-etc/defaults/
-etc/defaults/doc-base/
-etc/defaults/doc-base/doxygwin
-etc/defaults/doxygwin/
-etc/defaults/doxygwin/documents/
-etc/defaults/doxygwin/documents/local
 etc/postinstall/
 etc/postinstall/doxygwin.sh
-etc/postinstall/makefile
 etc/preremove/
 etc/preremove/doxygwin.sh
 usr/
@@ -179,10 +172,10 @@ doxygwin-0.0.1-1.src/doxygwin_0.0.1-1.debian.tar.xz
 doxygwin-0.0.1-1.src/doxygwin_0.0.1-1.dsc
 doxygwin-0.0.1-1.src/doxygwin_0.0.1.orig.tar.xz
 
->>> doxygwin requires: bash make dwww swish++ doc-base httpd cron
+>>> doxygwin requires: bash dwww swish++ doc-base httpd cron
 cp -av ../doxygwin-0.0.1-1.noarch/dist/doxygwin/* ..
-'../doxygwin-0.0.1-1.noarch/dist/doxygwin/doxygwin-0.0.1-1-src.tar.xz' -> '../doxygwin-0.0.1-1-src.tar.xz'
 '../doxygwin-0.0.1-1.noarch/dist/doxygwin/doxygwin-0.0.1-1.tar.xz' -> '../doxygwin-0.0.1-1.tar.xz'
+'../doxygwin-0.0.1-1.noarch/dist/doxygwin/doxygwin-0.0.1-1-src.tar.xz' -> '../doxygwin-0.0.1-1-src.tar.xz'
 '../doxygwin-0.0.1-1.noarch/dist/doxygwin/setup.hint' -> '../setup.hint'
 cygport --32 ../doxygwin.cygport finish
 >>> Removing work directory in 5 seconds...
@@ -192,4 +185,4 @@ cygport --32 ../doxygwin.cygport finish
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Wed Jun 16 19:15:34 2021
+Script done on Wed, Jun 23, 2021 11:37:19 AM

@@ -25,4 +25,4 @@ tar
 *_*.bz2
 *_*.gz
 *_*.xz
-!etc/defaults/doc-base
+!etc/*
