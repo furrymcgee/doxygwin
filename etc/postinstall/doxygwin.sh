@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bashxxx
 sed \
     -i /etc/fstab \
     -e /^none/s/posix=0/posix=1/ \
