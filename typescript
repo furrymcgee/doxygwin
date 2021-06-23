@@ -1,16 +1,27 @@
-Script started on Wed, Jun 23, 2021 11:36:35 AM
-PERL5LIB=/usr/share/perl5 make
+Script started on Wed, Jun 23, 2021  6:22:17 PM
+PERL5LIB=/usr/share/perl5 make --debug
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
-$ PERL5LIB=/usr/share/perl5 make
+$ PERL5LIB=/usr/share/perl5 make --debug
+GNU Make 4.2.1
+Built for i686-pc-cygwin
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+Updating goal targets....
+ File 'debian' does not exist.
+Must remake target 'debian'.
 dh_make --indep --yes --createorig --copyright=artistic
-Maintainer Name     : U--\Administrator
-Date                : Wed, 23 Jun 2021 11:36:35 -0700
-Email-Address       : Administrator@unknown
 License             : artistic
-Package Name        : doxygwin
-Package Type        : indep
 Version             : 0.0.1
+Package Name        : doxygwin
+Email-Address       : Administrator@unknown
+Package Type        : indep
+Maintainer Name     : U--\Administrator
+Date                : Wed, 23 Jun 2021 18:22:17 -0700
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -22,10 +33,22 @@ dpkg-buildpackage -uc -us -d -S
 [1mdpkg-buildpackage: [0m[32minfo[0m: source changed by U--\Administrator <Administrator@unknown>
 [1;35m dpkg-source --before-build .
 [0m[1;35m debian/rules clean
-[0mmake[1]: Entering directory '/tmp/doxygwin-0.0.1'
+[0mGNU Make 4.2.1
+Built for i686-pc-cygwin
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+Updating goal targets....
+ File 'clean' does not exist.
+Must remake target 'clean'.
+make[1]: Entering directory '/tmp/doxygwin-0.0.1'
 dh clean
    dh_auto_clean
    dh_clean
+Successfully remade target file 'clean'.
 make[1]: Leaving directory '/tmp/doxygwin-0.0.1'
 [1;35m dpkg-source -b .
 [0m[1mdpkg-source: [0m[32minfo[0m: using source format '3.0 (quilt)'
@@ -62,6 +85,17 @@ dpkg-buildpackage: info: source changed by U--\Administrator <Administrator@unkn
  dpkg-source --auto-commit --before-build .
 dpkg-buildpackage: info: host architecture cygwin-i386
  debian/rules binary
+GNU Make 4.2.1
+Built for i686-pc-cygwin
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+Updating goal targets....
+ File 'binary' does not exist.
+Must remake target 'binary'.
 make[1]: Entering directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
 dh binary
    dh_update_autotools_config
@@ -69,6 +103,15 @@ dh binary
    dh_auto_configure
    dh_auto_build
 	make -j1
+GNU Make 4.2.1
+Built for i686-pc-cygwin
+Copyright (C) 1988-2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+Updating goal targets....
 make[2]: Entering directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
 make[2]: 'debian' is up to date.
 make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
@@ -82,7 +125,7 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
 	install -d debian/doxygwin
    dh_install
 	install -d debian/doxygwin/etc
-	cp --reflink=auto -a ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
+	cp --reflink=auto -a ./etc/doc-base ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
 	install -d debian/doxygwin/usr/bin
 	cp --reflink=auto -a ./bin/mailexplode debian/doxygwin/usr/bin/
 	install -d debian/doxygwin/usr/share/doc/
@@ -125,6 +168,7 @@ dpkg-gencontrol: warning: File::FcntlLock not available; using flock which is no
    dh_builddeb
 	dpkg-deb --root-owner-group --build debian/doxygwin ..
 dpkg-deb: building package 'doxygwin' in '../doxygwin_0.0.1-1_all.deb'.
+Successfully remade target file 'binary'.
 make[1]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
  dpkg-genbuildinfo --build=binary
 dpkg-genbuildinfo: warning: File::FcntlLock not available; using flock which is not NFS-safe
@@ -142,6 +186,9 @@ Preparing debuginfo source files:
 >>> Creating binary package(s)
 >>> doxygwin-0.0.1-1.tar.xz
 etc/
+etc/doc-base/
+etc/doc-base/documents/
+etc/doc-base/documents/doxygwin
 etc/postinstall/
 etc/postinstall/doxygwin.sh
 etc/preremove/
@@ -156,6 +203,7 @@ usr/share/doc/doxygwin/changelog.Debian.gz
 usr/share/doc/doxygwin/copyright
 usr/share/doc/doxygwin/DEVELOP
 usr/share/doc/doxygwin/index
+usr/share/doc/doxygwin/index.html
 usr/share/doc/doxygwin/INSTALL
 usr/share/doc/doxygwin/README.Debian
 
@@ -181,8 +229,9 @@ cygport --32 ../doxygwin.cygport finish
 >>> Removing work directory in 5 seconds...
 >>> Removing work directory NOW.
 >>> Finished.
+Successfully remade target file 'debian'.
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Wed, Jun 23, 2021 11:37:19 AM
+Script done on Wed, Jun 23, 2021  6:22:59 PM

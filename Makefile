@@ -9,7 +9,7 @@ ARCH=noarch
 %.html: %
 	asciidoc -a toc -o - $^ > $@
 
-${.DEFAULT_GOAL}: doc/$(PACKAGE)/index
+${.DEFAULT_GOAL}: doc/$(PACKAGE)/index.html
 	dh_make --indep --yes --createorig --copyright=artistic
 	cp -av $(PACKAGE).install debian
 	dpkg-buildpackage -uc -us -d -S
