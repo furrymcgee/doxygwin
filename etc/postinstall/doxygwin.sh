@@ -21,6 +21,7 @@ export PATH:=/usr/sbin:$(PATH)
 REQUISITES:=\
 	/usr/local \
 	/var/lib \
+	/etc/doc-base \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
 
@@ -82,7 +83,13 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 		-e '/dwww$$/s%^/etc/cron.\(daily\|weekly\)/dwww$$%@\1	PATH=/usr/sbin/:$$PATH PERL5LIB=$(PERL5LIB) /etc/cron.\1/dwww%' \
 		| \
 	crontab -
-	install-docs -i /etc/doc-base/documents/doxygwin
+
+/etc/doc-base: /etc/doc-base/README
+	find $@ \
+	  -type f \
+	  -newer $^ \
+	  -exec \
+	    install-docs --verbose --install {} \+
 
 test:
 	SERVER_PORT=80 \
