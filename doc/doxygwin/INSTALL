@@ -11,6 +11,23 @@ The Dpkg tool is used to build cygwin packages from debian sources.
 After installation documents can be searched in a browser at http://localhost/dwww .
 
 
+Cygwin
+~~~~~~
+
+Cygwin is a posix development environment with package management system.
+
+.Packages
+[source,bat]
+-----
+# Install from cdrom
+setup-x86 -q -R c:/doxygwin -P doxygwin -L -l D:/Y%3a%2f 
+
+# Uninstall
+setup-x86 -q -R c:/doxygwin -x doxygwin
+
+# Interactive package manager
+setup-x86 -M
+-----
 
 Installation
 ~~~~~~~~~~~~
@@ -28,10 +45,12 @@ Development
 
 .Directories
 [horizontal]
-'cygwin-auto-install:':: Install script for cygwin download and setup
-'repository:':: Cygwin package repository with dpkg, dwww and doc-base
-'etc:':: Install scripts and configuration of doc-base
-'bin:':: Doxygwin scripts
+'bin:':: scripts for processing documents
+'etc:':: postinstall, preremove and configuration files
+'doc:':: documentation
+'cygwin-auto-install:':: submodule for repository download and setup
+'repository:':: repository with doxygwin, dpkg, dwww and doc-base
+
 
 
 Dpkg
@@ -66,14 +85,12 @@ sys::[apt show doc-base | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel
 
 Control Files
 ~~~~~~~~~~~~~
-[abstract]
---
-sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-files' | grep '2.3. Control Files' -A 4 | tail -n3]
---
+
+Control files contain metadata of documentation
 
 --
 [horizontal]
-'Document:':: dasd
+'Document:':: Example 
 'Author:':: Author of the document
 'Section:':: A section defined in section.list and documented in s\{...\}.html (dwww-build-menu)
 'Title:':: Title of the document
@@ -92,4 +109,9 @@ Dwww uses title and abstract fields to search menu.
 ------
 include::/var/lib/doc-base/documents/doc-base[]
 ------
+
+[control-files]
+--
+sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-files' | grep '2.3. Control Files' -A 4 | tail -n3]
+--
 

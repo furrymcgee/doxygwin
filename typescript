@@ -1,4 +1,4 @@
-Script started on Wed, Jun 23, 2021  6:22:17 PM
+Script started on Fri, Jul 02, 2021  6:58:51 AM
 PERL5LIB=/usr/share/perl5 make --debug
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
@@ -15,13 +15,13 @@ Updating goal targets....
  File 'debian' does not exist.
 Must remake target 'debian'.
 dh_make --indep --yes --createorig --copyright=artistic
+Email-Address       : Administrator@unknown
 License             : artistic
 Version             : 0.0.1
+Date                : Fri, 02 Jul 2021 06:58:52 -0700
 Package Name        : doxygwin
-Email-Address       : Administrator@unknown
 Package Type        : indep
 Maintainer Name     : U--\Administrator
-Date                : Wed, 23 Jun 2021 18:22:17 -0700
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -125,7 +125,7 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
 	install -d debian/doxygwin
    dh_install
 	install -d debian/doxygwin/etc
-	cp --reflink=auto -a ./etc/doc-base ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
+	cp --reflink=auto -a ./etc/defaults ./etc/doc-base ./etc/postinstall ./etc/preremove debian/doxygwin/etc/
 	install -d debian/doxygwin/usr/bin
 	cp --reflink=auto -a ./bin/mailexplode debian/doxygwin/usr/bin/
 	install -d debian/doxygwin/usr/share/doc/
@@ -186,6 +186,10 @@ Preparing debuginfo source files:
 >>> Creating binary package(s)
 >>> doxygwin-0.0.1-1.tar.xz
 etc/
+etc/defaults/
+etc/defaults/doxygwin/
+etc/defaults/doxygwin/documents/
+etc/defaults/doxygwin/documents/local
 etc/doc-base/
 etc/doc-base/documents/
 etc/doc-base/documents/doxygwin
@@ -234,4 +238,4 @@ Successfully remade target file 'debian'.
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Wed, Jun 23, 2021  6:22:59 PM
+Script done on Fri, Jul 02, 2021  6:59:36 AM
