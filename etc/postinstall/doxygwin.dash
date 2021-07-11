@@ -1,4 +1,4 @@
-#!/bin/bashxxx
+#!/bin/sh
 sed \
     -i /etc/fstab \
     -e /^none/s/posix=0/posix=1/ \
@@ -21,7 +21,7 @@ export PATH:=/usr/sbin:$(PATH)
 REQUISITES:=\
 	/usr/local \
 	/var/lib \
-	/etc/doc-base \
+	/etc/doc-base/documents \
 	/etc/httpd/conf/httpd.conf \
 	/etc/xml/catalog \
 

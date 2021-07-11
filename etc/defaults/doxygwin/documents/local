@@ -2,7 +2,7 @@ Document: local
 Title: Documentation
 Author: John Doe <foo@example.net>
 Abstract: Documents in /usr/local/share/doc directory
-Section: Text
+Section: Local
 
 Format: html
 Files: /usr/local/share/doc/*.html
