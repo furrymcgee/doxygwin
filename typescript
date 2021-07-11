@@ -1,8 +1,8 @@
-Script started on Fri, Jul 02, 2021  6:58:51 AM
-PERL5LIB=/usr/share/perl5 make --debug
-]0;/tmp/doxygwin-0.0.1
-[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
-$ PERL5LIB=/usr/share/perl5 make --debug
+Script started on Sun, Jul 11, 2021  9:08:34 AM
+PERL5LIB=/usr/share/perl5 make -C doxygwin-0.0.1 --debug
+]0;/tmp
+[32mAdministrator@- [33m/tmp[0m
+$ PERL5LIB=/usr/share/perl5 make -C doxygwin-0.0.1 --debug
 GNU Make 4.2.1
 Built for i686-pc-cygwin
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -14,14 +14,15 @@ Updating makefiles....
 Updating goal targets....
  File 'debian' does not exist.
 Must remake target 'debian'.
+make: Entering directory '/tmp/doxygwin-0.0.1'
 dh_make --indep --yes --createorig --copyright=artistic
 Email-Address       : Administrator@unknown
-License             : artistic
-Version             : 0.0.1
-Date                : Fri, 02 Jul 2021 06:58:52 -0700
 Package Name        : doxygwin
-Package Type        : indep
+Version             : 0.0.1
+Date                : Sun, 11 Jul 2021 09:08:35 -0700
 Maintainer Name     : U--\Administrator
+Package Type        : indep
+License             : artistic
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -139,6 +140,13 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
    dh_perl
    dh_link
    dh_strip_nondeterminism
+	Using 1626019715 as canonical time
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/dependencies.png using File::StripNondeterminism::handlers::png
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/packages.png using File::StripNondeterminism::handlers::png
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/postinstall.png using File::StripNondeterminism::handlers::png
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/progress.png using File::StripNondeterminism::handlers::png
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/reinstall.png using File::StripNondeterminism::handlers::png
+	Normalizing debian/doxygwin/usr/share/doc/doxygwin/select.png using File::StripNondeterminism::handlers::png
    dh_compress
 	cd debian/doxygwin
 	chmod a-x usr/share/doc/doxygwin/changelog.Debian
@@ -178,6 +186,7 @@ dpkg-genchanges: info: binary-only upload (no source code included)
  dpkg-source --auto-commit --after-build .
 dpkg-buildpackage: info: binary-only upload (no source included)
 [1;39m>>> Installing doxygwin-0.0.1-1.noarch[0;0m
+/usr/bin/install -m0644 README /tmp/doxygwin-0.0.1-1.noarch/inst/usr/share/doc/doxygwin/README
 Fixing symlinks:
 Stripping executables:
 Preparing debuginfo source files:
@@ -192,11 +201,13 @@ etc/defaults/doxygwin/documents/
 etc/defaults/doxygwin/documents/local
 etc/doc-base/
 etc/doc-base/documents/
+etc/doc-base/documents/cygwin
+etc/doc-base/documents/doc-base
 etc/doc-base/documents/doxygwin
 etc/postinstall/
-etc/postinstall/doxygwin.sh
+etc/postinstall/doxygwin.dash
 etc/preremove/
-etc/preremove/doxygwin.sh
+etc/preremove/doxygwin.dash
 usr/
 usr/bin/
 usr/bin/mailexplode
@@ -205,11 +216,19 @@ usr/share/doc/
 usr/share/doc/doxygwin/
 usr/share/doc/doxygwin/changelog.Debian.gz
 usr/share/doc/doxygwin/copyright
+usr/share/doc/doxygwin/dependencies.png
 usr/share/doc/doxygwin/DEVELOP
+usr/share/doc/doxygwin/IMAGES
 usr/share/doc/doxygwin/index
 usr/share/doc/doxygwin/index.html
 usr/share/doc/doxygwin/INSTALL
+usr/share/doc/doxygwin/packages.png
+usr/share/doc/doxygwin/postinstall.png
+usr/share/doc/doxygwin/progress.png
+usr/share/doc/doxygwin/README
 usr/share/doc/doxygwin/README.Debian
+usr/share/doc/doxygwin/reinstall.png
+usr/share/doc/doxygwin/select.png
 
 [1;32m*** Info:[0;0m No debug files, skipping debuginfo subpackage
 
@@ -234,8 +253,9 @@ cygport --32 ../doxygwin.cygport finish
 >>> Removing work directory NOW.
 >>> Finished.
 Successfully remade target file 'debian'.
-]0;/tmp/doxygwin-0.0.1
-[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
+make: Leaving directory '/tmp/doxygwin-0.0.1'
+]0;/tmp
+[32mAdministrator@- [33m/tmp[0m
 $ exit
 
-Script done on Fri, Jul 02, 2021  6:59:36 AM
+Script done on Sun, Jul 11, 2021  9:09:18 AM

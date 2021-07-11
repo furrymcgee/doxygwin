@@ -6,7 +6,7 @@ debconf
 debian
 debhelper
 dh-autoreconf
-doc-base
+doc-base/
 docx2txt
 dpkg
 dwww
