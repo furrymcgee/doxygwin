@@ -2,4 +2,4 @@
 Icon=Cygwin.ico
 Label=Doxygwin
 Action=Readme
-ShellExecute=cmd /c start http://localhost/dwww/menu
+ShellExecute=cmd /c start doc/doxygwin/index.html

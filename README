@@ -15,6 +15,9 @@ There are submodules to build a doxygwin package repository.
 subst z: d:/repository
 setup-x86 -q -R c:/doxygwin -L -l Z:/Y%3a%2f -P doxygwin
 
+# Update
+setup-x86 -P doxygwin,dwww
+
 # Uninstall
 setup-x86 -q -x doxygwin,dwww
 
