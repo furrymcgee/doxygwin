@@ -1,9 +1,8 @@
-This is Doxygwin Documentation 
+Doxygwin Documentation 
 
 include::INSTALL[]
 
-Links
-dwww, doc-base, swish++, apache2
-
 include::DEVELOP[]
+
+include::IMAGES[]
 

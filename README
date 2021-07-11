@@ -1,0 +1,27 @@
+Doxygwin
+~~~~~~~~
+
+Doxygwin is a cygwin package with configuration for online documentation
+management system based on debian and dwww.
+
+This package contains postinstall and preremove scripts and documentation.
+
+There are submodules to build a doxygwin package repository.
+
+.Installation
+[source,bat]
+-----
+# Install from cdrom
+subst z: d:/repository
+setup-x86 -q -R c:/doxygwin -L -l Z:/Y%3a%2f -P doxygwin
+
+# Uninstall
+setup-x86 -q -x doxygwin,dwww
+
+# Manage
+setup-x86 -M
+
+# Reinstall
+setup-x86 -q -P doxygwin,dwww
+-----
+

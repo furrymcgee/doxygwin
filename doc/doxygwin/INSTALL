@@ -16,19 +16,6 @@ Cygwin
 
 Cygwin is a posix development environment with package management system.
 
-.Packages
-[source,bat]
------
-# Install from cdrom
-setup-x86 -q -R c:/doxygwin -P doxygwin -L -l D:/Y%3a%2f 
-
-# Uninstall
-setup-x86 -q -R c:/doxygwin -x doxygwin
-
-# Interactive package manager
-setup-x86 -M
------
-
 Installation
 ~~~~~~~~~~~~
 
@@ -50,8 +37,6 @@ Development
 'doc:':: documentation
 'cygwin-auto-install:':: submodule for repository download and setup
 'repository:':: repository with doxygwin, dpkg, dwww and doc-base
-
-
 
 Dpkg
 ----
@@ -110,7 +95,8 @@ Dwww uses title and abstract fields to search menu.
 include::/var/lib/doc-base/documents/doc-base[]
 ------
 
-[control-files]
+[abstract]
+.control-files
 --
 sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-files' | grep '2.3. Control Files' -A 4 | tail -n3]
 --
