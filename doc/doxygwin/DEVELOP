@@ -2,6 +2,20 @@
 Development
 -----------
 
+Directories
+~~~~~~~~~~~
+
+.Directories
+[horizontal]
+'bin:':: scripts for processing documents
+'etc:':: postinstall, preremove and configuration files
+'doc:':: documentation
+'cygwin-auto-install:':: submodule for repository download and setup
+'repository:':: repository with doxygwin, dpkg, dwww and doc-base
+
+CD Image
+~~~~~~~~
+
 This describes how to create a iso image for doxygwin installation.
 
 .Iso
@@ -16,25 +30,24 @@ asciidoc -a toc index
 # Create the iso image
 genisoimage -iso-level 4 -m .git\* -o doxygwin.iso .
 
-# Create setup.ini
-cd /cygdrive/d/repository/Y%3a%2f && bash autogen.sh
 ------
 
 Repository
 ~~~~~~~~~~
 
+There are submodules for a cygwin package repository.
 The repository folder contains packages and a setup.ini file.
 There is also a autogen.sh script to create a new setup.ini file.
 The typescript file contains a log of the autogen.sh build script.
 
-.Setup
+.autogen.sh
 [source,sh]
 -----
 # Change to submodule
 cd repository/Y%3a%2f
 
-# Execute autogen.sh and write typescript
-sh autogen.sh
+# Run autogen.sh
+bash autogen.sh
 -----
 
 Packaging

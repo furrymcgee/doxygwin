@@ -27,19 +27,31 @@ This needs run as Administrator to create www-data and sshd users.
 include::../../autorun.bat[]
 -----
 
-Development
-~~~~~~~~~~~
+In Cygwin packages are managed with setup-x86.exe.
 
-.Directories
-[horizontal]
-'bin:':: scripts for processing documents
-'etc:':: postinstall, preremove and configuration files
-'doc:':: documentation
-'cygwin-auto-install:':: submodule for repository download and setup
-'repository:':: repository with doxygwin, dpkg, dwww and doc-base
+.Commands
+[source,bat]
+-----
+# Update
+setup-x86 -P doxygwin,dwww
+
+# Uninstall
+setup-x86 -q -x doxygwin,dwww
+
+# Manage
+setup-x86 -M
+
+# Reinstall
+setup-x86 -q -P doxygwin,dwww
+-----
+
+include::IMAGES[]
+
+Packages
+--------
 
 Dpkg
-----
+~~~~
 
 [abstract]
 --
@@ -47,7 +59,7 @@ sys::[apt show dpkg | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel -P 
 --
 
 Dwww
-----
+~~~~
 
 [abstract]
 --
@@ -56,20 +68,15 @@ sys::[apt show doc-base | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel
 
 
 Doc-Base
---------
+~~~~~~~~
 
 [abstract]
 --
 sys::[apt show doc-base | grep-dctrl -s Description - | sed s/^\ /\+\ / | recsel -P Description | head -n-2 | tail -n+2]
 --
 
-.Files
-[horizontal]
-/var/lib/doc-base/documents/doc-base:: Control file
-/usr/share/doc-base/data/section.list:: Section list
-
 Control Files
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 Control files contain metadata of documentation
 
@@ -90,14 +97,19 @@ The Index field may be used only for html format.
 Dwww uses title and abstract fields to search menu.
 
 
-.Example:
-------
-include::/var/lib/doc-base/documents/doc-base[]
-------
+.Files
+[horizontal]
+/var/lib/doc-base/documents/doc-base:: Control file
+/usr/share/doc-base/data/section.list:: Section list
 
 [abstract]
 .control-files
 --
 sys::[w3m 'file:///usr/share/doc/doc-base/doc-base.html/interface.html#control-files' | grep '2.3. Control Files' -A 4 | tail -n3]
 --
+
+.Example:
+------
+include::/var/lib/doc-base/documents/doc-base[]
+------
 

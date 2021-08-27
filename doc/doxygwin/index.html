@@ -769,72 +769,71 @@ http://www.gnu.org/software/src-highlite -->
 <span style="font-style: italic"><span style="color: #9A1900">REM start dwww</span></span>
 <span style="font-weight: bold"><span style="color: #000000">start</span></span> htt<span style="color: #FF6600">p:</span><span style="color: #990000">//</span>localhost<span style="color: #990000">/</span>dwww<span style="color: #990000">/</span>menu
 </tt></pre></div></div>
+<div class="paragraph"><p>In Cygwin packages are managed with setup-x86.exe.</p></div>
+<div class="listingblock">
+<div class="title">Commands</div>
+<div class="content"><!-- Generator: GNU source-highlight
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt># Update
+setup<span style="color: #990000">-</span>x86 <span style="color: #990000">-</span>P doxygwin<span style="color: #990000">,</span>dwww
+
+# Uninstall
+setup<span style="color: #990000">-</span>x86 <span style="color: #990000">-</span>q <span style="color: #990000">-</span>x doxygwin<span style="color: #990000">,</span>dwww
+
+# Manage
+setup<span style="color: #990000">-</span>x86 <span style="color: #990000">-</span>M
+
+# Reinstall
+setup<span style="color: #990000">-</span>x86 <span style="color: #990000">-</span>q <span style="color: #990000">-</span>P doxygwin<span style="color: #990000">,</span>dwww</tt></pre></div></div>
 </div>
 <div class="sect2">
-<h3 id="_development">Development</h3>
-<div class="hdlist"><div class="title">Directories</div><table>
-<tr>
-<td class="hdlist1">
-<em>bin:</em>
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-scripts for processing documents
-</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<em>etc:</em>
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-postinstall, preremove and configuration files
-</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<em>doc:</em>
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-documentation
-</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<em>cygwin-auto-install:</em>
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-submodule for repository download and setup
-</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<em>repository:</em>
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-repository with doxygwin, dpkg, dwww and doc-base
-</p>
-</td>
-</tr>
-</table></div>
+<h3 id="_screenshots">Screenshots</h3>
+<div class="imageblock" id="dependencies_image">
+<div class="content">
+<img src="dependencies.png" alt="dependencies.png" />
+</div>
+<div class="title">Figure 1. Dependencies</div>
+</div>
+<div class="imageblock" id="packages_image">
+<div class="content">
+<img src="packages.png" alt="packages.png" />
+</div>
+<div class="title">Figure 2. Packages</div>
+</div>
+<div class="imageblock" id="postinstall_image">
+<div class="content">
+<img src="postinstall.png" alt="postinstall.png" />
+</div>
+<div class="title">Figure 3. Postinstall</div>
+</div>
+<div class="imageblock" id="progress_image">
+<div class="content">
+<img src="progress.png" alt="progress.png" />
+</div>
+<div class="title">Figure 4. Progress</div>
+</div>
+<div class="imageblock" id="reinstall_image">
+<div class="content">
+<img src="reinstall.png" alt="reinstall.png" />
+</div>
+<div class="title">Figure 5. Reinstall</div>
+</div>
+<div class="imageblock" id="select_image">
+<div class="content">
+<img src="select.png" alt="select.png" />
+</div>
+<div class="title">Figure 6. Select</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dpkg">Dpkg</h2>
+<h2 id="_packages">Packages</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_dpkg">Dpkg</h3>
 <div class="quoteblock">
 <div class="content">
 <div class="paragraph"><p>This package provides the low-level infrastructure for handling the
@@ -843,61 +842,33 @@ installation and removal of Debian software packages.</p></div>
 <div class="attribution">
 </div></div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_dwww">Dwww</h2>
-<div class="sectionbody">
-<div class="quoteblock">
-<div class="content">
-<div class="paragraph"><p>This package contains utilities to manage documentation installed on
-a Debian system. It generates a database of document metadata, which
-other packages such as dwww, dhelp, doc-central, and rarian-compat
-can use to provide a catalog of available documentation.
-.</p></div>
-</div>
-<div class="attribution">
-</div></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_doc_base">Doc-Base</h2>
-<div class="sectionbody">
-<div class="quoteblock">
-<div class="content">
-<div class="paragraph"><p>This package contains utilities to manage documentation installed on
-a Debian system. It generates a database of document metadata, which
-other packages such as dwww, dhelp, doc-central, and rarian-compat
-can use to provide a catalog of available documentation.
-.</p></div>
-</div>
-<div class="attribution">
-</div></div>
-<div class="hdlist"><div class="title">Files</div><table>
-<tr>
-<td class="hdlist1">
-/var/lib/doc-base/documents/doc-base
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-Control file
-</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-/usr/share/doc-base/data/section.list
-<br />
-</td>
-<td class="hdlist2">
-<p style="margin-top: 0;">
-Section list
-</p>
-</td>
-</tr>
-</table></div>
 <div class="sect2">
-<h3 id="_control_files">Control Files</h3>
+<h3 id="_dwww">Dwww</h3>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>This package contains utilities to manage documentation installed on
+a Debian system. It generates a database of document metadata, which
+other packages such as dwww, dhelp, doc-central, and rarian-compat
+can use to provide a catalog of available documentation.
+.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_doc_base">Doc-Base</h3>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>This package contains utilities to manage documentation installed on
+a Debian system. It generates a database of document metadata, which
+other packages such as dwww, dhelp, doc-central, and rarian-compat
+can use to provide a catalog of available documentation.
+.</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="sect3">
+<h4 id="_control_files">Control Files</h4>
 <div class="paragraph"><p>Control files contain metadata of documentation</p></div>
 <div class="openblock">
 <div class="content">
@@ -995,6 +966,39 @@ Index file for html format
 <div class="paragraph"><p>In a control file each format may be used only once.
 The Index field may be used only for html format.
 Dwww uses title and abstract fields to search menu.</p></div>
+<div class="hdlist"><div class="title">Files</div><table>
+<tr>
+<td class="hdlist1">
+/var/lib/doc-base/documents/doc-base
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+Control file
+</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+/usr/share/doc-base/data/section.list
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+Section list
+</p>
+</td>
+</tr>
+</table></div>
+<div class="quoteblock">
+<div class="title">control-files</div>
+<div class="content">
+<div class="paragraph"><p>For each piece online documentation, doc-base needs a control file that
+describes the documentation and the documentation file formats that are
+provided initially.</p></div>
+</div>
+<div class="attribution">
+</div></div>
 <div class="listingblock">
 <div class="title">Example:</div>
 <div class="content">
@@ -1012,21 +1016,75 @@ Files: /usr/share/doc/doc-base/doc-base.html/*.html
 Format: text
 Files: /usr/share/doc/doc-base/doc-base.txt.gz</code></pre>
 </div></div>
-<div class="quoteblock">
-<div class="title">control-files</div>
-<div class="content">
-<div class="paragraph"><p>For each piece online documentation, doc-base needs a control file that
-describes the documentation and the documentation file formats that are
-provided initially.</p></div>
 </div>
-<div class="attribution">
-</div></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_development_2">Development</h2>
+<h2 id="_development">Development</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_directories">Directories</h3>
+<div class="hdlist"><div class="title">Directories</div><table>
+<tr>
+<td class="hdlist1">
+<em>bin:</em>
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+scripts for processing documents
+</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<em>etc:</em>
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+postinstall, preremove and configuration files
+</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<em>doc:</em>
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+documentation
+</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<em>cygwin-auto-install:</em>
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+submodule for repository download and setup
+</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<em>repository:</em>
+<br />
+</td>
+<td class="hdlist2">
+<p style="margin-top: 0;">
+repository with doxygwin, dpkg, dwww and doc-base
+</p>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="sect2">
+<h3 id="_cd_image">CD Image</h3>
 <div class="paragraph"><p>This describes how to create a iso image for doxygwin installation.</p></div>
 <div class="listingblock">
 <div class="title">Iso</div>
@@ -1042,16 +1100,16 @@ asciidoc -a toc index
 
 <span style="font-style: italic"><span style="color: #9A1900"># Create the iso image</span></span>
 genisoimage -iso-level <span style="color: #993399">4</span> -m <span style="color: #990000">.</span>git<span style="color: #990000">\*</span> -o doxygwin<span style="color: #990000">.</span>iso <span style="color: #990000">.</span>
-
-<span style="font-style: italic"><span style="color: #9A1900"># Create setup.ini</span></span>
-cd /cygdrive/d/repository/Y<span style="color: #990000">%</span>3a<span style="color: #990000">%</span>2f <span style="color: #990000">&amp;&amp;</span> bash autogen<span style="color: #990000">.</span>sh</tt></pre></div></div>
+</tt></pre></div></div>
+</div>
 <div class="sect2">
 <h3 id="_repository">Repository</h3>
-<div class="paragraph"><p>The repository folder contains packages and a setup.ini file.
+<div class="paragraph"><p>There are submodules for a cygwin package repository.
+The repository folder contains packages and a setup.ini file.
 There is also a autogen.sh script to create a new setup.ini file.
 The typescript file contains a log of the autogen.sh build script.</p></div>
 <div class="listingblock">
-<div class="title">Setup</div>
+<div class="title">autogen.sh</div>
 <div class="content"><!-- Generator: GNU source-highlight
 by Lorenzo Bettini
 http://www.lorenzobettini.it
@@ -1059,8 +1117,8 @@ http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-style: italic"><span style="color: #9A1900"># Change to submodule</span></span>
 cd repository/Y<span style="color: #990000">%</span>3a<span style="color: #990000">%</span>2f
 
-<span style="font-style: italic"><span style="color: #9A1900"># Execute autogen.sh and write typescript</span></span>
-sh autogen<span style="color: #990000">.</span>sh</tt></pre></div></div>
+<span style="font-style: italic"><span style="color: #9A1900"># Run autogen.sh</span></span>
+bash autogen<span style="color: #990000">.</span>sh</tt></pre></div></div>
 </div>
 <div class="sect2">
 <h3 id="_packaging">Packaging</h3>
@@ -1084,42 +1142,6 @@ http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
 <pre><tt><span style="font-style: italic"><span style="color: #9A1900"># Y%3a%2f is the local package repository</span></span>
 cd repository/Y<span style="color: #990000">%</span>3a<span style="color: #990000">%</span>2f <span style="color: #990000">&amp;&amp;</span> sh bootstrap<span style="color: #990000">.</span>sh</tt></pre></div></div>
-<div class="imageblock" id="dependencies_image">
-<div class="content">
-<img src="dependencies.png" alt="dependencies.png" />
-</div>
-<div class="title">Figure 1. Dependencies</div>
-</div>
-<div class="imageblock" id="packages_image">
-<div class="content">
-<img src="packages.png" alt="packages.png" />
-</div>
-<div class="title">Figure 2. Packages</div>
-</div>
-<div class="imageblock" id="postinstall_image">
-<div class="content">
-<img src="postinstall.png" alt="postinstall.png" />
-</div>
-<div class="title">Figure 3. Postinstall</div>
-</div>
-<div class="imageblock" id="progress_image">
-<div class="content">
-<img src="progress.png" alt="progress.png" />
-</div>
-<div class="title">Figure 4. Progress</div>
-</div>
-<div class="imageblock" id="reinstall_image">
-<div class="content">
-<img src="reinstall.png" alt="reinstall.png" />
-</div>
-<div class="title">Figure 5. Reinstall</div>
-</div>
-<div class="imageblock" id="select_image">
-<div class="content">
-<img src="select.png" alt="select.png" />
-</div>
-<div class="title">Figure 6. Select</div>
-</div>
 </div>
 </div>
 </div>
@@ -1129,7 +1151,7 @@ cd repository/Y<span style="color: #990000">%</span>3a<span style="color: #99000
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2021-07-11 10:06:26 CEST
+ 2021-08-27 13:00:48 CEST
 </div>
 </div>
 </body>
