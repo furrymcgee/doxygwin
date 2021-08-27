@@ -19,12 +19,12 @@ Cygwin is a posix development environment with package management system.
 Installation
 ~~~~~~~~~~~~
 
-The autorun.bat starts the cygwin installation.
+The install.bat starts the cygwin installation of the service.
 This needs run as Administrator to create www-data and sshd users.
 
 [source,bat]
 -----
-include::../../autorun.bat[]
+include::../../install.bat[]
 -----
 
 In Cygwin packages are managed with setup-x86.exe.
