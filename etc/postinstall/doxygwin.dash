@@ -1,4 +1,9 @@
 #!/bin/sh
+net stop cygserver
+net stop httpd
+net stop sshd
+net stop cron
+
 sed \
     -i /etc/fstab \
     -e /^none/s/posix=0/posix=1/ \
@@ -10,10 +15,7 @@ make -C /etc/postinstall -f - <<'MAKE'
 # This makefile installs doxygwin documents
 # https://github.com/furrymcgee/doxygwin
 
-export DISTRIBUTOR?=default
 export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
-export DH_COMPAT?=10
-export prefix?=/usr
 export PATH:=/usr/sbin:$(PATH)
 	
 .DEFAULT_GOAL:=.

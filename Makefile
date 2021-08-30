@@ -4,6 +4,9 @@ VERSION=0.0.1
 RELEASE=1
 ARCH=noarch
 
+export PERL5LIB?=/usr/share/perl5:/usr/lib/perl5/vendor_perl/5.22/i686-cygwin-threads-64int/Data
+export PATH:=/usr/sbin:$(PATH)
+
 .DEFAULT_GOAL=debian
 
 %.html: %

@@ -37,7 +37,8 @@ Repository
 
 There are submodules for a cygwin package repository.
 The repository folder contains packages and a setup.ini file.
-There is also a autogen.sh script to create a new setup.ini file.
+After creating a new package a new setup.ini is required.
+There is a autogen.sh script to create a new setup.ini file.
 The typescript file contains a log of the autogen.sh build script.
 
 .autogen.sh
