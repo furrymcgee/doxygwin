@@ -1,4 +1,4 @@
-Script started on Tue, Aug 31, 2021  2:53:02 PM
+Script started on Thu, Sep 02, 2021  1:55:43 PM
 make --debug
 ]0;/tmp/doxygwin-0.0.1
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
@@ -15,13 +15,13 @@ Updating goal targets....
  File 'debian' does not exist.
 Must remake target 'debian'.
 dh_make --indep --yes --createorig --copyright=artistic
-Date                : Tue, 31 Aug 2021 14:53:03 -0700
-Maintainer Name     : U--\Administrator
-Package Type        : indep
+Date                : Thu, 02 Sep 2021 13:55:43 -0700
 Email-Address       : Administrator@unknown
-Version             : 0.0.1
-Package Name        : doxygwin
 License             : artistic
+Version             : 0.0.1
+Package Type        : indep
+Package Name        : doxygwin
+Maintainer Name     : U--\Administrator
 Done. Please edit the files in the debian/ subdirectory now.
 
 cp -av doxygwin.install debian
@@ -139,7 +139,7 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
    dh_perl
    dh_link
    dh_strip_nondeterminism
-	Using 1630446783 as canonical time
+	Using 1630616143 as canonical time
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/dependencies.png using File::StripNondeterminism::handlers::png
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/packages.png using File::StripNondeterminism::handlers::png
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/postinstall.png using File::StripNondeterminism::handlers::png
@@ -201,7 +201,6 @@ etc/defaults/doxygwin/documents/local
 etc/doc-base/
 etc/doc-base/documents/
 etc/doc-base/documents/cygwin
-etc/doc-base/documents/doc-base
 etc/doc-base/documents/doxygwin
 etc/postinstall/
 etc/postinstall/doxygwin.dash
@@ -256,4 +255,4 @@ Successfully remade target file 'debian'.
 [32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Tue, Aug 31, 2021  2:53:52 PM
+Script done on Thu, Sep 02, 2021  1:56:30 PM
