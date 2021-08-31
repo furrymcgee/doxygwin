@@ -756,7 +756,7 @@ The Dpkg tool is used to build cygwin packages from debian sources.</p></div>
 </div>
 <div class="sect2">
 <h3 id="_installation">Installation</h3>
-<div class="paragraph"><p>The autorun.bat starts the cygwin installation.
+<div class="paragraph"><p>The install.bat starts the cygwin installation of the service.
 This needs run as Administrator to create www-data and sshd users.</p></div>
 <div class="listingblock">
 <div class="content"><!-- Generator: GNU source-highlight
@@ -1106,7 +1106,8 @@ genisoimage -iso-level <span style="color: #993399">4</span> -m <span style="col
 <h3 id="_repository">Repository</h3>
 <div class="paragraph"><p>There are submodules for a cygwin package repository.
 The repository folder contains packages and a setup.ini file.
-There is also a autogen.sh script to create a new setup.ini file.
+After creating a new package a new setup.ini is required.
+There is a autogen.sh script to create a new setup.ini file.
 The typescript file contains a log of the autogen.sh build script.</p></div>
 <div class="listingblock">
 <div class="title">autogen.sh</div>
@@ -1151,7 +1152,7 @@ cd repository/Y<span style="color: #990000">%</span>3a<span style="color: #99000
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2021-08-27 13:00:48 CEST
+ 2021-08-30 17:48:14 CEST
 </div>
 </div>
 </body>

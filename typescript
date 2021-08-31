@@ -1,8 +1,8 @@
-Script started on Sun, Jul 11, 2021  9:08:34 AM
-PERL5LIB=/usr/share/perl5 make -C doxygwin-0.0.1 --debug
-]0;/tmp
-[32mAdministrator@- [33m/tmp[0m
-$ PERL5LIB=/usr/share/perl5 make -C doxygwin-0.0.1 --debug
+Script started on Tue, Aug 31, 2021  2:53:02 PM
+make --debug
+]0;/tmp/doxygwin-0.0.1
+[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
+$ make --debug
 GNU Make 4.2.1
 Built for i686-pc-cygwin
 Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -14,14 +14,13 @@ Updating makefiles....
 Updating goal targets....
  File 'debian' does not exist.
 Must remake target 'debian'.
-make: Entering directory '/tmp/doxygwin-0.0.1'
 dh_make --indep --yes --createorig --copyright=artistic
-Email-Address       : Administrator@unknown
-Package Name        : doxygwin
-Version             : 0.0.1
-Date                : Sun, 11 Jul 2021 09:08:35 -0700
+Date                : Tue, 31 Aug 2021 14:53:03 -0700
 Maintainer Name     : U--\Administrator
 Package Type        : indep
+Email-Address       : Administrator@unknown
+Version             : 0.0.1
+Package Name        : doxygwin
 License             : artistic
 Done. Please edit the files in the debian/ subdirectory now.
 
@@ -140,7 +139,7 @@ make[2]: Leaving directory '/tmp/doxygwin-0.0.1-1.noarch/build/doxygwin'
    dh_perl
    dh_link
    dh_strip_nondeterminism
-	Using 1626019715 as canonical time
+	Using 1630446783 as canonical time
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/dependencies.png using File::StripNondeterminism::handlers::png
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/packages.png using File::StripNondeterminism::handlers::png
 	Normalizing debian/doxygwin/usr/share/doc/doxygwin/postinstall.png using File::StripNondeterminism::handlers::png
@@ -253,9 +252,8 @@ cygport --32 ../doxygwin.cygport finish
 >>> Removing work directory NOW.
 >>> Finished.
 Successfully remade target file 'debian'.
-make: Leaving directory '/tmp/doxygwin-0.0.1'
-]0;/tmp
-[32mAdministrator@- [33m/tmp[0m
+]0;/tmp/doxygwin-0.0.1
+[32mAdministrator@- [33m/tmp/doxygwin-0.0.1[0m
 $ exit
 
-Script done on Sun, Jul 11, 2021  9:09:18 AM
+Script done on Tue, Aug 31, 2021  2:53:52 PM
