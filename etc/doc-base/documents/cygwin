@@ -1,8 +1,8 @@
 Document: cygwin
-Title: Cygwin User Guide
+Title: User Guide
 Author: Cygwin Authors
 Abstract: Cygwin is a Linux-like environment for Windows.
-Section: Documentation
+Section: Cygwin
 
 Format: html
 Files: /usr/share/doc/cygwin-2.5.2/html/cygwin-ug-net/*.html

@@ -1,8 +1,8 @@
 Document: doxygwin
-Title: Doxygwin Documentation
+Title: Documentation
 Author: John Doe <foo@example.net>
 Abstract: The cygwin document management system.
-Section: Documentation
+Section: Doxygwin
 
 Format: html
 Files: /usr/share/doc/doxygwin/*.html

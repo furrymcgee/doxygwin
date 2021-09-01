@@ -87,7 +87,7 @@ $(.DEFAULT_GOAL): $(REQUISITES)
 	crontab -
 
 /etc/doc-base/documents: /etc/doc-base/documents/README
-	find $@ \
+	find /usr/share/doc-base/doc-base $@ \
 	  -type f \
 	  -newer $^ \
 	  -exec \
