@@ -1,0 +1,48 @@
+diff -r 1ebcbfc71e2f filters/source/source-highlight-filter.conf
+--- a/filters/source/source-highlight-filter.conf	Sun Feb 17 10:37:43 2013 +1300
++++ b/filters/source/source-highlight-filter.conf	Tue Sep 03 11:33:34 2013 +0200
+@@ -54,6 +54,18 @@
+ {title#}</para></formalpara>
+ endif::basebackend-docbook[]
+ 
++ifdef::basebackend-latex[]
++[source-highlight-block]
++\minisec\{{title}\}
++\label\{{id}\}\hypertarget\{{id}\}\{\}
++\normalfont\{\}
++\newline
++
++|
++
++\newline
++endif::basebackend-latex[]
++
+ # Source styles template.
+ ifdef::basebackend-html[]
+ [source-filter-style]
+@@ -88,6 +100,13 @@
+ source-style=template="source-highlight-block",presubs=(),postsubs=("specialcharacters","callouts"),posattrs=("style","language","src_numbered","src_tab")
+ endif::basebackend-docbook[]
+ 
++ifdef::basebackend-latex[]
++[source-filter-style]
++ifeval::["{source-highlighter}"=="source-highlight"]
++source-style=template="source-highlight-block",presubs=(),postsubs=(),posattrs=("style","language","src_numbered","src_tab"),filter="source-highlight -f latexcolor -s {language} {src_numbered?--line-number=' '} {src_tab?--tab={src_tab}} {args=}"
++endif::[]
++endif::[]
++
+ #########################
+ # Source paragraph styles
+ #########################
+diff -r 1ebcbfc71e2f latex.conf
+--- a/latex.conf	Sun Feb 17 10:37:43 2013 +1300
++++ b/latex.conf	Tue Sep 03 11:33:34 2013 +0200
+@@ -634,7 +634,7 @@
+ \documentclass [a4paper,abstracton,titlepage]\{{doctype@article:scrartcl:scrbook}\}
+ \pagestyle\{{latex-use-running-title-headings?headings}{latex-use-running-title-headings!plain}\}
+ \usepackage\{makeidx\}
+-\usepackage[table]\{xcolor\}
++\usepackage[usenames,table,dvipsnames]\{xcolor\}
+ \usepackage\{color\}
+ \definecolor\{LinkColor\}\{rgb\}\{0.33,0.42,0.18\}
+ \definecolor\{TableEvenColor\}\{rgb\}\{0.93,1,0.8\}

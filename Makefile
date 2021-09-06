@@ -9,9 +9,6 @@ export PATH:=/usr/sbin:$(PATH)
 
 .DEFAULT_GOAL=debian
 
-%.html: %
-	asciidoc -a toc -o - $^ > $@
-
 ${.DEFAULT_GOAL}: doc/$(PACKAGE)/index.html
 	dh_make --indep --yes --createorig --copyright=artistic
 	cp -av $(PACKAGE).install debian
