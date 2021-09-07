@@ -29,11 +29,14 @@ include::../../install.bat[]
 
 In Cygwin packages are managed with setup-x86.exe.
 
-.Commands
+.Options
 [source,bat]
 -----
-# Update
-setup-x86 -P doxygwin,dwww
+# help
+setup-x86 -h
+
+# update
+setup-x86 -p doxygwin,dwww
 
 # Uninstall
 setup-x86 -q -x doxygwin,dwww
@@ -84,12 +87,12 @@ Control files contain metadata of documentation
 [horizontal]
 'Document:':: Example 
 'Author:':: Author of the document
-'Section:':: A section defined in section.list and documented in s\{...\}.html (dwww-build-menu)
+'Section:':: A section for multiple documents.
 'Title:':: Title of the document
 'Abstract:':: Abstract of the document
-'Format:':: A file format (text, md, pdf, html, ...) used for the document
-'Files:':: A file glob representing all files of a certain format
-'Index:':: Index file for html format
+'Format:':: File format (text, pdf, html, ...) of the document
+'Files:':: File glob representing all files of a certain format
+'Index:':: Index file only for html format
 --
 
 In a control file each format may be used only once.

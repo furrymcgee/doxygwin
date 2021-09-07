@@ -77,5 +77,12 @@ There is a bootstrap.sh script that builds and installs them from source.
 cd repository/Y%3a%2f && sh bootstrap.sh
 -----
 
+DWWW
+----
+
+All documents are ordered in sections.
+The sections are defined in section.list and documented in s\{...\}.html file.
+The dwww-build-menu command generates the html files.
+
 
 
