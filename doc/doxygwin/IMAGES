@@ -1,41 +1,39 @@
-Screenshots
------------
 
-[[packages_image]]
 .Cygwin packages
+[[packages_image]]
 image::packages.png[]
 
 
-[[sections_image]]
 .Dwww sections
+[[sections_image]]
 image::sections.png[]
 
 
-[[search_image]]
 .Dwww search
+[[search_image]]
 image::search.png[]
 
 /////////////////
 
-[[dependencies_image]]
 .Dependencies
+[[dependencies_image]]
 image::dependencies.png[]
 
 
-[[postinstall_image]]
 .Postinstall
+[[postinstall_image]]
 image::postinstall.png[]
 
-[[progress_image]]
 .Progress
+[[progress_image]]
 image::progress.png[]
 
-[[reinstall_image]]
 .Reinstall
+[[reinstall_image]]
 image::reinstall.png[]
 
-[[select_image]]
 .Select
+[[select_image]]
 image::select.png[]
 
 

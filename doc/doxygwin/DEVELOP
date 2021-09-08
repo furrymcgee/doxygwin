@@ -2,34 +2,46 @@
 Development
 -----------
 
+Cygwin
+~~~~~~
+
+Cygwin is a posix development environment with package management system.
+The website is + https://cygwin.org +.  There are many cygwin mirrors.
+The doxygwin packages are distributed with the CD and on +
+https://github.com/furrymcgee/doxygwin +.
+
 Directories
 ~~~~~~~~~~~
+The CD contains packages from the repository and the html documentation.
 
-.Directories
+//.Directories
 [horizontal]
 'bin:':: scripts for processing documents
 'etc:':: postinstall, preremove and configuration files
 'doc:':: documentation
 'cygwin-auto-install:':: submodule for repository download and setup
-'repository:':: repository with doxygwin, dpkg, dwww and doc-base
+'repository:':: repository with doxygwin packages
 
 CD Image
 ~~~~~~~~
 
 This describes how to create a iso image for doxygwin installation.
 
-.Iso
+.Create the ISO image
 [source,sh]
 ------
 # Checkout source code
-git clone --recursive https://github.com/furrymcgee/doxygwin
+git clone --recursive https://github.com/furrymcgee/doxygwin doxygwin-0.0.1
 
-#Create html documentation
-asciidoc -a toc index
+#Create documentation
+make -C doc/doxygwin index.html index.pdf
+
+# Create the oxygwin package
+cd doxygwin-0.0.1
+make 
 
 # Create the iso image
 genisoimage -iso-level 4 -m .git\* -o doxygwin.iso .
-
 ------
 
 Repository
@@ -41,7 +53,7 @@ After creating a new package a new setup.ini is required.
 There is a autogen.sh script to create a new setup.ini file.
 The typescript file contains a log of the autogen.sh build script.
 
-.autogen.sh
+.Generate a setup.ini with autogen.sh
 [source,sh]
 -----
 # Change to submodule
@@ -70,6 +82,7 @@ Bootstrap
 Building doxygwin requires cygport with dpkg cygclass.
 There is a bootstrap.sh script that builds and installs them from source.
 
+
 .Bootstrap
 [source,sh]
 -----
@@ -77,7 +90,7 @@ There is a bootstrap.sh script that builds and installs them from source.
 cd repository/Y%3a%2f && sh bootstrap.sh
 -----
 
-DWWW
+Dwww
 ----
 
 All documents are ordered in sections.
@@ -85,4 +98,11 @@ The sections are defined in section.list and documented in s\{...\}.html file.
 The dwww-build-menu command generates the html files.
 
 
+Doc-base
+--------
+
+.Files
+[horizontal]
+/var/lib/doc-base/documents/doc-base:: Control file
+/usr/share/doc-base/data/section.list:: Section list
 

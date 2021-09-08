@@ -9,6 +9,9 @@ export PATH:=/usr/sbin:$(PATH)
 
 .DEFAULT_GOAL=debian
 
+doc/$(PACKAGE)/index.html:
+	$(MAKE) -C doc/doxygwin index.html
+
 ${.DEFAULT_GOAL}: doc/$(PACKAGE)/index.html
 	dh_make --indep --yes --createorig --copyright=artistic
 	cp -av $(PACKAGE).install debian
